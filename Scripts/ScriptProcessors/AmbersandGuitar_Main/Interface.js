@@ -1,3 +1,10 @@
+    Globals.handPositionFret = 0;
+Globals.stringNote1 = -1;
+Globals.stringNote2 = -1;
+Globals.stringNote3 = -1;
+Globals.stringNote4 = -1;
+Globals.stringNote5 = -1;
+Globals.stringNote6 = -1; 
  Content.makeFrontInterface(1200, 600);
  
 //connecting with fret markers on the UI
@@ -5,6 +12,8 @@
 const var NOTESPERSTRING = 22;
 Globals.NUMOFSTRINGS = 6;
 Globals.pitchBendOffset = 0;
+
+const var handPositionFretLabel = Content.getComponent("handPositionFretLabel");
 
 
 namespace stringType
@@ -52,11 +61,13 @@ inline function hideString(stringNum){
 
 function onNoteOn()
 {
+
 	
 	Synth.startTimer(0.05);
-
+	
+	handPositionFretLabel.set("text", Globals.handPositionFret);
 }
- function onNoteOff()
+      function onNoteOff()
 {
 	Synth.startTimer(0.05);
 }
@@ -92,8 +103,6 @@ function onController()
  function onTimer()
 {
 	
-
-	
 	hideAll();
 	
 	if(Globals.stringNote6 >= 52 && Globals.stringNote6 <= 73){
@@ -118,7 +127,9 @@ function onController()
 	
 	if(Globals.stringNote1 >= 76 && Globals.stringNote1 <= 97){
 		fretImages[stringType.STRING1][Globals.stringNote1 - 76].set("visible", true);
+		Console.print("should be showing a note");
 	}
+	
 	
 	
 	

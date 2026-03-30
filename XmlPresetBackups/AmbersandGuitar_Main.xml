@@ -66,9 +66,16 @@
                 <Processor Type="MidiMuter" ID="Container0String6Mute" Bypassed="0">
                   <ChildProcessors/>
                   <Content>
-                    <Control type="ScriptButton" id="ignoreButton" value="1.0"/>
+                    <Control type="ScriptButton" id="ignoreButton" value="0.0"/>
                     <Control type="ScriptButton" id="fixStuckNotes" value="1.0"/>
                   </Content>
+                </Processor>
+                <Processor Type="ScriptProcessor" ID="Container0String6ChnlRoute" Bypassed="0">
+                  <ChildProcessors/>
+                  <Content/>
+                  <UIData>
+                    <ContentProperties DeviceType="Desktop"/>
+                  </UIData>
                 </Processor>
               </ChildProcessors>
             </Processor>
@@ -143,9 +150,16 @@
                 <Processor Type="MidiMuter" ID="Container0String5Mute" Bypassed="0">
                   <ChildProcessors/>
                   <Content>
-                    <Control type="ScriptButton" id="ignoreButton" value="1.0"/>
+                    <Control type="ScriptButton" id="ignoreButton" value="0.0"/>
                     <Control type="ScriptButton" id="fixStuckNotes" value="1.0"/>
                   </Content>
+                </Processor>
+                <Processor Type="ScriptProcessor" ID="Container0String5ChnlRoute" Bypassed="0">
+                  <ChildProcessors/>
+                  <Content/>
+                  <UIData>
+                    <ContentProperties DeviceType="Desktop"/>
+                  </UIData>
                 </Processor>
               </ChildProcessors>
             </Processor>
@@ -220,9 +234,16 @@
                 <Processor Type="MidiMuter" ID="Container0String4Mute" Bypassed="0">
                   <ChildProcessors/>
                   <Content>
-                    <Control type="ScriptButton" id="ignoreButton" value="1.0"/>
+                    <Control type="ScriptButton" id="ignoreButton" value="0.0"/>
                     <Control type="ScriptButton" id="fixStuckNotes" value="1.0"/>
                   </Content>
+                </Processor>
+                <Processor Type="ScriptProcessor" ID="Container0String4ChnlRoute" Bypassed="0">
+                  <ChildProcessors/>
+                  <Content/>
+                  <UIData>
+                    <ContentProperties DeviceType="Desktop"/>
+                  </UIData>
                 </Processor>
               </ChildProcessors>
             </Processor>
@@ -297,9 +318,16 @@
                 <Processor Type="MidiMuter" ID="Container0String3Mute" Bypassed="0">
                   <ChildProcessors/>
                   <Content>
-                    <Control type="ScriptButton" id="ignoreButton" value="1.0"/>
+                    <Control type="ScriptButton" id="ignoreButton" value="0.0"/>
                     <Control type="ScriptButton" id="fixStuckNotes" value="1.0"/>
                   </Content>
+                </Processor>
+                <Processor Type="ScriptProcessor" ID="Container0String3ChnlRoute" Bypassed="0">
+                  <ChildProcessors/>
+                  <Content/>
+                  <UIData>
+                    <ContentProperties DeviceType="Desktop"/>
+                  </UIData>
                 </Processor>
               </ChildProcessors>
             </Processor>
@@ -378,6 +406,13 @@
                     <Control type="ScriptButton" id="fixStuckNotes" value="1.0"/>
                   </Content>
                 </Processor>
+                <Processor Type="ScriptProcessor" ID="Container0String2ChnlRoute" Bypassed="0">
+                  <ChildProcessors/>
+                  <Content/>
+                  <UIData>
+                    <ContentProperties DeviceType="Desktop"/>
+                  </UIData>
+                </Processor>
               </ChildProcessors>
             </Processor>
             <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
@@ -451,9 +486,16 @@
                 <Processor Type="MidiMuter" ID="Container0String1Mute" Bypassed="0">
                   <ChildProcessors/>
                   <Content>
-                    <Control type="ScriptButton" id="ignoreButton" value="1.0"/>
+                    <Control type="ScriptButton" id="ignoreButton" value="0.0"/>
                     <Control type="ScriptButton" id="fixStuckNotes" value="1.0"/>
                   </Content>
+                </Processor>
+                <Processor Type="ScriptProcessor" ID="Container0String1ChnlRoute" Bypassed="0">
+                  <ChildProcessors/>
+                  <Content/>
+                  <UIData>
+                    <ContentProperties DeviceType="Desktop"/>
+                  </UIData>
                 </Processor>
               </ChildProcessors>
             </Processor>
