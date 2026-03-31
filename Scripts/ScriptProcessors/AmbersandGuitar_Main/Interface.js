@@ -7,6 +7,8 @@ Globals.stringNote3 = -1;
 Globals.stringNote4 = -1;
 Globals.stringNote5 = -1;
 Globals.stringNote6 = -1; 
+Globals.frettingEngine = 1;
+
 
 const var NUMOFSTRINGS = 6;
 
@@ -19,11 +21,61 @@ const var NOTESPERSTRING = 22;
 Globals.NUMOFSTRINGS = 6;
 Globals.pitchBendOffset = 0;
 
+
+
 const var handPositionFretLabel = Content.getComponent("handPositionFretLabel");
+
+
+
 
 const var HandPositionFretForceKnob = Content.getComponent("HandPositionFretForceKnob");
 
+inline function onHandPositionFretForceKnobControl(component, value)
+{
+	if(value == -1)
+	{
+		HandPositionFretForceKnob.set("text", "Fret: Auto");
+	}	else
+	{
+
+		HandPositionFretForceKnob.set("text", "Fret: " + value);
+	}
+};
+
+Content.getComponent("HandPositionFretForceKnob").setControlCallback(onHandPositionFretForceKnobControl);
+
+
+
 const var StringForceKnob = Content.getComponent("StringForceKnob");
+
+
+inline function onStringForceKnobControl(component, value)
+{
+	local text = "Auto";
+
+	if(value == -1)
+	{
+		StringForceKnob.set("text", "String: " + text);
+	}else
+	{
+		StringForceKnob.set("text", "string: " + (6 - value));
+	}
+};
+
+Content.getComponent("StringForceKnob").setControlCallback(onStringForceKnobControl);
+
+
+
+
+const var FrettingEngineComboBox = Content.getComponent("FrettingEngineComboBox");
+
+
+inline function onFrettingEngineComboBoxControl(component, value)
+{
+	Globals.frettingEngine = value;
+};
+
+Content.getComponent("FrettingEngineComboBox").setControlCallback(onFrettingEngineComboBoxControl);
 
 
 namespace stringType
@@ -70,36 +122,12 @@ inline function hideString(stringNum){
 }
 
 
-inline function onStringForceKnobControl(component, value)
-{
-	local text = "Auto";
-
-	if(value == -1)
-	{
-		StringForceKnob.set("text", "String: " + text);
-	}else
-	{
-		StringForceKnob.set("text", "string: " + (6 - value));
-	}
-};
-
-Content.getComponent("StringForceKnob").setControlCallback(onStringForceKnobControl);
 
 
 
-inline function onHandPositionFretForceKnobControl(component, value)
-{
-	if(value == -1)
-	{
-		HandPositionFretForceKnob.set("text", "Fret: Auto");
-	}	else
-	{
 
-		HandPositionFretForceKnob.set("text", "Fret: " + value);
-	}
-};
 
-Content.getComponent("HandPositionFretForceKnob").setControlCallback(onHandPositionFretForceKnobControl);
+
 
 
 function onNoteOn()
@@ -107,6 +135,8 @@ function onNoteOn()
 	Globals.forcedHandPositionFret = HandPositionFretForceKnob.getValue();
 	
 	Globals.forcedString = StringForceKnob.getValue();
+	
+	Console.print("Using fretting engine: " + Globals.frettingEngine);
 	
 	switch (Globals.forcedString)
 	{
@@ -116,9 +146,6 @@ function onNoteOn()
 			Globals.forcedString = NUMOFSTRINGS - Globals.forcedString - 1;
 	}
 	
-	
-	
-	Console.print(Globals.forcedString);
 	
 	Synth.startTimer(0.05);
 	

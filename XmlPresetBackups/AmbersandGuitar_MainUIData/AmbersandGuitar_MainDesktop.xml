@@ -425,17 +425,25 @@
         <Component type="ScriptImage" id="String1Fret21Marker" x="823" y="315" width="44"
                    height="40" fileName="{PROJECT_FOLDER}fret indicator2.png" parentComponent="ScriptPanel1"
                    text="" visible="0"/>
+        <Component type="ScriptLabel" id="Label3" x="0" y="520" parentComponent="String1FretMarkers"
+                   text="Force Fret Position:" fontSize="30.0" width="210"/>
+        <Component type="ScriptLabel" id="Label4" x="0" y="580" parentComponent="String1FretMarkers"
+                   fontSize="30.0" text="Force String:" width="189"/>
       </Component>
     </Component>
   </Component>
   <Component type="ScriptLabel" id="handPositionFretLabel" x="280" y="0" width="201"
-             fontSize="63.0" height="84" text="14.0"/>
+             fontSize="63.0" height="84" text="0"/>
   <Component type="ScriptLabel" id="Label1" x="30" y="30" text="Hand Fret Position:"
              fontSize="37.0" width="343"/>
-  <Component type="ScriptSlider" id="HandPositionFretForceKnob" x="160" y="350"
-             text="Fret: 14.0" width="195" mode="Discrete" stepSize="1.0"
+  <Component type="ScriptSlider" id="HandPositionFretForceKnob" x="210" y="350"
+             text="Fret: 13.0" width="195" mode="Discrete" stepSize="1.0"
              middlePosition="10.0" min="-1.0" max="20.0"/>
-  <Component type="ScriptSlider" id="StringForceKnob" x="160" y="410" width="185"
+  <Component type="ScriptSlider" id="StringForceKnob" x="210" y="410" width="185"
              text="String: Auto" mode="Discrete" stepSize="1.0" middlePosition="3.0"
              max="5.0" min="-1.0" defaultValue="-1.0"/>
+  <Component type="ScriptComboBox" id="FrettingEngineComboBox" x="210" y="470"
+             max="2" items="Natural&#10;Melody" enableMidiLearn="1"/>
+  <Component type="ScriptLabel" id="Label2" x="30" y="470" width="130" height="30"
+             text="Fretting Mode:" fontSize="28.0"/>
 </ContentProperties>
