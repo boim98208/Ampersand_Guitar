@@ -8,7 +8,10 @@
       <ChildProcessors>
         <Processor Type="ScriptProcessor" ID="Interface" Bypassed="0">
           <ChildProcessors/>
-          <Content/>
+          <Content>
+            <Control type="ScriptSlider" id="HandPositionFretForceKnob" value="14.0"/>
+            <Control type="ScriptSlider" id="StringForceKnob" value="-1.0"/>
+          </Content>
           <UIData Source="AmbersandGuitar_MainUIData"/>
         </Processor>
         <Processor Type="ScriptProcessor" ID="FretDisplayScript" Bypassed="0">

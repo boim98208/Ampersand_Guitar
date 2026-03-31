@@ -1,10 +1,16 @@
-    Globals.handPositionFret = 0;
+Globals.forcedHandPositionFret = -1;
+Globals.forcedString = -1;
+Globals.handPositionFret = 0;
 Globals.stringNote1 = -1;
 Globals.stringNote2 = -1;
 Globals.stringNote3 = -1;
 Globals.stringNote4 = -1;
 Globals.stringNote5 = -1;
 Globals.stringNote6 = -1; 
+
+const var NUMOFSTRINGS = 6;
+
+
  Content.makeFrontInterface(1200, 600);
  
 //connecting with fret markers on the UI
@@ -14,6 +20,10 @@ Globals.NUMOFSTRINGS = 6;
 Globals.pitchBendOffset = 0;
 
 const var handPositionFretLabel = Content.getComponent("handPositionFretLabel");
+
+const var HandPositionFretForceKnob = Content.getComponent("HandPositionFretForceKnob");
+
+const var StringForceKnob = Content.getComponent("StringForceKnob");
 
 
 namespace stringType
@@ -59,9 +69,56 @@ inline function hideString(stringNum){
 	}
 }
 
+
+inline function onStringForceKnobControl(component, value)
+{
+	local text = "Auto";
+
+	if(value == -1)
+	{
+		StringForceKnob.set("text", "String: " + text);
+	}else
+	{
+		StringForceKnob.set("text", "string: " + (6 - value));
+	}
+};
+
+Content.getComponent("StringForceKnob").setControlCallback(onStringForceKnobControl);
+
+
+
+inline function onHandPositionFretForceKnobControl(component, value)
+{
+	if(value == -1)
+	{
+		HandPositionFretForceKnob.set("text", "Fret: Auto");
+	}	else
+	{
+
+		HandPositionFretForceKnob.set("text", "Fret: " + value);
+	}
+};
+
+Content.getComponent("HandPositionFretForceKnob").setControlCallback(onHandPositionFretForceKnobControl);
+
+
 function onNoteOn()
 {
-
+	Globals.forcedHandPositionFret = HandPositionFretForceKnob.getValue();
+	
+	Globals.forcedString = StringForceKnob.getValue();
+	
+	switch (Globals.forcedString)
+	{
+		case -1:
+			break;
+		default:
+			Globals.forcedString = NUMOFSTRINGS - Globals.forcedString - 1;
+	}
+	
+	
+	
+	Console.print(Globals.forcedString);
 	
 	Synth.startTimer(0.05);
 	
@@ -129,6 +186,8 @@ function onController()
 		fretImages[stringType.STRING1][Globals.stringNote1 - 76].set("visible", true);
 		Console.print("should be showing a note");
 	}
+	
+	
 	
 	
 	

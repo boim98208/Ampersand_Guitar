@@ -1,3 +1,5 @@
+ const var POSINFINITY = 1/0;
+ 
  const var NUMOFSTRINGS = Globals.NUMOFSTRINGS;
  const var LOWESTNOTE = 52;
  const var HIGHESTNOTE = 97;
@@ -10,7 +12,9 @@
  const var OPENSTRING1NOTE = 76;
  const var OPENSTRINGNONOTE = 1000;
  
- const var OPENSTRINGNOTES = [OPENSTRING1NOTE, OPENSTRING2NOTE, OPENSTRING3NOTE, OPENSTRING4NOTE, OPENSTRING5NOTE, OPENSTRING6NOTE, OPENSTRINGNONOTE];
+ const var OPENSTRINGNOTES = [OPENSTRING1NOTE, OPENSTRING2NOTE, OPENSTRING3NOTE, OPENSTRING4NOTE, OPENSTRING5NOTE, OPENSTRING6NOTE];
+ 
+ OPENSTRINGNOTES.push(OPENSTRINGNONOTE);
 
  
  namespace Stringtype
@@ -50,7 +54,7 @@
  Globals.stringNote4 = -1;
  Globals.stringNote5 = -1;
  Globals.stringNote6 = -1;
- Globals.handPositionFret = -1;
+ Globals.handPositionFret = 0;
 
  /*
      stringNotes holds the note played by each string
@@ -65,7 +69,7 @@ for(i = 0; i < NUMOFSTRINGS; i++){
 }
 
 //one more push to make up for the "NOSTRING" and not go out of bounds
-stringNote.push(10);
+stringNote.push(POSINFINITY);
 
 
 //this is where the leftmost part of the virtual guitarist's hand is
@@ -257,13 +261,17 @@ inline function stringWithClosestNote(notePlayed, currentHandPos){
 	
 	local currString = Stringtype.NOSTRING;
 	//arbitrary big number to replace later
-	local currDist = 1000;
+	local currDist = POSINFINITY;
 	local distToCompare;
+	
+	//todo: implement forced string
 	
 	for(i = NUMOFSTRINGS - 1; i > -1; i--){
 		if(stringNote[i] == -1){
 		
-		distToCompare = Math.abs((notePlayed - OPENSTRINGNOTES[i] - 3) - currentHandPos);
+		
+		// the - 2 fixes it for some reason. It seems that without it the system just straight up misses notes
+		distToCompare = Math.abs((notePlayed - OPENSTRINGNOTES[i] - 2) - currentHandPos);
 		
 			if(Math.min(currDist, distToCompare) == distToCompare){
 				currString = i;
@@ -272,22 +280,79 @@ inline function stringWithClosestNote(notePlayed, currentHandPos){
 		}
 	}
 	
-	Console.print(currString);
-	
 	return currString;
 	
 	
 }
 
 
+inline function forceStringLogic(notePlayed, currentHandPos, fretSpaceToChange){
+
+	local newFretFromForceString;
+	local distanceBetweenForceAndAutoFret;
+
+	if(isBetweenIncl(notePlayed, OPENSTRINGNOTES[Globals.forcedString], OPENSTRINGNOTES[Globals.forcedString] + 21) && stringNote[Globals.forcedString] == -1)
+	{
+	
+	
+	stringNote[Globals.forcedString] = notePlayed; 
+	updateGlobals(); 
+	playString(Globals.forcedString);
+	
+	newFretFromForceString = notePlayed - OPENSTRINGNOTES[Globals.forcedString];
+	distanceBetweenForceAndAutoFret = Math.abs(newFretFromForceString - currentHandPos);
+	
+	Console.print(distanceBetweenForceAndAutoFret);
+	
+	//changes fret position if forceString's frets go a certain distance
+	if(distanceBetweenForceAndAutoFret < fretSpaceToChange)
+		{
+		return currentHandPos;
+		}
+	else
+		{
+		Console.print(newFretFromForceString);
+		if(newFretFromForceString > 17)
+			return 17;
+		else
+			return newFretFromForceString;
+		}
+		
+	}
+	
+}
 
 
-inline function naturalFretting2_0_0(notePlayed, currentHandPos){
 
+
+/*
+implementation of forceString and changing fret position from forceString if handPosition is automatic
+
+*/
+inline function naturalFretting2_1_0(notePlayed, currentHandPos){
+
+	local fretSpaceToChange = 2;
 	local stringToPlay;
+	
 	if(!isBetweenIncl(notePlayed, LOWESTNOTE, HIGHESTNOTE)){
 	    return currentHandPos;
 	}
+	
+	
+	//Going to force string mode
+	if(Globals.forcedString != -1)
+	{
+
+		if(isBetweenIncl(notePlayed, OPENSTRINGNOTES[Globals.forcedString], OPENSTRINGNOTES[Globals.forcedString] + 21) && stringNote[Globals.forcedString] == -1)
+		{
+		
+			return forceStringLogic(notePlayed, currentHandPos, fretSpaceToChange);
+			
+		}
+	}
+	
+	
+	//no forced string and therefore just goes as normal
 	
 	stringToPlay = stringWithClosestNote(notePlayed, currentHandPos);
 	stringNote[stringToPlay] = notePlayed;
@@ -312,6 +377,8 @@ inline function naturalFretting2_0_0(notePlayed, currentHandPos){
 }
 
 
+
+
  
  inline function isEventStillPlaying(eventId)
  {
@@ -331,14 +398,15 @@ inline function naturalFretting2_0_0(notePlayed, currentHandPos){
  function onNoteOn()
 {
 	local notePlayed = Message.getNoteNumber();
-
-	//tiny latency difference between notes to ensure polyphony can work
 	
 	//easy way to implement strumming system? Look into later
 	//Message.delayEvent((notePlayed - LOWESTNOTE) * 1000);
-
-	//to make automatically change, change the 15 to be Globals.handPositionFret
-	Globals.handPositionFret = naturalFretting2_0_0(notePlayed, 15);
+	
+	if(Globals.forcedHandPositionFret == -1){
+		Globals.handPositionFret = naturalFretting2_1_0(notePlayed, Globals.handPositionFret);
+	}else{
+		Globals.handPositionFret = naturalFretting2_1_0(notePlayed, Globals.forcedHandPositionFret);
+	}
 	
 	
 
@@ -351,6 +419,8 @@ inline function naturalFretting2_0_0(notePlayed, currentHandPos){
 
 
     if(stringNote[Stringtype.STRING6] == releasedNote){
+	    Console.print("releeeeeaaasse meeeeeeee");
+    
         stringNote[Stringtype.STRING6] = -1;
         playString(Stringtype.STRING6);
     }else if(stringNote[Stringtype.STRING5] == releasedNote){
