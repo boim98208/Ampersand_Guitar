@@ -11,8 +11,7 @@
  const var OPENSTRING2NOTE = 71;
  const var OPENSTRING1NOTE = 76;
  
- //have this be the actual notesperstring then minus it by 1. I dont understand why but it needs the offset when fretting
- const var NOTESPERSTRING = 21;
+ const var NOTESPERSTRING = 22;
  
  const var OPENSTRINGNONOTE = POSINFINITY;
  
@@ -191,7 +190,9 @@ inline function playString(theStringType){
  }
 
 
-
+/* 
+The main logic for the "Natural" fretting mode
+*/
 inline function stringWithClosestNote(notePlayed, currentHandPos){
 	
 	local currString = Stringtype.NOSTRING;
@@ -218,6 +219,9 @@ inline function stringWithClosestNote(notePlayed, currentHandPos){
 	
 }
 
+/* 
+The main logic for the "Melody" fretting mode
+*/
 inline function stringWithMelodyNote(notePlayed, currentHandPos){
 	
 	
@@ -247,12 +251,13 @@ inline function stringWithMelodyNote(notePlayed, currentHandPos){
 }
 
 
-inline function forceStringLogic(notePlayed, currentHandPos, fretSpaceToChange){
+inline function forceStringLogic(notePlayed, currentHandPos, fretSpaceToChange)
+{
 
 	local newFretFromForceString;
 	local distanceBetweenForceAndAutoFret;
 
-	if(isBetweenIncl(notePlayed, OPENSTRINGNOTES[Globals.forcedString], OPENSTRINGNOTES[Globals.forcedString] + NOTESPERSTRING) && stringNote[Globals.forcedString] == -1)
+	if(isBetweenIncl(notePlayed, OPENSTRINGNOTES[Globals.forcedString], OPENSTRINGNOTES[Globals.forcedString] + (NOTESPERSTRING - 1)) && stringNote[Globals.forcedString] == -1)
 	{
 	
 	
@@ -263,8 +268,6 @@ inline function forceStringLogic(notePlayed, currentHandPos, fretSpaceToChange){
 	newFretFromForceString = notePlayed - OPENSTRINGNOTES[Globals.forcedString];
 	distanceBetweenForceAndAutoFret = Math.abs(newFretFromForceString - currentHandPos);
 	
-	Console.print(distanceBetweenForceAndAutoFret);
-	
 	//changes fret position if forceString's frets go a certain distance
 	if(distanceBetweenForceAndAutoFret < fretSpaceToChange)
 		{
@@ -272,7 +275,6 @@ inline function forceStringLogic(notePlayed, currentHandPos, fretSpaceToChange){
 		}
 	else
 		{
-		Console.print(newFretFromForceString);
 		if(newFretFromForceString > 17)
 			return 17;
 		else
@@ -286,8 +288,10 @@ inline function forceStringLogic(notePlayed, currentHandPos, fretSpaceToChange){
 
 
 
-/*
-implementation of forceString and changing fret position from forceString if handPosition is automatic. Whenever the guitarist has to go out to go far to make polyphony work, handPosition will adjust to wherever that is
+/* 
+fretting choice to be as close as possible to the fret position. 
+Designed for leads interspersed with chords or simple voicings in the "Natural" fretting mode
+Will change fret position if polyphony leads to a really far fret
 */
 
 inline function naturalFretting2_2_0(notePlayed, currentHandPos)
@@ -308,7 +312,7 @@ inline function naturalFretting2_2_0(notePlayed, currentHandPos)
 	if(Globals.forcedString != -1)
 	{
 
-		if(isBetweenIncl(notePlayed, OPENSTRINGNOTES[Globals.forcedString], OPENSTRINGNOTES[Globals.forcedString] + NOTESPERSTRING) && stringNote[Globals.forcedString] == -1)
+		if(isBetweenIncl(notePlayed, OPENSTRINGNOTES[Globals.forcedString], OPENSTRINGNOTES[Globals.forcedString] + NOTESPERSTRING - 1) && stringNote[Globals.forcedString] == -1)
 		{
 		
 			return forceStringLogic(notePlayed, currentHandPos, fretSpaceToChange);
@@ -361,6 +365,15 @@ inline function naturalFretting2_2_0(notePlayed, currentHandPos)
 	
 }
 
+
+/* 
+fretting choice that likes to lean more to being on the same string. 
+Designed for timbre jumps in lead or melody playing, especially when monophonic. 
+
+Stiiiiill kinda rough tho. It likes to skip strings a little too much it seems. 
+The logic on choosing between strings needs to weigh the closer strings more than the closest fret
+*/
+
 inline function melodyFretting1_0_0(notePlayed, currentHandPos)
 {
 	
@@ -378,7 +391,7 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
 	if(Globals.forcedString != -1)
 	{
 
-		if(isBetweenIncl(notePlayed, OPENSTRINGNOTES[Globals.forcedString], OPENSTRINGNOTES[Globals.forcedString] + NOTESPERSTRING) && stringNote[Globals.forcedString] == -1)
+		if(isBetweenIncl(notePlayed, OPENSTRINGNOTES[Globals.forcedString], OPENSTRINGNOTES[Globals.forcedString] + NOTESPERSTRING - 1) && stringNote[Globals.forcedString] == -1)
 		{
 		
 			return forceStringLogic(notePlayed, currentHandPos, fretSpaceToChange);
@@ -446,7 +459,6 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
 
 		if(Globals.forcedHandPositionFret == -1)
 		{
-		Console.print("doing natural fretting with no force");
 
 			Globals.handPositionFret = naturalFretting2_2_0(notePlayed, Globals.handPositionFret);
 			

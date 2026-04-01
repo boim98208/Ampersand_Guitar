@@ -1,7 +1,5 @@
  function onNoteOn()
 {
-	
-	Console.print(Message.getChannel());
 
 	if(Message.getChannel() != 3){
 		

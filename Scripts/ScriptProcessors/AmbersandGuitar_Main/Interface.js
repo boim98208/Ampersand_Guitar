@@ -97,8 +97,24 @@ const var StringRRLabel = [Content.getComponent("String1RRLabel"),
                            Content.getComponent("String6RRLabel")];
 
 
+const var DebugPanel = Content.getComponent("DebugPanel");
 
 
+
+inline function onShowDebugPanelButtonControl(component, value)
+{
+	if(value)
+		DebugPanel.set("visible", true);
+	else
+		DebugPanel.set("visible", false);
+	
+	
+};
+
+Content.getComponent("ShowDebugPanelButton").setControlCallback(onShowDebugPanelButtonControl);
+
+
+	
 
 namespace stringType
 {
