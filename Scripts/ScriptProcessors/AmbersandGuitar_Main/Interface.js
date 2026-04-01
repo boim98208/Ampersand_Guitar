@@ -10,6 +10,17 @@ Globals.stringNote6 = -1;
 Globals.frettingEngine = 1;
 
 
+
+Globals.string6ActiveRR = "not playing";
+Globals.string5ActiveRR = "not playing";
+Globals.string4ActiveRR = "not playing";
+Globals.string3ActiveRR = "not playing";
+Globals.string2ActiveRR = "not playing";
+Globals.string1ActiveRR = "not playing";
+
+
+
+
 const var NUMOFSTRINGS = 6;
 
 
@@ -78,6 +89,17 @@ inline function onFrettingEngineComboBoxControl(component, value)
 Content.getComponent("FrettingEngineComboBox").setControlCallback(onFrettingEngineComboBoxControl);
 
 
+const var StringRRLabel = [Content.getComponent("String1RRLabel"),
+                           Content.getComponent("String2RRLabel"),
+                           Content.getComponent("String3RRLabel"),
+                           Content.getComponent("String4RRLabel"),
+                           Content.getComponent("String5RRLabel"),
+                           Content.getComponent("String6RRLabel")];
+
+
+
+
+
 namespace stringType
 {
 
@@ -89,6 +111,8 @@ namespace stringType
     const var STRING6 = 5;
 
 }
+
+//setting up fretMarkers
 
 var fretImages = [];
 for (var str = 0; str < Globals.NUMOFSTRINGS; str++){
@@ -103,10 +127,28 @@ for (var str = 0; str < Globals.NUMOFSTRINGS; str++){
 
 
 for (var i = 0; i < Globals.NUMOFSTRINGS; i++){
-	for (var j = 0; j <NOTESPERSTRING; j++){
+	for (var j = 0; j < NOTESPERSTRING; j++){
 		fretImages[i][j].set("visible", false);
 	}
 }
+
+
+inline function updateStringRRLabels()
+{
+	//looks like there's a way do global arrays. Look into later
+
+	StringRRLabel[0].set("text", Globals.string1ActiveRR);
+	StringRRLabel[1].set("text", Globals.string2ActiveRR);
+	StringRRLabel[2].set("text", Globals.string3ActiveRR);
+	StringRRLabel[3].set("text", Globals.string4ActiveRR);
+	StringRRLabel[4].set("text", Globals.string5ActiveRR);
+	StringRRLabel[5].set("text", Globals.string6ActiveRR);
+	
+	
+}
+
+
+
 
 inline function hideAll()
 {
@@ -136,7 +178,7 @@ function onNoteOn()
 	
 	Globals.forcedString = StringForceKnob.getValue();
 	
-	Console.print("Using fretting engine: " + Globals.frettingEngine);
+	
 	
 	switch (Globals.forcedString)
 	{
@@ -145,6 +187,8 @@ function onNoteOn()
 		default:
 			Globals.forcedString = NUMOFSTRINGS - Globals.forcedString - 1;
 	}
+	
+	
 	
 	
 	Synth.startTimer(0.05);
@@ -211,8 +255,9 @@ function onController()
 	
 	if(Globals.stringNote1 >= 76 && Globals.stringNote1 <= 97){
 		fretImages[stringType.STRING1][Globals.stringNote1 - 76].set("visible", true);
-		Console.print("should be showing a note");
 	}
+	
+	updateStringRRLabels();
 	
 	
 	

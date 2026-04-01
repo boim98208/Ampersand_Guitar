@@ -356,7 +356,7 @@
                    height="40" fileName="{PROJECT_FOLDER}fret indicator2.png" parentComponent="ScriptPanel1"
                    text="" visible="0"/>
       </Component>
-      <Component type="ScriptPanel" id="String1FretMarkers" x="0" y="-50" width="1200"
+      <Component type="ScriptPanel" id="String1FretMarkers" x="-10" y="70" width="1200"
                  height="800" parentComponent="MainBG" itemColour="0" itemColour2="0"
                  textColour="16777215" bgColour="16777215">
         <Component type="ScriptImage" id="String1Fret0Marker" x="157" y="315" width="44"
@@ -425,25 +425,62 @@
         <Component type="ScriptImage" id="String1Fret21Marker" x="823" y="315" width="44"
                    height="40" fileName="{PROJECT_FOLDER}fret indicator2.png" parentComponent="ScriptPanel1"
                    text="" visible="0"/>
-        <Component type="ScriptLabel" id="Label3" x="0" y="520" parentComponent="String1FretMarkers"
-                   text="Force Fret Position:" fontSize="30.0" width="210"/>
-        <Component type="ScriptLabel" id="Label4" x="0" y="580" parentComponent="String1FretMarkers"
-                   fontSize="30.0" text="Force String:" width="189"/>
       </Component>
     </Component>
   </Component>
-  <Component type="ScriptLabel" id="handPositionFretLabel" x="280" y="0" width="201"
-             fontSize="63.0" height="84" text="0"/>
-  <Component type="ScriptLabel" id="Label1" x="30" y="30" text="Hand Fret Position:"
-             fontSize="37.0" width="343"/>
-  <Component type="ScriptSlider" id="HandPositionFretForceKnob" x="210" y="350"
-             text="Fret: 13.0" width="195" mode="Discrete" stepSize="1.0"
-             middlePosition="10.0" min="-1.0" max="20.0"/>
-  <Component type="ScriptSlider" id="StringForceKnob" x="210" y="410" width="185"
-             text="String: Auto" mode="Discrete" stepSize="1.0" middlePosition="3.0"
-             max="5.0" min="-1.0" defaultValue="-1.0"/>
-  <Component type="ScriptComboBox" id="FrettingEngineComboBox" x="210" y="470"
-             max="2" items="Natural&#10;Melody" enableMidiLearn="1"/>
-  <Component type="ScriptLabel" id="Label2" x="30" y="470" width="130" height="30"
-             text="Fretting Mode:" fontSize="28.0"/>
+  <Component type="ScriptPanel" id="PerformanceOptionsPanel" x="70" y="338"
+             height="195" width="436" itemColour="0" itemColour2="0" bgColour="16777215"
+             textColour="16777215" borderSize="0.0">
+    <Component type="ScriptSlider" id="HandPositionFretForceKnob" x="230" y="2"
+               text="Fret: Auto" width="195" mode="Discrete" stepSize="1.0"
+               middlePosition="10.0" min="-1.0" max="20.0" parentComponent="PerformanceOptionsPanel"/>
+    <Component type="ScriptSlider" id="StringForceKnob" x="230" y="62" width="185"
+               text="String: Auto" mode="Discrete" stepSize="1.0" middlePosition="3.0"
+               max="5.0" min="-1.0" defaultValue="-1.0" parentComponent="PerformanceOptionsPanel"/>
+    <Component type="ScriptComboBox" id="FrettingEngineComboBox" x="230" y="122"
+               max="2" items="Natural&#10;Melody" enableMidiLearn="1" parentComponent="PerformanceOptionsPanel"/>
+    <Component type="ScriptLabel" id="FrettingModeLabel" x="50" y="122" width="130"
+               height="30" text="Fretting Mode:" fontSize="28.0" parentComponent="PerformanceOptionsPanel"/>
+    <Component type="ScriptLabel" id="ForceStringTextLabel" x="30" y="72" parentComponent="PerformanceOptionsPanel"
+               fontSize="30.0" text="Force String:" width="189"/>
+    <Component type="ScriptLabel" id="ForceFretPositionLabel" x="10" y="12"
+               parentComponent="PerformanceOptionsPanel" text="Force Fret Position:"
+               fontSize="30.0" width="210" height="30"/>
+  </Component>
+  <Component type="ScriptPanel" id="DebugPanel" x="50" y="20" itemColour="0"
+             itemColour2="0" bgColour="16777215" textColour="16777215" borderSize="0.0"
+             width="936" height="199">
+    <Component type="ScriptLabel" id="handPositionFretLabel" x="80" y="-10"
+               width="201" fontSize="20.0" height="84" text="4" parentComponent="DebugPanel"/>
+    <Component type="ScriptLabel" id="HandPositionFretTextLabel" x="20" y="20"
+               text="Hand Fret Position:" fontSize="20.0" width="137" parentComponent="DebugPanel"/>
+    <Component type="ScriptLabel" id="String1RRLabel" x="594" y="50" width="100"
+               height="100" parentComponent="DebugPanel" text="not playing"/>
+    <Component type="ScriptLabel" id="String2RRLabel" x="476" y="50" width="100"
+               height="100" parentComponent="DebugPanel" text="not playing"/>
+    <Component type="ScriptLabel" id="String3RRLabel" x="358" y="50" width="100"
+               height="100" parentComponent="DebugPanel" text="not playing"/>
+    <Component type="ScriptLabel" id="String4RRLabel" x="240" y="50" width="100"
+               height="100" parentComponent="DebugPanel" text="not playing"/>
+    <Component type="ScriptLabel" id="String5RRLabel" x="122" y="50" width="100"
+               height="100" parentComponent="DebugPanel" text="not playing"/>
+    <Component type="ScriptLabel" id="String6RRLabel" x="30" y="50" width="100"
+               height="100" parentComponent="DebugPanel" text="not playing"
+               alignment="left"/>
+    <Component type="ScriptLabel" id="DebugPanelRRLabel" x="30" y="50" width="141"
+               height="41" parentComponent="DebugPanel" text="RR Display For Each String"
+               alignment="left"/>
+    <Component type="ScriptLabel" id="DebugPanelString6RRLabel" x="0" y="110"
+               parentComponent="DebugPanel" text="String 6"/>
+    <Component type="ScriptLabel" id="DebugPanelString5RRLabel" x="110" y="110"
+               parentComponent="DebugPanel" text="String 5"/>
+    <Component type="ScriptLabel" id="DebugPanelString4RRLabel" x="230" y="110"
+               parentComponent="DebugPanel" text="String 4"/>
+    <Component type="ScriptLabel" id="DebugPanelString3RRLabel" x="340" y="110"
+               parentComponent="DebugPanel" text="String 3"/>
+    <Component type="ScriptLabel" id="DebugPanelString2RRLabel" x="460" y="110"
+               parentComponent="DebugPanel" text="String 2"/>
+    <Component type="ScriptLabel" id="DebugPanelString1RRLabel" x="580" y="110"
+               parentComponent="DebugPanel" text="String 1"/>
+  </Component>
 </ContentProperties>

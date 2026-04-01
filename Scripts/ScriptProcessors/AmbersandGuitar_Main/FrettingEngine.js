@@ -10,6 +10,8 @@
  const var OPENSTRING3NOTE = 67;
  const var OPENSTRING2NOTE = 71;
  const var OPENSTRING1NOTE = 76;
+ 
+ //have this be the actual notesperstring then minus it by 1. I dont understand why but it needs the offset when fretting
  const var NOTESPERSTRING = 21;
  
  const var OPENSTRINGNONOTE = POSINFINITY;
@@ -124,8 +126,6 @@ Message.setChannel(1); }
 inline function playString(theStringType){
 	
 	//adding 1 because the enum starts on 0 but channels start on 1
-	
-	
 	Message.setChannel(theStringType + 1);
 }
  
@@ -443,16 +443,15 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
 	
 	if(Globals.frettingEngine == FrettingEngine.NATURAL)
 	{
-	Console.print("are you here");
 
 		if(Globals.forcedHandPositionFret == -1)
 		{
-	Console.print("are you here");
+		Console.print("doing natural fretting with no force");
 
 			Globals.handPositionFret = naturalFretting2_2_0(notePlayed, Globals.handPositionFret);
+			
 		}else{
-			Console.print("are you not working");
-		
+			
 			Globals.handPositionFret = naturalFretting2_2_0(notePlayed, Globals.forcedHandPositionFret);
 		}
 	}else if(Globals.frettingEngine == FrettingEngine.MELODY)
@@ -481,8 +480,6 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
 
 
     if(stringNote[Stringtype.STRING6] == releasedNote){
-	    Console.print("releeeeeaaasse meeeeeeee");
-    
         stringNote[Stringtype.STRING6] = -1;
         playString(Stringtype.STRING6);
     }else if(stringNote[Stringtype.STRING5] == releasedNote){
