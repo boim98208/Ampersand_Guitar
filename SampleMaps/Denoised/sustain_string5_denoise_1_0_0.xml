@@ -1,0 +1,774 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<samplemap ID="String5" RRGroupAmount="6.0" MicPositions=";" CrossfadeGamma="1.0">
+  <sample Root="57" LoKey="57" HiKey="58" LoVel="0" HiVel="71" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_A2_RR6_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          UpperVelocityXFade="30"/>
+  <sample Root="57" LoKey="57" HiKey="58" LoVel="0" HiVel="71" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_A2_RR5_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          UpperVelocityXFade="30"/>
+  <sample Root="57" LoKey="57" HiKey="58" LoVel="0" HiVel="71" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_A2_RR4_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          UpperVelocityXFade="30"/>
+  <sample Root="57" LoKey="57" HiKey="58" LoVel="0" HiVel="71" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_A2_RR3_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          UpperVelocityXFade="30"/>
+  <sample Root="57" LoKey="57" HiKey="58" LoVel="0" HiVel="71" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_A2_RR2_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          UpperVelocityXFade="30"/>
+  <sample Root="57" LoKey="57" HiKey="58" LoVel="0" HiVel="71" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_A2_RR1_denoise_timealign_duke12.5.wav"
+          Duplicate="0" UpperVelocityXFade="30" Normalized="1" NormalizedPeak="1.000000953674316"/>
+  <sample Root="77" LoKey="77" HiKey="78" LoVel="84" HiVel="127" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_F4_RR6_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30"/>
+  <sample Root="77" LoKey="77" HiKey="78" LoVel="84" HiVel="127" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_F4_RR5_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30"/>
+  <sample Root="77" LoKey="77" HiKey="78" LoVel="84" HiVel="127" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_F4_RR4_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30"/>
+  <sample Root="77" LoKey="77" HiKey="78" LoVel="84" HiVel="127" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_F4_RR3_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          LowerVelocityXFade="30"/>
+  <sample Root="77" LoKey="77" HiKey="78" LoVel="84" HiVel="127" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_F4_RR2_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30"/>
+  <sample Root="77" LoKey="77" HiKey="78" LoVel="84" HiVel="127" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_F4_RR1_denoise_timealign_duke12.5.wav"
+          Duplicate="0" LowerVelocityXFade="30" Normalized="1" NormalizedPeak="1.000001072883606"/>
+  <sample Root="75" LoKey="75" HiKey="76" LoVel="84" HiVel="127" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_D#4_RR6_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          LowerVelocityXFade="30"/>
+  <sample Root="75" LoKey="75" HiKey="76" LoVel="84" HiVel="127" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_D#4_RR5_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          LowerVelocityXFade="30"/>
+  <sample Root="75" LoKey="75" HiKey="76" LoVel="84" HiVel="127" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_D#4_RR4_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          LowerVelocityXFade="30"/>
+  <sample Root="75" LoKey="75" HiKey="76" LoVel="84" HiVel="127" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_D#4_RR3_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          LowerVelocityXFade="30"/>
+  <sample Root="75" LoKey="75" HiKey="76" LoVel="84" HiVel="127" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_D#4_RR2_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          LowerVelocityXFade="30"/>
+  <sample Root="75" LoKey="75" HiKey="76" LoVel="84" HiVel="127" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_D#4_RR1_denoise_timealign_duke12.5.wav"
+          Duplicate="0" LowerVelocityXFade="30" Normalized="1" NormalizedPeak="1.000000953674316"/>
+  <sample Root="73" LoKey="73" HiKey="74" LoVel="84" HiVel="127" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_C#4_RR6_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30"/>
+  <sample Root="73" LoKey="73" HiKey="74" LoVel="84" HiVel="127" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_C#4_RR5_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30"/>
+  <sample Root="73" LoKey="73" HiKey="74" LoVel="84" HiVel="127" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_C#4_RR4_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          LowerVelocityXFade="30"/>
+  <sample Root="73" LoKey="73" HiKey="74" LoVel="84" HiVel="127" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_C#4_RR3_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          LowerVelocityXFade="30"/>
+  <sample Root="73" LoKey="73" HiKey="74" LoVel="84" HiVel="127" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_C#4_RR2_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          LowerVelocityXFade="30"/>
+  <sample Root="73" LoKey="73" HiKey="74" LoVel="84" HiVel="127" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_C#4_RR1_denoise_timealign_duke12.5.wav"
+          Duplicate="0" LowerVelocityXFade="30" Normalized="1" NormalizedPeak="1.000000953674316"/>
+  <sample Root="71" LoKey="71" HiKey="72" LoVel="84" HiVel="127" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_B3_RR6_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          LowerVelocityXFade="30"/>
+  <sample Root="71" LoKey="71" HiKey="72" LoVel="84" HiVel="127" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_B3_RR5_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30"/>
+  <sample Root="71" LoKey="71" HiKey="72" LoVel="84" HiVel="127" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_B3_RR4_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          LowerVelocityXFade="30"/>
+  <sample Root="71" LoKey="71" HiKey="72" LoVel="84" HiVel="127" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_B3_RR3_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30"/>
+  <sample Root="71" LoKey="71" HiKey="72" LoVel="84" HiVel="127" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_B3_RR2_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          LowerVelocityXFade="30"/>
+  <sample Root="71" LoKey="71" HiKey="72" LoVel="84" HiVel="127" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_B3_RR1_denoise_timealign_duke12.5.wav"
+          Duplicate="0" LowerVelocityXFade="30" Normalized="1" NormalizedPeak="1.000000953674316"/>
+  <sample Root="69" LoKey="69" HiKey="70" LoVel="84" HiVel="127" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_A3_RR6_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          LowerVelocityXFade="30"/>
+  <sample Root="69" LoKey="69" HiKey="70" LoVel="84" HiVel="127" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_A3_RR5_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30"/>
+  <sample Root="69" LoKey="69" HiKey="70" LoVel="84" HiVel="127" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_A3_RR4_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30"/>
+  <sample Root="69" LoKey="69" HiKey="70" LoVel="84" HiVel="127" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_A3_RR3_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          LowerVelocityXFade="30"/>
+  <sample Root="69" LoKey="69" HiKey="70" LoVel="84" HiVel="127" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_A3_RR2_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30"/>
+  <sample Root="69" LoKey="69" HiKey="70" LoVel="84" HiVel="127" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_A3_RR1_denoise_timealign_duke12.5.wav"
+          Duplicate="0" LowerVelocityXFade="30" Normalized="1" NormalizedPeak="1.000001072883606"/>
+  <sample Root="67" LoKey="67" HiKey="68" LoVel="84" HiVel="127" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_G3_RR5_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30"/>
+  <sample Root="67" LoKey="67" HiKey="68" LoVel="84" HiVel="127" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_G3_RR4_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30"/>
+  <sample Root="67" LoKey="67" HiKey="68" LoVel="84" HiVel="127" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_G3_RR3_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30"/>
+  <sample Root="67" LoKey="67" HiKey="68" LoVel="84" HiVel="127" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_G3_RR2_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30"/>
+  <sample Root="67" LoKey="67" HiKey="68" LoVel="84" HiVel="127" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_G3_RR1_denoise_timealign_duke12.5.wav"
+          Duplicate="0" LowerVelocityXFade="30" Normalized="1" NormalizedPeak="1.000000953674316"/>
+  <sample Root="67" LoKey="67" HiKey="68" LoVel="84" HiVel="127" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_G3_RR6_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          LowerVelocityXFade="30"/>
+  <sample Root="65" LoKey="65" HiKey="66" LoVel="84" HiVel="127" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_F3_RR6_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30"/>
+  <sample Root="65" LoKey="65" HiKey="66" LoVel="84" HiVel="127" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_F3_RR5_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          LowerVelocityXFade="30"/>
+  <sample Root="65" LoKey="65" HiKey="66" LoVel="84" HiVel="127" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_F3_RR4_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          LowerVelocityXFade="30"/>
+  <sample Root="65" LoKey="65" HiKey="66" LoVel="84" HiVel="127" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_F3_RR3_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          LowerVelocityXFade="30"/>
+  <sample Root="65" LoKey="65" HiKey="66" LoVel="84" HiVel="127" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_F3_RR2_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30"/>
+  <sample Root="65" LoKey="65" HiKey="66" LoVel="84" HiVel="127" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_F3_RR1_denoise_timealign_duke12.5.wav"
+          Duplicate="0" LowerVelocityXFade="30" Normalized="1" NormalizedPeak="1.000000953674316"/>
+  <sample Root="63" LoKey="63" HiKey="64" LoVel="84" HiVel="127" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_D#3_RR6_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30"/>
+  <sample Root="63" LoKey="63" HiKey="64" LoVel="84" HiVel="127" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_D#3_RR5_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          LowerVelocityXFade="30"/>
+  <sample Root="63" LoKey="63" HiKey="64" LoVel="84" HiVel="127" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_D#3_RR4_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30"/>
+  <sample Root="63" LoKey="63" HiKey="64" LoVel="84" HiVel="127" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_D#3_RR3_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30"/>
+  <sample Root="63" LoKey="63" HiKey="64" LoVel="84" HiVel="127" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_D#3_RR2_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30"/>
+  <sample Root="63" LoKey="63" HiKey="64" LoVel="84" HiVel="127" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_D#3_RR1_denoise_timealign_duke12.5.wav"
+          Duplicate="0" LowerVelocityXFade="30" Normalized="1" NormalizedPeak="1.000000953674316"/>
+  <sample Root="61" LoKey="61" HiKey="62" LoVel="84" HiVel="127" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_C#3_RR5_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30"/>
+  <sample Root="61" LoKey="61" HiKey="62" LoVel="84" HiVel="127" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_C#3_RR4_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          LowerVelocityXFade="30"/>
+  <sample Root="61" LoKey="61" HiKey="62" LoVel="84" HiVel="127" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_C#3_RR3_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          LowerVelocityXFade="30"/>
+  <sample Root="61" LoKey="61" HiKey="62" LoVel="84" HiVel="127" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_C#3_RR2_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30"/>
+  <sample Root="61" LoKey="61" HiKey="62" LoVel="84" HiVel="127" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_C#3_RR1_denoise_timealign_duke12.5.wav"
+          Duplicate="0" LowerVelocityXFade="30" Normalized="1" NormalizedPeak="1.000000953674316"/>
+  <sample Root="61" LoKey="61" HiKey="62" LoVel="84" HiVel="127" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_C#3_RR6_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          LowerVelocityXFade="30"/>
+  <sample Root="59" LoKey="59" HiKey="60" LoVel="84" HiVel="127" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_B2_RR6_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30"/>
+  <sample Root="59" LoKey="59" HiKey="60" LoVel="84" HiVel="127" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_B2_RR5_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30"/>
+  <sample Root="59" LoKey="59" HiKey="60" LoVel="84" HiVel="127" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_B2_RR4_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30"/>
+  <sample Root="59" LoKey="59" HiKey="60" LoVel="84" HiVel="127" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_B2_RR3_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30"/>
+  <sample Root="59" LoKey="59" HiKey="60" LoVel="84" HiVel="127" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_B2_RR2_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30"/>
+  <sample Root="59" LoKey="59" HiKey="60" LoVel="84" HiVel="127" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_B2_RR1_denoise_timealign_duke12.5.wav"
+          Duplicate="0" LowerVelocityXFade="30" Normalized="1" NormalizedPeak="1.000001072883606"/>
+  <sample Root="57" LoKey="57" HiKey="58" LoVel="84" HiVel="127" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_A2_RR6_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          LowerVelocityXFade="30"/>
+  <sample Root="57" LoKey="57" HiKey="58" LoVel="84" HiVel="127" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_A2_RR5_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30"/>
+  <sample Root="57" LoKey="57" HiKey="58" LoVel="84" HiVel="127" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_A2_RR4_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30"/>
+  <sample Root="57" LoKey="57" HiKey="58" LoVel="84" HiVel="127" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_A2_RR3_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30"/>
+  <sample Root="57" LoKey="57" HiKey="58" LoVel="84" HiVel="127" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_A2_RR2_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30"/>
+  <sample Root="57" LoKey="57" HiKey="58" LoVel="84" HiVel="127" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic3_string5_A2_RR1_denoise_timealign_duke12.5.wav"
+          Duplicate="0" LowerVelocityXFade="30" Normalized="1" NormalizedPeak="1.000000953674316"/>
+  <sample Root="77" LoKey="77" HiKey="78" LoVel="42" HiVel="113" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_F4_RR6_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="77" LoKey="77" HiKey="78" LoVel="42" HiVel="113" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_F4_RR5_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="77" LoKey="77" HiKey="78" LoVel="42" HiVel="113" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_F4_RR4_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="77" LoKey="77" HiKey="78" LoVel="42" HiVel="113" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_F4_RR3_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="77" LoKey="77" HiKey="78" LoVel="42" HiVel="113" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_F4_RR2_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="77" LoKey="77" HiKey="78" LoVel="42" HiVel="114" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_F4_RR1_denoise_timealign_duke12.5.wav"
+          Duplicate="0" UpperVelocityXFade="30" LowerVelocityXFade="30"
+          Normalized="1" NormalizedPeak="1.000000953674316"/>
+  <sample Root="75" LoKey="75" HiKey="76" LoVel="42" HiVel="113" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_D#4_RR6_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="75" LoKey="75" HiKey="76" LoVel="42" HiVel="113" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_D#4_RR5_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="75" LoKey="75" HiKey="76" LoVel="42" HiVel="113" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_D#4_RR4_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="75" LoKey="75" HiKey="76" LoVel="42" HiVel="113" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_D#4_RR3_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="75" LoKey="75" HiKey="76" LoVel="42" HiVel="113" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_D#4_RR2_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="75" LoKey="75" HiKey="76" LoVel="42" HiVel="114" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_D#4_RR1_denoise_timealign_duke12.5.wav"
+          Duplicate="0" UpperVelocityXFade="30" LowerVelocityXFade="30"
+          Normalized="1" NormalizedPeak="1.000000953674316"/>
+  <sample Root="73" LoKey="73" HiKey="74" LoVel="42" HiVel="113" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_C#4_RR6_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="73" LoKey="73" HiKey="74" LoVel="42" HiVel="113" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_C#4_RR5_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="73" LoKey="73" HiKey="74" LoVel="42" HiVel="113" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_C#4_RR4_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="73" LoKey="73" HiKey="74" LoVel="42" HiVel="113" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_C#4_RR3_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="73" LoKey="73" HiKey="74" LoVel="42" HiVel="113" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_C#4_RR2_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="73" LoKey="73" HiKey="74" LoVel="42" HiVel="114" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_C#4_RR1_denoise_timealign_duke12.5.wav"
+          Duplicate="0" UpperVelocityXFade="30" LowerVelocityXFade="30"
+          Normalized="1" NormalizedPeak="1.000001072883606"/>
+  <sample Root="71" LoKey="71" HiKey="72" LoVel="42" HiVel="113" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_B3_RR6_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="71" LoKey="71" HiKey="72" LoVel="42" HiVel="113" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_B3_RR5_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="71" LoKey="71" HiKey="72" LoVel="42" HiVel="113" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_B3_RR4_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="71" LoKey="71" HiKey="72" LoVel="42" HiVel="113" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_B3_RR3_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="71" LoKey="71" HiKey="72" LoVel="42" HiVel="113" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_B3_RR2_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="71" LoKey="71" HiKey="72" LoVel="42" HiVel="114" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_B3_RR1_denoise_timealign_duke12.5.wav"
+          Duplicate="0" UpperVelocityXFade="30" LowerVelocityXFade="30"
+          Normalized="1" NormalizedPeak="1.000000953674316"/>
+  <sample Root="69" LoKey="69" HiKey="70" LoVel="42" HiVel="113" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_A3_RR6_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="69" LoKey="69" HiKey="70" LoVel="42" HiVel="113" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_A3_RR5_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="69" LoKey="69" HiKey="70" LoVel="42" HiVel="113" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_A3_RR4_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="69" LoKey="69" HiKey="70" LoVel="42" HiVel="113" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_A3_RR3_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="69" LoKey="69" HiKey="70" LoVel="42" HiVel="113" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_A3_RR2_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="69" LoKey="69" HiKey="70" LoVel="42" HiVel="114" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_A3_RR1_denoise_timealign_duke12.5.wav"
+          Duplicate="0" UpperVelocityXFade="30" LowerVelocityXFade="30"
+          Normalized="1" NormalizedPeak="1.000000953674316"/>
+  <sample Root="67" LoKey="67" HiKey="68" LoVel="42" HiVel="113" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_G3_RR6_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="67" LoKey="67" HiKey="68" LoVel="42" HiVel="113" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_G3_RR5_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="67" LoKey="67" HiKey="68" LoVel="42" HiVel="113" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_G3_RR4_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="67" LoKey="67" HiKey="68" LoVel="42" HiVel="113" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_G3_RR3_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="67" LoKey="67" HiKey="68" LoVel="42" HiVel="113" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_G3_RR2_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="67" LoKey="67" HiKey="68" LoVel="42" HiVel="114" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_G3_RR1_denoise_timealign_duke12.5.wav"
+          Duplicate="0" UpperVelocityXFade="30" LowerVelocityXFade="30"
+          Normalized="1" NormalizedPeak="1.000001072883606"/>
+  <sample Root="65" LoKey="65" HiKey="66" LoVel="42" HiVel="113" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_F3_RR6_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="65" LoKey="65" HiKey="66" LoVel="42" HiVel="113" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_F3_RR5_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="65" LoKey="65" HiKey="66" LoVel="42" HiVel="113" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_F3_RR4_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="65" LoKey="65" HiKey="66" LoVel="42" HiVel="113" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_F3_RR3_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="65" LoKey="65" HiKey="66" LoVel="42" HiVel="113" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_F3_RR2_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="65" LoKey="65" HiKey="66" LoVel="42" HiVel="114" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_F3_RR1_denoise_timealign_duke12.5.wav"
+          Duplicate="0" UpperVelocityXFade="30" LowerVelocityXFade="30"
+          Normalized="1" NormalizedPeak="1.000001072883606"/>
+  <sample Root="63" LoKey="63" HiKey="64" LoVel="42" HiVel="113" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_D#3_RR6_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="63" LoKey="63" HiKey="64" LoVel="42" HiVel="113" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_D#3_RR5_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="63" LoKey="63" HiKey="64" LoVel="42" HiVel="113" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_D#3_RR4_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="63" LoKey="63" HiKey="64" LoVel="42" HiVel="113" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_D#3_RR3_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="63" LoKey="63" HiKey="64" LoVel="42" HiVel="113" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_D#3_RR2_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="63" LoKey="63" HiKey="64" LoVel="42" HiVel="114" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_D#3_RR1_denoise_timealign_duke12.5.wav"
+          Duplicate="0" UpperVelocityXFade="30" LowerVelocityXFade="30"
+          Normalized="1" NormalizedPeak="1.000000953674316"/>
+  <sample Root="61" LoKey="61" HiKey="62" LoVel="42" HiVel="113" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_C#3_RR6_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="61" LoKey="61" HiKey="62" LoVel="42" HiVel="113" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_C#3_RR5_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="61" LoKey="61" HiKey="62" LoVel="42" HiVel="113" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_C#3_RR4_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="61" LoKey="61" HiKey="62" LoVel="42" HiVel="113" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_C#3_RR3_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="61" LoKey="61" HiKey="62" LoVel="42" HiVel="113" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_C#3_RR2_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="61" LoKey="61" HiKey="62" LoVel="42" HiVel="114" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_C#3_RR1_denoise_timealign_duke12.5.wav"
+          Duplicate="0" UpperVelocityXFade="30" LowerVelocityXFade="30"
+          Normalized="1" NormalizedPeak="1.000001072883606"/>
+  <sample Root="59" LoKey="59" HiKey="60" LoVel="42" HiVel="113" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_B2_RR6_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="59" LoKey="59" HiKey="60" LoVel="42" HiVel="113" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_B2_RR5_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="59" LoKey="59" HiKey="60" LoVel="42" HiVel="113" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_B2_RR4_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="59" LoKey="59" HiKey="60" LoVel="42" HiVel="113" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_B2_RR3_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="59" LoKey="59" HiKey="60" LoVel="42" HiVel="113" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_B2_RR2_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="59" LoKey="59" HiKey="60" LoVel="42" HiVel="114" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_B2_RR1_denoise_timealign_duke12.5.wav"
+          Duplicate="0" UpperVelocityXFade="30" LowerVelocityXFade="30"
+          Normalized="1" NormalizedPeak="1.000000953674316"/>
+  <sample Root="57" LoKey="57" HiKey="58" LoVel="42" HiVel="113" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_A2_RR6_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="57" LoKey="57" HiKey="58" LoVel="42" HiVel="113" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_A2_RR5_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="57" LoKey="57" HiKey="58" LoVel="42" HiVel="113" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_A2_RR4_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="57" LoKey="57" HiKey="58" LoVel="42" HiVel="113" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_A2_RR3_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="57" LoKey="57" HiKey="58" LoVel="42" HiVel="113" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_A2_RR2_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          LowerVelocityXFade="30" UpperVelocityXFade="30"/>
+  <sample Root="57" LoKey="57" HiKey="58" LoVel="42" HiVel="114" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic2_string5_A2_RR1_denoise_timealign_duke12.5.wav"
+          Duplicate="0" UpperVelocityXFade="30" LowerVelocityXFade="30"
+          Normalized="1" NormalizedPeak="1.000000953674316"/>
+  <sample Root="77" LoKey="77" HiKey="78" LoVel="0" HiVel="71" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_F4_RR6_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          UpperVelocityXFade="30"/>
+  <sample Root="77" LoKey="77" HiKey="78" LoVel="0" HiVel="71" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_F4_RR5_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          UpperVelocityXFade="30"/>
+  <sample Root="77" LoKey="77" HiKey="78" LoVel="0" HiVel="71" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_F4_RR4_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          UpperVelocityXFade="30"/>
+  <sample Root="77" LoKey="77" HiKey="78" LoVel="0" HiVel="71" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_F4_RR3_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          UpperVelocityXFade="30"/>
+  <sample Root="77" LoKey="77" HiKey="78" LoVel="0" HiVel="71" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_F4_RR2_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          UpperVelocityXFade="30"/>
+  <sample Root="77" LoKey="77" HiKey="78" LoVel="0" HiVel="71" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_F4_RR1_denoise_timealign_duke12.5.wav"
+          Duplicate="0" UpperVelocityXFade="30" Normalized="1" NormalizedPeak="1.000000953674316"/>
+  <sample Root="75" LoKey="75" HiKey="76" LoVel="0" HiVel="71" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_D#4_RR6_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          UpperVelocityXFade="30"/>
+  <sample Root="75" LoKey="75" HiKey="76" LoVel="0" HiVel="71" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_D#4_RR5_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          UpperVelocityXFade="30"/>
+  <sample Root="75" LoKey="75" HiKey="76" LoVel="0" HiVel="71" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_D#4_RR4_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          UpperVelocityXFade="30"/>
+  <sample Root="75" LoKey="75" HiKey="76" LoVel="0" HiVel="71" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_D#4_RR3_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          UpperVelocityXFade="30"/>
+  <sample Root="75" LoKey="75" HiKey="76" LoVel="0" HiVel="71" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_D#4_RR2_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          UpperVelocityXFade="30"/>
+  <sample Root="75" LoKey="75" HiKey="76" LoVel="0" HiVel="71" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_D#4_RR1_denoise_timealign_duke12.5.wav"
+          Duplicate="0" UpperVelocityXFade="30" Normalized="1" NormalizedPeak="1.000001072883606"/>
+  <sample Root="73" LoKey="73" HiKey="74" LoVel="0" HiVel="71" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_C#4_RR6_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          UpperVelocityXFade="30"/>
+  <sample Root="73" LoKey="73" HiKey="74" LoVel="0" HiVel="71" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_C#4_RR5_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          UpperVelocityXFade="30"/>
+  <sample Root="73" LoKey="73" HiKey="74" LoVel="0" HiVel="71" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_C#4_RR4_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          UpperVelocityXFade="30"/>
+  <sample Root="73" LoKey="73" HiKey="74" LoVel="0" HiVel="71" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_C#4_RR3_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          UpperVelocityXFade="30"/>
+  <sample Root="73" LoKey="73" HiKey="74" LoVel="0" HiVel="71" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_C#4_RR2_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          UpperVelocityXFade="30"/>
+  <sample Root="73" LoKey="73" HiKey="74" LoVel="0" HiVel="71" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_C#4_RR1_denoise_timealign_duke12.5.wav"
+          Duplicate="0" UpperVelocityXFade="30" Normalized="1" NormalizedPeak="1.000001072883606"/>
+  <sample Root="71" LoKey="71" HiKey="72" LoVel="0" HiVel="71" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_B3_RR6_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          UpperVelocityXFade="30"/>
+  <sample Root="71" LoKey="71" HiKey="72" LoVel="0" HiVel="71" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_B3_RR5_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          UpperVelocityXFade="30"/>
+  <sample Root="71" LoKey="71" HiKey="72" LoVel="0" HiVel="71" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_B3_RR4_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          UpperVelocityXFade="30"/>
+  <sample Root="71" LoKey="71" HiKey="72" LoVel="0" HiVel="71" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_B3_RR3_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          UpperVelocityXFade="30"/>
+  <sample Root="71" LoKey="71" HiKey="72" LoVel="0" HiVel="71" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_B3_RR2_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          UpperVelocityXFade="30"/>
+  <sample Root="71" LoKey="71" HiKey="72" LoVel="0" HiVel="71" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_B3_RR1_denoise_timealign_duke12.5.wav"
+          Duplicate="0" UpperVelocityXFade="30" Normalized="1" NormalizedPeak="1.000001072883606"/>
+  <sample Root="69" LoKey="69" HiKey="70" LoVel="0" HiVel="71" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_A3_RR6_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          UpperVelocityXFade="30"/>
+  <sample Root="69" LoKey="69" HiKey="70" LoVel="0" HiVel="71" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_A3_RR5_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          UpperVelocityXFade="30"/>
+  <sample Root="69" LoKey="69" HiKey="70" LoVel="0" HiVel="71" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_A3_RR4_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          UpperVelocityXFade="30"/>
+  <sample Root="69" LoKey="69" HiKey="70" LoVel="0" HiVel="71" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_A3_RR3_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          UpperVelocityXFade="30"/>
+  <sample Root="69" LoKey="69" HiKey="70" LoVel="0" HiVel="71" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_A3_RR2_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          UpperVelocityXFade="30"/>
+  <sample Root="69" LoKey="69" HiKey="70" LoVel="0" HiVel="71" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_A3_RR1_denoise_timealign_duke12.5.wav"
+          Duplicate="0" UpperVelocityXFade="30" Normalized="1" NormalizedPeak="1.000000953674316"/>
+  <sample Root="67" LoKey="67" HiKey="68" LoVel="0" HiVel="71" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_G3_RR6_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          UpperVelocityXFade="30"/>
+  <sample Root="67" LoKey="67" HiKey="68" LoVel="0" HiVel="71" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_G3_RR5_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          UpperVelocityXFade="30"/>
+  <sample Root="67" LoKey="67" HiKey="68" LoVel="0" HiVel="71" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_G3_RR4_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          UpperVelocityXFade="30"/>
+  <sample Root="67" LoKey="67" HiKey="68" LoVel="0" HiVel="71" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_G3_RR3_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          UpperVelocityXFade="30"/>
+  <sample Root="67" LoKey="67" HiKey="68" LoVel="0" HiVel="71" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_G3_RR2_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          UpperVelocityXFade="30"/>
+  <sample Root="67" LoKey="67" HiKey="68" LoVel="0" HiVel="71" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_G3_RR1_denoise_timealign_duke12.5.wav"
+          Duplicate="0" UpperVelocityXFade="30" Normalized="1" NormalizedPeak="1.000000953674316"/>
+  <sample Root="65" LoKey="65" HiKey="66" LoVel="0" HiVel="71" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_F3_RR6_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          UpperVelocityXFade="30"/>
+  <sample Root="65" LoKey="65" HiKey="66" LoVel="0" HiVel="71" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_F3_RR5_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          UpperVelocityXFade="30"/>
+  <sample Root="65" LoKey="65" HiKey="66" LoVel="0" HiVel="71" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_F3_RR4_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          UpperVelocityXFade="30"/>
+  <sample Root="65" LoKey="65" HiKey="66" LoVel="0" HiVel="71" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_F3_RR3_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          UpperVelocityXFade="30"/>
+  <sample Root="65" LoKey="65" HiKey="66" LoVel="0" HiVel="71" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_F3_RR2_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          UpperVelocityXFade="30"/>
+  <sample Root="65" LoKey="65" HiKey="66" LoVel="0" HiVel="71" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_F3_RR1_denoise_timealign_duke12.5.wav"
+          Duplicate="0" UpperVelocityXFade="30" Normalized="1" NormalizedPeak="1.000001072883606"/>
+  <sample Root="63" LoKey="63" HiKey="64" LoVel="0" HiVel="71" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_D#3_RR6_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          UpperVelocityXFade="30"/>
+  <sample Root="63" LoKey="63" HiKey="64" LoVel="0" HiVel="71" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_D#3_RR5_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          UpperVelocityXFade="30"/>
+  <sample Root="63" LoKey="63" HiKey="64" LoVel="0" HiVel="71" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_D#3_RR4_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          UpperVelocityXFade="30"/>
+  <sample Root="63" LoKey="63" HiKey="64" LoVel="0" HiVel="71" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_D#3_RR3_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          UpperVelocityXFade="30"/>
+  <sample Root="63" LoKey="63" HiKey="64" LoVel="0" HiVel="71" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_D#3_RR2_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          UpperVelocityXFade="30"/>
+  <sample Root="63" LoKey="63" HiKey="64" LoVel="0" HiVel="71" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_D#3_RR1_denoise_timealign_duke12.5.wav"
+          Duplicate="0" UpperVelocityXFade="30" Normalized="1" NormalizedPeak="1.000000953674316"/>
+  <sample Root="61" LoKey="61" HiKey="62" LoVel="0" HiVel="71" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_C#3_RR6_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          UpperVelocityXFade="30"/>
+  <sample Root="61" LoKey="61" HiKey="62" LoVel="0" HiVel="71" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_C#3_RR5_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          UpperVelocityXFade="30"/>
+  <sample Root="61" LoKey="61" HiKey="62" LoVel="0" HiVel="71" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_C#3_RR4_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          UpperVelocityXFade="30"/>
+  <sample Root="61" LoKey="61" HiKey="62" LoVel="0" HiVel="71" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_C#3_RR3_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          UpperVelocityXFade="30"/>
+  <sample Root="61" LoKey="61" HiKey="62" LoVel="0" HiVel="71" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_C#3_RR2_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          UpperVelocityXFade="30"/>
+  <sample Root="61" LoKey="61" HiKey="62" LoVel="0" HiVel="71" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_C#3_RR1_denoise_timealign_duke12.5.wav"
+          Duplicate="0" UpperVelocityXFade="30" Normalized="1" NormalizedPeak="1.000000953674316"/>
+  <sample Root="59" LoKey="59" HiKey="60" LoVel="0" HiVel="71" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_B2_RR6_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          UpperVelocityXFade="30"/>
+  <sample Root="59" LoKey="59" HiKey="60" LoVel="0" HiVel="71" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_B2_RR5_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          UpperVelocityXFade="30"/>
+  <sample Root="59" LoKey="59" HiKey="60" LoVel="0" HiVel="71" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_B2_RR4_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000001072883606"
+          UpperVelocityXFade="30"/>
+  <sample Root="59" LoKey="59" HiKey="60" LoVel="0" HiVel="71" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_B2_RR3_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          UpperVelocityXFade="30"/>
+  <sample Root="59" LoKey="59" HiKey="60" LoVel="0" HiVel="71" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_B2_RR2_denoise_timealign_duke12.5.wav"
+          Duplicate="0" Normalized="1" NormalizedPeak="1.000000953674316"
+          UpperVelocityXFade="30"/>
+  <sample Root="59" LoKey="59" HiKey="60" LoVel="0" HiVel="71" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\Denoised\ampersand_sustain_dynamic1_string5_B2_RR1_denoise_timealign_duke12.5.wav"
+          Duplicate="0" UpperVelocityXFade="30" Normalized="1" NormalizedPeak="1.000000953674316"/>
+</samplemap>

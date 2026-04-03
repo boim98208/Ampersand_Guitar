@@ -73,8 +73,8 @@
                  height="40" fileName="{PROJECT_FOLDER}fret indicator2.png" parentComponent="ScriptPanel1"
                  text="" visible="0"/>
     </Component>
-    <Component type="ScriptPanel" id="String5FretMarkers" x="0" y="383" width="1200"
-               height="30" parentComponent="MainBG" itemColour="0" itemColour2="0"
+    <Component type="ScriptPanel" id="String5FretMarkers" x="0" y="376" width="1200"
+               height="39" parentComponent="MainBG" itemColour="0" itemColour2="0"
                textColour="16777215" bgColour="16777215">
       <Component type="ScriptImage" id="String5Fret0Marker" x="157" y="0" width="44"
                  height="40" fileName="{PROJECT_FOLDER}fret indicator2.png" parentComponent="String5FretMarkers"
@@ -428,7 +428,7 @@
              height="195" width="436" itemColour="0" itemColour2="0" bgColour="16777215"
              textColour="16777215" borderSize="0.0">
     <Component type="ScriptSlider" id="HandPositionFretForceKnob" x="230" y="2"
-               text="Fret: 11.0" width="195" mode="Discrete" stepSize="1.0"
+               text="Fret: Auto" width="195" mode="Discrete" stepSize="1.0"
                middlePosition="10.0" min="-1.0" max="20.0" parentComponent="PerformanceOptionsPanel"/>
     <Component type="ScriptSlider" id="StringForceKnob" x="230" y="62" width="185"
                text="String: Auto" mode="Discrete" stepSize="1.0" middlePosition="3.0"
@@ -447,7 +447,7 @@
              itemColour2="0" bgColour="16777215" textColour="16777215" borderSize="0.0"
              width="936" height="199">
     <Component type="ScriptLabel" id="handPositionFretLabel" x="80" y="-10"
-               width="201" fontSize="20.0" height="84" text="11.0" parentComponent="DebugPanel"/>
+               width="201" fontSize="20.0" height="84" text="0" parentComponent="DebugPanel"/>
     <Component type="ScriptLabel" id="HandPositionFretTextLabel" x="20" y="20"
                text="Hand Fret Position:" fontSize="20.0" width="137" parentComponent="DebugPanel"/>
     <Component type="ScriptLabel" id="String1RRLabel" x="594" y="50" width="100"
