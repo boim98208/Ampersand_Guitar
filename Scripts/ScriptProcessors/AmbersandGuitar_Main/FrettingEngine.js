@@ -19,6 +19,8 @@
  
  OPENSTRINGNOTES.push(OPENSTRINGNONOTE);
 
+
+
  
  namespace Stringtype
  {
@@ -190,8 +192,13 @@ inline function playString(theStringType){
  }
 
 
+
+
+
+
+
 /* 
-The main logic for the "Natural" fretting mode
+The main logic for the "Natural" fretting mode in polyphony
 */
 inline function stringWithClosestNote(notePlayed, currentHandPos){
 	
@@ -201,13 +208,15 @@ inline function stringWithClosestNote(notePlayed, currentHandPos){
 	local distToCompare;
 	
 	for(i = NUMOFSTRINGS - 1; i > -1; i--){
-		if(stringNote[i] == -1){
+		if(stringNote[i] == -1 /*&& isBetweenIncl(notePlayed, OPENSTRINGNOTES[i], OPENSTRINGNOTES[i] + NOTESPERSTRING)*/)
+		{
 		
 		
 		// the - 2 fixes it for some reason. It seems that without it the system just straight up misses notes
 		distToCompare = Math.abs((notePlayed - OPENSTRINGNOTES[i] - 2) - currentHandPos);
 		
-			if(Math.min(currDist, distToCompare) == distToCompare){
+			if(Math.min(currDist, distToCompare) == distToCompare)
+			{
 				currString = i;
 				currDist = distToCompare;
 			}
@@ -294,7 +303,7 @@ Designed for leads interspersed with chords or simple voicings in the "Natural" 
 Will change fret position if polyphony leads to a really far fret
 */
 
-inline function naturalFretting2_2_0(notePlayed, currentHandPos)
+inline function naturalFretting2_2_1(notePlayed, currentHandPos)
 {
 	
 
@@ -325,6 +334,7 @@ inline function naturalFretting2_2_0(notePlayed, currentHandPos)
 	
 	
 	stringToPlay = stringWithClosestNote(notePlayed, currentHandPos);
+	Console.print(stringToPlay);
 	stringNote[stringToPlay] = notePlayed;
 	playString(stringToPlay);
 	
@@ -335,31 +345,35 @@ inline function naturalFretting2_2_0(notePlayed, currentHandPos)
 	if(Synth.getNumPressedKeys() >= 2){
 	newFretFromPolyphony = stringNote[stringToPlay] - OPENSTRINGNOTES[stringToPlay];
 	distBetweenNewFretAndAutoFret = Math.abs(newFretFromPolyphony - currentHandPos);
-	}
+	}else{
 	
-	/*
-	if(stringToPlay == Stringtype.STRING1){
-		if(notePlayed - currentHandPos < OPENSTRING1NOTE + 5)
-            return currentHandPos;
-        else
-            return notePlayed - OPENSTRING1NOTE - 4;
-	}
 	
-	if(stringToPlay == Stringtype.STRING6){
-		if(notePlayed < currentHandPos + OPENSTRING6NOTE)
-		            return notePlayed - OPENSTRING6NOTE;
-	}
+		if(stringToPlay == Stringtype.STRING1){
+			if(notePlayed - currentHandPos < OPENSTRING1NOTE + 5)
+	            return currentHandPos;
+	        else
+	            return notePlayed - OPENSTRING1NOTE - 4;
+		}
+		
+		if(stringToPlay == Stringtype.STRING6){
+			if(notePlayed < currentHandPos + OPENSTRING6NOTE)
+			            return notePlayed - OPENSTRING6NOTE;
+		}
 	
-	*/
+	}
 	
 	//I dont really understand why, but + 2 seems like a number that makes this work
 	
 	if(distBetweenNewFretAndAutoFret < fretSpaceToChange + 2)
 	{
+
 		return currentHandPos;
 	}else
 	{
-		return newFretFromPolyphony;
+		Console.print(OPENSTRINGNOTES[stringToPlay]);
+			Console.print(notePlayed - OPENSTRINGNOTES[stringToPlay]);
+			return cap(notePlayed - OPENSTRINGNOTES[stringToPlay], NOTESPERSTRING - 5);
+		
 	}
 
 	
@@ -441,7 +455,13 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
      return false;
  }
  
- 
+ inline function cap(num, limit)
+ {
+	 if(num > limit)
+	 {
+		 return limit;
+	 }
+ }
  
  
  
@@ -449,39 +469,45 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
  function onNoteOn()
 {
 	local notePlayed = Message.getNoteNumber();
+	local velocityPlayed = Message.getVelocity();
+	
 	
 	//easy way to implement strumming system? Look into later
 	//Message.delayEvent((notePlayed - LOWESTNOTE) * 1000);
 	
-	
-	if(Globals.frettingEngine == FrettingEngine.NATURAL)
-	{
+if(isBetweenIncl(notePlayed, LOWESTNOTE, HIGHESTNOTE)){
 
-		if(Globals.forcedHandPositionFret == -1)
+	
+		if(Globals.frettingEngine == FrettingEngine.NATURAL)
 		{
-
-			Globals.handPositionFret = naturalFretting2_2_0(notePlayed, Globals.handPositionFret);
-			
-		}else{
-			
-			Globals.handPositionFret = naturalFretting2_2_0(notePlayed, Globals.forcedHandPositionFret);
-		}
-	}else if(Globals.frettingEngine == FrettingEngine.MELODY)
-	{
-
-		if(Globals.forcedHandPositionFret == -1)
-				{
-					Globals.handPositionFret = melodyFretting1_0_0(notePlayed, Globals.handPositionFret);
-					
-				}else
-				{
-					Globals.handPositionFret = melodyFretting1_0_0(notePlayed, Globals.forcedHandPositionFret);
-				}
-	}
 	
-	//Had a bug where handPositionFret became -4 and I have no idea why so I'm normalizing out of caution
-	if(Globals.handPositionFret < 0){
-		Globals.handPositionFret = 0;
+			if(Globals.forcedHandPositionFret == -1)
+			{
+	
+				Globals.handPositionFret = naturalFretting2_2_1(notePlayed, Globals.handPositionFret);
+				
+			}else{
+				
+				Globals.handPositionFret = naturalFretting2_2_1(notePlayed, Globals.forcedHandPositionFret);
+			}
+		}else if(Globals.frettingEngine == FrettingEngine.MELODY)
+		{
+	
+			if(Globals.forcedHandPositionFret == -1)
+					{
+						Globals.handPositionFret = melodyFretting1_0_0(notePlayed, Globals.handPositionFret);
+						
+					}else
+					{
+						Globals.handPositionFret = melodyFretting1_0_0(notePlayed, Globals.forcedHandPositionFret);
+					}
+		}
+		
+		//Had a bug where handPositionFret became -4 and I have no idea why so I'm normalizing out of caution
+		if(Globals.handPositionFret < 0){
+			Globals.handPositionFret = 0;
+		}
+	
 	}
 	
 	

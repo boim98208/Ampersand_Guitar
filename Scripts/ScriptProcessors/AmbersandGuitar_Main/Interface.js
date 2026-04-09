@@ -8,6 +8,7 @@ Globals.stringNote4 = -1;
 Globals.stringNote5 = -1;
 Globals.stringNote6 = -1; 
 Globals.frettingEngine = 1;
+const NOTESPERSTRING = 22;
 
 
 
@@ -41,16 +42,20 @@ const var handPositionFretLabel = Content.getComponent("handPositionFretLabel");
 
 const var HandPositionFretForceKnob = Content.getComponent("HandPositionFretForceKnob");
 
-inline function onHandPositionFretForceKnobControl(component, value)
-{
+inline function handPositionFretForceKnobChange(value){
 	if(value == -1)
 	{
 		HandPositionFretForceKnob.set("text", "Fret: Auto");
 	}	else
 	{
-
+	
 		HandPositionFretForceKnob.set("text", "Fret: " + value);
 	}
+}
+
+inline function onHandPositionFretForceKnobControl(component, value)
+{
+	handPositionFretForceKnobChange(value);
 };
 
 Content.getComponent("HandPositionFretForceKnob").setControlCallback(onHandPositionFretForceKnobControl);
@@ -179,6 +184,38 @@ inline function hideString(stringNum){
 	}
 }
 
+inline function cap(num, limit)
+{
+	 if(num > limit)
+	 {
+		 return limit;
+	 }
+}
+
+inline function keyswitchForceFret(notePlayed, velocity)
+{
+	
+	//note to self: figure out how to get knobs to change text when given a keyswitch
+
+	if(notePlayed == 51)
+	{
+	
+	Console.print("are you goin here");
+
+		HandPositionFretForceKnob.setValue(velocity % 18);
+		
+		Console.print(Globals.forcedHandPositionFret);
+		
+		
+	}else if(notePlayed == 50)
+	{
+	
+
+		HandPositionFretForceKnob.setValue(-1);
+
+		Globals.forcedHandPositionFret = -1;
+	}
+}
 
 
 
@@ -194,7 +231,11 @@ function onNoteOn()
 	
 	Globals.forcedString = StringForceKnob.getValue();
 	
+	local notePlayed = Message.getNoteNumber();
+	local velocityPlayed = Message.getVelocity();
 	
+	
+	keyswitchForceFret(notePlayed, velocityPlayed);
 	
 	switch (Globals.forcedString)
 	{
@@ -204,12 +245,11 @@ function onNoteOn()
 			Globals.forcedString = NUMOFSTRINGS - Globals.forcedString - 1;
 	}
 	
-	
-	
+
 	
 	Synth.startTimer(0.05);
 	
-	handPositionFretLabel.set("text", Globals.handPositionFret);
+//	handPositionFretLabel.set("text", Globals.handPositionFret);
 }
       function onNoteOff()
 {
