@@ -9,7 +9,7 @@
         <Processor Type="ScriptProcessor" ID="Interface" Bypassed="0">
           <ChildProcessors/>
           <Content>
-            <Control type="ScriptSlider" id="HandPositionFretForceKnob" value="-1"/>
+            <Control type="ScriptSlider" id="HandPositionFretForceKnob" value="-1.0"/>
             <Control type="ScriptSlider" id="StringForceKnob" value="-1.0"/>
             <Control type="ScriptComboBox" id="FrettingEngineComboBox" value="1.0"/>
             <Control type="ScriptButton" id="ShowDebugPanelButton" value="1.0"/>
@@ -64,7 +64,7 @@
                    OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
                    NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
                    Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-                   Group7Table="" SampleMapID="sustain_string6">
+                   Group7Table="" SampleMapID="Denoised/sustain_string6_denoise_1_0_0">
           <ChildProcessors>
             <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
               <ChildProcessors>
@@ -108,8 +108,8 @@
                     </Processor>
                   </ChildProcessors>
                 </Processor>
-                <Processor Type="Velocity" ID="Velocity Modulator1" Bypassed="0" Intensity="0.7099999785423279"
-                           UseTable="0.0" Inverted="0.0" DecibelMode="1.0">
+                <Processor Type="Velocity" ID="Velocity Modulator1" Bypassed="0" Intensity="0.7400000095367432"
+                           UseTable="0.0" Inverted="0.0" DecibelMode="0.0">
                   <ChildProcessors/>
                 </Processor>
               </ChildProcessors>
@@ -127,7 +127,15 @@
               </ChildProcessors>
             </Processor>
             <Processor Type="EffectChain" ID="FX" Bypassed="0">
-              <ChildProcessors/>
+              <ChildProcessors>
+                <Processor Type="Convolution" ID="Convolution Reverb1" Bypassed="0" DryGain="-100.0"
+                           WetGain="0.0" Latency="0.0" ImpulseLength="1.0" ProcessInput="1.0"
+                           UseBackgroundThread="0.0" Predelay="0.0" HiCut="20000.0" Damping="0.0"
+                           FFTType="5.0" FileName="" min="0" max="0" loopStart="0" loopEnd="0">
+                  <ChildProcessors/>
+                  <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
+                </Processor>
+              </ChildProcessors>
             </Processor>
             <Processor Type="ModulatorChain" ID="Sample Start" Bypassed="0" Intensity="1.0">
               <ChildProcessors/>
@@ -148,7 +156,7 @@
                    OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
                    NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
                    Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-                   Group7Table="" SampleMapID="sustain_string5">
+                   Group7Table="" SampleMapID="Denoised/sustain_string5_denoise_1_0_0">
           <ChildProcessors>
             <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
               <ChildProcessors>
@@ -192,8 +200,8 @@
                     </Processor>
                   </ChildProcessors>
                 </Processor>
-                <Processor Type="Velocity" ID="Velocity Modulator2" Bypassed="0" Intensity="0.699999988079071"
-                           UseTable="0.0" Inverted="0.0" DecibelMode="1.0">
+                <Processor Type="Velocity" ID="Velocity Modulator2" Bypassed="0" Intensity="0.7400000095367432"
+                           UseTable="0.0" Inverted="0.0" DecibelMode="0.0">
                   <ChildProcessors/>
                 </Processor>
               </ChildProcessors>
@@ -232,7 +240,7 @@
                    OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
                    NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
                    Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-                   Group7Table="" SampleMapID="sustain_string4">
+                   Group7Table="" SampleMapID="Denoised/sustain_string4_denoise_1_0_0">
           <ChildProcessors>
             <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
               <ChildProcessors>
@@ -276,8 +284,8 @@
                     </Processor>
                   </ChildProcessors>
                 </Processor>
-                <Processor Type="Velocity" ID="Velocity Modulator3" Bypassed="0" Intensity="0.699999988079071"
-                           UseTable="0.0" Inverted="0.0" DecibelMode="1.0">
+                <Processor Type="Velocity" ID="Velocity Modulator3" Bypassed="0" Intensity="0.7400000095367432"
+                           UseTable="0.0" Inverted="0.0" DecibelMode="0.0">
                   <ChildProcessors/>
                 </Processor>
               </ChildProcessors>
@@ -316,7 +324,7 @@
                    OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
                    NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
                    Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-                   Group7Table="" SampleMapID="sustain_string3">
+                   Group7Table="" SampleMapID="Denoised/sustain_string3_denoise_1_0_0">
           <ChildProcessors>
             <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
               <ChildProcessors>
@@ -360,8 +368,8 @@
                     </Processor>
                   </ChildProcessors>
                 </Processor>
-                <Processor Type="Velocity" ID="Velocity Modulator4" Bypassed="0" Intensity="0.699999988079071"
-                           UseTable="0.0" Inverted="0.0" DecibelMode="1.0">
+                <Processor Type="Velocity" ID="Velocity Modulator4" Bypassed="0" Intensity="0.7400000095367432"
+                           UseTable="0.0" Inverted="0.0" DecibelMode="0.0">
                   <ChildProcessors/>
                 </Processor>
               </ChildProcessors>
@@ -400,7 +408,7 @@
                    OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
                    NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
                    Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-                   Group7Table="" SampleMapID="sustain_string2">
+                   Group7Table="" SampleMapID="Denoised/sustain_string2_denoise_1_0_0">
           <ChildProcessors>
             <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
               <ChildProcessors>
@@ -444,8 +452,8 @@
                     </Processor>
                   </ChildProcessors>
                 </Processor>
-                <Processor Type="Velocity" ID="Velocity Modulator5" Bypassed="0" Intensity="0.699999988079071"
-                           UseTable="0.0" Inverted="0.0" DecibelMode="1.0">
+                <Processor Type="Velocity" ID="Velocity Modulator5" Bypassed="0" Intensity="0.7400000095367432"
+                           UseTable="0.0" Inverted="0.0" DecibelMode="0.0">
                   <ChildProcessors/>
                 </Processor>
               </ChildProcessors>
@@ -484,7 +492,7 @@
                    OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
                    NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
                    Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-                   Group7Table="" SampleMapID="sustain_string1">
+                   Group7Table="" SampleMapID="Denoised/sustain_string1_denoise_1_0_0">
           <ChildProcessors>
             <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
               <ChildProcessors>
@@ -528,8 +536,8 @@
                     </Processor>
                   </ChildProcessors>
                 </Processor>
-                <Processor Type="Velocity" ID="Velocity Modulator6" Bypassed="0" Intensity="0.699999988079071"
-                           UseTable="0.0" Inverted="0.0" DecibelMode="1.0">
+                <Processor Type="Velocity" ID="Velocity Modulator6" Bypassed="0" Intensity="0.7400000095367432"
+                           UseTable="0.0" Inverted="0.0" DecibelMode="0.0">
                   <ChildProcessors/>
                 </Processor>
               </ChildProcessors>
@@ -547,7 +555,16 @@
               </ChildProcessors>
             </Processor>
             <Processor Type="EffectChain" ID="FX" Bypassed="0">
-              <ChildProcessors/>
+              <ChildProcessors>
+                <Processor Type="Convolution" ID="Convolution Reverb2" Bypassed="1" DryGain="-100.0"
+                           WetGain="0.0" Latency="0.0" ImpulseLength="1.0" ProcessInput="1.0"
+                           UseBackgroundThread="0.0" Predelay="0.0" HiCut="20000.0" Damping="-100.0"
+                           FFTType="5.0" FileName="{PROJECT_FOLDER}xfade_dynamic2_to_dynamic4_string1.wav"
+                           min="0" max="422" loopStart="0" loopEnd="422">
+                  <ChildProcessors/>
+                  <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
+                </Processor>
+              </ChildProcessors>
             </Processor>
             <Processor Type="ModulatorChain" ID="Sample Start" Bypassed="0" Intensity="1.0">
               <ChildProcessors/>

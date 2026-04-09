@@ -189,31 +189,37 @@ inline function cap(num, limit)
 	 if(num > limit)
 	 {
 		 return limit;
+	 }else{
+		 return num;
 	 }
 }
 
 inline function keyswitchForceFret(notePlayed, velocity)
 {
 	
+	local newFretPosition;
+
+	
 	//note to self: figure out how to get knobs to change text when given a keyswitch
 
 	if(notePlayed == 51)
 	{
 	
-	Console.print("are you goin here");
+	newFretPosition = velocity % 18;
 
-		HandPositionFretForceKnob.setValue(velocity % 18);
+		HandPositionFretForceKnob.setValue(newFretPosition);
+		Globals.forcedHandPositionFret = newFretPosition;
 		
 		Console.print(Globals.forcedHandPositionFret);
 		
 		
 	}else if(notePlayed == 50)
 	{
-	
+	 
 
 		HandPositionFretForceKnob.setValue(-1);
-
 		Globals.forcedHandPositionFret = -1;
+		
 	}
 }
 
@@ -249,7 +255,7 @@ function onNoteOn()
 	
 	Synth.startTimer(0.05);
 	
-//	handPositionFretLabel.set("text", Globals.handPositionFret);
+
 }
       function onNoteOff()
 {
@@ -312,6 +318,8 @@ function onController()
 	if(Globals.stringNote1 >= 76 && Globals.stringNote1 <= 97){
 		fretImages[stringType.STRING1][Globals.stringNote1 - 76].set("visible", true);
 	}
+	
+	handPositionFretLabel.set("text", Globals.handPositionFret != -1 ? Globals.handPositionFret : "");
 	
 	updateStringRRLabels();
 	

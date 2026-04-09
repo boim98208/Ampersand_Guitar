@@ -334,7 +334,6 @@ inline function naturalFretting2_2_1(notePlayed, currentHandPos)
 	
 	
 	stringToPlay = stringWithClosestNote(notePlayed, currentHandPos);
-	Console.print(stringToPlay);
 	stringNote[stringToPlay] = notePlayed;
 	playString(stringToPlay);
 	
@@ -370,8 +369,7 @@ inline function naturalFretting2_2_1(notePlayed, currentHandPos)
 		return currentHandPos;
 	}else
 	{
-		Console.print(OPENSTRINGNOTES[stringToPlay]);
-			Console.print(notePlayed - OPENSTRINGNOTES[stringToPlay]);
+
 			return cap(notePlayed - OPENSTRINGNOTES[stringToPlay], NOTESPERSTRING - 5);
 		
 	}
@@ -460,6 +458,8 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
 	 if(num > limit)
 	 {
 		 return limit;
+	 }else{
+		 return num;
 	 }
  }
  
