@@ -213,7 +213,10 @@ inline function stringWithClosestNote(notePlayed, currentHandPos){
 		
 		
 		// the - 2 fixes it for some reason. It seems that without it the system just straight up misses notes
+		
 		distToCompare = Math.abs((notePlayed - OPENSTRINGNOTES[i] - 2) - currentHandPos);
+		
+	Console.print(currentHandPos);
 		
 			if(Math.min(currDist, distToCompare) == distToCompare)
 			{
@@ -231,7 +234,8 @@ inline function stringWithClosestNote(notePlayed, currentHandPos){
 /* 
 The main logic for the "Melody" fretting mode
 */
-inline function stringWithMelodyNote(notePlayed, currentHandPos){
+inline function stringWithMelodyNote(notePlayed, currentHandPos)
+{
 	
 	
 	local currString = Stringtype.NOSTRING;
@@ -239,7 +243,8 @@ inline function stringWithMelodyNote(notePlayed, currentHandPos){
 	local currDist = POSINFINITY;
 	local distToCompare;
 	
-	for(i = NUMOFSTRINGS - 1; i > -1; i--){
+	for(i = NUMOFSTRINGS - 1; i > -1; i--)
+	{
 		if(stringNote[i] == -1){
 		
 		
@@ -488,6 +493,8 @@ if(isBetweenIncl(notePlayed, LOWESTNOTE, HIGHESTNOTE)){
 				
 			}else{
 				
+				Console.print("you should be playing here");
+				Console.print(Globals.forcedHandPositionFret);
 				Globals.handPositionFret = naturalFretting2_2_1(notePlayed, Globals.forcedHandPositionFret);
 			}
 		}else if(Globals.frettingEngine == FrettingEngine.MELODY)

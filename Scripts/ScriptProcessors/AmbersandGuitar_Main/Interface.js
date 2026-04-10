@@ -25,7 +25,7 @@ Globals.string1ActiveRR = "not playing";
 const var NUMOFSTRINGS = 6;
 
 
- Content.makeFrontInterface(1200, 600);
+ Content.makeFrontInterface(1020, 600);
  
 //connecting with fret markers on the UI
 
@@ -43,14 +43,13 @@ const var handPositionFretLabel = Content.getComponent("handPositionFretLabel");
 const var HandPositionFretForceKnob = Content.getComponent("HandPositionFretForceKnob");
 
 inline function handPositionFretForceKnobChange(value){
-	if(value == -1)
-	{
-		HandPositionFretForceKnob.set("text", "Fret: Auto");
-	}	else
-	{
 	
-		HandPositionFretForceKnob.set("text", "Fret: " + value);
-	}
+	// - 2 to normalize with the code
+
+	Globals.forcedHandPositionFret = value - 2;
+
+	Console.print(Globals.forcedHandPositionFret);
+
 }
 
 inline function onHandPositionFretForceKnobControl(component, value)
@@ -67,15 +66,8 @@ const var StringForceKnob = Content.getComponent("StringForceKnob");
 
 inline function onStringForceKnobControl(component, value)
 {
-	local text = "Auto";
-
-	if(value == -1)
-	{
-		StringForceKnob.set("text", "String: " + text);
-	}else
-	{
-		StringForceKnob.set("text", "string: " + (6 - value));
-	}
+	Globals.forcedString = value - 2;
+	Console.print(Globals.forcedString);
 };
 
 Content.getComponent("StringForceKnob").setControlCallback(onStringForceKnobControl);
@@ -108,6 +100,7 @@ const var DebugPanel = Content.getComponent("DebugPanel");
 
 inline function onShowDebugPanelButtonControl(component, value)
 {
+
 	if(value)
 		DebugPanel.set("visible", true);
 	else
@@ -118,6 +111,29 @@ inline function onShowDebugPanelButtonControl(component, value)
 
 Content.getComponent("ShowDebugPanelButton").setControlCallback(onShowDebugPanelButtonControl);
 
+
+const var PlayingModeBG = Content.getComponent("PlayingModeBG");
+
+
+
+
+
+const var ShowPlayingModeButton = Content.getComponent("ShowPlayingModeButton");
+
+ShowPlayingModeButton.setValue(1);
+
+inline function onShowPlayingModeButtonControl(component, value)
+{
+	
+	if(ShowPlayingModeButton.getValue() == 0){
+		PlayingModeBG.set("visible", 0);
+	}else{
+		PlayingModeBG.set("visible", 1);
+	}
+
+};
+
+Content.getComponent("ShowPlayingModeButton").setControlCallback(onShowPlayingModeButtonControl);
 
 	
 
@@ -196,7 +212,7 @@ inline function cap(num, limit)
 
 inline function keyswitchForceFret(notePlayed, velocity)
 {
-	
+	Console.print("keyswitch for fret change is hit");
 	local newFretPosition;
 
 	
@@ -233,23 +249,13 @@ inline function keyswitchForceFret(notePlayed, velocity)
 
 function onNoteOn()
 {
-	Globals.forcedHandPositionFret = HandPositionFretForceKnob.getValue();
 	
-	Globals.forcedString = StringForceKnob.getValue();
 	
 	local notePlayed = Message.getNoteNumber();
 	local velocityPlayed = Message.getVelocity();
 	
 	
 	keyswitchForceFret(notePlayed, velocityPlayed);
-	
-	switch (Globals.forcedString)
-	{
-		case -1:
-			break;
-		default:
-			Globals.forcedString = NUMOFSTRINGS - Globals.forcedString - 1;
-	}
 	
 
 	
