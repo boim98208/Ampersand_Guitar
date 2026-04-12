@@ -7,7 +7,6 @@
 		Globals.string3ActiveRR = "not playing";
 	}else{
 		
-	
 		//is now playing the note and updates	
 		Globals.string3ActiveRR = Sampler.getActiveRRGroup();
 	}
@@ -19,6 +18,7 @@
 	}else{
 	
 		Globals.string3ActiveRR = "not playing";
+		Console.print("are you turning off early");
 	}
 }
  function onController()

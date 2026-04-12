@@ -57,7 +57,16 @@
           <ChildProcessors/>
         </Processor>
         <Processor Type="EffectChain" ID="FX" Bypassed="0">
-          <ChildProcessors/>
+          <ChildProcessors>
+            <Processor Type="Convolution" ID="Convolution Reverb1" Bypassed="1" DryGain="0.0"
+                       WetGain="-100.0" Latency="0.0" ImpulseLength="1.0" ProcessInput="1.0"
+                       UseBackgroundThread="0.0" Predelay="0.0" HiCut="20000.0" Damping="0.0"
+                       FFTType="5.0" FileName="{PROJECT_FOLDER}xfade_dynamic2_to_dynamic4_string1.wav"
+                       min="0" max="1736" loopStart="0" loopEnd="1736">
+              <ChildProcessors/>
+              <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
+            </Processor>
+          </ChildProcessors>
         </Processor>
         <Processor Type="StreamingSampler" ID="Container0String6Sampler" Bypassed="0"
                    Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
@@ -110,7 +119,7 @@
                     </Processor>
                   </ChildProcessors>
                 </Processor>
-                <Processor Type="Velocity" ID="Velocity Modulator1" Bypassed="0" Intensity="0.7400000095367432"
+                <Processor Type="Velocity" ID="Velocity Modulator1" Bypassed="0" Intensity="0.8999999761581421"
                            UseTable="0.0" Inverted="0.0" DecibelMode="0.0">
                   <ChildProcessors/>
                 </Processor>
@@ -118,7 +127,7 @@
             </Processor>
             <Processor Type="ModulatorChain" ID="PitchModulation" Bypassed="0" Intensity="0.0">
               <ChildProcessors>
-                <Processor Type="Random" ID="Random Modulator1" Bypassed="0" Intensity="0.004166666883975267"
+                <Processor Type="Random" ID="Random Modulator1" Bypassed="0" Intensity="0.001666666590608656"
                            Bipolar="1" UseTable="0.0" RandomTableData="">
                   <ChildProcessors/>
                 </Processor>
@@ -129,7 +138,16 @@
               </ChildProcessors>
             </Processor>
             <Processor Type="EffectChain" ID="FX" Bypassed="0">
-              <ChildProcessors/>
+              <ChildProcessors>
+                <Processor Type="Convolution" ID="Convolution Reverb1" Bypassed="0" DryGain="-100.0"
+                           WetGain="0.0" Latency="0.0" ImpulseLength="1.0" ProcessInput="1.0"
+                           UseBackgroundThread="0.0" Predelay="0.0" HiCut="20000.0" Damping="0.0"
+                           FFTType="5.0" FileName="{PROJECT_FOLDER}xfade_dynamic2_to_dynamic4_string1.wav"
+                           min="0" max="8192" loopStart="0" loopEnd="8192">
+                  <ChildProcessors/>
+                  <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
+                </Processor>
+              </ChildProcessors>
             </Processor>
             <Processor Type="ModulatorChain" ID="Sample Start" Bypassed="0" Intensity="1.0">
               <ChildProcessors/>
@@ -194,7 +212,7 @@
                     </Processor>
                   </ChildProcessors>
                 </Processor>
-                <Processor Type="Velocity" ID="Velocity Modulator2" Bypassed="0" Intensity="0.7400000095367432"
+                <Processor Type="Velocity" ID="Velocity Modulator2" Bypassed="0" Intensity="0.8999999761581421"
                            UseTable="0.0" Inverted="0.0" DecibelMode="0.0">
                   <ChildProcessors/>
                 </Processor>
@@ -202,7 +220,7 @@
             </Processor>
             <Processor Type="ModulatorChain" ID="PitchModulation" Bypassed="0" Intensity="0.0">
               <ChildProcessors>
-                <Processor Type="Random" ID="Random Modulator2" Bypassed="0" Intensity="0.006666666362434626"
+                <Processor Type="Random" ID="Random Modulator2" Bypassed="0" Intensity="0.001666666590608656"
                            Bipolar="1" UseTable="0.0" RandomTableData="">
                   <ChildProcessors/>
                 </Processor>
@@ -278,7 +296,7 @@
                     </Processor>
                   </ChildProcessors>
                 </Processor>
-                <Processor Type="Velocity" ID="Velocity Modulator3" Bypassed="0" Intensity="0.7400000095367432"
+                <Processor Type="Velocity" ID="Velocity Modulator3" Bypassed="0" Intensity="0.8999999761581421"
                            UseTable="0.0" Inverted="0.0" DecibelMode="0.0">
                   <ChildProcessors/>
                 </Processor>
@@ -286,7 +304,7 @@
             </Processor>
             <Processor Type="ModulatorChain" ID="PitchModulation" Bypassed="0" Intensity="0.0">
               <ChildProcessors>
-                <Processor Type="Random" ID="Random Modulator3" Bypassed="0" Intensity="0.006666666362434626"
+                <Processor Type="Random" ID="Random Modulator3" Bypassed="0" Intensity="0.001666666590608656"
                            Bipolar="1" UseTable="0.0" RandomTableData="">
                   <ChildProcessors/>
                 </Processor>
@@ -362,7 +380,7 @@
                     </Processor>
                   </ChildProcessors>
                 </Processor>
-                <Processor Type="Velocity" ID="Velocity Modulator4" Bypassed="0" Intensity="0.7400000095367432"
+                <Processor Type="Velocity" ID="Velocity Modulator4" Bypassed="0" Intensity="0.8999999761581421"
                            UseTable="0.0" Inverted="0.0" DecibelMode="0.0">
                   <ChildProcessors/>
                 </Processor>
@@ -370,7 +388,7 @@
             </Processor>
             <Processor Type="ModulatorChain" ID="PitchModulation" Bypassed="0" Intensity="0.0">
               <ChildProcessors>
-                <Processor Type="Random" ID="Random Modulator4" Bypassed="0" Intensity="0.006666666362434626"
+                <Processor Type="Random" ID="Random Modulator4" Bypassed="0" Intensity="0.001666666590608656"
                            Bipolar="1" UseTable="0.0" RandomTableData="">
                   <ChildProcessors/>
                 </Processor>
@@ -446,7 +464,7 @@
                     </Processor>
                   </ChildProcessors>
                 </Processor>
-                <Processor Type="Velocity" ID="Velocity Modulator5" Bypassed="0" Intensity="0.7400000095367432"
+                <Processor Type="Velocity" ID="Velocity Modulator5" Bypassed="0" Intensity="0.8999999761581421"
                            UseTable="0.0" Inverted="0.0" DecibelMode="0.0">
                   <ChildProcessors/>
                 </Processor>
@@ -454,7 +472,7 @@
             </Processor>
             <Processor Type="ModulatorChain" ID="PitchModulation" Bypassed="0" Intensity="0.0">
               <ChildProcessors>
-                <Processor Type="Random" ID="Random Modulator5" Bypassed="0" Intensity="0.006666666362434626"
+                <Processor Type="Random" ID="Random Modulator5" Bypassed="0" Intensity="0.001666666590608656"
                            Bipolar="1" UseTable="0.0" RandomTableData="">
                   <ChildProcessors/>
                 </Processor>
@@ -530,7 +548,7 @@
                     </Processor>
                   </ChildProcessors>
                 </Processor>
-                <Processor Type="Velocity" ID="Velocity Modulator6" Bypassed="0" Intensity="0.7400000095367432"
+                <Processor Type="Velocity" ID="Velocity Modulator6" Bypassed="0" Intensity="0.8999999761581421"
                            UseTable="0.0" Inverted="0.0" DecibelMode="0.0">
                   <ChildProcessors/>
                 </Processor>
@@ -538,7 +556,7 @@
             </Processor>
             <Processor Type="ModulatorChain" ID="PitchModulation" Bypassed="0" Intensity="0.0">
               <ChildProcessors>
-                <Processor Type="Random" ID="Random Modulator6" Bypassed="0" Intensity="0.006666666362434626"
+                <Processor Type="Random" ID="Random Modulator6" Bypassed="0" Intensity="0.001666666590608656"
                            Bipolar="1" UseTable="0.0" RandomTableData="">
                   <ChildProcessors/>
                 </Processor>

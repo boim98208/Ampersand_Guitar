@@ -8,7 +8,36 @@ Globals.stringNote4 = -1;
 Globals.stringNote5 = -1;
 Globals.stringNote6 = -1; 
 Globals.frettingEngine = 1;
-const NOTESPERSTRING = 22;
+const var NOTESPERSTRING = 22;
+
+
+
+
+
+//making sure an array is completely uniform
+inline function isUniform(buffer, bufferSize){
+	local checker = buffer[0];
+
+
+	for(var i = 1; i < bufferSize; i++){
+		if(checker != buffer[i])
+			return false;
+	}
+
+	
+	return true;
+	
+}
+
+
+
+
+//every index is a fret
+const var xPosOfFretBorder = [0, 5, 50, 87, 116, 146, //0
+							 170, 193, 210, 230, 246, //6
+							 264, 279, 295, 312, 330, //10
+							 346, 364, 380, 395, 407, 
+							 421, 432, 115, 125];
 
 
 
@@ -43,12 +72,12 @@ const var handPositionFretLabel = Content.getComponent("handPositionFretLabel");
 const var HandPositionFretForceKnob = Content.getComponent("HandPositionFretForceKnob");
 
 inline function handPositionFretForceKnobChange(value){
-	
-	// - 2 to normalize with the code
 
 	Globals.forcedHandPositionFret = value - 2;
 
 	Console.print(Globals.forcedHandPositionFret);
+	
+	
 
 }
 
@@ -67,7 +96,7 @@ const var StringForceKnob = Content.getComponent("StringForceKnob");
 inline function onStringForceKnobControl(component, value)
 {
 	Globals.forcedString = value - 2;
-	Console.print(Globals.forcedString);
+	//Console.print(Globals.forcedString);
 };
 
 Content.getComponent("StringForceKnob").setControlCallback(onStringForceKnobControl);
@@ -181,7 +210,7 @@ inline function updateStringRRLabels()
 	StringRRLabel[4].set("text", Globals.string5ActiveRR);
 	StringRRLabel[5].set("text", Globals.string6ActiveRR);
 	
-	
+
 }
 
 
@@ -212,7 +241,6 @@ inline function cap(num, limit)
 
 inline function keyswitchForceFret(notePlayed, velocity)
 {
-	Console.print("keyswitch for fret change is hit");
 	local newFretPosition;
 
 	
@@ -220,18 +248,19 @@ inline function keyswitchForceFret(notePlayed, velocity)
 
 	if(notePlayed == 51)
 	{
-	
+	Console.print("keyswitch for fret change is hit");
 	newFretPosition = velocity % 18;
 
 		HandPositionFretForceKnob.setValue(newFretPosition);
 		Globals.forcedHandPositionFret = newFretPosition;
+		Globals.handPositionFret = newFretPosition;
 		
 		Console.print(Globals.forcedHandPositionFret);
 		
 		
 	}else if(notePlayed == 50)
 	{
-	 
+	 Console.print("keyswitch for auto fret change is hit");
 
 		HandPositionFretForceKnob.setValue(-1);
 		Globals.forcedHandPositionFret = -1;
@@ -239,7 +268,97 @@ inline function keyswitchForceFret(notePlayed, velocity)
 	}
 }
 
+const var FretBorderLow = Content.getComponent("FretBorderLow");
 
+const var FretBorderLowForced = Content.getComponent("FretBorderLowForced");
+
+FretBorderLowForced.set("visible", false);
+
+const var FretBorderHigh = Content.getComponent("FretBorderHigh");
+
+const var FretBorderHighForced = Content.getComponent("FretBorderHighForced");
+
+
+const var fretBorderCenterHW = 15;
+const var fretBorderCenterY = 23;
+
+const var FretBorderCenter = Content.getComponent("FretBorderCenter");
+
+const var FretBorderCenterForced = Content.getComponent("FretBorderCenterForced");
+
+FretBorderCenterForced.set("visible", false);
+
+FretBorderCenter.set("width", fretBorderCenterHW);
+FretBorderCenter.set("height", fretBorderCenterHW);
+FretBorderCenter.set("y", fretBorderCenterY);
+
+FretBorderCenterForced.set("width", fretBorderCenterHW);
+FretBorderCenterForced.set("height", fretBorderCenterHW);
+FretBorderCenterForced.set("y", fretBorderCenterY);
+
+
+
+inline function capLow(lowLim, num){
+	if(num < lowLim){
+		return lowLim;
+		}
+	else{
+		return num;
+		}
+}
+
+
+
+inline function moveFretBorder(fretPos){
+	//implement the different positions for when you go to melody fretting mode so like for melody mode make sure you the span of the lowBorder and the highBorder is greater to a higher fret
+	local lowFret;
+	local highFret;
+	local distBetweenFrets;
+	local posOfCenter;
+	
+	if(fretPos == 1)
+	{
+		lowFret = cap(0, 2);
+	}
+	else
+	{
+		lowFret = capLow(0, fretPos);
+	}
+		
+	Console.print(fretPos);
+	Console.print(lowFret);
+	highFret = lowFret + 5;
+	
+	distBetweenFrets = xPosOfFretBorder[highFret] - xPosOfFretBorder[lowFret];
+	
+	posOfCenter = xPosOfFretBorder[lowFret] + (distBetweenFrets/2);
+
+	if(Globals.forcedHandPositionFret != -1)
+	{
+		FretBorderLowForced.set("visible", true);
+		FretBorderHighForced.set("visible", true);
+		FretBorderCenterForced.set("visible", true);
+	}
+	else
+	{
+		FretBorderLowForced.set("visible", false);
+		FretBorderHighForced.set("visible", false);
+		FretBorderCenterForced.set("visible", false);
+	}
+
+
+	FretBorderLow.set("x", xPosOfFretBorder[lowFret]);
+	FretBorderLowForced.set("x", xPosOfFretBorder[lowFret]);
+	FretBorderHigh.set("x", xPosOfFretBorder[highFret]);
+	FretBorderHighForced.set("x", xPosOfFretBorder[highFret]);
+	FretBorderCenter.set("x", posOfCenter);
+	FretBorderCenterForced.set("x", posOfCenter);
+	
+	
+	
+	
+		
+}
 
 
 
@@ -327,7 +446,19 @@ function onController()
 	
 	handPositionFretLabel.set("text", Globals.handPositionFret != -1 ? Globals.handPositionFret : "");
 	
+	
+	if(Globals.forcedHandPositionFret != -1)
+	{
+		moveFretBorder(Globals.forcedHandPositionFret);
+	
+	}else
+	{
+		moveFretBorder(Globals.handPositionFret);
+	}
+	
 	updateStringRRLabels();
+	
+	
 	
 	
 	

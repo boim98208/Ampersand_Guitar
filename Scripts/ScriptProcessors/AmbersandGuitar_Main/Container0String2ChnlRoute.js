@@ -3,13 +3,13 @@
 	if(Message.getChannel() != 2){
 		
 		Message.ignoreEvent(true);
-		Globals.string3ActiveRR = "not playing";
+		Globals.string2ActiveRR = "not playing";
 	}else{
 		//is now playing the note and updates	
 	 Globals.string2ActiveRR = Sampler.getActiveRRGroup();
 	}
 }
- function onNoteOff()
+  function onNoteOff()
 {
 	if(Message.getChannel() != 2){
 		Message.ignoreEvent(true);

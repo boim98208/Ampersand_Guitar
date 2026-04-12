@@ -208,8 +208,7 @@ inline function stringWithClosestNote(notePlayed, currentHandPos){
 	local distToCompare;
 	
 	for(i = NUMOFSTRINGS - 1; i > -1; i--){
-		if(stringNote[i] == -1 /*&& isBetweenIncl(notePlayed, OPENSTRINGNOTES[i], OPENSTRINGNOTES[i] + NOTESPERSTRING)*/)
-		{
+		if(stringNote[i] == -1 && isBetweenIncl(notePlayed, OPENSTRINGNOTES[i], OPENSTRINGNOTES[i] + NOTESPERSTRING)){
 		
 		
 		// the - 2 fixes it for some reason. It seems that without it the system just straight up misses notes
@@ -245,12 +244,11 @@ inline function stringWithMelodyNote(notePlayed, currentHandPos)
 	
 	for(i = NUMOFSTRINGS - 1; i > -1; i--)
 	{
-		if(stringNote[i] == -1){
+		if(stringNote[i] == -1 && isBetweenIncl(notePlayed, OPENSTRINGNOTES[i], OPENSTRINGNOTES[i] + NOTESPERSTRING)){
 		
 		
 		// the - 2 fixes it for some reason. It seems that without it the system just straight up misses notes
 		distToCompare = Math.abs((notePlayed - OPENSTRINGNOTES[i] - 2) - currentHandPos);
-		
 	
 		
 		
@@ -273,6 +271,7 @@ inline function forceStringLogic(notePlayed, currentHandPos, fretSpaceToChange)
 
 	if(isBetweenIncl(notePlayed, OPENSTRINGNOTES[Globals.forcedString], OPENSTRINGNOTES[Globals.forcedString] + (NOTESPERSTRING - 1)) && stringNote[Globals.forcedString] == -1)
 	{
+	
 	
 	
 	stringNote[Globals.forcedString] = notePlayed; 
@@ -543,6 +542,8 @@ if(isBetweenIncl(notePlayed, LOWESTNOTE, HIGHESTNOTE)){
         stringNote[Stringtype.STRING1] = -1;
         playString(Stringtype.STRING1);
     }
+    
+    
 
     updateGlobals();
 }function onController()
