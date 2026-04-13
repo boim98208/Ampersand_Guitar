@@ -1,4 +1,30 @@
- function onNoteOn()
+const var releaseAddition = [10, 11, 10];
+const var releaseAdditionWhenHigh = [-3, -4, -5];
+const var emulatedReleasesOn = true;
+const var OPENSTRINGNOTE = 52;
+const var NOTEPERSTRING = 22;
+const var POINTTOCHANGERELEASE = OPENSTRINGNOTE + (NOTEPERSTRING/2);
+
+
+
+reg releaseNoteNum = 0;
+reg isReleased = 0;
+reg releaseAdditionIndex = 0;
+reg id = -99;
+reg noteReleased;
+reg noteVelocity = 60;
+
+
+
+Synth.stopTimer();
+
+//const var releaseAddition = [-2, -3, -4, -5, -6];
+
+const var startReleaseVolume = 8;
+var releaseVolumeOverTime = startReleaseVolume;
+//note to self, figure out if you can fade between your pseudo releases
+const var releaseTimeSeconds = .03;
+function onNoteOn()
 {
 
 
@@ -8,6 +34,8 @@
 	}else{
 		//is now playing the note and updates	
 		Globals.string6ActiveRR = Sampler.getActiveRRGroup();
+		noteVelocity = Message.getVelocity();
+		
 	}
 	
 }
@@ -17,6 +45,9 @@
 	if(Message.getChannel() != 6){
 		Message.ignoreEvent(true);
 	}else{
+		noteReleased = Message.getNoteNumber();
+		isReleased = true;
+		Synth.startTimer(0.01);
 		Globals.string6ActiveRR = "not playing";
 	}
 }
@@ -26,6 +57,63 @@
 }
  function onTimer()
 {
+local releaseNote;
+local numOfReleases;
+
+ if(!emulatedReleasesOn){
+	 return;
+ 
+	}
+	
+	if(id != -99)
+		Synth.noteOffByEventId(id);
+	
+	if(isReleased){
+	
+		if(Message.isArtificial()){
+			Console.print("are you artificial");
+		}
+		
+		
+		if(noteReleased < POINTTOCHANGERELEASE)
+			{		
+			releaseNote = noteReleased + releaseAddition[releaseAdditionIndex];
+			numOfReleases = releaseAddition.length;
+			}
+		else
+			{
+			releaseNote = noteReleased + releaseAdditionWhenHigh[releaseAdditionIndex];
+			numOfReleases = releaseAdditionWhenHigh.length;
+			Console.print("releasing high notes");
+			}
+		
+		
+		if(noteVelocity == 0)
+			id = Synth.playNote(releaseNote, 1);
+		else
+		{
+			id = Synth.playNote(releaseNote, noteVelocity);
+			Console.print("it is changing");
+		}
+		
+		
+		Synth.addVolumeFade(id, 0, releaseVolumeOverTime);
+		
+		releaseVolumeOverTime = releaseVolumeOverTime - .02;
+		
+		releaseAdditionIndex++;
+		Synth.startTimer(releaseTimeSeconds);
+		
+		if(releaseAdditionIndex == numOfReleases - 1){ 
+		Console.print("stop releasing");
+			isReleased = false;
+			releaseAdditionIndex = 0;
+		}
+		
+		
+	}
+	
+
 	
 }
  function onControl(number, value)

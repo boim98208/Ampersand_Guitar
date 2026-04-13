@@ -74,8 +74,6 @@ const var HandPositionFretForceKnob = Content.getComponent("HandPositionFretForc
 inline function handPositionFretForceKnobChange(value){
 
 	Globals.forcedHandPositionFret = value - 2;
-
-	Console.print(Globals.forcedHandPositionFret);
 	
 	
 
@@ -96,6 +94,7 @@ const var StringForceKnob = Content.getComponent("StringForceKnob");
 inline function onStringForceKnobControl(component, value)
 {
 	Globals.forcedString = value - 2;
+	moveForceString(Globals.forcedString);
 	//Console.print(Globals.forcedString);
 };
 
@@ -255,8 +254,6 @@ inline function keyswitchForceFret(notePlayed, velocity)
 		Globals.forcedHandPositionFret = newFretPosition;
 		Globals.handPositionFret = newFretPosition;
 		
-		Console.print(Globals.forcedHandPositionFret);
-		
 		
 	}else if(notePlayed == 50)
 	{
@@ -298,6 +295,25 @@ FretBorderCenterForced.set("y", fretBorderCenterY);
 
 
 
+
+const var StringForcePanel = Content.getComponent("StringForcePanel");
+
+const var ForceStringImages = [Content.getComponent("StringForceString6"),
+                               Content.getComponent("StringForceString5"),
+                               Content.getComponent("StringForceString4"),
+                               Content.getComponent("StringForceString3"),
+                               Content.getComponent("StringForceString2"),
+                               Content.getComponent("StringForceString1")];
+                               
+ForceStringImages.reverse();
+                               
+for( i in ForceStringImages){
+	i.set("visible", false);
+}
+
+
+
+
 inline function capLow(lowLim, num){
 	if(num < lowLim){
 		return lowLim;
@@ -325,8 +341,6 @@ inline function moveFretBorder(fretPos){
 		lowFret = capLow(0, fretPos);
 	}
 		
-	Console.print(fretPos);
-	Console.print(lowFret);
 	highFret = lowFret + 5;
 	
 	distBetweenFrets = xPosOfFretBorder[highFret] - xPosOfFretBorder[lowFret];
@@ -361,6 +375,27 @@ inline function moveFretBorder(fretPos){
 }
 
 
+inline function moveForceString(stringToForce){
+	local whatToForce;
+
+	for(image in ForceStringImages){
+		image.set("visible", false);
+	}
+
+	if(stringToForce != -1){
+		whatToForce = ForceStringImages[stringToForce];
+	
+		whatToForce.set("visible", true);
+	}
+}
+
+
+
+
+
+
+
+
 
 
 
@@ -376,7 +411,7 @@ function onNoteOn()
 	
 	keyswitchForceFret(notePlayed, velocityPlayed);
 	
-
+	moveForceString(Globals.forcedString);
 	
 	Synth.startTimer(0.05);
 	

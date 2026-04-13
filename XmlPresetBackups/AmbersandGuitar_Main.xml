@@ -9,8 +9,8 @@
         <Processor Type="ScriptProcessor" ID="Interface" Bypassed="0">
           <ChildProcessors/>
           <Content>
-            <Control type="ScriptSlider" id="HandPositionFretForceKnob" value="1.0"/>
-            <Control type="ScriptSlider" id="StringForceKnob" value="1.0"/>
+            <Control type="ScriptSlider" id="HandPositionFretForceKnob" value="5"/>
+            <Control type="ScriptSlider" id="StringForceKnob" value="7.0"/>
             <Control type="ScriptComboBox" id="FrettingEngineComboBox" value="1.0"/>
             <Control type="ScriptButton" id="ShowPlayingModeButton" value="1.0"/>
             <Control type="ScriptButton" id="ShowArticulationsButton" value="0.0"/>
@@ -119,8 +119,8 @@
                     </Processor>
                   </ChildProcessors>
                 </Processor>
-                <Processor Type="Velocity" ID="Velocity Modulator1" Bypassed="0" Intensity="0.8999999761581421"
-                           UseTable="0.0" Inverted="0.0" DecibelMode="0.0">
+                <Processor Type="Velocity" ID="Velocity Modulator1" Bypassed="0" Intensity="0.7200000286102295"
+                           UseTable="0.0" Inverted="0.0" DecibelMode="1.0">
                   <ChildProcessors/>
                 </Processor>
               </ChildProcessors>
