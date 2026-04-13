@@ -391,6 +391,66 @@ inline function moveForceString(stringToForce){
 
 
 
+// initializing DSP FX GUI
+
+const var ConvolutionReverb1 = Synth.getEffect("ConvolutionReverb1");
+const var ConvolutionReverb1Sample = Synth.getAudioSampleProcessor("ConvolutionReverb1");
+
+const var cmbIr = Content.getComponent("cmbIr");
+const irs = Engine.loadAudioFilesIntoPool();
+cmbIr.set("items", "");
+
+
+inline function oncmbIrControl(component, value)
+{
+	if(value > 0)
+		ConvolutionReverb1Sample.setFile(irs[value - 1]);
+};
+
+Content.getComponent("cmbIr").setControlCallback(oncmbIrControl);
+
+
+for (var i = 0; i < irs.length; i++){
+	if(!irs[i].contains("xfade")){
+		cmbIr.addItem(irs[i].replace("{PROJECT_FOLDER}").replace(".wav"));
+	}
+
+
+}
+
+
+
+
+const var IRMixKnob = Content.getComponent("IRMixKnob");
+
+inline function onIRMixKnobControl(component, value)
+{
+	local dryLinear = Math.cos(Math.PI * value / 2);
+	local wetLinear = Math.sin(Math.PI * value / 2);
+	
+		// noticing a boost in the middle position. This'll hopefully reduce that
+		local centerComp = 1.0 - 0.2 * Math.sin(Math.PI * value);
+		dryLinear *= centerComp;
+		wetLinear *= centerComp;
+		
+		 
+	
+	local dryGain = 20 * Math.log10(dryLinear);
+	local wetGain = 20 * Math.log10(wetLinear);
+	
+	  
+	
+		dryGain = dryGain - 6;
+	ConvolutionReverb1.setAttribute(ConvolutionReverb1.DryGain, dryGain);
+	ConvolutionReverb1.setAttribute(ConvolutionReverb1.WetGain, wetGain);
+};
+
+Content.getComponent("IRMixKnob").setControlCallback(onIRMixKnobControl);
+
+
+
+
+
 
 
 

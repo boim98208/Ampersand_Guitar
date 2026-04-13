@@ -20,7 +20,7 @@ Synth.stopTimer();
 
 //const var releaseAddition = [-2, -3, -4, -5, -6];
 
-const var startReleaseVolume = 8;
+const var startReleaseVolume = 10;
 var releaseVolumeOverTime = startReleaseVolume;
 //note to self, figure out if you can fade between your pseudo releases
 const var releaseTimeSeconds = .03;
@@ -71,7 +71,7 @@ local numOfReleases;
 	if(isReleased){
 	
 		if(Message.isArtificial()){
-			Console.print("are you artificial");
+
 		}
 		
 		
@@ -84,7 +84,7 @@ local numOfReleases;
 			{
 			releaseNote = noteReleased + releaseAdditionWhenHigh[releaseAdditionIndex];
 			numOfReleases = releaseAdditionWhenHigh.length;
-			Console.print("releasing high notes");
+
 			}
 		
 		
@@ -93,7 +93,7 @@ local numOfReleases;
 		else
 		{
 			id = Synth.playNote(releaseNote, noteVelocity);
-			Console.print("it is changing");
+
 		}
 		
 		
@@ -105,7 +105,7 @@ local numOfReleases;
 		Synth.startTimer(releaseTimeSeconds);
 		
 		if(releaseAdditionIndex == numOfReleases - 1){ 
-		Console.print("stop releasing");
+
 			isReleased = false;
 			releaseAdditionIndex = 0;
 		}

@@ -492,8 +492,7 @@ if(isBetweenIncl(notePlayed, LOWESTNOTE, HIGHESTNOTE)){
 				
 			}else{
 				
-				Console.print("you should be playing here");
-				Console.print(Globals.forcedHandPositionFret);
+
 				Globals.handPositionFret = naturalFretting2_2_1(notePlayed, Globals.forcedHandPositionFret);
 			}
 		}else if(Globals.frettingEngine == FrettingEngine.MELODY)
