@@ -19,7 +19,7 @@
  
  OPENSTRINGNOTES.push(OPENSTRINGNONOTE);
 
-
+var legatoRange = 2;
 
  
  namespace Stringtype
@@ -468,8 +468,50 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
 	 }else{
 		 return num;
 	 }
- }
+ } 
  
+ 
+ inline function legatoNote(notePlayed, velocityPlayed){
+ 	 if(isPolyphonyPlaying());
+  }
+ 
+ 
+ //interfacing between different fretting engines
+ 
+ inline function playNextNote(notePlayed, velocityPlayed){
+	 
+ 	if(Globals.frettingEngine == FrettingEngine.NATURAL)
+ 			{
+ 		
+ 				if(Globals.forcedHandPositionFret == -1)
+ 				{
+ 		
+ 					Globals.handPositionFret = naturalFretting2_2_1(notePlayed, Globals.handPositionFret);
+ 					
+ 				}else{
+ 					
+ 	
+ 					Globals.handPositionFret = naturalFretting2_2_1(notePlayed, Globals.forcedHandPositionFret);
+ 				}
+ 			}else if(Globals.frettingEngine == FrettingEngine.MELODY)
+ 			{
+ 		
+ 				if(Globals.forcedHandPositionFret == -1)
+ 						{
+ 							Globals.handPositionFret = melodyFretting1_0_0(notePlayed, Globals.handPositionFret);
+ 							
+ 						}else
+ 						{
+ 							Globals.handPositionFret = melodyFretting1_0_0(notePlayed, Globals.forcedHandPositionFret);
+ 						}
+ 			}
+ 			
+ 			//Had a bug where handPositionFret became -4 and I have no idea why so I'm normalizing out of caution
+ 			if(Globals.handPositionFret < 0){
+ 				Globals.handPositionFret = 0;
+ 			}
+	 
+ }
  
  
  
@@ -482,39 +524,12 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
 	//easy way to implement strumming system? Look into later
 	//Message.delayEvent((notePlayed - LOWESTNOTE) * 1000);
 	
+	if(isPoly)
+	
 if(isBetweenIncl(notePlayed, LOWESTNOTE, HIGHESTNOTE)){
 
-	
-		if(Globals.frettingEngine == FrettingEngine.NATURAL)
-		{
-	
-			if(Globals.forcedHandPositionFret == -1)
-			{
-	
-				Globals.handPositionFret = naturalFretting2_2_1(notePlayed, Globals.handPositionFret);
-				
-			}else{
-				
-
-				Globals.handPositionFret = naturalFretting2_2_1(notePlayed, Globals.forcedHandPositionFret);
-			}
-		}else if(Globals.frettingEngine == FrettingEngine.MELODY)
-		{
-	
-			if(Globals.forcedHandPositionFret == -1)
-					{
-						Globals.handPositionFret = melodyFretting1_0_0(notePlayed, Globals.handPositionFret);
-						
-					}else
-					{
-						Globals.handPositionFret = melodyFretting1_0_0(notePlayed, Globals.forcedHandPositionFret);
-					}
-		}
+	playNextNote(notePlayed, velocityPlayed);
 		
-		//Had a bug where handPositionFret became -4 and I have no idea why so I'm normalizing out of caution
-		if(Globals.handPositionFret < 0){
-			Globals.handPositionFret = 0;
-		}
 	
 	}
 	

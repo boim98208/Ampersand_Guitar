@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Processor Type="SynthChain" ID="AmbersandGuitar_Main" Bypassed="0" Gain="1.0"
-           Balance="0.0" VoiceLimit="64.0" KillFadeTime="20.0" IconColour="0"
-           packageName="" BuildVersion="650">
+<Processor Type="SynthChain" ID="AmbersandGuitar_testingHammerons" Bypassed="0"
+           Gain="1.0" Balance="0.0" VoiceLimit="64.0" KillFadeTime="20.0"
+           IconColour="0" packageName="" BuildVersion="650">
   <ChildProcessors>
     <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
       <ChildProcessors>
         <Processor Type="ScriptProcessor" ID="Interface" Bypassed="0">
           <ChildProcessors/>
           <Content>
-            <Control type="ScriptSlider" id="HandPositionFretForceKnob" value="9.0"/>
-            <Control type="ScriptSlider" id="StringForceKnob" value="1.0"/>
+            <Control type="ScriptSlider" id="HandPositionFretForceKnob" value="15"/>
+            <Control type="ScriptSlider" id="StringForceKnob" value="7.0"/>
             <Control type="ScriptComboBox" id="FrettingEngineComboBox" value="1.0"/>
             <Control type="ScriptButton" id="ResetGlobalRRButton" value="0.0"/>
-            <Control type="ScriptSlider" id="IRMixKnob" value="0.5899999737739563"/>
-            <Control type="ScriptComboBox" id="cmbIr" value="1.0"/>
+            <Control type="ScriptSlider" id="IRMixKnob" value="0.6299999952316284"/>
+            <Control type="ScriptComboBox" id="cmbIr" value="2.0"/>
             <Control type="ScriptButton" id="ShowPlayingModeButton" value="1.0"/>
             <Control type="ScriptButton" id="ShowArticulationsButton" value="0.0"/>
-            <Control type="ScriptButton" id="ShowDebugPanelButton" value="1.0"/>
+            <Control type="ScriptButton" id="ShowDebugPanelButton" value="0.0"/>
           </Content>
-          <UIData Source="AmbersandGuitar_MainUIData"/>
+          <UIData Source="AmbersandGuitar_testingHammeronsUIData"/>
         </Processor>
         <Processor Type="ScriptProcessor" ID="FretDisplayScript" Bypassed="0">
           <ChildProcessors/>
@@ -38,10 +38,10 @@
     </Processor>
     <Processor Type="EffectChain" ID="FX" Bypassed="0">
       <ChildProcessors>
-        <Processor Type="Convolution" ID="ConvolutionReverb1" Bypassed="0" DryGain="-12.28329753875732"
-                   WetGain="-3.794029235839844" Latency="0.0" ImpulseLength="1.0"
+        <Processor Type="Convolution" ID="ConvolutionReverb1" Bypassed="0" DryGain="-12.9696102142334"
+                   WetGain="-3.319294214248657" Latency="0.0" ImpulseLength="1.0"
                    ProcessInput="1.0" UseBackgroundThread="0.0" Predelay="0.0" HiCut="20000.0"
-                   Damping="0.0" FFTType="5.0" FileName="{PROJECT_FOLDER}Ample M (rec 50 perc).wav"
+                   Damping="0.0" FFTType="5.0" FileName="{PROJECT_FOLDER}Ample SJ (rec 43 percent).wav"
                    min="0" max="8192" loopStart="0" loopEnd="8192">
           <ChildProcessors/>
           <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
@@ -71,7 +71,7 @@
         <Processor Type="EffectChain" ID="FX" Bypassed="0">
           <ChildProcessors/>
         </Processor>
-        <Processor Type="StreamingSampler" ID="Container0String6Sampler" Bypassed="0"
+        <Processor Type="StreamingSampler" ID="Container0String6Sampler" Bypassed="1"
                    Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                    IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                    SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
@@ -150,7 +150,7 @@
                   <ChildProcessors/>
                   <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
                 </Processor>
-                <Processor Type="SimpleGain" ID="Simple Gain1" Bypassed="1" Gain="7.45661449432373"
+                <Processor Type="SimpleGain" ID="Simple Gain1" Bypassed="0" Gain="2.101564884185791"
                            Delay="0.0" Width="100.0" Balance="0.0" InvertPolarity="0.0">
                   <ChildProcessors>
                     <Processor Type="ModulatorChain" ID="Gain Modulation" Bypassed="0" Intensity="1.0">
@@ -168,13 +168,6 @@
                   </ChildProcessors>
                   <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
                 </Processor>
-                <Processor Type="CurveEq" ID="Parametriq EQ1" Bypassed="1" NumFilters="2"
-                           Band0="0.0" Band1="216.9715728759766" Band2="1.0" Band3="1.0"
-                           Band4="2.0" Band5="-4.468967437744141" Band6="823.6689453125"
-                           Band7="1.0" Band8="1.0" Band9="4.0" FFTEnabled="1">
-                  <ChildProcessors/>
-                  <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
-                </Processor>
               </ChildProcessors>
             </Processor>
             <Processor Type="ModulatorChain" ID="Sample Start" Bypassed="0" Intensity="1.0">
@@ -189,7 +182,123 @@
             <channelData enabled="1" level="0.0" suffix=""/>
           </channels>
         </Processor>
-        <Processor Type="StreamingSampler" ID="Container0String5Sampler" Bypassed="0"
+        <Processor Type="StreamingSampler" ID="Container0String6LegSampler" Bypassed="0"
+                   Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
+                   IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
+                   SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
+                   OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
+                   NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
+                   Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
+                   Group7Table="" SampleMapID="Denoised/sustain_string6_denoise_1_0_0_pseudolegato">
+          <ChildProcessors>
+            <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
+              <ChildProcessors>
+                <Processor Type="ScriptProcessor" ID="Container0String6LegChnlRoute" Bypassed="0">
+                  <ChildProcessors/>
+                  <Content/>
+                  <UIData>
+                    <ContentProperties DeviceType="Desktop"/>
+                  </UIData>
+                </Processor>
+              </ChildProcessors>
+            </Processor>
+            <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
+              <ChildProcessors>
+                <Processor Type="AHDSR" ID="AHDSR Envelope7" Bypassed="0" Monophonic="0.0"
+                           Retrigger="1.0" Intensity="1.0" AttackCurve="0.9200000166893005"
+                           DecayCurve="0.0" Attack="5.0" AttackLevel="0.0" Hold="10.0" Decay="300.0"
+                           Sustain="0.0" Release="135.684326171875" EcoMode="1.0">
+                  <ChildProcessors>
+                    <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
+                      <ChildProcessors/>
+                    </Processor>
+                    <Processor Type="ModulatorChain" ID="Attack Level" Bypassed="0" Intensity="1.0">
+                      <ChildProcessors/>
+                    </Processor>
+                    <Processor Type="ModulatorChain" ID="Decay Time" Bypassed="0" Intensity="1.0">
+                      <ChildProcessors/>
+                    </Processor>
+                    <Processor Type="ModulatorChain" ID="Sustain Level" Bypassed="0" Intensity="1.0">
+                      <ChildProcessors/>
+                    </Processor>
+                    <Processor Type="ModulatorChain" ID="Release Time" Bypassed="0" Intensity="1.0">
+                      <ChildProcessors/>
+                    </Processor>
+                  </ChildProcessors>
+                </Processor>
+                <Processor Type="Velocity" ID="Velocity Modulator7" Bypassed="0" Intensity="0.7200000286102295"
+                           UseTable="0.0" Inverted="0.0" DecibelMode="1.0">
+                  <ChildProcessors/>
+                </Processor>
+              </ChildProcessors>
+            </Processor>
+            <Processor Type="ModulatorChain" ID="PitchModulation" Bypassed="0" Intensity="0.0">
+              <ChildProcessors>
+                <Processor Type="Random" ID="Random Modulator7" Bypassed="0" Intensity="0.001666666590608656"
+                           Bipolar="1" UseTable="0.0" RandomTableData="">
+                  <ChildProcessors/>
+                </Processor>
+                <Processor Type="PitchWheel" ID="Pitch Wheel Modulator7" Bypassed="0" Intensity="0.1666666716337204"
+                           Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="200.0">
+                  <ChildProcessors/>
+                </Processor>
+              </ChildProcessors>
+            </Processor>
+            <Processor Type="EffectChain" ID="FX" Bypassed="0">
+              <ChildProcessors>
+                <Processor Type="Convolution" ID="ConvolutionReverbSubs2" Bypassed="0" DryGain="0.0"
+                           WetGain="-6.800000190734863" Latency="0.0" ImpulseLength="1.0"
+                           ProcessInput="1.0" UseBackgroundThread="0.0" Predelay="0.0" HiCut="20.0"
+                           Damping="0.0" FFTType="5.0" FileName="D:\Cakewalk Content\guitar crap\guitar irs\Catharsis IRs\2off-pres8.wav"
+                           min="0" max="439" loopStart="0" loopEnd="439">
+                  <ChildProcessors/>
+                  <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
+                </Processor>
+                <Processor Type="SimpleGain" ID="Simple Gain2" Bypassed="0" Gain="2.101564884185791"
+                           Delay="0.0" Width="100.0" Balance="0.0" InvertPolarity="0.0">
+                  <ChildProcessors>
+                    <Processor Type="ModulatorChain" ID="Gain Modulation" Bypassed="0" Intensity="1.0">
+                      <ChildProcessors/>
+                    </Processor>
+                    <Processor Type="ModulatorChain" ID="Delay Modulation" Bypassed="0" Intensity="1.0">
+                      <ChildProcessors/>
+                    </Processor>
+                    <Processor Type="ModulatorChain" ID="Width Modulation" Bypassed="0" Intensity="1.0">
+                      <ChildProcessors/>
+                    </Processor>
+                    <Processor Type="ModulatorChain" ID="Pan Modulation" Bypassed="0" Intensity="1.0">
+                      <ChildProcessors/>
+                    </Processor>
+                  </ChildProcessors>
+                  <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
+                </Processor>
+                <Processor Type="CurveEq" ID="Parametriq EQ2" Bypassed="1" NumFilters="2"
+                           Band0="0.0" Band1="216.9715728759766" Band2="1.0" Band3="1.0"
+                           Band4="2.0" Band5="-4.468967437744141" Band6="823.6689453125"
+                           Band7="1.0" Band8="1.0" Band9="4.0" FFTEnabled="1">
+                  <ChildProcessors/>
+                  <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
+                </Processor>
+              </ChildProcessors>
+            </Processor>
+            <Processor Type="ModulatorChain" ID="Sample Start" Bypassed="0" Intensity="1.0">
+              <ChildProcessors>
+                <Processor Type="Constant" ID="Container0String6LegOffset" Bypassed="0"
+                           Intensity="0.3600000143051147">
+                  <ChildProcessors/>
+                </Processor>
+              </ChildProcessors>
+            </Processor>
+            <Processor Type="ModulatorChain" ID="Group Fade" Bypassed="0" Intensity="1.0">
+              <ChildProcessors/>
+            </Processor>
+          </ChildProcessors>
+          <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
+          <channels>
+            <channelData enabled="1" level="0.0" suffix=""/>
+          </channels>
+        </Processor>
+        <Processor Type="StreamingSampler" ID="Container0String5Sampler" Bypassed="1"
                    Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                    IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                    SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
@@ -273,7 +382,7 @@
             <channelData enabled="1" level="0.0" suffix=""/>
           </channels>
         </Processor>
-        <Processor Type="StreamingSampler" ID="Container0String4Sampler" Bypassed="0"
+        <Processor Type="StreamingSampler" ID="Container0String4Sampler" Bypassed="1"
                    Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                    IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                    SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
@@ -357,7 +466,7 @@
             <channelData enabled="1" level="0.0" suffix=""/>
           </channels>
         </Processor>
-        <Processor Type="StreamingSampler" ID="Container0String3Sampler" Bypassed="0"
+        <Processor Type="StreamingSampler" ID="Container0String3Sampler" Bypassed="1"
                    Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                    IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                    SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
@@ -441,7 +550,7 @@
             <channelData enabled="1" level="0.0" suffix=""/>
           </channels>
         </Processor>
-        <Processor Type="StreamingSampler" ID="Container0String2Sampler" Bypassed="0"
+        <Processor Type="StreamingSampler" ID="Container0String2Sampler" Bypassed="1"
                    Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                    IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                    SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
@@ -525,7 +634,7 @@
             <channelData enabled="1" level="0.0" suffix=""/>
           </channels>
         </Processor>
-        <Processor Type="StreamingSampler" ID="Container0String1Sampler" Bypassed="0"
+        <Processor Type="StreamingSampler" ID="Container0String1Sampler" Bypassed="1"
                    Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                    IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                    SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
