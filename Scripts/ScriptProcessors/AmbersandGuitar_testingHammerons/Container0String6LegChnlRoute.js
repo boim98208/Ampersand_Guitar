@@ -1,7 +1,6 @@
 const var releaseAddition = [10, 11, 10];
 const var releaseAdditionWhenHigh = [-3, -4, -5];
-const var emulatedReleasesOn = Globals.emulatedReleasesOn;
-const var OPENSTRINGNOTE = 67;
+const var OPENSTRINGNOTE = 52;
 const var NOTEPERSTRING = 22;
 const var POINTTOCHANGERELEASE = OPENSTRINGNOTE + (NOTEPERSTRING/2);
 
@@ -20,7 +19,7 @@ Synth.stopTimer();
 
 //const var releaseAddition = [-2, -3, -4, -5, -6];
 
-const var startReleaseVolume = 10;
+const var startReleaseVolume = 1;
 var releaseVolumeOverTime = startReleaseVolume;
 //note to self, figure out if you can fade between your pseudo releases
 const var releaseTimeSeconds = .01;
@@ -28,12 +27,14 @@ function onNoteOn()
 {
 
 
-	if(Message.getChannel() != 3){
+//system maybe is to use midi channels plus 6 to activate the legato?
+
+	if(Message.getChannel() != 6){
 		
 		Message.ignoreEvent(true);
 	}else{
 		//is now playing the note and updates	
-		Globals.string3ActiveRR = Sampler.getActiveRRGroup();
+		Globals.string6ActiveRR = Sampler.getActiveRRGroup();
 		noteVelocity = Message.getVelocity();
 		
 	}
@@ -42,13 +43,13 @@ function onNoteOn()
  function onNoteOff()
 {
 
-	if(Message.getChannel() != 3){
+	if(Message.getChannel() != 6){
 		Message.ignoreEvent(true);
 	}else{
 		noteReleased = Message.getNoteNumber();
 		isReleased = true;
 		Synth.startTimer(0.01);
-		Globals.string3ActiveRR = "not playing";
+		Globals.string6ActiveRR = "not playing";
 	}
 }
  function onController()
@@ -60,7 +61,9 @@ function onNoteOn()
 local releaseNote;
 local numOfReleases;
 
- if(!Globals.emulatedReleasesOn){
+ if(0){
+	 
+ 
 	 return;
  
 	}
