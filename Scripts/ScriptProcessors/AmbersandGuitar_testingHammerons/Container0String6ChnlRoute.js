@@ -4,7 +4,7 @@ const var OPENSTRINGNOTE = 52;
 const var NOTEPERSTRING = 22;
 const var POINTTOCHANGERELEASE = OPENSTRINGNOTE + (NOTEPERSTRING/2);
 const var LEGATOCHNLOFFSET = 6;
-
+Globals.string6Id = -99;
 
 
 reg releaseNoteNum = 0;
@@ -28,21 +28,20 @@ function onNoteOn()
 {
 	
 	Message.makeArtificial();
-
 	Console.print(Message.getChannel());
 	
 	if(Message.getChannel() == 6){
-		//is now playing the note and updates	
+		//is now playing the note and updates
+		Console.print("Yes I'm still going here");
 		Globals.string6ActiveRR = Sampler.getActiveRRGroup();
 		noteVelocity = Message.getVelocity();
-		id = Message.getEventId();
-		
-	}else if(Message.getChannel() == 6 + LEGATOCHNLOFFSET){
+		Globals.string6Id = Message.getEventId();
+	}/*else if(Message.getChannel() == 6 + LEGATOCHNLOFFSET){
 		Console.print("my id is " + id);
 		Console.print("this message's id is " + Message.getEventId());
 		Synth.noteOffByEventId(id);
 		Message.ignoreEvent(true);
-	}
+	}*/
 	else{
 		Message.ignoreEvent(true);
 	}
@@ -50,14 +49,12 @@ function onNoteOn()
 }
  function onNoteOff()
 {
-	Console.print(Message.getChannel());
-	Console.print("am I still note offing");
+	Synth.stopTimer();
 	if(Message.getChannel() != 6){
 		Message.ignoreEvent(true);
 	}else{
-		Console.print("am I still note offing2");
 		isReleased = true;
-		Synth.startTimer(0.01);
+		Synth.startTimer(0.02);
 		Globals.string6ActiveRR = "not playing";
 	}
 }
@@ -67,6 +64,7 @@ function onNoteOn()
 }
  function onTimer()
 {
+
 
 local releaseNote;
 local numOfReleases;
@@ -80,12 +78,8 @@ local numOfReleases;
 		Synth.noteOffByEventId(id);
 	
 	if(isReleased){
-	
-		if(Message.isArtificial()){
+		
 
-		}
-		
-		
 		if(noteReleased < POINTTOCHANGERELEASE)
 			{		
 			releaseNote = noteReleased + releaseAddition[releaseAdditionIndex];
@@ -103,6 +97,7 @@ local numOfReleases;
 			id = Synth.playNote(releaseNote, 1);
 		else
 		{
+			//Console.print("you work just fine before");
 			id = Synth.playNote(releaseNote, noteVelocity);
 
 		}

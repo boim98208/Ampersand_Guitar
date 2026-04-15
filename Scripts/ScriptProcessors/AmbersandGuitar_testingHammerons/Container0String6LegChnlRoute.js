@@ -36,7 +36,8 @@ function onNoteOn()
 		//is now playing the note and updates	
 	//	Globals.string6ActiveRR = Sampler.getActiveRRGroup();
 		noteVelocity = Message.getVelocity();
-		
+		Console.print(Globals.string6Id);
+		Synth.noteOffByEventId(Globals.string6Id);
 		
 		
 	}
@@ -45,14 +46,14 @@ function onNoteOn()
  function onNoteOff()
 {
 
-	if(Message.getChannel() != 6){
+	if(Message.getChannel() != 12){
 		Message.ignoreEvent(true);
 	}else{
 		Console.print("should have released");
 	
 		noteReleased = Message.getNoteNumber();
 		isReleased = true;
-	//	Synth.startTimer(0.01);
+		Synth.startTimer(0.01);
 	//	Globals.string6ActiveRR = "not playing";
 	}
 }

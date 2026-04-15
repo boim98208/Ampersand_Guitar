@@ -82,7 +82,7 @@
           <ChildProcessors>
             <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
               <ChildProcessors>
-                <Processor Type="MidiMuter" ID="Container0String6Mute" Bypassed="0">
+                <Processor Type="MidiMuter" ID="Container0String6Mute" Bypassed="1">
                   <ChildProcessors/>
                   <Content>
                     <Control type="ScriptButton" id="ignoreButton" value="0.0"/>

@@ -590,6 +590,10 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
     if(stringNote[Stringtype.STRING6] == releasedNote){
         stringNote[Stringtype.STRING6] = -1;
         playString(Stringtype.STRING6);
+        //playString(Stringtype.STRING6LEG);
+        //todo: DONT just have playString STRING6LEG in this or else it'll still trigger normal string6
+        
+        
     }else if(stringNote[Stringtype.STRING5] == releasedNote){
         stringNote[Stringtype.STRING5] = -1;
         playString(Stringtype.STRING5);
