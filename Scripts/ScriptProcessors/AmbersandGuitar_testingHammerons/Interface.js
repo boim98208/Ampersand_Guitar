@@ -14,6 +14,7 @@ Globals.legatoRange = 2;
 
 const var NOTESPERSTRING = 22;
 
+//figure this out later
 Globals.emulatedReleasesOn = true;
 
 

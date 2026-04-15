@@ -1,4 +1,4 @@
-const var releaseAddition = [10, 11, 10];
+const var releaseAddition = [0,0];
 const var releaseAdditionWhenHigh = [-3, -4, -5];
 const var OPENSTRINGNOTE = 52;
 const var NOTEPERSTRING = 22;
@@ -26,37 +26,33 @@ var releaseVolumeOverTime = startReleaseVolume;
 const var releaseTimeSeconds = .01;
 function onNoteOn()
 {
+    if(Message.getChannel() != 12){
+        Message.ignoreEvent(true);
+    }else{
+        Message.makeArtificial(); 
+        noteVelocity = Message.getVelocity();
+        Synth.stopTimer();        
+        isReleased = false;
+        releaseAdditionIndex = 0;
+        releaseVolumeOverTime = startReleaseVolume;
 
-
-//system maybe is to use midi channels plus 6 to activate the legato?
-	if(Message.getChannel() != 12){
-		
-		Message.ignoreEvent(true);
-	}else{
-		//is now playing the note and updates	
-	//	Globals.string6ActiveRR = Sampler.getActiveRRGroup();
-		noteVelocity = Message.getVelocity();
-		
-		
-		
-	}
-	
-}
- function onNoteOff()
+        if(id != -99){
+            Synth.noteOffByEventId(id); 
+        }
+        id = Message.getEventId(); 
+        Globals.string6ActiveRR = Sampler.getActiveRRGroup();
+    }
+}function onNoteOff()
 {
-
-	if(Message.getChannel() != 6){
-		Message.ignoreEvent(true);
-	}else{
-		Console.print("should have released");
-	
-		noteReleased = Message.getNoteNumber();
-		isReleased = true;
-	//	Synth.startTimer(0.01);
-	//	Globals.string6ActiveRR = "not playing";
-	}
-}
- jfunction onController()
+    if(Message.getChannel() != 12){
+        Message.ignoreEvent(true);
+    }else{
+        noteReleased = Message.getNoteNumber();
+        releaseVolumeOverTime = startReleaseVolume;
+        isReleased = true;
+        Synth.startTimer(0.01);
+    }
+}function onController()
 {
 	
 }
@@ -65,9 +61,7 @@ function onNoteOn()
 local releaseNote;
 local numOfReleases;
 
- if(0){
-	 
- 
+ if(!Globals.emulatedReleasesOn){
 	 return;
  
 	}
@@ -77,9 +71,6 @@ local numOfReleases;
 	
 	if(isReleased){
 	
-		if(Message.isArtificial()){
-
-		}
 		
 		
 		if(noteReleased < POINTTOCHANGERELEASE)
@@ -112,7 +103,6 @@ local numOfReleases;
 		Synth.startTimer(releaseTimeSeconds);
 		
 		if(releaseAdditionIndex == numOfReleases - 1){ 
-
 			isReleased = false;
 			releaseAdditionIndex = 0;
 		}

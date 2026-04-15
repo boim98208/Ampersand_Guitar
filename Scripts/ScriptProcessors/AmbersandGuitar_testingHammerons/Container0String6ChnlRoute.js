@@ -6,7 +6,6 @@ const var POINTTOCHANGERELEASE = OPENSTRINGNOTE + (NOTEPERSTRING/2);
 const var LEGATOCHNLOFFSET = 6;
 
 
-
 reg releaseNoteNum = 0;
 reg isReleased = 0;
 reg releaseAdditionIndex = 0;
@@ -14,9 +13,6 @@ reg id = -99;
 reg noteReleased;
 reg noteVelocity = 60;
 
-
-
-Synth.stopTimer();
 
 //const var releaseAddition = [-2, -3, -4, -5, -6];
 
@@ -26,20 +22,21 @@ var releaseVolumeOverTime = startReleaseVolume;
 const var releaseTimeSeconds = .03;
 function onNoteOn()
 {
-	
-	Message.makeArtificial();
 
-	Console.print(Message.getChannel());
+
+	Message.makeArtificial();
 	
 	if(Message.getChannel() == 6){
-		//is now playing the note and updates	
+		//is now playing the note and updates
+		Synth.stopTimer();   
+		isReleased = false;
+		releaseAdditionIndex = 0;
 		Globals.string6ActiveRR = Sampler.getActiveRRGroup();
 		noteVelocity = Message.getVelocity();
 		id = Message.getEventId();
 		
 	}else if(Message.getChannel() == 6 + LEGATOCHNLOFFSET){
-		Console.print("my id is " + id);
-		Console.print("this message's id is " + Message.getEventId());
+		
 		Synth.noteOffByEventId(id);
 		Message.ignoreEvent(true);
 	}
@@ -50,15 +47,16 @@ function onNoteOn()
 }
  function onNoteOff()
 {
-	Console.print(Message.getChannel());
-	Console.print("am I still note offing");
+
 	if(Message.getChannel() != 6){
 		Message.ignoreEvent(true);
 	}else{
-		Console.print("am I still note offing2");
 		isReleased = true;
-		Synth.startTimer(0.01);
+		noteReleased = Message.getNoteNumber();
+		releaseVolumeOverTime = startReleaseVolume;
 		Globals.string6ActiveRR = "not playing";
+		Synth.startTimer(0.02);
+		Synth.noteOffByEventId(id);
 	}
 }
   function onController()
@@ -67,7 +65,6 @@ function onNoteOn()
 }
  function onTimer()
 {
-
 local releaseNote;
 local numOfReleases;
 
@@ -81,9 +78,6 @@ local numOfReleases;
 	
 	if(isReleased){
 	
-		if(Message.isArtificial()){
-
-		}
 		
 		
 		if(noteReleased < POINTTOCHANGERELEASE)
@@ -103,7 +97,9 @@ local numOfReleases;
 			id = Synth.playNote(releaseNote, 1);
 		else
 		{
-			id = Synth.playNote(releaseNote, noteVelocity);
+		//consider having go either the volume of the note played or something else
+
+			id = Synth.playNote(releaseNote, 60);
 
 		}
 		
@@ -116,7 +112,6 @@ local numOfReleases;
 		Synth.startTimer(releaseTimeSeconds);
 		
 		if(releaseAdditionIndex == numOfReleases - 1){ 
-
 			isReleased = false;
 			releaseAdditionIndex = 0;
 		}

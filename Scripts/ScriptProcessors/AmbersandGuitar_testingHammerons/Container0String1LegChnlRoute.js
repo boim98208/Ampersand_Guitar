@@ -1,11 +1,12 @@
-const var releaseAddition = [10, 11, 10];
+const var releaseAddition = [0,0];
 const var releaseAdditionWhenHigh = [-3, -4, -5];
-const var OPENSTRINGNOTE = 52;
+const var OPENSTRINGNOTE = 76;
 const var NOTEPERSTRING = 22;
 const var POINTTOCHANGERELEASE = OPENSTRINGNOTE + (NOTEPERSTRING/2);
-const var LEGATOCHNLOFFSET = 6;
 
 
+
+//values used in emulated releases
 reg releaseNoteNum = 0;
 reg isReleased = 0;
 reg releaseAdditionIndex = 0;
@@ -14,52 +15,43 @@ reg noteReleased;
 reg noteVelocity = 60;
 
 
+
+Synth.stopTimer();
+
 //const var releaseAddition = [-2, -3, -4, -5, -6];
 
-const var startReleaseVolume = 10;
+const var startReleaseVolume = 1;
 var releaseVolumeOverTime = startReleaseVolume;
 //note to self, figure out if you can fade between your pseudo releases
-const var releaseTimeSeconds = .03;
+const var releaseTimeSeconds = .01;
 function onNoteOn()
 {
+    if(Message.getChannel() != 7){
+        Message.ignoreEvent(true);
+    }else{
+        Message.makeArtificial(); 
+        noteVelocity = Message.getVelocity();
+        Synth.stopTimer();        
+        isReleased = false;
+        releaseAdditionIndex = 0;
+        releaseVolumeOverTime = startReleaseVolume;
 
-
-	Message.makeArtificial();
-	
-	if(Message.getChannel() == 6){
-		//is now playing the note and updates
-		Synth.stopTimer();   
-		isReleased = false;
-		releaseAdditionIndex = 0;
-		Globals.string6ActiveRR = Sampler.getActiveRRGroup();
-		noteVelocity = Message.getVelocity();
-		id = Message.getEventId();
-		
-	}else if(Message.getChannel() == 6 + LEGATOCHNLOFFSET){
-		
-		Synth.noteOffByEventId(id);
-		Message.ignoreEvent(true);
-	}
-	else{
-		Message.ignoreEvent(true);
-	}
-	
-}
- function onNoteOff()
+        if(id != -99){
+            Synth.noteOffByEventId(id); 
+        }
+        id = Message.getEventId(); 
+    }
+}function onNoteOff()
 {
-
-	if(Message.getChannel() != 6){
-		Message.ignoreEvent(true);
-	}else{
-		isReleased = true;
-		noteReleased = Message.getNoteNumber();
-		releaseVolumeOverTime = startReleaseVolume;
-		Globals.string6ActiveRR = "not playing";
-		Synth.startTimer(0.02);
-		Synth.noteOffByEventId(id);
-	}
-}
-  function onController()
+    if(Message.getChannel() != 7){
+        Message.ignoreEvent(true);
+    }else{
+        noteReleased = Message.getNoteNumber();
+        releaseVolumeOverTime = startReleaseVolume;
+        isReleased = true;
+        Synth.startTimer(0.01);
+    }
+}function onController()
 {
 	
 }
@@ -97,9 +89,7 @@ local numOfReleases;
 			id = Synth.playNote(releaseNote, 1);
 		else
 		{
-		//consider having go either the volume of the note played or something else
-
-			id = Synth.playNote(releaseNote, 60);
+			id = Synth.playNote(releaseNote, noteVelocity);
 
 		}
 		
