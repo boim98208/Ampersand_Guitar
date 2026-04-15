@@ -40,6 +40,7 @@ function onNoteOn()
             Synth.noteOffByEventId(id); 
         }
         id = Message.getEventId(); 
+        Globals.string6ActiveRR = Sampler.getActiveRRGroup();
     }
 }function onNoteOff()
 {

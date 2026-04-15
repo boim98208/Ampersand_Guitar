@@ -491,11 +491,13 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
 	//exit early because it should just play the note on a new string
 	if(!isPolyphonyPlaying())
 	{
+	Console.print("where are you");
+
 		return false;
 	}
 	
 		
- 	 for(i = 0; i < NUMOFSTRINGS || !noteInRange; i++){
+ 	 for(i = 0; i < NUMOFSTRINGS && !noteInRange; i++){
  	 
  	 
 	 	 if(isBetweenIncl(notePlayed, stringNote[i] - Globals.legatoRange, stringNote[i] + Globals.legatoRange)){
@@ -572,17 +574,16 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
 
 
 
-	if(!playNextNoteLegato(notePlayed, velocityPlayed)){
+//	if(!playNextNoteLegato(notePlayed, velocityPlayed)){
 
 
-	Console.print("bruh");
 	playNextNoteOnNewString(notePlayed, velocityPlayed);
 		
 	
 	
-	}else{
-		Console.print("did you work");
-	}
+//	}else{
+//		Console.print("did you work");
+//	}
 
 	
 	

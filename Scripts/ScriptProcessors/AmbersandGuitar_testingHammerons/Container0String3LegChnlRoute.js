@@ -1,6 +1,6 @@
 const var releaseAddition = [0,0];
 const var releaseAdditionWhenHigh = [-3, -4, -5];
-const var OPENSTRINGNOTE = 52;
+const var OPENSTRINGNOTE = 67;
 const var NOTEPERSTRING = 22;
 const var POINTTOCHANGERELEASE = OPENSTRINGNOTE + (NOTEPERSTRING/2);
 
@@ -26,7 +26,7 @@ var releaseVolumeOverTime = startReleaseVolume;
 const var releaseTimeSeconds = .01;
 function onNoteOn()
 {
-    if(Message.getChannel() != 12){
+    if(Message.getChannel() != 9){
         Message.ignoreEvent(true);
     }else{
         Message.makeArtificial(); 
@@ -43,7 +43,7 @@ function onNoteOn()
     }
 }function onNoteOff()
 {
-    if(Message.getChannel() != 12){
+    if(Message.getChannel() != 9){
         Message.ignoreEvent(true);
     }else{
         noteReleased = Message.getNoteNumber();
