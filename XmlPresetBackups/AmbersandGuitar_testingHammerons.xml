@@ -9,7 +9,7 @@
         <Processor Type="ScriptProcessor" ID="Interface" Bypassed="0">
           <ChildProcessors/>
           <Content>
-            <Control type="ScriptSlider" id="HandPositionFretForceKnob" value="15"/>
+            <Control type="ScriptSlider" id="HandPositionFretForceKnob" value="-1"/>
             <Control type="ScriptSlider" id="StringForceKnob" value="7.0"/>
             <Control type="ScriptComboBox" id="FrettingEngineComboBox" value="1.0"/>
             <Control type="ScriptButton" id="ResetGlobalRRButton" value="0.0"/>
@@ -71,7 +71,7 @@
         <Processor Type="EffectChain" ID="FX" Bypassed="0">
           <ChildProcessors/>
         </Processor>
-        <Processor Type="StreamingSampler" ID="Container0String6Sampler" Bypassed="1"
+        <Processor Type="StreamingSampler" ID="Container0String6Sampler" Bypassed="0"
                    Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                    IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                    SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"

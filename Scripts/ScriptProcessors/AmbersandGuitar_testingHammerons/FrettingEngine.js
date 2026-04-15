@@ -19,8 +19,6 @@
  
  OPENSTRINGNOTES.push(OPENSTRINGNONOTE);
 
-var legatoRange = 2;
-
  
  namespace Stringtype
  {
@@ -31,7 +29,15 @@ var legatoRange = 2;
      const var STRING4 = 3;
      const var STRING5 = 4;
      const var STRING6 = 5;
-     const var NOSTRING = 6;
+     const var LEGATOOFFSET = 6;
+     
+     const var STRING1LEG = 6;
+     const var STRING2LEG = 7;
+     const var STRING3LEG = 8;
+     const var STRING4LEG = 9;
+     const var STRING5LEG = 10;
+     const var STRING6LEG = 11;
+     const var NOSTRING = 12;
  
  }
  
@@ -77,6 +83,7 @@ var legatoRange = 2;
  */
 var stringNote = [];
 var noteID = [];
+
 stringNote.reserve(NUMOFSTRINGS);
 for(i = 0; i < NUMOFSTRINGS; i++){
 	stringNote.push(-1);
@@ -151,7 +158,7 @@ inline function playString(theStringType){
  }
  
  inline function isPolyphonyPlaying(){
-	 return Synth.getNumPressedKeys() >= 1;
+	 return Synth.getNumPressedKeys() > 1;
  }
  
  //fretting engine designed for going low to high string then going back down
@@ -471,14 +478,49 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
  } 
  
  
- inline function legatoNote(notePlayed, velocityPlayed){
- 	 if(isPolyphonyPlaying());
+ inline function playNextNoteLegato(notePlayed, velocityPlayed)
+ {
+
+	local isNoteInRange = false;
+
+	//exit early because it should just play the note on a new string
+	if(!isPolyphonyPlaying())
+	{
+		return false;
+	}
+	
+		
+ 	 for(i = 0; i < NUMOFSTRINGS || !noteInRange; i++){
+	 Console.print(stringNote[i]);
+ 	 
+ 	 
+	 	 
+	 	 if(isBetweenIncl(notePlayed, stringNote[i] - Globals.legatoRange, stringNote[i] + Globals.legatoRange)){
+	 	 	 	 isNoteInRange = true;
+	 	 	 	 stringNote[i] = notePlayed;
+	 	 	 	 
+	 	 	 	 playString(i + Stringtype.LEGATOOFFSET);
+	 	 	 	 return isNoteInRange;
+	 	  	 }
+ 	 	
+ 	 	if(i > 13){
+	 	 	Console.print("legato script went for too long");
+ 	 	
+	 	 	return true;
+ 	 	}
+ 	 }
+ 	 
+ 	 //note was not close enough to trigger legato
+ 	 return isNoteInRange;
+ 	 
+ 	 
+ 	 
   }
  
  
  //interfacing between different fretting engines
  
- inline function playNextNote(notePlayed, velocityPlayed){
+ inline function playNextNoteOnNewString(notePlayed, velocityPlayed){
 	 
  	if(Globals.frettingEngine == FrettingEngine.NATURAL)
  			{
@@ -523,15 +565,18 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
 	
 	//easy way to implement strumming system? Look into later
 	//Message.delayEvent((notePlayed - LOWESTNOTE) * 1000);
-	
-	if(isPoly)
-	
-if(isBetweenIncl(notePlayed, LOWESTNOTE, HIGHESTNOTE)){
 
-	playNextNote(notePlayed, velocityPlayed);
+
+
+	if(!playNextNoteLegato(notePlayed, velocityPlayed)){
+
+
+	playNextNoteOnNewString(notePlayed, velocityPlayed);
 		
 	
+	
 	}
+
 	
 	
 }function onNoteOff()

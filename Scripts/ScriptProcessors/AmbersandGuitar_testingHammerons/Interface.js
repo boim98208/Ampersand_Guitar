@@ -8,6 +8,9 @@ Globals.stringNote4 = -1;
 Globals.stringNote5 = -1;
 Globals.stringNote6 = -1; 
 Globals.frettingEngine = 1;
+Globals.legatoRange = 2;
+
+
 const var NOTESPERSTRING = 22;
 
 Globals.emulatedReleasesOn = true;

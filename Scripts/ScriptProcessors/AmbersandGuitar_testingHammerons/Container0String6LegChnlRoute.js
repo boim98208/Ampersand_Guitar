@@ -28,14 +28,16 @@ function onNoteOn()
 
 
 //system maybe is to use midi channels plus 6 to activate the legato?
-
-	if(Message.getChannel() != 6){
+Console.print(Message.getChannel());
+	if(Message.getChannel() != 12){
 		
 		Message.ignoreEvent(true);
 	}else{
 		//is now playing the note and updates	
-		Globals.string6ActiveRR = Sampler.getActiveRRGroup();
+	//	Globals.string6ActiveRR = Sampler.getActiveRRGroup();
 		noteVelocity = Message.getVelocity();
+		
+		
 		
 	}
 	
@@ -43,13 +45,16 @@ function onNoteOn()
  function onNoteOff()
 {
 
-	if(Message.getChannel() != 6){
+	Console.print("the message is " + Message.getChannel());
+	if(Message.getChannel() != 12){
 		Message.ignoreEvent(true);
 	}else{
+		Console.print("should have released");
+	
 		noteReleased = Message.getNoteNumber();
 		isReleased = true;
 		Synth.startTimer(0.01);
-		Globals.string6ActiveRR = "not playing";
+	//	Globals.string6ActiveRR = "not playing";
 	}
 }
  function onController()

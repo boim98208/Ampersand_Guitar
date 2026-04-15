@@ -3,6 +3,7 @@ const var releaseAdditionWhenHigh = [-3, -4, -5];
 const var OPENSTRINGNOTE = 52;
 const var NOTEPERSTRING = 22;
 const var POINTTOCHANGERELEASE = OPENSTRINGNOTE + (NOTEPERSTRING/2);
+const var LEGATOCHNLOFFSET = 6;
 
 
 
@@ -25,25 +26,33 @@ var releaseVolumeOverTime = startReleaseVolume;
 const var releaseTimeSeconds = .03;
 function onNoteOn()
 {
+	
 
-
-	if(Message.getChannel() != 6){
 		
-		Message.ignoreEvent(true);
-	}else{
+	
+	if(Message.getChannel() == 6){
 		//is now playing the note and updates	
 		Globals.string6ActiveRR = Sampler.getActiveRRGroup();
 		noteVelocity = Message.getVelocity();
+		id = Message.getEventId();
 		
+	}else if(Message.getChannel() == 6 + LEGATOCHNLOFFSET){
+		Synth.noteOffByEventId(id);
+		Message.ignoreEvent(true);
+	}
+	else{
+		Message.ignoreEvent(true);
 	}
 	
 }
  function onNoteOff()
 {
+	
 
-	if(Message.getChannel() != 6){
+	if(Message.getChannel() != 6 || id != Message.getEventId()){
 		Message.ignoreEvent(true);
 	}else{
+	
 		noteReleased = Message.getNoteNumber();
 		isReleased = true;
 		Synth.startTimer(0.01);
