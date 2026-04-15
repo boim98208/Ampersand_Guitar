@@ -31,7 +31,7 @@ function onNoteOn()
 		Synth.stopTimer();   
 		isReleased = false;
 		releaseAdditionIndex = 0;
-		Globals.string6ActiveRR = Sampler.getActiveRRGroup();
+		Globals.string2ActiveRR = Sampler.getActiveRRGroup();
 		noteVelocity = Message.getVelocity();
 		id = Message.getEventId();
 		
@@ -54,7 +54,7 @@ function onNoteOn()
 		isReleased = true;
 		noteReleased = Message.getNoteNumber();
 		releaseVolumeOverTime = startReleaseVolume;
-		Globals.string6ActiveRR = "not playing";
+		Globals.string2ActiveRR = "not playing";
 		Synth.startTimer(0.02);
 		Synth.noteOffByEventId(id);
 	}

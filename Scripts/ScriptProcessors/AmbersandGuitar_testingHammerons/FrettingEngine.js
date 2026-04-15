@@ -1,3 +1,5 @@
+ Globals.emulatedReleasesOn = false;
+ 
  const var POSINFINITY = 1/0;
  
  const var NUMOFSTRINGS = Globals.NUMOFSTRINGS;
@@ -19,6 +21,8 @@
  
  OPENSTRINGNOTES.push(OPENSTRINGNONOTE);
 
+var legatoKeySwitchPlaying = false;
+const var legatoKeySwitchNote = 28; 
  
  namespace Stringtype
  {
@@ -152,12 +156,36 @@ inline function playString(theStringType){
  inline function updateGlobals(){
 	 //todo: add Globals.stringNote to update also for whent the legato notes arent empty
  
-	 Globals.stringNote1 = stringNote[Stringtype.STRING1];
-	 Globals.stringNote2 = stringNote[Stringtype.STRING2];
-	 Globals.stringNote3 = stringNote[Stringtype.STRING3];
-	 Globals.stringNote4 = stringNote[Stringtype.STRING4];
-	 Globals.stringNote5 = stringNote[Stringtype.STRING5];
-	 Globals.stringNote6 = stringNote[Stringtype.STRING6];
+ 	if(stringNote[Stringtype.STRING1LEG] == -1)
+		Globals.stringNote1 = stringNote[Stringtype.STRING1];
+	else
+		Globals.stringNote1 = stringNote[Stringtype.STRING1LEG];
+		
+	if(stringNote[Stringtype.STRING2LEG] == -1)
+		Globals.stringNote2 = stringNote[Stringtype.STRING2];
+	else
+		Globals.stringNote2 = stringNote[Stringtype.STRING2LEG];
+		
+	if(stringNote[Stringtype.STRING3LEG] == -1)
+		Globals.stringNote3 = stringNote[Stringtype.STRING3];
+	else
+		Globals.stringNote3 = stringNote[Stringtype.STRING3LEG];
+		
+	if(stringNote[Stringtype.STRING4LEG] == -1)
+		Globals.stringNote4 = stringNote[Stringtype.STRING4];
+	else
+		Globals.stringNote4 = stringNote[Stringtype.STRIN4LEG];
+		
+	if(stringNote[Stringtype.STRING5LEG] == -1)
+		Globals.stringNote5 = stringNote[Stringtype.STRING5];
+	else
+		Globals.stringNote5 = stringNote[Stringtype.STRING5LEG];
+		
+	if(stringNote[Stringtype.STRING6LEG] == -1)
+		Globals.stringNote6 = stringNote[Stringtype.STRING6];
+	else
+		Globals.stringNote6 = stringNote[Stringtype.STRING6LEG];
+
  }
  
  inline function isPolyphonyPlaying(){
@@ -567,23 +595,29 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
 {
 	local notePlayed = Message.getNoteNumber();
 	local velocityPlayed = Message.getVelocity();
-	
+
 	
 	//easy way to implement strumming system? Look into later
 	//Message.delayEvent((notePlayed - LOWESTNOTE) * 1000);
 
-
-
-//	if(!playNextNoteLegato(notePlayed, velocityPlayed)){
-
-
-	playNextNoteOnNewString(notePlayed, velocityPlayed);
+	if(notePlayed == legatoKeySwitchNote)
+		legatoKeySwitchPlaying = true;
+	
+	if(legatoKeySwitchPlaying){
 		
+		if(!playNextNoteLegato(notePlayed, velocityPlayed)){
 	
+		playNextNoteOnNewString(notePlayed, velocityPlayed);
+		
+		}else{
+			Console.print("legato was played");
+		}
 	
-//	}else{
-//		Console.print("did you work");
-//	}
+	}else{
+
+	
+		playNextNoteOnNewString(notePlayed, velocityPlayed);
+	}
 
 	
 	
@@ -592,6 +626,8 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
     local releasedNote = Message.getNoteNumber();
     
 
+	if(releasedNote == legatoKeySwitchNote)
+		legatoKeySwitchPlaying = false;
 
     if(stringNote[Stringtype.STRING6] == releasedNote){
         stringNote[Stringtype.STRING6] = -1;

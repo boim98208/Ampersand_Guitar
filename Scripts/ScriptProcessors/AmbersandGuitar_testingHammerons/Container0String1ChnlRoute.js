@@ -31,7 +31,7 @@ function onNoteOn()
 		Synth.stopTimer();   
 		isReleased = false;
 		releaseAdditionIndex = 0;
-		Globals.string6ActiveRR = Sampler.getActiveRRGroup();
+		Globals.string1ActiveRR = Sampler.getActiveRRGroup();
 		noteVelocity = Message.getVelocity();
 		id = Message.getEventId();
 		
