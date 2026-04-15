@@ -89,6 +89,7 @@ for(i = 0; i < NUMOFSTRINGS * 2; i++){
 	stringNote.push(-1);
 }
 
+Console.print(stringNote.length);
 
 
 //one more push to make up for the "NOSTRING" and not go out of bounds
@@ -149,6 +150,8 @@ inline function playString(theStringType){
 
  
  inline function updateGlobals(){
+	 //todo: add Globals.stringNote to update also for whent the legato notes arent empty
+ 
 	 Globals.stringNote1 = stringNote[Stringtype.STRING1];
 	 Globals.stringNote2 = stringNote[Stringtype.STRING2];
 	 Globals.stringNote3 = stringNote[Stringtype.STRING3];
@@ -273,7 +276,7 @@ inline function stringWithMelodyNote(notePlayed, currentHandPos)
 
 inline function forceStringLogic(notePlayed, currentHandPos, fretSpaceToChange)
 {
-//todo: implement logic 
+//todo: implement logic for when there's legato
 
 
 	local newFretFromForceString;
@@ -497,13 +500,15 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
  	 
 	 	 if(isBetweenIncl(notePlayed, stringNote[i] - Globals.legatoRange, stringNote[i] + Globals.legatoRange)){
 	 	 	 	 isNoteInRange = true;
+	 	 	 	 Console.print(i + Stringtype.LEGATOOFFSET);
+	 	 	 	 stringNote[i + Stringtype.LEGATOOFFSET] = notePlayed;
 	 	 	 	 stringNote[i] = notePlayed;
 	 	 	 	 
 	 	 	 	 playString(i + Stringtype.LEGATOOFFSET);
 	 	 	 	 return isNoteInRange;
 	 	  	 }
  	 	
- 	 	if(i > 13){
+ 	 	if(i > 12){
 	 	 	Console.print("legato script went for too long");
  	 	
 	 	 	return true;
@@ -590,10 +595,6 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
     if(stringNote[Stringtype.STRING6] == releasedNote){
         stringNote[Stringtype.STRING6] = -1;
         playString(Stringtype.STRING6);
-        //playString(Stringtype.STRING6LEG);
-        //todo: DONT just have playString STRING6LEG in this or else it'll still trigger normal string6
-        
-        
     }else if(stringNote[Stringtype.STRING5] == releasedNote){
         stringNote[Stringtype.STRING5] = -1;
         playString(Stringtype.STRING5);
@@ -609,6 +610,24 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
     }else if(stringNote[Stringtype.STRING1] == releasedNote){
         stringNote[Stringtype.STRING1] = -1;
         playString(Stringtype.STRING1);
+    }if(stringNote[Stringtype.STRING6LEG] == releasedNote){
+        stringNote[Stringtype.STRING6LEG] = -1;
+        playString(Stringtype.STRING6LEG);
+    }else if(stringNote[Stringtype.STRING5LEG] == releasedNote){
+        stringNote[Stringtype.STRING5LEG] = -1;
+        playString(Stringtype.STRING5LEG);
+    }else if(stringNote[Stringtype.STRING4LEG] == releasedNote){
+        stringNote[Stringtype.STRING4LEG] = -1;
+        playString(Stringtype.STRING4LEG);
+    }else if(stringNote[Stringtype.STRING3LEG] == releasedNote){
+        stringNote[Stringtype.STRING3LEG] = -1;
+        playString(Stringtype.STRING3LEG);
+    }else if(stringNote[Stringtype.STRING2LEG] == releasedNote){
+        stringNote[Stringtype.STRING2LEG] = -1;
+        playString(Stringtype.STRING2LEG);
+    }else if(stringNote[Stringtype.STRING1LEG] == releasedNote){
+        stringNote[Stringtype.STRING1LEG] = -1;
+        playString(Stringtype.STRING1LEG);
     }
     
     

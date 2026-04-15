@@ -903,7 +903,7 @@
           Duplicate="1" LowerVelocityXFade="5" SampleStartMod="9235"/>
   <sample Root="56" LoKey="56" HiKey="57" LoVel="115" HiVel="127" RRGroup="6"
           FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string6_G#2_RR3_denoise_timealign.wav"
-          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="9211"/>
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="13132"/>
   <sample Root="58" LoKey="58" HiKey="59" LoVel="115" HiVel="127" RRGroup="6"
           FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string6_A#2_RR3_denoise_timealign.wav"
           Duplicate="1" LowerVelocityXFade="5" SampleStartMod="9428"/>

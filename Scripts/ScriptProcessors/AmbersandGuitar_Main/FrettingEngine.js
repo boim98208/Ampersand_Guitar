@@ -19,8 +19,6 @@
  
  OPENSTRINGNOTES.push(OPENSTRINGNONOTE);
 
-
-
  
  namespace Stringtype
  {
@@ -31,7 +29,15 @@
      const var STRING4 = 3;
      const var STRING5 = 4;
      const var STRING6 = 5;
-     const var NOSTRING = 6;
+     const var LEGATOOFFSET = 6;
+     
+     const var STRING1LEG = 6;
+     const var STRING2LEG = 7;
+     const var STRING3LEG = 8;
+     const var STRING4LEG = 9;
+     const var STRING5LEG = 10;
+     const var STRING6LEG = 11;
+     const var NOSTRING = 12;
  
  }
  
@@ -76,12 +82,14 @@
     string 5 (the low string)
  */
 var stringNote = [];
-var noteID = [];
+var stringId = [];
+
 stringNote.reserve(NUMOFSTRINGS);
-for(i = 0; i < NUMOFSTRINGS; i++){
+for(i = 0; i < NUMOFSTRINGS * 2; i++){
 	stringNote.push(-1);
 }
 
+Console.print(stringNote.length);
 
 
 //one more push to make up for the "NOSTRING" and not go out of bounds
@@ -142,6 +150,8 @@ inline function playString(theStringType){
 
  
  inline function updateGlobals(){
+	 //todo: add Globals.stringNote to update also for whent the legato notes arent empty
+ 
 	 Globals.stringNote1 = stringNote[Stringtype.STRING1];
 	 Globals.stringNote2 = stringNote[Stringtype.STRING2];
 	 Globals.stringNote3 = stringNote[Stringtype.STRING3];
@@ -151,7 +161,7 @@ inline function playString(theStringType){
  }
  
  inline function isPolyphonyPlaying(){
-	 return Synth.getNumPressedKeys() >= 1;
+	 return Synth.getNumPressedKeys() > 1;
  }
  
  //fretting engine designed for going low to high string then going back down
@@ -218,8 +228,6 @@ inline function stringWithClosestNote(notePlayed, currentHandPos){
 		
 		distToCompare = Math.abs((notePlayed - OPENSTRINGNOTES[i] - 2) - currentHandPos);
 		
-	Console.print(currentHandPos);
-		
 			if(Math.min(currDist, distToCompare) == distToCompare)
 			{
 				currString = i;
@@ -268,6 +276,8 @@ inline function stringWithMelodyNote(notePlayed, currentHandPos)
 
 inline function forceStringLogic(notePlayed, currentHandPos, fretSpaceToChange)
 {
+//todo: implement logic for when there's legato
+
 
 	local newFretFromForceString;
 	local distanceBetweenForceAndAutoFret;
@@ -278,6 +288,7 @@ inline function forceStringLogic(notePlayed, currentHandPos, fretSpaceToChange)
 	
 	
 	stringNote[Globals.forcedString] = notePlayed; 
+	
 	updateGlobals(); 
 	playString(Globals.forcedString);
 	
@@ -344,6 +355,7 @@ inline function naturalFretting2_2_1(notePlayed, currentHandPos)
 	stringNote[stringToPlay] = notePlayed;
 	playString(stringToPlay);
 	
+
 	updateGlobals();
 	
 	
@@ -468,8 +480,84 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
 	 }else{
 		 return num;
 	 }
- }
+ } 
  
+ 
+ inline function playNextNoteLegato(notePlayed, velocityPlayed)
+ {
+
+	local isNoteInRange = false;
+
+	//exit early because it should just play the note on a new string
+	if(!isPolyphonyPlaying())
+	{
+		return false;
+	}
+	
+		
+ 	 for(i = 0; i < NUMOFSTRINGS || !noteInRange; i++){
+ 	 
+ 	 
+	 	 if(isBetweenIncl(notePlayed, stringNote[i] - Globals.legatoRange, stringNote[i] + Globals.legatoRange)){
+	 	 	 	 isNoteInRange = true;
+	 	 	 	 Console.print(i + Stringtype.LEGATOOFFSET);
+	 	 	 	 stringNote[i + Stringtype.LEGATOOFFSET] = notePlayed;
+	 	 	 	 stringNote[i] = notePlayed;
+	 	 	 	 
+	 	 	 	 playString(i + Stringtype.LEGATOOFFSET);
+	 	 	 	 return isNoteInRange;
+	 	  	 }
+ 	 	
+ 	 	if(i > 12){
+	 	 	Console.print("legato script went for too long");
+ 	 	
+	 	 	return true;
+ 	 	}
+ 	 }
+ 	 //note was not close enough to trigger legato
+ 	 return isNoteInRange;
+ 	 
+ 	 
+ 	 
+  }
+ 
+ 
+ //interfacing between different fretting engines
+ 
+ inline function playNextNoteOnNewString(notePlayed, velocityPlayed){
+	 
+ 	if(Globals.frettingEngine == FrettingEngine.NATURAL)
+ 			{
+ 		
+ 				if(Globals.forcedHandPositionFret == -1)
+ 				{
+ 		
+ 					Globals.handPositionFret = naturalFretting2_2_1(notePlayed, Globals.handPositionFret);
+ 					
+ 				}else{
+ 					
+ 	
+ 					Globals.handPositionFret = naturalFretting2_2_1(notePlayed, Globals.forcedHandPositionFret);
+ 				}
+ 			}else if(Globals.frettingEngine == FrettingEngine.MELODY)
+ 			{
+ 		
+ 				if(Globals.forcedHandPositionFret == -1)
+ 						{
+ 							Globals.handPositionFret = melodyFretting1_0_0(notePlayed, Globals.handPositionFret);
+ 							
+ 						}else
+ 						{
+ 							Globals.handPositionFret = melodyFretting1_0_0(notePlayed, Globals.forcedHandPositionFret);
+ 						}
+ 			}
+ 			
+ 			//Had a bug where handPositionFret became -4 and I have no idea why so I'm normalizing out of caution
+ 			if(Globals.handPositionFret < 0){
+ 				Globals.handPositionFret = 0;
+ 			}
+	 
+ }
  
  
  
@@ -481,42 +569,21 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
 	
 	//easy way to implement strumming system? Look into later
 	//Message.delayEvent((notePlayed - LOWESTNOTE) * 1000);
-	
-if(isBetweenIncl(notePlayed, LOWESTNOTE, HIGHESTNOTE)){
 
-	
-		if(Globals.frettingEngine == FrettingEngine.NATURAL)
-		{
-	
-			if(Globals.forcedHandPositionFret == -1)
-			{
-	
-				Globals.handPositionFret = naturalFretting2_2_1(notePlayed, Globals.handPositionFret);
-				
-			}else{
-				
 
-				Globals.handPositionFret = naturalFretting2_2_1(notePlayed, Globals.forcedHandPositionFret);
-			}
-		}else if(Globals.frettingEngine == FrettingEngine.MELODY)
-		{
-	
-			if(Globals.forcedHandPositionFret == -1)
-					{
-						Globals.handPositionFret = melodyFretting1_0_0(notePlayed, Globals.handPositionFret);
-						
-					}else
-					{
-						Globals.handPositionFret = melodyFretting1_0_0(notePlayed, Globals.forcedHandPositionFret);
-					}
-		}
+
+	if(!playNextNoteLegato(notePlayed, velocityPlayed)){
+
+
+	Console.print("bruh");
+	playNextNoteOnNewString(notePlayed, velocityPlayed);
 		
-		//Had a bug where handPositionFret became -4 and I have no idea why so I'm normalizing out of caution
-		if(Globals.handPositionFret < 0){
-			Globals.handPositionFret = 0;
-		}
 	
+	
+	}else{
+		Console.print("did you work");
 	}
+
 	
 	
 }function onNoteOff()
@@ -543,6 +610,24 @@ if(isBetweenIncl(notePlayed, LOWESTNOTE, HIGHESTNOTE)){
     }else if(stringNote[Stringtype.STRING1] == releasedNote){
         stringNote[Stringtype.STRING1] = -1;
         playString(Stringtype.STRING1);
+    }if(stringNote[Stringtype.STRING6LEG] == releasedNote){
+        stringNote[Stringtype.STRING6LEG] = -1;
+        playString(Stringtype.STRING6LEG);
+    }else if(stringNote[Stringtype.STRING5LEG] == releasedNote){
+        stringNote[Stringtype.STRING5LEG] = -1;
+        playString(Stringtype.STRING5LEG);
+    }else if(stringNote[Stringtype.STRING4LEG] == releasedNote){
+        stringNote[Stringtype.STRING4LEG] = -1;
+        playString(Stringtype.STRING4LEG);
+    }else if(stringNote[Stringtype.STRING3LEG] == releasedNote){
+        stringNote[Stringtype.STRING3LEG] = -1;
+        playString(Stringtype.STRING3LEG);
+    }else if(stringNote[Stringtype.STRING2LEG] == releasedNote){
+        stringNote[Stringtype.STRING2LEG] = -1;
+        playString(Stringtype.STRING2LEG);
+    }else if(stringNote[Stringtype.STRING1LEG] == releasedNote){
+        stringNote[Stringtype.STRING1LEG] = -1;
+        playString(Stringtype.STRING1LEG);
     }
     
     
