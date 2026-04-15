@@ -6,6 +6,7 @@ const var POINTTOCHANGERELEASE = OPENSTRINGNOTE + (NOTEPERSTRING/2);
 
 
 
+//values used in emulated releases
 reg releaseNoteNum = 0;
 reg isReleased = 0;
 reg releaseAdditionIndex = 0;
@@ -28,7 +29,6 @@ function onNoteOn()
 
 
 //system maybe is to use midi channels plus 6 to activate the legato?
-Console.print(Message.getChannel());
 	if(Message.getChannel() != 12){
 		
 		Message.ignoreEvent(true);
@@ -45,19 +45,18 @@ Console.print(Message.getChannel());
  function onNoteOff()
 {
 
-	Console.print("the message is " + Message.getChannel());
-	if(Message.getChannel() != 12){
+	if(Message.getChannel() != 6){
 		Message.ignoreEvent(true);
 	}else{
 		Console.print("should have released");
 	
 		noteReleased = Message.getNoteNumber();
 		isReleased = true;
-		Synth.startTimer(0.01);
+	//	Synth.startTimer(0.01);
 	//	Globals.string6ActiveRR = "not playing";
 	}
 }
- function onController()
+ jfunction onController()
 {
 	
 }

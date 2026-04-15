@@ -13,20 +13,19 @@
                  height="15" width="10" text="FretBorderLowForced"/>
       <Component type="ScriptImage" id="FretBorderLowForced" x="0" y="25" parentComponent="FretBorderPanel"
                  fileName="{PROJECT_FOLDER}PlayingMode_HandBorder_Forced.png"
-                 scale="0.25" height="15" width="10" visible="0"/>
+                 scale="0.25" height="15" width="10"/>
       <Component type="ScriptImage" id="FretBorderHigh" x="146" y="25" parentComponent="FretBorderPanel"
                  fileName="{PROJECT_FOLDER}PlayingMode_HandBorder.png" scale="0.25"
                  height="15" width="10" text="FretBorderLowForced"/>
       <Component type="ScriptImage" id="FretBorderHighForced" x="146" y="25" parentComponent="FretBorderPanel"
                  fileName="{PROJECT_FOLDER}PlayingMode_HandBorder_Forced.png"
-                 scale="0.25" height="15" width="10" visible="0"/>
+                 scale="0.25" height="15" width="10"/>
       <Component type="ScriptImage" id="FretBorderCenter" x="73" y="23" parentComponent="FretBorderPanel"
                  fileName="{PROJECT_FOLDER}PlayingMode_HandCenter.png" height="15"
                  width="15" text="FretBorderLowForced" scale="0.4000000059604645"/>
       <Component type="ScriptImage" id="FretBorderCenterForced" x="73" y="23"
                  parentComponent="FretBorderPanel" fileName="{PROJECT_FOLDER}PlayingMode_HandCenter_Forced.png"
-                 height="15" width="15" text="FretBorderLowForced" scale="0.4000000059604645"
-                 visible="0"/>
+                 height="15" width="15" text="FretBorderLowForced" scale="0.4000000059604645"/>
     </Component>
     <Component type="ScriptPanel" id="PerformanceOptionsPanel" x="10" y="370"
                height="195" width="436" itemColour="0" itemColour2="0" bgColour="16777215"
@@ -482,7 +481,7 @@
                textColour="16777215">
       <Component type="ScriptImage" id="StringForceString6" x="12" y="67" width="605"
                  height="10" parentComponent="StringForcePanel" fileName="{PROJECT_FOLDER}PlayingMode_ForceString_Indicator_String6.png"
-                 scale="0.699999988079071"/>
+                 scale="0.699999988079071" visible="0"/>
       <Component type="ScriptImage" id="StringForceString5" x="12" y="57" width="605"
                  height="10" parentComponent="StringForcePanel" fileName="{PROJECT_FOLDER}PlayingMode_ForceString_Indicator_String5.png"
                  scale="0.699999988079071" visible="0"/>
@@ -536,7 +535,7 @@
                height="21" parentComponent="DebugPanel" text="not playing" textColour="4278190080"
                fontSize="16.0"/>
     <Component type="ScriptLabel" id="String6RRLabel" x="161" y="57" width="100"
-               height="21" parentComponent="DebugPanel" text="1" textColour="4278190080"
+               height="21" parentComponent="DebugPanel" text="not playing" textColour="4278190080"
                fontSize="16.0"/>
     <Component type="ScriptLabel" id="DebugPanelRRLabel" x="30" y="50" width="141"
                height="41" parentComponent="DebugPanel" text="RR Display For Each String"

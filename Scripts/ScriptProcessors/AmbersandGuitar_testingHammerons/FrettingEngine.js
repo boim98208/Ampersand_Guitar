@@ -82,10 +82,10 @@
     string 5 (the low string)
  */
 var stringNote = [];
-var noteID = [];
+var stringId = [];
 
 stringNote.reserve(NUMOFSTRINGS);
-for(i = 0; i < NUMOFSTRINGS; i++){
+for(i = 0; i < NUMOFSTRINGS * 2; i++){
 	stringNote.push(-1);
 }
 
@@ -225,8 +225,6 @@ inline function stringWithClosestNote(notePlayed, currentHandPos){
 		
 		distToCompare = Math.abs((notePlayed - OPENSTRINGNOTES[i] - 2) - currentHandPos);
 		
-	Console.print(currentHandPos);
-		
 			if(Math.min(currDist, distToCompare) == distToCompare)
 			{
 				currString = i;
@@ -275,6 +273,8 @@ inline function stringWithMelodyNote(notePlayed, currentHandPos)
 
 inline function forceStringLogic(notePlayed, currentHandPos, fretSpaceToChange)
 {
+//todo: implement logic 
+
 
 	local newFretFromForceString;
 	local distanceBetweenForceAndAutoFret;
@@ -285,6 +285,7 @@ inline function forceStringLogic(notePlayed, currentHandPos, fretSpaceToChange)
 	
 	
 	stringNote[Globals.forcedString] = notePlayed; 
+	
 	updateGlobals(); 
 	playString(Globals.forcedString);
 	
@@ -351,6 +352,7 @@ inline function naturalFretting2_2_1(notePlayed, currentHandPos)
 	stringNote[stringToPlay] = notePlayed;
 	playString(stringToPlay);
 	
+
 	updateGlobals();
 	
 	
@@ -491,10 +493,8 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
 	
 		
  	 for(i = 0; i < NUMOFSTRINGS || !noteInRange; i++){
-	 Console.print(stringNote[i]);
  	 
  	 
-	 	 
 	 	 if(isBetweenIncl(notePlayed, stringNote[i] - Globals.legatoRange, stringNote[i] + Globals.legatoRange)){
 	 	 	 	 isNoteInRange = true;
 	 	 	 	 stringNote[i] = notePlayed;
@@ -509,7 +509,6 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
 	 	 	return true;
  	 	}
  	 }
- 	 
  	 //note was not close enough to trigger legato
  	 return isNoteInRange;
  	 
@@ -571,10 +570,13 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
 	if(!playNextNoteLegato(notePlayed, velocityPlayed)){
 
 
+	Console.print("bruh");
 	playNextNoteOnNewString(notePlayed, velocityPlayed);
 		
 	
 	
+	}else{
+		Console.print("did you work");
 	}
 
 	

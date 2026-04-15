@@ -27,8 +27,9 @@ const var releaseTimeSeconds = .03;
 function onNoteOn()
 {
 	
+	Message.makeArtificial();
 
-		
+	Console.print(Message.getChannel());
 	
 	if(Message.getChannel() == 6){
 		//is now playing the note and updates	
@@ -37,6 +38,8 @@ function onNoteOn()
 		id = Message.getEventId();
 		
 	}else if(Message.getChannel() == 6 + LEGATOCHNLOFFSET){
+		Console.print("my id is " + id);
+		Console.print("this message's id is " + Message.getEventId());
 		Synth.noteOffByEventId(id);
 		Message.ignoreEvent(true);
 	}
@@ -47,24 +50,24 @@ function onNoteOn()
 }
  function onNoteOff()
 {
-	
-
-	if(Message.getChannel() != 6 || id != Message.getEventId()){
+	Console.print(Message.getChannel());
+	Console.print("am I still note offing");
+	if(Message.getChannel() != 6){
 		Message.ignoreEvent(true);
 	}else{
-	
-		noteReleased = Message.getNoteNumber();
+		Console.print("am I still note offing2");
 		isReleased = true;
 		Synth.startTimer(0.01);
 		Globals.string6ActiveRR = "not playing";
 	}
 }
- function onController()
+  function onController()
 {
 	
 }
  function onTimer()
 {
+
 local releaseNote;
 local numOfReleases;
 
