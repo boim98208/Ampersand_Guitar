@@ -46,6 +46,8 @@ function onNoteOn()
     if(Message.getChannel() != 8){
         Message.ignoreEvent(true);
     }else{
+	    Synth.noteOffByEventId(id); 
+    
         noteReleased = Message.getNoteNumber();
         releaseVolumeOverTime = startReleaseVolume;
         isReleased = true;

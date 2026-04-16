@@ -13,6 +13,8 @@
  const var OPENSTRING2NOTE = 71;
  const var OPENSTRING1NOTE = 76;
  
+ const var NO_NOTE = -1;
+ 
  const var NOTESPERSTRING = 22;
  
  const var OPENSTRINGNONOTE = POSINFINITY;
@@ -22,7 +24,7 @@
  OPENSTRINGNOTES.push(OPENSTRINGNONOTE);
 
 var legatoKeySwitchPlaying = false;
-const var legatoKeySwitchNote = 28; 
+const var legatoKeySwitchNote = 28; //E2 in cakewalk
  
  namespace Stringtype
  {
@@ -71,12 +73,12 @@ const var legatoKeySwitchNote = 28;
  */
  
  //variables to correspond with the Fretdisplay
- Globals.stringNote1 = -1;
- Globals.stringNote2 = -1;
- Globals.stringNote3 = -1;
- Globals.stringNote4 = -1;
- Globals.stringNote5 = -1;
- Globals.stringNote6 = -1;
+ Globals.stringNote1 = NO_NOTE;
+ Globals.stringNote2 = NO_NOTE;
+ Globals.stringNote3 = NO_NOTE;
+ Globals.stringNote4 = NO_NOTE;
+ Globals.stringNote5 = NO_NOTE;
+ Globals.stringNote6 = NO_NOTE;
  Globals.handPositionFret = 0;
 
  /*
@@ -90,11 +92,16 @@ var stringId = [];
 
 stringNote.reserve(NUMOFSTRINGS);
 for(i = 0; i < NUMOFSTRINGS * 2; i++){
-	stringNote.push(-1);
+	stringNote.push(NO_NOTE);
 }
 
 Console.print(stringNote.length);
 
+inline function resetNotes(){
+	for(var i = 0; i < stringNote.length - 1; i++){
+		stringNote[i] = NO_NOTE;
+	}
+}
 
 //one more push to make up for the "NOSTRING" and not go out of bounds
 stringNote.push(POSINFINITY);
@@ -143,6 +150,7 @@ inline function playString(theStringType){
 	
 	//adding 1 because the enum starts on 0 but channels start on 1
 	Message.setChannel(theStringType + 1);
+	Console.print(theStringType);
 }
  
  
@@ -154,34 +162,34 @@ inline function playString(theStringType){
 
  
  inline function updateGlobals(){
-	 //todo: add Globals.stringNote to update also for whent the legato notes arent empty
  
- 	if(stringNote[Stringtype.STRING1LEG] == -1)
+ 	if(stringNote[Stringtype.STRING1LEG] == NO_NOTE)
 		Globals.stringNote1 = stringNote[Stringtype.STRING1];
 	else
 		Globals.stringNote1 = stringNote[Stringtype.STRING1LEG];
 		
-	if(stringNote[Stringtype.STRING2LEG] == -1)
+	if(stringNote[Stringtype.STRING2LEG] == NO_NOTE)
 		Globals.stringNote2 = stringNote[Stringtype.STRING2];
 	else
 		Globals.stringNote2 = stringNote[Stringtype.STRING2LEG];
 		
-	if(stringNote[Stringtype.STRING3LEG] == -1)
+	if(stringNote[Stringtype.STRING3LEG] == NO_NOTE)
 		Globals.stringNote3 = stringNote[Stringtype.STRING3];
 	else
 		Globals.stringNote3 = stringNote[Stringtype.STRING3LEG];
 		
-	if(stringNote[Stringtype.STRING4LEG] == -1)
+	if(stringNote[Stringtype.STRING4LEG] == NO_NOTE)
 		Globals.stringNote4 = stringNote[Stringtype.STRING4];
-	else
-		Globals.stringNote4 = stringNote[Stringtype.STRIN4LEG];
+	else{
+		Globals.stringNote4 = stringNote[Stringtype.STRING4LEG];
+		}
 		
-	if(stringNote[Stringtype.STRING5LEG] == -1)
+	if(stringNote[Stringtype.STRING5LEG] == NO_NOTE)
 		Globals.stringNote5 = stringNote[Stringtype.STRING5];
 	else
 		Globals.stringNote5 = stringNote[Stringtype.STRING5LEG];
 		
-	if(stringNote[Stringtype.STRING6LEG] == -1)
+	if(stringNote[Stringtype.STRING6LEG] == NO_NOTE)
 		Globals.stringNote6 = stringNote[Stringtype.STRING6];
 	else
 		Globals.stringNote6 = stringNote[Stringtype.STRING6LEG];
@@ -304,7 +312,6 @@ inline function stringWithMelodyNote(notePlayed, currentHandPos)
 
 inline function forceStringLogic(notePlayed, currentHandPos, fretSpaceToChange)
 {
-//todo: implement logic for when there's legato
 
 
 	local newFretFromForceString;
@@ -519,8 +526,6 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
 	//exit early because it should just play the note on a new string
 	if(!isPolyphonyPlaying())
 	{
-	Console.print("where are you");
-
 		return false;
 	}
 	
@@ -530,11 +535,10 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
  	 
 	 	 if(isBetweenIncl(notePlayed, stringNote[i] - Globals.legatoRange, stringNote[i] + Globals.legatoRange)){
 	 	 	 	 isNoteInRange = true;
-	 	 	 	 Console.print(i + Stringtype.LEGATOOFFSET);
-	 	 	 	 stringNote[i + Stringtype.LEGATOOFFSET] = notePlayed;
-	 	 	 	 stringNote[i] = notePlayed;
 	 	 	 	 
+				stringNote[i + Stringtype.LEGATOOFFSET] = notePlayed;
 	 	 	 	 playString(i + Stringtype.LEGATOOFFSET);
+	 	 	 	 updateGlobals();
 	 	 	 	 return isNoteInRange;
 	 	  	 }
  	 	
@@ -546,9 +550,6 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
  	 }
  	 //note was not close enough to trigger legato
  	 return isNoteInRange;
- 	 
- 	 
- 	 
   }
  
  
@@ -603,6 +604,7 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
 	if(notePlayed == legatoKeySwitchNote)
 		legatoKeySwitchPlaying = true;
 	
+	
 	if(legatoKeySwitchPlaying){
 		
 		if(!playNextNoteLegato(notePlayed, velocityPlayed)){
@@ -610,7 +612,7 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
 		playNextNoteOnNewString(notePlayed, velocityPlayed);
 		
 		}else{
-			Console.print("legato was played");
+			//Console.print("legato was played");
 		}
 	
 	}else{
@@ -618,57 +620,36 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
 	
 		playNextNoteOnNewString(notePlayed, velocityPlayed);
 	}
+	
 
 	
 	
 }function onNoteOff()
 {
+	//there's a bug where the legato keyswitch keeps string 1 sustaining?
+	
     local releasedNote = Message.getNoteNumber();
+    local noteFound = false;
     
 
 	if(releasedNote == legatoKeySwitchNote)
 		legatoKeySwitchPlaying = false;
 
-    if(stringNote[Stringtype.STRING6] == releasedNote){
-        stringNote[Stringtype.STRING6] = -1;
-        playString(Stringtype.STRING6);
-    }else if(stringNote[Stringtype.STRING5] == releasedNote){
-        stringNote[Stringtype.STRING5] = -1;
-        playString(Stringtype.STRING5);
-    }else if(stringNote[Stringtype.STRING4] == releasedNote){
-        stringNote[Stringtype.STRING4] = -1;
-        playString(Stringtype.STRING4);
-    }else if(stringNote[Stringtype.STRING3] == releasedNote){
-        stringNote[Stringtype.STRING3] = -1;
-        playString(Stringtype.STRING3);
-    }else if(stringNote[Stringtype.STRING2] == releasedNote){
-        stringNote[Stringtype.STRING2] = -1;
-        playString(Stringtype.STRING2);
-    }else if(stringNote[Stringtype.STRING1] == releasedNote){
-        stringNote[Stringtype.STRING1] = -1;
-        playString(Stringtype.STRING1);
-    }if(stringNote[Stringtype.STRING6LEG] == releasedNote){
-        stringNote[Stringtype.STRING6LEG] = -1;
-        playString(Stringtype.STRING6LEG);
-    }else if(stringNote[Stringtype.STRING5LEG] == releasedNote){
-        stringNote[Stringtype.STRING5LEG] = -1;
-        playString(Stringtype.STRING5LEG);
-    }else if(stringNote[Stringtype.STRING4LEG] == releasedNote){
-        stringNote[Stringtype.STRING4LEG] = -1;
-        playString(Stringtype.STRING4LEG);
-    }else if(stringNote[Stringtype.STRING3LEG] == releasedNote){
-        stringNote[Stringtype.STRING3LEG] = -1;
-        playString(Stringtype.STRING3LEG);
-    }else if(stringNote[Stringtype.STRING2LEG] == releasedNote){
-        stringNote[Stringtype.STRING2LEG] = -1;
-        playString(Stringtype.STRING2LEG);
-    }else if(stringNote[Stringtype.STRING1LEG] == releasedNote){
-        stringNote[Stringtype.STRING1LEG] = -1;
-        playString(Stringtype.STRING1LEG);
-    }
+    for (i = 0; i < stringNote.length - 1 && !noteFound; i++)
+		{
+		    if (stringNote[i] == releasedNote)
+		    {
+		        stringNote[i] = -1;
+		        playString(i);
+		        noteFound = true;
+		    }
+		    
+		    if(stringNote[Stringtype.STRING6LEG] == releasedNote){
+			    //Console.print("you should be matching");
+		    }
+		}
     
     
-
     updateGlobals();
 }function onController()
 {

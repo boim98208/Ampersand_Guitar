@@ -7,6 +7,7 @@ Globals.stringNote3 = -1;
 Globals.stringNote4 = -1;
 Globals.stringNote5 = -1;
 Globals.stringNote6 = -1; 
+Globals.resetNotes = false;
 
 Globals.frettingEngine = 1;
 Globals.legatoRange = 2;
@@ -27,6 +28,10 @@ inline function onResetGlobalRRButtonControl(component, value)
 		Globals.stringNote4 = -1;
 		Globals.stringNote5 = -1;
 		Globals.stringNote6 = -1; 
+		
+		//some notes have a problem of just hanging and not getting off the stringNote array in FrettingEngine
+	//	Globals.resetNotes = true;
+		//Globals.resetNotes is put back to false in FrettingEngine after it recognizes it
 	}
 };
 

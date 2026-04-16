@@ -34,7 +34,6 @@ function onNoteOn()
 		Globals.string1ActiveRR = Sampler.getActiveRRGroup();
 		noteVelocity = Message.getVelocity();
 		id = Message.getEventId();
-		
 	}else if(Message.getChannel() == 1 + LEGATOCHNLOFFSET){
 		
 		Synth.noteOffByEventId(id);
@@ -47,18 +46,20 @@ function onNoteOn()
 }
  function onNoteOff()
 {
-
+Console.print(Message.getChannel());
 	if(Message.getChannel() != 1){
 		Message.ignoreEvent(true);
 	}else{
+	
 		isReleased = true;
 		noteReleased = Message.getNoteNumber();
 		releaseVolumeOverTime = startReleaseVolume;
-		Globals.string6ActiveRR = "not playing";
+		Globals.string1ActiveRR = "not playing";
 		Synth.startTimer(0.02);
 		Synth.noteOffByEventId(id);
 	}
 }
+  
   function onController()
 {
 	
