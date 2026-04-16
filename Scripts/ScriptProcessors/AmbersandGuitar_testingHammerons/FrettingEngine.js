@@ -617,7 +617,6 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
 	if(notePlayed == legatoKeySwitchNote)
 		legatoKeySwitchPlaying = true;
 	
-	
 	if(legatoKeySwitchPlaying){
 		
 		if(!playNextNoteLegato(notePlayed, velocityPlayed)){
@@ -639,7 +638,6 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
 	
 }function onNoteOff()
 {
-	//there's a bug where the legato keyswitch keeps string 1 sustaining?
     local releasedNote = Message.getNoteNumber();
     local noteFound = false;
     local noteFoundInLegato = false;
@@ -651,12 +649,12 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
 		{
 		    if (stringNote[i] == releasedNote)
 		    {
+			Console.print(i);
+
 		        stringNote[i] = NO_NOTE;
 		        playString(i);
 		        noteFound = true;
-		        if(i > Stringtype.LEGATOOFFSET){
-			        Console.print("should be turning off string leg for " + i);
-		        }
+		        
 		    }
 		}
 
@@ -671,9 +669,6 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
 			        noteFoundInLegato = true;
 			    }
 			}
-		
-	
-    
     
     updateGlobals();
 }function onController()

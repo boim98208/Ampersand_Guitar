@@ -1,4 +1,4 @@
-const var releaseAddition = [10, 11, 10];
+const var releaseAddition = [1, 4, 5];
 const var releaseAdditionWhenHigh = [-3, -4, -5];
 const var OPENSTRINGNOTE = 52;
 const var NOTEPERSTRING = 22;
@@ -10,14 +10,18 @@ reg releaseNoteNum = 0;
 reg isReleased = 0;
 reg releaseAdditionIndex = 0;
 reg id = -99;
+reg releaseId = -99;
+
 reg noteReleased;
 reg noteVelocity = 60;
 
 
 //const var releaseAddition = [-2, -3, -4, -5, -6];
 
-const var startReleaseVolume = 10;
+const var startReleaseVolume = 15;
 var releaseVolumeOverTime = startReleaseVolume;
+
+
 //note to self, figure out if you can fade between your pseudo releases
 const var releaseTimeSeconds = .03;
 function onNoteOn()
@@ -31,6 +35,12 @@ function onNoteOn()
 		Synth.stopTimer();   
 		isReleased = false;
 		releaseAdditionIndex = 0;
+		
+		if(releaseId != -99){
+		        Synth.noteOffByEventId(releaseId);
+		        releaseId = -99;
+		}
+		    
 		Globals.string6ActiveRR = Sampler.getActiveRRGroup();
 		noteVelocity = Message.getVelocity();
 		id = Message.getEventId();
@@ -55,7 +65,7 @@ function onNoteOn()
 		noteReleased = Message.getNoteNumber();
 		releaseVolumeOverTime = startReleaseVolume;
 		Globals.string6ActiveRR = "not playing";
-		Synth.startTimer(0.02);
+		Synth.startTimer(0.01);
 		Synth.noteOffByEventId(id);
 	}
 }
@@ -73,8 +83,8 @@ local numOfReleases;
  
 	}
 	
-	if(id != -99)
-		Synth.noteOffByEventId(id);
+	if(releaseId != -99)
+		Synth.noteOffByEventId(releaseId);
 	
 	if(isReleased){
 	
@@ -94,26 +104,29 @@ local numOfReleases;
 		
 		
 		if(noteVelocity == 0)
-			id = Synth.playNote(releaseNote, 1);
+			releaseId = Synth.playNote(releaseNote, 1);
 		else
 		{
 		//consider having go either the volume of the note played or something else
 
-			id = Synth.playNote(releaseNote, 60);
+			releaseId = Synth.playNote(releaseNote, 60);
 
 		}
 		
 		
-		Synth.addVolumeFade(id, 0, releaseVolumeOverTime);
+		Synth.addVolumeFade(releaseId, 0, releaseVolumeOverTime);
+
 		
 		releaseVolumeOverTime = releaseVolumeOverTime - .02;
 		
 		releaseAdditionIndex++;
 		Synth.startTimer(releaseTimeSeconds);
 		
-		if(releaseAdditionIndex == numOfReleases - 1){ 
+		if(releaseAdditionIndex >= numOfReleases - 1){ 
 			isReleased = false;
 			releaseAdditionIndex = 0;
+			Synth.addVolumeFade(releaseId, .01, -100);
+			releaseId = -99;
 		}
 		
 		
