@@ -1,4 +1,4 @@
- Globals.emulatedReleasesOn = false;
+ Globals.emulatedReleasesOn = true;
  
  const var POSINFINITY = 1/0;
  
@@ -95,7 +95,6 @@ for(i = 0; i < NUMOFSTRINGS * 2; i++){
 	stringNote.push(NO_NOTE);
 }
 
-Console.print(stringNote.length);
 
 inline function resetNotes(){
 	for(var i = 0; i < stringNote.length - 1; i++){
@@ -103,8 +102,23 @@ inline function resetNotes(){
 	}
 }
 
-//one more push to make up for the "NOSTRING" and not go out of bounds
+//one more push to make up for the "NOSTRING" and not go out of bounds when scanning string notes
 stringNote.push(POSINFINITY);
+
+
+//GUI TO HELP ME DEBUG
+
+inline function onButton1Control(component, value)
+{
+	Console.print("~~~ NOTES CORRELATING TO THE STRINGS ~~~");
+
+	for(var i = 0; i < NUMOFSTRINGS; i++){
+		Console.print("String " + (i + 1) + ": " + stringNote[i] +" | legato: " + stringNote[i + Stringtype.LEGATOOFFSET]);
+	}
+};
+
+Content.getComponent("Button1").setControlCallback(onButton1Control);
+
 
 
 //this is where the leftmost part of the virtual guitarist's hand is
@@ -150,7 +164,6 @@ inline function playString(theStringType){
 	
 	//adding 1 because the enum starts on 0 but channels start on 1
 	Message.setChannel(theStringType + 1);
-	Console.print(theStringType);
 }
  
  
@@ -530,12 +543,12 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
 	}
 	
 		
- 	 for(i = 0; i < NUMOFSTRINGS && !noteInRange; i++){
+ 	 for( var i = 0; i < NUMOFSTRINGS && !noteInRange; i++){
  	 
  	 
 	 	 if(isBetweenIncl(notePlayed, stringNote[i] - Globals.legatoRange, stringNote[i] + Globals.legatoRange)){
 	 	 	 	 isNoteInRange = true;
-	 	 	 	 
+	 	 	 	stringNote[i] = notePlayed;
 				stringNote[i + Stringtype.LEGATOOFFSET] = notePlayed;
 	 	 	 	 playString(i + Stringtype.LEGATOOFFSET);
 	 	 	 	 updateGlobals();
@@ -627,27 +640,39 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
 }function onNoteOff()
 {
 	//there's a bug where the legato keyswitch keeps string 1 sustaining?
-	
     local releasedNote = Message.getNoteNumber();
     local noteFound = false;
-    
+    local noteFoundInLegato = false;
 
 	if(releasedNote == legatoKeySwitchNote)
 		legatoKeySwitchPlaying = false;
 
-    for (i = 0; i < stringNote.length - 1 && !noteFound; i++)
+    for (var i = 0; i < NUMOFSTRINGS && !noteFound; i++)
 		{
 		    if (stringNote[i] == releasedNote)
 		    {
-		        stringNote[i] = -1;
+		        stringNote[i] = NO_NOTE;
 		        playString(i);
 		        noteFound = true;
-		    }
-		    
-		    if(stringNote[Stringtype.STRING6LEG] == releasedNote){
-			    //Console.print("you should be matching");
+		        if(i > Stringtype.LEGATOOFFSET){
+			        Console.print("should be turning off string leg for " + i);
+		        }
 		    }
 		}
+
+		
+	for (var i = Stringtype.LEGATOOFFSET; i < stringNote.length && !noteFoundInLegato; i++)
+			{
+			    if (stringNote[i] == releasedNote)
+			    {
+	
+			        stringNote[i] = NO_NOTE;
+			        playString(i);
+			        noteFoundInLegato = true;
+			    }
+			}
+		
+	
     
     
     updateGlobals();

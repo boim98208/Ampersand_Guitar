@@ -43,11 +43,13 @@ function onNoteOn()
     }
 }function onNoteOff()
 {
+	
+
     if(Message.getChannel() != 10){
         Message.ignoreEvent(true);
     }else{
 	    Synth.noteOffByEventId(id); 
-    
+    	Console.print("please release ");
         noteReleased = Message.getNoteNumber();
         releaseVolumeOverTime = startReleaseVolume;
         isReleased = true;

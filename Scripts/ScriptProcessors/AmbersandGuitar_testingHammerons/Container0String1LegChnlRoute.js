@@ -43,10 +43,10 @@ function onNoteOn()
     }
 }function onNoteOff()
 {
+
     if(Message.getChannel() != 7){
         Message.ignoreEvent(true);
     }else{
-	    Console.print("should be going off ");
     
 	    Synth.noteOffByEventId(id); 
     

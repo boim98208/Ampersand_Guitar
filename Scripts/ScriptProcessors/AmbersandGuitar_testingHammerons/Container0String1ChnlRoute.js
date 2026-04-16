@@ -46,7 +46,6 @@ function onNoteOn()
 }
  function onNoteOff()
 {
-Console.print(Message.getChannel());
 	if(Message.getChannel() != 1){
 		Message.ignoreEvent(true);
 	}else{
