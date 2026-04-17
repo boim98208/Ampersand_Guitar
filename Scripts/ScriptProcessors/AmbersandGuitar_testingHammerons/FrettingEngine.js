@@ -47,6 +47,7 @@ const var legatoKeySwitchNote = 28; //E2 in cakewalk
  
  }
  
+ 
  namespace FrettingEngine
  {
 	//make sure this lines up with the item list from the combo box

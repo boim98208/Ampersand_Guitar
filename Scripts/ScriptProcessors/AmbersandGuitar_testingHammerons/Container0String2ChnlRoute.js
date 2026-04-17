@@ -19,7 +19,7 @@ reg noteVelocity = 60;
 //const var releaseAddition = [-2, -3, -4, -5, -6];
 
 const var startReleaseVolume = 15;
-var releaseVolumeOverTime = startReleaseVolume;
+var releaseVolumeOverTime = Globals.releaseVolume;
 
 
 //note to self, figure out if you can fade between your pseudo releases
@@ -63,7 +63,7 @@ function onNoteOn()
 	}else{
 		isReleased = true;
 		noteReleased = Message.getNoteNumber();
-		releaseVolumeOverTime = startReleaseVolume;
+		releaseVolumeOverTime = Globals.releaseVolume;
 		Globals.string2ActiveRR = "not playing";
 		Synth.startTimer(0.01);
 		Synth.noteOffByEventId(id);
