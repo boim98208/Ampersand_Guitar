@@ -49,7 +49,6 @@ function onNoteOn()
         Message.ignoreEvent(true);
     }else{
 	    Synth.noteOffByEventId(id); 
-    	Console.print("please release ");
         noteReleased = Message.getNoteNumber();
         releaseVolumeOverTime = Globals.releaseVolume;
         isReleased = true;

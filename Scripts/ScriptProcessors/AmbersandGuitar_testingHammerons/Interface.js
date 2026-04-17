@@ -8,14 +8,77 @@ Globals.stringNote3 = -1;
 Globals.stringNote4 = -1;
 Globals.stringNote5 = -1;
 Globals.stringNote6 = -1; 
+
+
+
+
 Globals.resetNotes = false;
 
 Globals.frettingEngine = 1;
-Globals.legatoRange = 5;
+Globals.legatoRange = 2;
 
 Globals.releaseVolume = 5;
 
 const var NOTESPERSTRING = 22;
+const var NUMOFSTRINGS = 6;
+
+const var NONOTE = -1;
+
+
+namespace StringType
+{
+    const var STRING1 = 0;
+    const var STRING2 = 1;
+    const var STRING3 = 2;
+    const var STRING4 = 3;
+    const var STRING5 = 4;
+    const var STRING6 = 5;
+}
+
+namespace PerformanceType
+{
+	const var SUSTAIN = 0;
+	const var LEGATOUP = 1;
+	const var LEGATODOWN = 2;
+}
+
+
+
+
+Globals.stringPerformance = [];
+for(var i = 0; i < NUMOFSTRINGS; i++){
+	Globals.stringPerformance.push(PerformanceType.SUSTAIN);
+}
+
+
+//size of this constant array is number of enums in PerformanceType
+const var stringPerformanceImgs = [0, 0, 0];
+
+stringPerformanceImgs[PerformanceType.SUSTAIN] = "{PROJECT_FOLDER}PlayingMode_FretIndicator.png";
+stringPerformanceImgs[PerformanceType.LEGATOUP] = "{PROJECT_FOLDER}PlayingMode_FretIndicator_Legatoup.png";
+stringPerformanceImgs[PerformanceType.LEGATODOWN] = "{PROJECT_FOLDER}PlayingMode_FretIndicator_Legatodown.png";
+
+
+
+inline function displayFret(fretImg, stringNum)
+{
+	if(Globals.stringPerformance[stringNum] == PerformanceType.SUSTAIN)
+	{
+		fretImg.set("fileName", stringPerformanceImgs[PerformanceType.SUSTAIN]);
+	}
+	else if(Globals.stringPerformance[stringNum] == PerformanceType.LEGATOUP)
+	{
+	
+		fretImg.set("fileName", stringPerformanceImgs[PerformanceType.LEGATOUP]);
+	}
+	else if(Globals.stringPerformance[stringNum] == PerformanceType.LEGATODOWN)
+	{
+		fretImg.set("fileName", stringPerformanceImgs[PerformanceType.LEGATODOWN]);
+	}
+			
+	fretImg.set("visible", true);
+}
+
 
 //figure this out later
 
@@ -83,9 +146,6 @@ Globals.string2ActiveRR = "not playing";
 Globals.string1ActiveRR = "not playing";
 
 
-
-
-const var NUMOFSTRINGS = 6;
 
 
  Content.makeFrontInterface(1020, 600);
@@ -199,17 +259,6 @@ Content.getComponent("ShowPlayingModeButton").setControlCallback(onShowPlayingMo
 
 	
 
-namespace stringType
-{
-
-    const var STRING1 = 0;
-    const var STRING2 = 1;
-    const var STRING3 = 2;
-    const var STRING4 = 3;
-    const var STRING5 = 4;
-    const var STRING6 = 5;
-
-}
 
 //setting up fretMarkers
 
@@ -547,32 +596,43 @@ function onController()
 }
  function onTimer()
 {
+	local fretImgToControl = fretImages[StringType.STRING6][0];
+
 	
 	hideAll();
 
-	if(Globals.stringNote6 >= 52 && Globals.stringNote6 <= 73){
-		fretImages[stringType.STRING6][Globals.stringNote6 - 52].set("visible", true);
+	if(Globals.stringNote6 != NONOTE){
+		fretImgToControl = fretImages[StringType.STRING6][Globals.stringNote6 - 52];
+		displayFret(fretImgToControl, StringType.STRING6);
+		
 	}
 	
-	if(Globals.stringNote5 >= 57 && Globals.stringNote5 <= 78){
-		fretImages[stringType.STRING5][Globals.stringNote5 - 57].set("visible", true);
+	if(Globals.stringNote5 != NONOTE){
+		fretImgToControl = fretImages[StringType.STRING5][Globals.stringNote5 - 57];
+		displayFret(fretImgToControl, StringType.STRING5);
 	}
 	
-	if(Globals.stringNote4 >= 62 && Globals.stringNote4 <= 83){
-		fretImages[stringType.STRING4][Globals.stringNote4 - 62].set("visible", true);
+	if(Globals.stringNote4 != NONOTE){
+		fretImgToControl = fretImages[StringType.STRING4][Globals.stringNote4 - 62];
+		displayFret(fretImgToControl, StringType.STRING4);
 	}
 	
-	if(Globals.stringNote3 >= 67 && Globals.stringNote3 <= 88){
-		fretImages[stringType.STRING3][Globals.stringNote3 - 67].set("visible", true);
+	if(Globals.stringNote3 != NONOTE){
+		fretImgToControl = fretImages[StringType.STRING3][Globals.stringNote3 - 67];
+		displayFret(fretImgToControl, StringType.STRING3);
 	}
 	
-	if(Globals.stringNote2 >= 71 && Globals.stringNote2 <= 92){
-		fretImages[stringType.STRING2][Globals.stringNote2 - 71].set("visible", true);
+	if(Globals.stringNote2 != NONOTE){
+		fretImgToControl = fretImages[StringType.STRING2][Globals.stringNote2 - 71];
+		displayFret(fretImgToControl, StringType.STRING2);
 	}
 	
-	if(Globals.stringNote1 >= 76 && Globals.stringNote1 <= 97){
-		fretImages[stringType.STRING1][Globals.stringNote1 - 76].set("visible", true);
+	if(Globals.stringNote1 != NONOTE){
+		fretImgToControl = fretImages[StringType.STRING1][Globals.stringNote1 - 75];
+		displayFret(fretImgToControl, StringType.STRING1);
 	}
+	
+	
 	
 	handPositionFretLabel.set("text", Globals.handPositionFret != -1 ? Globals.handPositionFret : "");
 	

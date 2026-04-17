@@ -56,6 +56,13 @@ const var legatoKeySwitchNote = 28; //E2 in cakewalk
  	const var MELODY = 2;
  }
  
+ namespace PerformanceType
+ {
+ 	const var SUSTAIN = 0;
+ 	const var LEGATOUP = 1;
+ 	const var LEGATODOWN = 2;
+ }
+ 
  
  const var string6Mute = Synth.getMidiProcessor("Container0String6Mute");
  const var string5Mute = Synth.getMidiProcessor("Container0String5Mute");
@@ -340,6 +347,7 @@ inline function forceStringLogic(notePlayed, currentHandPos, fretSpaceToChange)
 	
 	updateGlobals(); 
 	playString(Globals.forcedString);
+	Globals.stringPerformance[Globals.forcedString] = PerformanceType.SUSTAIN;
 	
 	newFretFromForceString = notePlayed - OPENSTRINGNOTES[Globals.forcedString];
 	distanceBetweenForceAndAutoFret = Math.abs(newFretFromForceString - currentHandPos);
@@ -402,9 +410,13 @@ inline function naturalFretting2_2_1(notePlayed, currentHandPos)
 	
 	stringToPlay = stringWithClosestNote(notePlayed, currentHandPos);
 	stringNote[stringToPlay] = notePlayed;
+	Globals.stringPerformance[stringToPlay] = PerformanceType.SUSTAIN;
+	if(stringToPlay > 5)
+	{
+		Console.print("something is wrong");
+	}
 	playString(stringToPlay);
 	
-
 	updateGlobals();
 	
 	
@@ -452,6 +464,8 @@ Designed for timbre jumps in lead or melody playing, especially when monophonic.
 
 Stiiiiill kinda rough tho. It likes to skip strings a little too much it seems. 
 The logic on choosing between strings needs to weigh the closer strings more than the closest fret
+
+todo: make sure it changes fret images to legato if needed
 */
 
 inline function melodyFretting1_0_0(notePlayed, currentHandPos)
@@ -549,6 +563,13 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
  	 
 	 	 if(isBetweenIncl(notePlayed, stringNote[i] - Globals.legatoRange, stringNote[i] + Globals.legatoRange)){
 	 	 	 	 isNoteInRange = true;
+	 	 	 	 
+	 	 	 	 if(notePlayed > stringNote[i])
+	 	 	 	 	Globals.stringPerformance[i] = PerformanceType.LEGATOUP;
+	 	 	 	 else
+	 	 	 	 	Globals.stringPerformance[i] = PerformanceType.LEGATODOWN;
+	 	 	 	 
+
 	 	 	 	stringNote[i] = notePlayed;
 				stringNote[i + Stringtype.LEGATOOFFSET] = notePlayed;
 	 	 	 	 playString(i + Stringtype.LEGATOOFFSET);
@@ -556,7 +577,7 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
 	 	 	 	 return isNoteInRange;
 	 	  	 }
  	 	
- 	 	if(i > 12){
+ 	 	if(i > NUMOFSTRINGS * 2){
 	 	 	Console.print("legato script went for too long");
  	 	
 	 	 	return true;
@@ -650,7 +671,6 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
 		{
 		    if (stringNote[i] == releasedNote)
 		    {
-			Console.print(i);
 
 		        stringNote[i] = NO_NOTE;
 		        playString(i);
