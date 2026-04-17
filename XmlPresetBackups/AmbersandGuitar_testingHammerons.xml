@@ -14,7 +14,7 @@
             <Control type="ScriptComboBox" id="FrettingEngineComboBox" value="1.0"/>
             <Control type="ScriptButton" id="ResetGlobalRRButton" value="0.0"/>
             <Control type="ScriptSlider" id="IRMixKnob" value="0.6299999952316284"/>
-            <Control type="ScriptComboBox" id="cmbIr" value="2.0"/>
+            <Control type="ScriptComboBox" id="cmbIr" value="1.0"/>
             <Control type="ScriptButton" id="ShowPlayingModeButton" value="1.0"/>
             <Control type="ScriptButton" id="ShowArticulationsButton" value="0.0"/>
             <Control type="ScriptButton" id="ShowDebugPanelButton" value="0.0"/>
@@ -41,7 +41,7 @@
         <Processor Type="Convolution" ID="ConvolutionReverb1" Bypassed="0" DryGain="-12.9696102142334"
                    WetGain="-3.319294214248657" Latency="0.0" ImpulseLength="1.0"
                    ProcessInput="1.0" UseBackgroundThread="0.0" Predelay="0.0" HiCut="20000.0"
-                   Damping="0.0" FFTType="5.0" FileName="{PROJECT_FOLDER}Ample SJ (rec 43 percent).wav"
+                   Damping="0.0" FFTType="5.0" FileName="{PROJECT_FOLDER}Ample M (rec 50 perc).wav"
                    min="0" max="8192" loopStart="0" loopEnd="8192">
           <ChildProcessors/>
           <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
@@ -55,9 +55,13 @@
           <ChildProcessors>
             <Processor Type="ScriptProcessor" ID="FrettingEngine" Bypassed="0">
               <ChildProcessors/>
-              <Content/>
+              <Content>
+                <Control type="ScriptButton" id="Button1" value="0.0"/>
+              </Content>
               <UIData>
-                <ContentProperties DeviceType="Desktop"/>
+                <ContentProperties DeviceType="Desktop">
+                  <Component type="ScriptButton" id="Button1" x="81" y="7" text="print out strings"/>
+                </ContentProperties>
               </UIData>
             </Processor>
           </ChildProcessors>
@@ -150,7 +154,7 @@
                   <ChildProcessors/>
                   <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
                 </Processor>
-                <Processor Type="SimpleGain" ID="Simple Gain1" Bypassed="0" Gain="2.101564884185791"
+                <Processor Type="SimpleGain" ID="Simple Gain1" Bypassed="0" Gain="3.472990036010742"
                            Delay="0.0" Width="100.0" Balance="0.0" InvertPolarity="0.0">
                   <ChildProcessors>
                     <Processor Type="ModulatorChain" ID="Gain Modulation" Bypassed="0" Intensity="1.0">
@@ -207,7 +211,7 @@
                 <Processor Type="AHDSR" ID="AHDSR Envelope7" Bypassed="0" Monophonic="0.0"
                            Retrigger="1.0" Intensity="1.0" AttackCurve="0.9200000166893005"
                            DecayCurve="0.0" Attack="10.0" AttackLevel="0.0" Hold="10.0"
-                           Decay="300.0" Sustain="0.0" Release="135.684326171875" EcoMode="1.0">
+                           Decay="300.0" Sustain="0.0" Release="51.0" EcoMode="1.0">
                   <ChildProcessors>
                     <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
                       <ChildProcessors/>
@@ -410,7 +414,7 @@
               <ChildProcessors>
                 <Processor Type="AHDSR" ID="AHDSR Envelope3" Bypassed="0" Monophonic="0.0"
                            Retrigger="1.0" Intensity="1.0" AttackCurve="0.9200000166893005"
-                           DecayCurve="0.0" Attack="10.0" AttackLevel="0.0" Hold="10.0"
+                           DecayCurve="0.0" Attack="21.0" AttackLevel="0.0" Hold="10.0"
                            Decay="300.0" Sustain="0.0" Release="135.684326171875" EcoMode="1.0">
                   <ChildProcessors>
                     <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
@@ -453,7 +457,8 @@
             </Processor>
             <Processor Type="ModulatorChain" ID="Sample Start" Bypassed="0" Intensity="1.0">
               <ChildProcessors>
-                <Processor Type="Constant" ID="Container10" Bypassed="0" Intensity="0.3600000143051147">
+                <Processor Type="Constant" ID="Container0String5LegOffset" Bypassed="0"
+                           Intensity="0.3600000143051147">
                   <ChildProcessors/>
                 </Processor>
               </ChildProcessors>
@@ -579,7 +584,7 @@
               <ChildProcessors>
                 <Processor Type="AHDSR" ID="AHDSR Envelope5" Bypassed="0" Monophonic="0.0"
                            Retrigger="1.0" Intensity="1.0" AttackCurve="0.9200000166893005"
-                           DecayCurve="0.0" Attack="10.0" AttackLevel="0.0" Hold="10.0"
+                           DecayCurve="0.0" Attack="12.0" AttackLevel="0.0" Hold="10.0"
                            Decay="300.0" Sustain="0.0" Release="135.684326171875" EcoMode="1.0">
                   <ChildProcessors>
                     <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
@@ -630,7 +635,8 @@
             </Processor>
             <Processor Type="ModulatorChain" ID="Sample Start" Bypassed="0" Intensity="1.0">
               <ChildProcessors>
-                <Processor Type="Constant" ID="Container16" Bypassed="0" Intensity="0.3600000143051147">
+                <Processor Type="Constant" ID="Container0String4LegOffset" Bypassed="0"
+                           Intensity="0.2199999988079071">
                   <ChildProcessors/>
                 </Processor>
               </ChildProcessors>
@@ -803,7 +809,8 @@
             </Processor>
             <Processor Type="ModulatorChain" ID="Sample Start" Bypassed="0" Intensity="1.0">
               <ChildProcessors>
-                <Processor Type="Constant" ID="Container25" Bypassed="0" Intensity="0.3600000143051147">
+                <Processor Type="Constant" ID="Container0String3LegOffset" Bypassed="0"
+                           Intensity="0.3600000143051147">
                   <ChildProcessors/>
                 </Processor>
               </ChildProcessors>
@@ -976,7 +983,8 @@
             </Processor>
             <Processor Type="ModulatorChain" ID="Sample Start" Bypassed="0" Intensity="1.0">
               <ChildProcessors>
-                <Processor Type="Constant" ID="Container31" Bypassed="0" Intensity="0.3600000143051147">
+                <Processor Type="Constant" ID="Container0String2LegOffset" Bypassed="0"
+                           Intensity="0.3600000143051147">
                   <ChildProcessors/>
                 </Processor>
               </ChildProcessors>
@@ -1158,7 +1166,8 @@
             </Processor>
             <Processor Type="ModulatorChain" ID="Sample Start" Bypassed="0" Intensity="1.0">
               <ChildProcessors>
-                <Processor Type="Constant" ID="Container34" Bypassed="0" Intensity="0.3600000143051147">
+                <Processor Type="Constant" ID="Container0String1LegOffset" Bypassed="0"
+                           Intensity="0.3600000143051147">
                   <ChildProcessors/>
                 </Processor>
               </ChildProcessors>

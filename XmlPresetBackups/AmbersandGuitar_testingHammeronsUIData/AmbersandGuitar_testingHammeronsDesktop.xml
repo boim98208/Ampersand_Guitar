@@ -499,9 +499,9 @@
                  height="10" parentComponent="StringForcePanel" fileName="{PROJECT_FOLDER}PlayingMode_ForceString_Indicator_String1.png"
                  scale="0.699999988079071" visible="0"/>
     </Component>
-    <Component type="ScriptFloatingTile" id="DSPPanel" x="360" y="10" width="557"
-               height="100" parentComponent="PlayingModeBG" itemColour="3355443"
-               itemColour2="1118481" textColour="16777215" bgColour="16777215">
+    <Component type="ScriptPanel" id="DSPPanel" x="360" y="10" width="557" height="100"
+               parentComponent="PlayingModeBG" itemColour="3355443" itemColour2="1118481"
+               textColour="16777215" bgColour="16777215">
       <Component type="ScriptSlider" id="IRMixKnob" x="10" y="30" width="100"
                  height="30" parentComponent="DSPPanel" middlePosition="0.5"/>
       <Component type="ScriptComboBox" id="cmbIr" x="150" y="40" width="131" height="21"
@@ -533,7 +533,7 @@
                height="21" parentComponent="DebugPanel" text="not playing" textColour="4278190080"
                fontSize="16.0"/>
     <Component type="ScriptLabel" id="String5RRLabel" x="262" y="57" width="100"
-               height="21" parentComponent="DebugPanel" text="not playing" textColour="4278190080"
+               height="21" parentComponent="DebugPanel" text="3" textColour="4278190080"
                fontSize="16.0"/>
     <Component type="ScriptLabel" id="String6RRLabel" x="161" y="57" width="100"
                height="21" parentComponent="DebugPanel" text="not playing" textColour="4278190080"

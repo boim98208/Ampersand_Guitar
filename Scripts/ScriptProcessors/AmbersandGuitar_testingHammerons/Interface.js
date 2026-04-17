@@ -1,23 +1,32 @@
 Globals.forcedHandPositionFret = -1;
 Globals.forcedString = -1;
 Globals.handPositionFret = 0;
+
 Globals.stringNote1 = -1;
 Globals.stringNote2 = -1;
 Globals.stringNote3 = -1;
 Globals.stringNote4 = -1;
 Globals.stringNote5 = -1;
 Globals.stringNote6 = -1; 
+Globals.resetNotes = false;
 
 Globals.frettingEngine = 1;
-Globals.legatoRange = 2;
+Globals.legatoRange = 5;
 
+Globals.releaseVolume = 5;
 
 const var NOTESPERSTRING = 22;
 
 //figure this out later
-Globals.emulatedReleasesOn = true;
 
 
+// todo: make HOs and POs known somewhere along the fretboard as a global
+// make another function that goes through that and changes the "filename"
+// as it goes along
+
+/*
+String6Fret0Marker.set("fileName", "{PROJECT_FOLDER}PlayingMode_HandCenter.png");
+*/
 
 inline function onResetGlobalRRButtonControl(component, value)
 {
@@ -28,6 +37,10 @@ inline function onResetGlobalRRButtonControl(component, value)
 		Globals.stringNote4 = -1;
 		Globals.stringNote5 = -1;
 		Globals.stringNote6 = -1; 
+		
+		//some notes have a problem of just hanging and not getting off the stringNote array in FrettingEngine
+	//	Globals.resetNotes = true;
+		//Globals.resetNotes is put back to false in FrettingEngine after it recognizes it
 	}
 };
 
@@ -214,6 +227,7 @@ for (var str = 0; str < Globals.NUMOFSTRINGS; str++){
 
 for (var i = 0; i < Globals.NUMOFSTRINGS; i++){
 	for (var j = 0; j < NOTESPERSTRING; j++){
+		fretImages[i][j].set("fileName", "{PROJECT_FOLDER}PlayingMode_FretIndicator.png");
 		fretImages[i][j].set("visible", false);
 	}
 }
@@ -325,7 +339,7 @@ const var ForceStringImages = [Content.getComponent("StringForceString6"),
                                Content.getComponent("StringForceString3"),
                                Content.getComponent("StringForceString2"),
                                Content.getComponent("StringForceString1")];
-                               
+// doing this so that string1 starts on index 0 and I'm too lazy to change the declaration statement
 ForceStringImages.reverse();
                                
 for( i in ForceStringImages){
