@@ -63,13 +63,41 @@ const var legatoKeySwitchNote = 28; //E2 in cakewalk
  	const var LEGATODOWN = 2;
  }
  
+ const var SUSTAINKEYSWITCHNOTE = 36; //C3 in cakewalk
+ const var MUTEKEYSWITCHNOTE = 37;
+ const var HARMONICKEYSWITCHNOTE = 38;
+ const var TREMOLOKEYSWITCHNOTE = 39;
+ const var SFXKEYSWITCHNOTE = 40;
  
- const var string6Mute = Synth.getMidiProcessor("Container0String6Mute");
- const var string5Mute = Synth.getMidiProcessor("Container0String5Mute");
- const var string4Mute = Synth.getMidiProcessor("Container0String4Mute");
- const var string3Mute = Synth.getMidiProcessor("Container0String3Mute");
- const var string2Mute = Synth.getMidiProcessor("Container0String2Mute");
- const var string1Mute = Synth.getMidiProcessor("Container0String1Mute");
+ 
+const var ContainerSusMute = Synth.getMidiProcessor("ContainerSusMute");
+const var ContainerMuteMute = Synth.getMidiProcessor("ContainerMuteMute");
+const var ContainerHarmonicMute = Synth.getMidiProcessor("ContainerHarmonicMute");
+const var ContainerSFXMute = Synth.getMidiProcessor("ContainerSFXMute");
+
+const var ContainerMutes = [ContainerSusMute, ContainerMuteMute, ContainerHarmonicMute, ContainerSFXMute];
+
+ 
+ inline function setAllContainersMuted(){
+	 for(var i = 0; i < ContainerMutes.length; i++){
+		 ContainerMutes[i].setAttribute("Bypass", true);
+	 }
+ }
+ 
+ inline function detectKeySwitch(notePlayed){
+	 
+ 
+	 setAllContainersMuted();
+	 if(notePlayed == SUSTAINKEYSWITCHNOTE){
+		 ContainerSusMute.setAttribute("Bypass", false);
+	 }else if(notePlayed == MUTEKEYSWITCHNOTE){
+		 ContainerMuteMute.setAttribute("Bypass", false);
+	 }
+ }
+ 
+ 
+ 
+ 
  
 /*
  string6Mute.setAttribute("Bypass", true);
@@ -114,6 +142,8 @@ inline function resetNotes(){
 stringNote.push(POSINFINITY);
 
 
+
+
 //GUI TO HELP ME DEBUG
 
 inline function onButton1Control(component, value)
@@ -129,44 +159,8 @@ Content.getComponent("Button1").setControlCallback(onButton1Control);
 
 
 
-//this is where the leftmost part of the virtual guitarist's hand is
-
-
 
 //functions to ensure only one sampler plays a voice at a time
-
-
-//setAttributes might be redundant right now but I'm too scared of it breaking
-//so I'll leave it there for now
-
-/*
-inline function playString6(){ 
-string6Mute.setAttribute("Bypass", false);
-Message.setChannel(6); 
-}
-
-inline function playString5(){ 
-string5Mute.setAttribute("Bypass", false);
-Message.setChannel(5); }
-
-inline function playString4(){
-string4Mute.setAttribute("Bypass", false);
- Message.setChannel(4); }
-
-inline function playString3(){
-string3Mute.setAttribute("Bypass", false);
- Message.setChannel(3); }
-
-inline function playString2(){
-	string2Mute.setAttribute("Bypass", false);
- Message.setChannel(2); }
-
-inline function playString1(){ 
-string1Mute.setAttribute("Bypass", false);
-Message.setChannel(1); }
-*/
-
-
 //this should only take the Stringtype enum
 inline function playString(theStringType){
 	
@@ -219,6 +213,10 @@ inline function playString(theStringType){
  
  inline function isPolyphonyPlaying(){
 	 return Synth.getNumPressedKeys() > 1;
+ }
+ 
+ inline function sustainKeySwitchPressed(){
+	 
  }
  
  //fretting engine designed for going low to high string then going back down
@@ -411,10 +409,6 @@ inline function naturalFretting2_2_1(notePlayed, currentHandPos)
 	stringToPlay = stringWithClosestNote(notePlayed, currentHandPos);
 	stringNote[stringToPlay] = notePlayed;
 	Globals.stringPerformance[stringToPlay] = PerformanceType.SUSTAIN;
-	if(stringToPlay > 5)
-	{
-		Console.print("something is wrong");
-	}
 	playString(stringToPlay);
 	
 	updateGlobals();
@@ -636,6 +630,8 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
 	//easy way to implement strumming system? Look into later
 	//Message.delayEvent((notePlayed - LOWESTNOTE) * 1000);
 
+	//detectKeySwitch(notePlayed);
+	
 	if(notePlayed == legatoKeySwitchNote)
 		legatoKeySwitchPlaying = true;
 	

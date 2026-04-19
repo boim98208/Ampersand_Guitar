@@ -17,7 +17,7 @@ Globals.resetNotes = false;
 Globals.frettingEngine = 1;
 Globals.legatoRange = 2;
 
-Globals.releaseVolume = 5;
+Globals.releaseVolume = 0;
 
 const var NOTESPERSTRING = 22;
 const var NUMOFSTRINGS = 6;
@@ -46,8 +46,9 @@ namespace PerformanceType
 
 
 Globals.stringPerformance = [];
+Globals.stringPerformance.reserve(NUMOFSTRINGS);
 for(var i = 0; i < NUMOFSTRINGS; i++){
-	Globals.stringPerformance.push(PerformanceType.SUSTAIN);
+	Globals.stringPerformance[i] = PerformanceType.SUSTAIN;
 }
 
 
@@ -80,16 +81,6 @@ inline function displayFret(fretImg, stringNum)
 }
 
 
-//figure this out later
-
-
-// todo: make HOs and POs known somewhere along the fretboard as a global
-// make another function that goes through that and changes the "filename"
-// as it goes along
-
-/*
-String6Fret0Marker.set("fileName", "{PROJECT_FOLDER}PlayingMode_HandCenter.png");
-*/
 
 inline function onResetGlobalRRButtonControl(component, value)
 {
