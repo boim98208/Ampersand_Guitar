@@ -63,6 +63,7 @@ stringPerformanceImgs[PerformanceType.LEGATODOWN] = "{PROJECT_FOLDER}PlayingMode
 
 inline function displayFret(fretImg, stringNum)
 {
+
 	if(Globals.stringPerformance[stringNum] == PerformanceType.SUSTAIN)
 	{
 		fretImg.set("fileName", stringPerformanceImgs[PerformanceType.SUSTAIN]);
@@ -74,7 +75,10 @@ inline function displayFret(fretImg, stringNum)
 	}
 	else if(Globals.stringPerformance[stringNum] == PerformanceType.LEGATODOWN)
 	{
+	Console.print("issue is at " + stringNum);
+
 		fretImg.set("fileName", stringPerformanceImgs[PerformanceType.LEGATODOWN]);
+		
 	}
 			
 	fretImg.set("visible", true);
