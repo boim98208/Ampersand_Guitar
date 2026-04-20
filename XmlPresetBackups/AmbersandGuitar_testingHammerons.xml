@@ -75,15 +75,15 @@
         <Processor Type="EffectChain" ID="FX" Bypassed="0">
           <ChildProcessors/>
         </Processor>
-        <Processor Type="SynthChain" ID="Container0Sustain" Bypassed="0" Gain="1.0"
+        <Processor Type="SynthChain" ID="SustainContainer" Bypassed="0" Gain="1.0"
                    Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0" IconColour="0">
           <ChildProcessors>
             <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
               <ChildProcessors>
-                <Processor Type="MidiMuter" ID="ContainerSusMute" Bypassed="0">
+                <Processor Type="MidiMuter" ID="SusContainerMute" Bypassed="0">
                   <ChildProcessors/>
                   <Content>
-                    <Control type="ScriptButton" id="ignoreButton" value="1.0"/>
+                    <Control type="ScriptButton" id="ignoreButton" value="0.0"/>
                     <Control type="ScriptButton" id="fixStuckNotes" value="1.0"/>
                   </Content>
                 </Processor>
@@ -109,14 +109,7 @@
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors>
-                    <Processor Type="MidiMuter" ID="Container0String6Mute" Bypassed="1">
-                      <ChildProcessors/>
-                      <Content>
-                        <Control type="ScriptButton" id="ignoreButton" value="0.0"/>
-                        <Control type="ScriptButton" id="fixStuckNotes" value="1.0"/>
-                      </Content>
-                    </Processor>
-                    <Processor Type="ScriptProcessor" ID="Container0String6ChnlRoute" Bypassed="0">
+                    <Processor Type="ScriptProcessor" ID="SusString6ChnlRoute" Bypassed="0">
                       <ChildProcessors/>
                       <Content/>
                       <UIData>
@@ -220,7 +213,7 @@
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors>
-                    <Processor Type="ScriptProcessor" ID="Container0String6LegChnlRoute" Bypassed="0">
+                    <Processor Type="ScriptProcessor" ID="LegString6ChnlRoute" Bypassed="0">
                       <ChildProcessors/>
                       <Content/>
                       <UIData>
@@ -343,7 +336,7 @@
                         <Control type="ScriptButton" id="fixStuckNotes" value="1.0"/>
                       </Content>
                     </Processor>
-                    <Processor Type="ScriptProcessor" ID="Container0String5ChnlRoute" Bypassed="0">
+                    <Processor Type="ScriptProcessor" ID="SusString5ChnlRoute" Bypassed="0">
                       <ChildProcessors/>
                       <Content/>
                       <UIData>
@@ -420,7 +413,7 @@
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors>
-                    <Processor Type="ScriptProcessor" ID="Container0String5LegChnlRoute" Bypassed="0">
+                    <Processor Type="ScriptProcessor" ID="LegString5ChnlRoute" Bypassed="0">
                       <ChildProcessors/>
                       <Content/>
                       <UIData>
@@ -513,7 +506,7 @@
                         <Control type="ScriptButton" id="fixStuckNotes" value="1.0"/>
                       </Content>
                     </Processor>
-                    <Processor Type="ScriptProcessor" ID="Container0String4ChnlRoute" Bypassed="0">
+                    <Processor Type="ScriptProcessor" ID="SusString4ChnlRoute" Bypassed="0">
                       <ChildProcessors/>
                       <Content/>
                       <UIData>
@@ -590,7 +583,7 @@
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors>
-                    <Processor Type="ScriptProcessor" ID="Container0String4LegChnlRoute" Bypassed="0">
+                    <Processor Type="ScriptProcessor" ID="LegString4ChnlRoute" Bypassed="0">
                       <ChildProcessors/>
                       <Content/>
                       <UIData>
@@ -691,7 +684,7 @@
                         <Control type="ScriptButton" id="fixStuckNotes" value="1.0"/>
                       </Content>
                     </Processor>
-                    <Processor Type="ScriptProcessor" ID="Container0String3ChnlRoute" Bypassed="0">
+                    <Processor Type="ScriptProcessor" ID="SusString3ChnlRoute" Bypassed="0">
                       <ChildProcessors/>
                       <Content/>
                       <UIData>
@@ -768,7 +761,7 @@
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors>
-                    <Processor Type="ScriptProcessor" ID="Container0String3LegChnlRoute" Bypassed="0">
+                    <Processor Type="ScriptProcessor" ID="LegString3ChnlRoute" Bypassed="0">
                       <ChildProcessors/>
                       <Content/>
                       <UIData>
@@ -865,7 +858,7 @@
                         <Control type="ScriptButton" id="fixStuckNotes" value="1.0"/>
                       </Content>
                     </Processor>
-                    <Processor Type="ScriptProcessor" ID="Container0String2ChnlRoute" Bypassed="0">
+                    <Processor Type="ScriptProcessor" ID="SusString2ChnlRoute" Bypassed="0">
                       <ChildProcessors/>
                       <Content/>
                       <UIData>
@@ -942,7 +935,7 @@
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors>
-                    <Processor Type="ScriptProcessor" ID="Container0String2LegChnlRoute" Bypassed="0">
+                    <Processor Type="ScriptProcessor" ID="LegString2ChnlRoute" Bypassed="0">
                       <ChildProcessors/>
                       <Content/>
                       <UIData>
@@ -1039,7 +1032,7 @@
                         <Control type="ScriptButton" id="fixStuckNotes" value="1.0"/>
                       </Content>
                     </Processor>
-                    <Processor Type="ScriptProcessor" ID="Container0String1ChnlRoute" Bypassed="0">
+                    <Processor Type="ScriptProcessor" ID="SusString1ChnlRoute" Bypassed="0">
                       <ChildProcessors/>
                       <Content/>
                       <UIData>
@@ -1125,7 +1118,7 @@
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors>
-                    <Processor Type="ScriptProcessor" ID="Container0String1LegChnlRoute" Bypassed="0">
+                    <Processor Type="ScriptProcessor" ID="LegString1ChnlRoute" Bypassed="0">
                       <ChildProcessors/>
                       <Content/>
                       <UIData>
@@ -1207,12 +1200,12 @@
           </ChildProcessors>
           <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
         </Processor>
-        <Processor Type="SynthChain" ID="Container0Mute" Bypassed="0" Gain="1.0"
+        <Processor Type="SynthChain" ID="MuteContainer" Bypassed="0" Gain="1.0"
                    Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0" IconColour="0">
           <ChildProcessors>
             <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
               <ChildProcessors>
-                <Processor Type="MidiMuter" ID="ContainerMuteMute" Bypassed="0">
+                <Processor Type="MidiMuter" ID="MuteContainerMute" Bypassed="0">
                   <ChildProcessors/>
                   <Content>
                     <Control type="ScriptButton" id="ignoreButton" value="1.0"/>
@@ -1233,12 +1226,12 @@
           </ChildProcessors>
           <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
         </Processor>
-        <Processor Type="SynthChain" ID="Container0Harmonic" Bypassed="0" Gain="1.0"
+        <Processor Type="SynthChain" ID="HarmonicContainer" Bypassed="0" Gain="1.0"
                    Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0" IconColour="0">
           <ChildProcessors>
             <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
               <ChildProcessors>
-                <Processor Type="MidiMuter" ID="ContainerHarmonicMute" Bypassed="0">
+                <Processor Type="MidiMuter" ID="HarmonicContainerMute" Bypassed="0">
                   <ChildProcessors/>
                   <Content>
                     <Control type="ScriptButton" id="ignoreButton" value="1.0"/>
@@ -1259,16 +1252,42 @@
           </ChildProcessors>
           <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
         </Processor>
-        <Processor Type="SynthChain" ID="Container0Tremolo" Bypassed="0" Gain="1.0"
+        <Processor Type="SynthChain" ID="TremoloContainer" Bypassed="0" Gain="1.0"
                    Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0" IconColour="0">
           <ChildProcessors>
             <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
               <ChildProcessors>
-                <Processor Type="MidiMuter" ID="ContainerSFXMute" Bypassed="0">
+                <Processor Type="MidiMuter" ID="TremoloContainerMute" Bypassed="0">
                   <ChildProcessors/>
                   <Content>
-                    <Control type="ScriptButton" id="ignoreButton" value="0.0"/>
-                    <Control type="ScriptButton" id="fixStuckNotes" value="0.0"/>
+                    <Control type="ScriptButton" id="ignoreButton" value="1.0"/>
+                    <Control type="ScriptButton" id="fixStuckNotes" value="1.0"/>
+                  </Content>
+                </Processor>
+              </ChildProcessors>
+            </Processor>
+            <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
+              <ChildProcessors/>
+            </Processor>
+            <Processor Type="ModulatorChain" ID="PitchModulation" Bypassed="1" Intensity="0.0">
+              <ChildProcessors/>
+            </Processor>
+            <Processor Type="EffectChain" ID="FX" Bypassed="0">
+              <ChildProcessors/>
+            </Processor>
+          </ChildProcessors>
+          <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
+        </Processor>
+        <Processor Type="SynthChain" ID="SFXContainer" Bypassed="0" Gain="1.0" Balance="0.0"
+                   VoiceLimit="256.0" KillFadeTime="20.0" IconColour="0">
+          <ChildProcessors>
+            <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
+              <ChildProcessors>
+                <Processor Type="MidiMuter" ID="SFXContainerMute" Bypassed="0">
+                  <ChildProcessors/>
+                  <Content>
+                    <Control type="ScriptButton" id="ignoreButton" value="1.0"/>
+                    <Control type="ScriptButton" id="fixStuckNotes" value="1.0"/>
                   </Content>
                 </Processor>
               </ChildProcessors>

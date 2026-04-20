@@ -47,6 +47,10 @@ const var legatoKeySwitchNote = 28; //E2 in cakewalk
  
  }
  
+ inline function isBetweenIncl(num, lowBound, highBound){
+ 	 return num >= lowBound && num <= highBound;
+ }
+ 
  
  namespace FrettingEngine
  {
@@ -70,12 +74,14 @@ const var legatoKeySwitchNote = 28; //E2 in cakewalk
  const var SFXKEYSWITCHNOTE = 40;
  
  
-const var ContainerSusMute = Synth.getMidiProcessor("ContainerSusMute");
-const var ContainerMuteMute = Synth.getMidiProcessor("ContainerMuteMute");
-const var ContainerHarmonicMute = Synth.getMidiProcessor("ContainerHarmonicMute");
-const var ContainerSFXMute = Synth.getMidiProcessor("ContainerSFXMute");
+const var SusContainerMute = Synth.getMidiProcessor("SusContainerMute");
+const var MuteContainerMute = Synth.getMidiProcessor("MuteContainerMute");
+const var HarmonicContainerMute = Synth.getMidiProcessor("HarmonicContainerMute");
+const var TremoloContainerMute = Synth.getMidiProcessor("TremoloContainerMute");
+const var SFXContainerMute = Synth.getMidiProcessor("SFXContainerMute");
 
-const var ContainerMutes = [ContainerSusMute, ContainerMuteMute, ContainerHarmonicMute, ContainerSFXMute];
+const var ContainerMutes = [SusContainerMute, MuteContainerMute, HarmonicContainerMute, TremoloContainerMute, SFXContainerMute];
+const var NUMOFKEYSWITCHES = ContainerMutes.length;
 
  
  inline function setAllContainersMuted(){
@@ -87,12 +93,23 @@ const var ContainerMutes = [ContainerSusMute, ContainerMuteMute, ContainerHarmon
  inline function detectKeySwitch(notePlayed){
 	 
  
+	if(!isBetweenIncl(notePlayed, SUSTAINKEYSWITCHNOTE, SUSTAINKEYSWITCHNOTE + NUMOFKEYSWITCHES)){
+		//keyswitch was not pressed
+		Console.print("bruh");
+		return 0;
+	}
+	
+	
 	 setAllContainersMuted();
 	 if(notePlayed == SUSTAINKEYSWITCHNOTE){
-		 ContainerSusMute.setAttribute("Bypass", false);
+	 
+		 SusContainerMute.setAttribute("Bypass", false);
+	
 	 }else if(notePlayed == MUTEKEYSWITCHNOTE){
-		 ContainerMuteMute.setAttribute("Bypass", false);
+	 
+		 MuteContainerMute.setAttribute("Bypass", false);
 	 }
+	 
  }
  
  
@@ -167,12 +184,6 @@ inline function playString(theStringType){
 	//adding 1 because the enum starts on 0 but channels start on 1
 	Message.setChannel(theStringType + 1);
 }
- 
- 
- 
- inline function isBetweenIncl(num, lowBound, highBound){
- 	 return num >= lowBound && num <= highBound;
- }
  
 
  
@@ -630,7 +641,7 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
 	//easy way to implement strumming system? Look into later
 	//Message.delayEvent((notePlayed - LOWESTNOTE) * 1000);
 
-	//detectKeySwitch(notePlayed);
+	detectKeySwitch(notePlayed);
 	
 	if(notePlayed == legatoKeySwitchNote)
 		legatoKeySwitchPlaying = true;

@@ -137,8 +137,7 @@ Globals.string2ActiveRR = "not playing";
 Globals.string1ActiveRR = "not playing";
 
 
-
-
+Synth.deferCallbacks(true);
  Content.makeFrontInterface(1020, 600);
  
 //connecting with fret markers on the UI
