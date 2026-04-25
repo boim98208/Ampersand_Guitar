@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<samplemap ID="SFX_BackBodyHit" RRGroupAmount="7.0" MicPositions=";" CrossfadeGamma="1.0">
+  <sample Root="29" LoKey="29" HiKey="29" LoVel="0" HiVel="127" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_tapSeqFast_F0_RR1.wav"
+          Duplicate="1"/>
+  <sample Root="29" LoKey="29" HiKey="29" LoVel="0" HiVel="127" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_tapSeqFast_F0_RR2.wav"
+          Duplicate="1"/>
+  <sample Root="29" LoKey="29" HiKey="29" LoVel="0" HiVel="127" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_tapSeqFast_F0_RR3.wav"
+          Duplicate="1"/>
+  <sample Root="29" LoKey="29" HiKey="29" LoVel="0" HiVel="127" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_tapSeqFast_F0_RR4.wav"
+          Duplicate="1"/>
+  <sample Root="29" LoKey="29" HiKey="29" LoVel="0" HiVel="127" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_tapSeqFast_F0_RR5.wav"
+          Duplicate="1"/>
+  <sample Root="29" LoKey="29" HiKey="29" LoVel="0" HiVel="127" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_tapSeqFast_F0_RR6.wav"
+          Duplicate="1"/>
+  <sample Root="29" LoKey="29" HiKey="29" LoVel="0" HiVel="127" RRGroup="7"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_tapSeqFast_F0_RR7.wav"
+          Duplicate="1"/>
+  <sample Root="30" LoKey="30" HiKey="30" LoVel="0" HiVel="127" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_tapSeqSlow_F#0_RR1.wav"
+          Duplicate="1"/>
+  <sample Root="30" LoKey="30" HiKey="30" LoVel="0" HiVel="127" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_tapSeqSlow_F#0_RR2.wav"
+          Duplicate="1"/>
+  <sample Root="30" LoKey="30" HiKey="30" LoVel="0" HiVel="127" RRGroup="7"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_tapSeqSlow_F#0_RR3.wav"
+          Duplicate="1"/>
+  <sample Root="30" LoKey="30" HiKey="30" LoVel="0" HiVel="127" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_tapSeqSlow_F#0_RR4.wav"
+          Duplicate="1"/>
+  <sample Root="30" LoKey="30" HiKey="30" LoVel="0" HiVel="127" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_tapSeqSlow_F#0_RR1.wav"
+          Duplicate="1"/>
+  <sample Root="30" LoKey="30" HiKey="30" LoVel="0" HiVel="127" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_tapSeqSlow_F#0_RR2.wav"
+          Duplicate="1"/>
+  <sample Root="30" LoKey="30" HiKey="30" LoVel="0" HiVel="127" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_tapSeqSlow_F#0_RR3.wav"
+          Duplicate="1"/>
+</samplemap>

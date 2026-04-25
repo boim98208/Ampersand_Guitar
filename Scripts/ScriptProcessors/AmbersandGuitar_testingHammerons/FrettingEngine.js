@@ -24,7 +24,6 @@
  OPENSTRINGNOTES.push(OPENSTRINGNONOTE);
 
 var legatoKeySwitchPlaying = false;
-const var legatoKeySwitchNote = 28; //E2 in cakewalk
  
  namespace Stringtype
  {
@@ -72,7 +71,7 @@ const var legatoKeySwitchNote = 28; //E2 in cakewalk
  const var HARMONICKEYSWITCHNOTE = 38;
  const var TREMOLOKEYSWITCHNOTE = 39;
  const var SFXKEYSWITCHNOTE = 40;
- const var legatoKeySwitchNote = 49; //E2 in cakewalk
+ const var legatoKeySwitchNote = 49; //Db4 in cakewalk
  
  var legatoKeySwitchPlaying = false;
  
@@ -555,6 +554,8 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
  
  inline function playNextNoteLegato(notePlayed, velocityPlayed)
  {
+	Console.print("should be legato");
+
 
 	local isNoteInRange = false;
 

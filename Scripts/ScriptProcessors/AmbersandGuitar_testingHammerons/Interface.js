@@ -19,6 +19,8 @@ Globals.legatoRange = 2;
 
 Globals.releaseVolume = 0;
 
+Globals.articulationPlaying = 0;
+
 const var NOTESPERSTRING = 22;
 const var NUMOFSTRINGS = 6;
 
@@ -40,7 +42,13 @@ namespace PerformanceType
 	const var SUSTAIN = 0;
 	const var LEGATOUP = 1;
 	const var LEGATODOWN = 2;
+	const var MUTE = 3;
+	const var HARMONIC = 4;
+	const var TREMOLO = 5;
+	//SFX will just be separate keys down low
 }
+
+
 
 
 
@@ -389,6 +397,10 @@ for( i in ForceStringImages){
 	i.set("visible", false);
 }
 
+
+const var ArticulationPlayingLabel = Content.getComponent("ArticulationPlayingLabel");
+
+inline function
 
 
 
