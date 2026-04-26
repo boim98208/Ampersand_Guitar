@@ -102,9 +102,14 @@ const var NUMOFKEYSWITCHES = ContainerMutes.length;
 	
 	
 	 setAllContainersMuted();
+	 
+	 //emulated releases probably only work on sustains
+	 Globals.emulatedReleasesOn = false;
+	 
 	 if(notePlayed == SUSTAINKEYSWITCHNOTE){
 	 
 		 SusContainerMute.setAttribute("Bypass", false);
+		 Globals.emulatedReleasesOn = true;
 	
 	 }else if(notePlayed == MUTEKEYSWITCHNOTE){
 	 

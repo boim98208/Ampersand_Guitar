@@ -400,7 +400,6 @@ for( i in ForceStringImages){
 
 const var ArticulationPlayingLabel = Content.getComponent("ArticulationPlayingLabel");
 
-inline function
 
 
 

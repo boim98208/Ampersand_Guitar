@@ -1300,8 +1300,8 @@
             </Processor>
             <Processor Type="EffectChain" ID="FX" Bypassed="0">
               <ChildProcessors>
-                <Processor Type="SimpleGain" ID="Simple Gain3" Bypassed="0" Gain="4.486784934997559"
-                           Delay="0.0" Width="100.0" Balance="0.0" InvertPolarity="0.0">
+                <Processor Type="SimpleGain" ID="Simple Gain3" Bypassed="0" Gain="0.0" Delay="0.0"
+                           Width="100.0" Balance="0.0" InvertPolarity="0.0">
                   <ChildProcessors>
                     <Processor Type="ModulatorChain" ID="Gain Modulation" Bypassed="0" Intensity="1.0">
                       <ChildProcessors/>
@@ -1336,7 +1336,7 @@
                   <ChildProcessors>
                     <Processor Type="AHDSR" ID="AHDSR Envelope13" Bypassed="0" Monophonic="0.0"
                                Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
-                               Attack="20.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
+                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
                                Release="20.0" EcoMode="1.0">
                       <ChildProcessors>
                         <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
@@ -1363,7 +1363,12 @@
                   </ChildProcessors>
                 </Processor>
                 <Processor Type="ModulatorChain" ID="PitchModulation" Bypassed="0" Intensity="0.0">
-                  <ChildProcessors/>
+                  <ChildProcessors>
+                    <Processor Type="Random" ID="Random Modulator13" Bypassed="0" Intensity="0.01666666753590107"
+                               Bipolar="1" UseTable="0.0" RandomTableData="">
+                      <ChildProcessors/>
+                    </Processor>
+                  </ChildProcessors>
                 </Processor>
                 <Processor Type="EffectChain" ID="FX" Bypassed="0">
                   <ChildProcessors/>
@@ -1396,7 +1401,7 @@
                   <ChildProcessors>
                     <Processor Type="AHDSR" ID="AHDSR Envelope14" Bypassed="0" Monophonic="0.0"
                                Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
-                               Attack="20.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
+                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
                                Release="20.0" EcoMode="1.0">
                       <ChildProcessors>
                         <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
@@ -1423,7 +1428,12 @@
                   </ChildProcessors>
                 </Processor>
                 <Processor Type="ModulatorChain" ID="PitchModulation" Bypassed="0" Intensity="0.0">
-                  <ChildProcessors/>
+                  <ChildProcessors>
+                    <Processor Type="Random" ID="Random Modulator13" Bypassed="0" Intensity="0.008333333767950535"
+                               Bipolar="1" UseTable="0.0" RandomTableData="">
+                      <ChildProcessors/>
+                    </Processor>
+                  </ChildProcessors>
                 </Processor>
                 <Processor Type="EffectChain" ID="FX" Bypassed="0">
                   <ChildProcessors/>
@@ -1456,7 +1466,7 @@
                   <ChildProcessors>
                     <Processor Type="AHDSR" ID="AHDSR Envelope15" Bypassed="0" Monophonic="0.0"
                                Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
-                               Attack="20.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
+                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
                                Release="20.0" EcoMode="1.0">
                       <ChildProcessors>
                         <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
@@ -1483,7 +1493,12 @@
                   </ChildProcessors>
                 </Processor>
                 <Processor Type="ModulatorChain" ID="PitchModulation" Bypassed="0" Intensity="0.0">
-                  <ChildProcessors/>
+                  <ChildProcessors>
+                    <Processor Type="Random" ID="Random Modulator13" Bypassed="0" Intensity="0.02500000037252903"
+                               Bipolar="1" UseTable="0.0" RandomTableData="">
+                      <ChildProcessors/>
+                    </Processor>
+                  </ChildProcessors>
                 </Processor>
                 <Processor Type="EffectChain" ID="FX" Bypassed="0">
                   <ChildProcessors/>
@@ -1516,7 +1531,7 @@
                   <ChildProcessors>
                     <Processor Type="AHDSR" ID="AHDSR Envelope16" Bypassed="0" Monophonic="0.0"
                                Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
-                               Attack="20.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
+                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
                                Release="20.0" EcoMode="1.0">
                       <ChildProcessors>
                         <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
@@ -1543,7 +1558,12 @@
                   </ChildProcessors>
                 </Processor>
                 <Processor Type="ModulatorChain" ID="PitchModulation" Bypassed="0" Intensity="0.0">
-                  <ChildProcessors/>
+                  <ChildProcessors>
+                    <Processor Type="Random" ID="Random Modulator13" Bypassed="0" Intensity="0.008333333767950535"
+                               Bipolar="1" UseTable="0.0" RandomTableData="">
+                      <ChildProcessors/>
+                    </Processor>
+                  </ChildProcessors>
                 </Processor>
                 <Processor Type="EffectChain" ID="FX" Bypassed="0">
                   <ChildProcessors/>
@@ -1576,7 +1596,7 @@
                   <ChildProcessors>
                     <Processor Type="AHDSR" ID="AHDSR Envelope17" Bypassed="0" Monophonic="0.0"
                                Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
-                               Attack="20.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
+                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
                                Release="20.0" EcoMode="1.0">
                       <ChildProcessors>
                         <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
@@ -1603,7 +1623,12 @@
                   </ChildProcessors>
                 </Processor>
                 <Processor Type="ModulatorChain" ID="PitchModulation" Bypassed="0" Intensity="0.0">
-                  <ChildProcessors/>
+                  <ChildProcessors>
+                    <Processor Type="Random" ID="Random Modulator13" Bypassed="0" Intensity="0.008333333767950535"
+                               Bipolar="1" UseTable="0.0" RandomTableData="">
+                      <ChildProcessors/>
+                    </Processor>
+                  </ChildProcessors>
                 </Processor>
                 <Processor Type="EffectChain" ID="FX" Bypassed="0">
                   <ChildProcessors/>
@@ -1636,7 +1661,7 @@
                   <ChildProcessors>
                     <Processor Type="AHDSR" ID="AHDSR Envelope18" Bypassed="0" Monophonic="0.0"
                                Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
-                               Attack="20.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
+                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
                                Release="20.0" EcoMode="1.0">
                       <ChildProcessors>
                         <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
@@ -1663,7 +1688,12 @@
                   </ChildProcessors>
                 </Processor>
                 <Processor Type="ModulatorChain" ID="PitchModulation" Bypassed="0" Intensity="0.0">
-                  <ChildProcessors/>
+                  <ChildProcessors>
+                    <Processor Type="Random" ID="Random Modulator13" Bypassed="0" Intensity="0.02083333395421505"
+                               Bipolar="1" UseTable="0.0" RandomTableData="">
+                      <ChildProcessors/>
+                    </Processor>
+                  </ChildProcessors>
                 </Processor>
                 <Processor Type="EffectChain" ID="FX" Bypassed="0">
                   <ChildProcessors/>
@@ -1696,8 +1726,8 @@
                   <ChildProcessors>
                     <Processor Type="AHDSR" ID="AHDSR Envelope19" Bypassed="0" Monophonic="0.0"
                                Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
-                               Attack="20.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
-                               Release="215.0" EcoMode="1.0">
+                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
+                               Release="1500.0" EcoMode="1.0">
                       <ChildProcessors>
                         <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
                           <ChildProcessors/>
@@ -1724,7 +1754,7 @@
                 </Processor>
                 <Processor Type="ModulatorChain" ID="PitchModulation" Bypassed="0" Intensity="0.0">
                   <ChildProcessors>
-                    <Processor Type="Random" ID="Random Modulator13" Bypassed="0" Intensity="0.01666666753590107"
+                    <Processor Type="Random" ID="Random Modulator13" Bypassed="0" Intensity="0.008333333767950535"
                                Bipolar="1" UseTable="0.0" RandomTableData="">
                       <ChildProcessors/>
                     </Processor>

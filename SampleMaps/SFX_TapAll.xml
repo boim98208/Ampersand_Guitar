@@ -3,35 +3,35 @@
 <samplemap ID="SFX_BackBodyHit" RRGroupAmount="5.0" MicPositions=";" CrossfadeGamma="1.0">
   <sample Root="28" LoKey="28" HiKey="28" LoVel="64" HiVel="127" RRGroup="1"
           FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_tapAll_E0_RR1.wav"
-          Duplicate="1"/>
+          Duplicate="1" LowerVelocityXFade="20"/>
   <sample Root="28" LoKey="28" HiKey="28" LoVel="64" HiVel="127" RRGroup="2"
           FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_tapAll_E0_RR2.wav"
-          Duplicate="1"/>
+          Duplicate="1" LowerVelocityXFade="20"/>
   <sample Root="28" LoKey="28" HiKey="28" LoVel="64" HiVel="127" RRGroup="3"
           FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_tapAll_E0_RR3.wav"
-          Duplicate="1"/>
+          Duplicate="1" LowerVelocityXFade="20"/>
   <sample Root="28" LoKey="28" HiKey="28" LoVel="64" HiVel="127" RRGroup="4"
           FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_tapAll_E0_RR4.wav"
-          Duplicate="1"/>
+          Duplicate="1" LowerVelocityXFade="20"/>
   <sample Root="28" LoKey="28" HiKey="28" LoVel="64" HiVel="127" RRGroup="5"
           FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_tapAll_E0_RR5.wav"
-          Duplicate="1"/>
+          Duplicate="1" LowerVelocityXFade="20"/>
   <sample Root="28" LoKey="28" HiKey="28" LoVel="64" HiVel="127" RRGroup="0"
           FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_tapAll_E0_RR6.wav"
-          Duplicate="1"/>
-  <sample Root="28" LoKey="28" HiKey="28" LoVel="0" HiVel="63" RRGroup="1"
+          Duplicate="1" LowerVelocityXFade="20"/>
+  <sample Root="28" LoKey="28" HiKey="28" LoVel="0" HiVel="83" RRGroup="1"
           FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_tapSingle_E0_RR1.wav"
-          Duplicate="0"/>
-  <sample Root="28" LoKey="28" HiKey="28" LoVel="0" HiVel="63" RRGroup="2"
+          Duplicate="1" UpperVelocityXFade="20"/>
+  <sample Root="28" LoKey="28" HiKey="28" LoVel="0" HiVel="83" RRGroup="2"
           FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_tapSingle_E0_RR2.wav"
-          Duplicate="0"/>
-  <sample Root="28" LoKey="28" HiKey="28" LoVel="0" HiVel="63" RRGroup="3"
+          Duplicate="1" UpperVelocityXFade="20"/>
+  <sample Root="28" LoKey="28" HiKey="28" LoVel="0" HiVel="83" RRGroup="3"
           FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_tapSingle_E0_RR3.wav"
-          Duplicate="0"/>
-  <sample Root="28" LoKey="28" HiKey="28" LoVel="0" HiVel="63" RRGroup="4"
+          Duplicate="1" UpperVelocityXFade="20"/>
+  <sample Root="28" LoKey="28" HiKey="28" LoVel="0" HiVel="83" RRGroup="4"
           FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_tapSingle_E0_RR4.wav"
-          Duplicate="0"/>
-  <sample Root="28" LoKey="28" HiKey="28" LoVel="0" HiVel="63" RRGroup="5"
+          Duplicate="1" UpperVelocityXFade="20"/>
+  <sample Root="28" LoKey="28" HiKey="28" LoVel="0" HiVel="83" RRGroup="5"
           FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_tapSingle_E0_RR5.wav"
-          Duplicate="0"/>
+          Duplicate="1" UpperVelocityXFade="20"/>
 </samplemap>
