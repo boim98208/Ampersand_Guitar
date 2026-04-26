@@ -17,7 +17,7 @@ Globals.resetNotes = false;
 Globals.frettingEngine = 1;
 Globals.legatoRange = 2;
 
-Globals.releaseVolume = 0;
+Globals.releaseVolume = 3;
 
 Globals.articulationPlaying = 0;
 

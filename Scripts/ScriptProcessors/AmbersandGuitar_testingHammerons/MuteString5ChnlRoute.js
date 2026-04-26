@@ -75,6 +75,9 @@ function onNoteOn()
 }
  function onTimer()
 {
+	
+	/*
+
 local releaseNote;
 local numOfReleases;
 
@@ -131,6 +134,7 @@ local numOfReleases;
 		
 		
 	}
+	*/
 	
 
 	

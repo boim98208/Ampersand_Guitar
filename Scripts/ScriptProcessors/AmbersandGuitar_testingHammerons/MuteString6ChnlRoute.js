@@ -1,6 +1,6 @@
 const var releaseAddition = [1, 4, 5];
 const var releaseAdditionWhenHigh = [-3, -4, -5];
-const var OPENSTRINGNOTE = 57;
+const var OPENSTRINGNOTE = 52;
 const var NOTEPERSTRING = 22;
 const var POINTTOCHANGERELEASE = OPENSTRINGNOTE + (NOTEPERSTRING/2);
 const var LEGATOCHNLOFFSET = 6;
@@ -30,7 +30,7 @@ function onNoteOn()
 
 	Message.makeArtificial();
 	
-	if(Message.getChannel() == 5){
+	if(Message.getChannel() == 6){
 		//is now playing the note and updates
 		Synth.stopTimer();   
 		isReleased = false;
@@ -41,11 +41,11 @@ function onNoteOn()
 		        releaseId = -99;
 		}
 		    
-		Globals.string5ActiveRR = Sampler.getActiveRRGroup();
+		Globals.string6ActiveRR = Sampler.getActiveRRGroup();
 		noteVelocity = Message.getVelocity();
 		id = Message.getEventId();
 		
-	}else if(Message.getChannel() == 5 + LEGATOCHNLOFFSET){
+	}else if(Message.getChannel() == 6 + LEGATOCHNLOFFSET){
 		
 		Synth.noteOffByEventId(id);
 		Message.ignoreEvent(true);
@@ -58,13 +58,14 @@ function onNoteOn()
  function onNoteOff()
 {
 
-	if(Message.getChannel() != 5){
+	if(Message.getChannel() != 6){
 		Message.ignoreEvent(true);
 	}else{
+	
 		isReleased = true;
 		noteReleased = Message.getNoteNumber();
 		releaseVolumeOverTime = Globals.releaseVolume;
-		Globals.string5ActiveRR = "not playing";
+		Globals.string6ActiveRR = "not playing";
 		Synth.startTimer(0.01);
 		Synth.noteOffByEventId(id);
 	}
@@ -75,6 +76,9 @@ function onNoteOn()
 }
  function onTimer()
 {
+	
+/*
+
 local releaseNote;
 local numOfReleases;
 
@@ -132,7 +136,7 @@ local numOfReleases;
 		
 	}
 	
-
+*/
 	
 }
  function onControl(number, value)
