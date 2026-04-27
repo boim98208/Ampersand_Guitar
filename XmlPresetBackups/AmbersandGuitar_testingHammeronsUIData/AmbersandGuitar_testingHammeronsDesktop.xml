@@ -517,7 +517,7 @@
     <Component type="ScriptImage" id="NerdDetails_BG" x="160" y="10" width="597"
                height="100" parentComponent="DebugPanel" fileName="{PROJECT_FOLDER}PlayingMode_NerdDetails_BG.png"/>
     <Component type="ScriptLabel" id="handPositionFretLabel" x="545" y="16"
-               width="39" fontSize="20.0" height="13" text="0" parentComponent="DebugPanel"
+               width="39" fontSize="20.0" height="13" text="7" parentComponent="DebugPanel"
                textColour="4278190080"/>
     <Component type="ScriptLabel" id="HandPositionFretTextLabel" x="20" y="20"
                text="Hand Fret Position:" fontSize="20.0" width="137" parentComponent="DebugPanel"

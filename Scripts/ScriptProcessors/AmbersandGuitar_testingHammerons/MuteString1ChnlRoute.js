@@ -6,6 +6,7 @@ const var POINTTOCHANGERELEASE = OPENSTRINGNOTE + (NOTEPERSTRING/2);
 const var LEGATOCHNLOFFSET = 6;
 
 
+/*
 reg releaseNoteNum = 0;
 reg isReleased = 0;
 reg releaseAdditionIndex = 0;
@@ -13,7 +14,7 @@ reg id = -99;
 reg releaseId = -99;
 
 reg noteReleased;
-reg noteVelocity = 60;
+reg noteVelocity = 60;*/
 
 
 //const var releaseAddition = [-2, -3, -4, -5, -6];
@@ -28,7 +29,7 @@ function onNoteOn()
 {
 
 
-	Message.makeArtificial();
+	//Message.makeArtificial();
 	
 	if(Message.getChannel() == 1){
 		//is now playing the note and updates
@@ -45,11 +46,11 @@ function onNoteOn()
 		noteVelocity = Message.getVelocity();
 		id = Message.getEventId();
 		
-	}else if(Message.getChannel() == 1 + LEGATOCHNLOFFSET){
+	}/*else if(Message.getChannel() == 1 + LEGATOCHNLOFFSET){
 		
 		Synth.noteOffByEventId(id);
 		Message.ignoreEvent(true);
-	}
+	}*/
 	else{
 		Message.ignoreEvent(true);
 	}
@@ -62,12 +63,12 @@ function onNoteOn()
 		Message.ignoreEvent(true);
 	}else{
 	
-		isReleased = true;
+	/*	isReleased = true;
 		noteReleased = Message.getNoteNumber();
-		releaseVolumeOverTime = Globals.releaseVolume;
+		releaseVolumeOverTime = Globals.releaseVolume;*/
 		Globals.string1ActiveRR = "not playing";
-		Synth.startTimer(0.01);
-		Synth.noteOffByEventId(id);
+/*		Synth.startTimer(0.01);
+		Synth.noteOffByEventId(id);*/
 	}
 }
   function onController()
