@@ -553,7 +553,7 @@ Content.getComponent("IRMixKnob").setControlCallback(onIRMixKnobControl);
 function onNoteOn()
 {
 	
-	
+
 	local notePlayed = Message.getNoteNumber();
 	local velocityPlayed = Message.getVelocity();
 	

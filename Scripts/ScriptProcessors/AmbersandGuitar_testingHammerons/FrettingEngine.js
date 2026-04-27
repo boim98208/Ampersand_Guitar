@@ -86,7 +86,7 @@ const var TremoloContainerMute = Synth.getMidiProcessor("TremoloContainerMute");
 //sfxcontainermute has been disabled because I might just have it be constantly available
 const var SFXContainerMute = Synth.getMidiProcessor("SFXContainerMute");
 
-const var ContainerMutes = [SusContainerMute, MuteContainerMute, HarmonicContainerMute, TremoloContainerMute, SFXContainerMute];
+const var ContainerMutes = [SusContainerMute, MuteContainerMute, HarmonicContainerMute, TremoloContainerMute];
 const var NUMOFKEYSWITCHES = ContainerMutes.length;
 
  
