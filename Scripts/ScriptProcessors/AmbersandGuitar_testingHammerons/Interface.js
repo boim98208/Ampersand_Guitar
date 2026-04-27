@@ -17,7 +17,7 @@ Globals.resetNotes = false;
 Globals.frettingEngine = 1;
 Globals.legatoRange = 2;
 
-Globals.releaseVolume = 3;
+Globals.releaseVolume = 5;
 
 Globals.articulationPlaying = 0;
 
@@ -105,7 +105,7 @@ inline function onResetGlobalRRButtonControl(component, value)
 		Globals.stringNote6 = -1; 
 		
 		//some notes have a problem of just hanging and not getting off the stringNote array in FrettingEngine
-	//	Globals.resetNotes = true;
+		Globals.resetNotes = true;
 		//Globals.resetNotes is put back to false in FrettingEngine after it recognizes it
 	}
 };

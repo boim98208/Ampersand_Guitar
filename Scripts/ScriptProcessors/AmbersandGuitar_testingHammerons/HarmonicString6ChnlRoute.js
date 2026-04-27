@@ -61,6 +61,7 @@ function onNoteOn()
 	if(Message.getChannel() != 6){
 		Message.ignoreEvent(true);
 	}else{
+	
 		isReleased = true;
 		noteReleased = Message.getNoteNumber();
 		releaseVolumeOverTime = Globals.releaseVolume;
@@ -75,15 +76,16 @@ function onNoteOn()
 }
  function onTimer()
 {
+	
+/*
+
 local releaseNote;
 local numOfReleases;
 
  if(!Globals.emulatedReleasesOn){
- 
 	 return;
  
 	}
-	
 	
 	if(releaseId != -99)
 		Synth.noteOffByEventId(releaseId);
@@ -112,6 +114,7 @@ local numOfReleases;
 		//consider having go either the volume of the note played or something else
 
 			releaseId = Synth.playNote(releaseNote, 60);
+
 		}
 		
 		
@@ -133,7 +136,7 @@ local numOfReleases;
 		
 	}
 	
-
+*/
 	
 }
  function onControl(number, value)

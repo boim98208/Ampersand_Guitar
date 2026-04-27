@@ -1,3 +1,5 @@
+ 
+ //for some reason global releases wont turn off mid-script so I'm keeping it off for now
  Globals.emulatedReleasesOn = true;
  
  const var POSINFINITY = 1/0;
@@ -80,6 +82,8 @@ const var SusContainerMute = Synth.getMidiProcessor("SusContainerMute");
 const var MuteContainerMute = Synth.getMidiProcessor("MuteContainerMute");
 const var HarmonicContainerMute = Synth.getMidiProcessor("HarmonicContainerMute");
 const var TremoloContainerMute = Synth.getMidiProcessor("TremoloContainerMute");
+
+//sfxcontainermute has been disabled because I might just have it be constantly available
 const var SFXContainerMute = Synth.getMidiProcessor("SFXContainerMute");
 
 const var ContainerMutes = [SusContainerMute, MuteContainerMute, HarmonicContainerMute, TremoloContainerMute, SFXContainerMute];
@@ -103,17 +107,22 @@ const var NUMOFKEYSWITCHES = ContainerMutes.length;
 	
 	 setAllContainersMuted();
 	 
-	 //emulated releases probably only work on sustains
+	 //emulated releases probably only work on sustains so set off by default
 	 Globals.emulatedReleasesOn = false;
 	 
 	 if(notePlayed == SUSTAINKEYSWITCHNOTE){
 	 
 		 SusContainerMute.setAttribute("Bypass", false);
 		 Globals.emulatedReleasesOn = true;
-	
 	 }else if(notePlayed == MUTEKEYSWITCHNOTE){
 	 
 		 MuteContainerMute.setAttribute("Bypass", false);
+	 }else if(notePlayed == HARMONICKEYSWITCHNOTE){
+		 
+		 HarmonicContainerMute.setAttribute("Bypass", false);
+	 }else if(notePlayed == TREMOLOKEYSWITCHNOTE){
+		 
+		 TremoloContainerMute.setAttribute("Bypass", false);
 	 }
 	 
  }
@@ -650,6 +659,9 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
 	//Message.delayEvent((notePlayed - LOWESTNOTE) * 1000);
 
 	detectKeySwitch(notePlayed);
+	
+	if(Globals.resetNotes == true)
+		resetNotes();
 	
 	if(notePlayed == legatoKeySwitchNote)
 		legatoKeySwitchPlaying = true;

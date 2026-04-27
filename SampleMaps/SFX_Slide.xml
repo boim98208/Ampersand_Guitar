@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<samplemap CrossfadeGamma="1.0" ID="SFX_Slide" RRGroupAmount="2.0" MicPositions=";">
+  <sample Root="32" LoKey="32" HiKey="32" LoVel="0" HiVel="127" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_slide.wav"
+          Duplicate="1" LoopEnd="10763" SampleEnd="15559" LoopXFade="0"
+          LoopStart="1607" SampleStart="1607"/>
+  <sample Root="33" LoKey="33" HiKey="33" LoVel="0" HiVel="127" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_slide2.wav"
+          Duplicate="1"/>
+  <sample Root="33" LoKey="33" HiKey="33" LoVel="0" HiVel="127" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_slide5.wav"
+          Duplicate="1" LoopXFade="0" LoopStart="1147" SampleStart="1147"/>
+  <sample Root="32" LoKey="32" HiKey="32" LoVel="0" HiVel="127" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_slide-002.wav"
+          Duplicate="1" LoopXFade="0" LoopStart="4435" SampleStart="4435"
+          LoopEnd="12221" SampleEnd="12221" ReleaseStart="8366"/>
+  <sample Root="34" LoKey="34" HiKey="34" LoVel="0" HiVel="127" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_slide6.wav"
+          Duplicate="1"/>
+  <sample Root="34" LoKey="34" HiKey="34" LoVel="0" HiVel="127" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_slide4.wav"
+          Duplicate="1" LoopXFade="0" LoopStart="9736" SampleStart="9736"/>
+  <sample Root="35" LoKey="35" HiKey="35" LoVel="0" HiVel="127" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\release\ampersand_release_RR15.wav"
+          Duplicate="1"/>
+  <sample Root="35" LoKey="35" HiKey="35" LoVel="0" HiVel="127" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\release\ampersand_release_RR13.wav"
+          Duplicate="1"/>
+</samplemap>
