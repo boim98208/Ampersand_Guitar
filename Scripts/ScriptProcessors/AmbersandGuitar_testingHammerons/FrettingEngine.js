@@ -1,4 +1,4 @@
- 
+ Synth.deferCallbacks(false);
  //for some reason global releases wont turn off mid-script so I'm keeping it off for now
  Globals.emulatedReleasesOn = true;
  
@@ -36,7 +36,7 @@ var legatoKeySwitchPlaying = false;
      const var STRING4 = 3;
      const var STRING5 = 4;
      const var STRING6 = 5;
-     const var LEGATOOFFSET = 6;
+     const var LEGATOOFFSET = NUMOFSTRINGS;
      
      const var STRING1LEG = 6;
      const var STRING2LEG = 7;

@@ -10,7 +10,7 @@
           <ChildProcessors/>
           <Content>
             <Control type="ScriptSlider" id="HandPositionFretForceKnob" value="1.0"/>
-            <Control type="ScriptSlider" id="StringForceKnob" value="4.0"/>
+            <Control type="ScriptSlider" id="StringForceKnob" value="7.0"/>
             <Control type="ScriptComboBox" id="FrettingEngineComboBox" value="1.0"/>
             <Control type="ScriptButton" id="ResetGlobalRRButton" value="0.0"/>
             <Control type="ScriptSlider" id="IRMixKnob" value="0.7099999785423279"/>
@@ -2263,12 +2263,14 @@
                 <Processor Type="ScriptProcessor" ID="TremoloContainerTimeStretch" Bypassed="0">
                   <ChildProcessors/>
                   <Content>
-                    <Control type="ScriptSlider" id="Knob1" value="1.0"/>
+                    <Control type="ScriptSlider" id="Knob1" value="2.0"/>
                   </Content>
                   <UIData>
                     <ContentProperties DeviceType="Desktop">
-                      <Component type="ScriptSlider" id="Knob1" x="160" y="0" filmstripImage="{PROJECT_FOLDER}General_Knob_Filmstrip.png"
-                                 numStrips="100" scaleFactor=".2"/>
+                      <Component type="ScriptSlider" id="Knob1" x="160" y="2" filmstripImage="{PROJECT_FOLDER}General_Knob_Filmstrip.png"
+                                 numStrips="100.0" scaleFactor="0.25" min="0.5" max="2.0" mouseSensitivity="0.5"
+                                 showValuePopup="Left" middlePosition="1.0" defaultValue="1.0"
+                                 mode="Discrete"/>
                     </ContentProperties>
                   </UIData>
                 </Processor>
@@ -3407,6 +3409,11 @@
     <macro name="Macro 7" value="0.0" midi_cc="-1"/>
     <macro name="Macro 8" value="0.0" midi_cc="-1"/>
   </macro_controls>
-  <MidiAutomation/>
+  <MidiAutomation>
+    <Controller Controller="2" Channel="-1" Processor="TremoloContainerTimeStretch"
+                MacroIndex="-1" Start="0.5" End="2.0" FullStart="0.5" FullEnd="2.0"
+                Skew="0.6309297535714574" Interval="0.01" Converter="37.nT6K8CBGgC..VEFa0U1Pu4lckIGckIG.ADPXiQWZ1UF.ADf..."
+                Attribute="Knob1" Inverted="0"/>
+  </MidiAutomation>
   <MPEData Enabled="0"/>
 </Processor>
