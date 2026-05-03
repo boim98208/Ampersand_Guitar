@@ -21,6 +21,8 @@ Globals.releaseVolume = 5;
 
 Globals.articulationPlaying = 0;
 
+Globals.timeStretchRatio = 1;
+
 const var NOTESPERSTRING = 22;
 const var NUMOFSTRINGS = 6;
 
@@ -540,9 +542,20 @@ Content.getComponent("IRMixKnob").setControlCallback(onIRMixKnobControl);
 
 
 
+inline function onTremoloTimestretchKnobControl(component, value)
+{
+
+	Globals.timeStretchRatio = value;
+};
+
+Content.getComponent("TremoloTimestretchKnob").setControlCallback(onTremoloTimestretchKnobControl);
+
+const var TremoloTimestretchKnob = Content.getComponent("TremoloTimestretchKnob");
 
 
 
+
+ 
 
 
 
@@ -596,6 +609,8 @@ function onController()
 	    }
 	    
 	    */
+	    
+
 	    
 	
 }
@@ -653,7 +668,7 @@ function onController()
 	
 	updateStringRRLabels();
 	
-	
+	TremoloTimestretchKnob.setValue( Globals.timeStretchRatio);
 	
 	
 	

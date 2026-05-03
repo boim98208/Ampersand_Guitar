@@ -9,12 +9,13 @@
         <Processor Type="ScriptProcessor" ID="Interface" Bypassed="0">
           <ChildProcessors/>
           <Content>
-            <Control type="ScriptSlider" id="HandPositionFretForceKnob" value="1.0"/>
+            <Control type="ScriptSlider" id="HandPositionFretForceKnob" value="-1.0"/>
             <Control type="ScriptSlider" id="StringForceKnob" value="7.0"/>
             <Control type="ScriptComboBox" id="FrettingEngineComboBox" value="1.0"/>
             <Control type="ScriptButton" id="ResetGlobalRRButton" value="0.0"/>
             <Control type="ScriptSlider" id="IRMixKnob" value="0.7099999785423279"/>
             <Control type="ScriptComboBox" id="cmbIr" value="1.0"/>
+            <Control type="ScriptSlider" id="TremoloTimestretchKnob" value="1.279527559055118"/>
             <Control type="ScriptButton" id="ShowPlayingModeButton" value="1.0"/>
             <Control type="ScriptButton" id="ShowArticulationsButton" value="0.0"/>
             <Control type="ScriptButton" id="ShowDebugPanelButton" value="1.0"/>
@@ -2263,7 +2264,7 @@
                 <Processor Type="ScriptProcessor" ID="TremoloContainerTimeStretch" Bypassed="0">
                   <ChildProcessors/>
                   <Content>
-                    <Control type="ScriptSlider" id="Knob1" value="2.0"/>
+                    <Control type="ScriptSlider" id="Knob1" value="0.550000011920929"/>
                   </Content>
                   <UIData>
                     <ContentProperties DeviceType="Desktop">
