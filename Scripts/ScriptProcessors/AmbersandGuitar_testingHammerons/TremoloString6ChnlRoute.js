@@ -27,30 +27,12 @@ var releaseVolumeOverTime = Globals.releaseVolume;
 const var releaseTimeSeconds = .03;
 function onNoteOn()
 {
-
-
-	//Message.makeArtificial();
 	
 	if(Message.getChannel() == 6){
-		//is now playing the note and updates
-		Synth.stopTimer();   
-		isReleased = false;
-		releaseAdditionIndex = 0;
-		
-		if(releaseId != -99){
-		        Synth.noteOffByEventId(releaseId);
-		        releaseId = -99;
-		}
 		    
 		Globals.string6ActiveRR = Sampler.getActiveRRGroup();
-		noteVelocity = Message.getVelocity();
-		id = Message.getEventId();
 		
-	}/*else if(Message.getChannel() == 6 + LEGATOCHNLOFFSET){
-		
-		Synth.noteOffByEventId(id);
-		Message.ignoreEvent(true);
-	}*/
+	}
 	else{
 		Message.ignoreEvent(true);
 	}
@@ -62,13 +44,7 @@ function onNoteOn()
 	if(Message.getChannel() != 6){
 		Message.ignoreEvent(true);
 	}else{
-	
-	/*	isReleased = true;
-		noteReleased = Message.getNoteNumber();
-		releaseVolumeOverTime = Globals.releaseVolume;*/
 		Globals.string6ActiveRR = "not playing";
-/*		Synth.startTimer(0.01);
-		Synth.noteOffByEventId(id);*/
 	}
 }
   function onController()
@@ -78,7 +54,7 @@ function onNoteOn()
  function onTimer()
 {
 	
-/*
+	/*
 
 local releaseNote;
 local numOfReleases;
@@ -136,8 +112,9 @@ local numOfReleases;
 		
 		
 	}
+	*/
 	
-*/
+
 	
 }
  function onControl(number, value)

@@ -402,6 +402,7 @@ Designed for leads interspersed with chords or simple voicings in the "Natural" 
 Will change fret position if polyphony leads to a really far fret
 */
 
+// the function returns the next fret for the algorithm
 inline function naturalFretting2_2_1(notePlayed, currentHandPos)
 {
 	
@@ -437,14 +438,18 @@ inline function naturalFretting2_2_1(notePlayed, currentHandPos)
 	Globals.stringPerformance[stringToPlay] = PerformanceType.SUSTAIN;
 	playString(stringToPlay);
 	
+	
 	updateGlobals();
 	
 	
 	//when there's polyphony, virtual guitarist moves hand to wherever the biggest change in pos is
-	if(Synth.getNumPressedKeys() >= 2){
+	if(Synth.getNumPressedKeys() >= 2 && stringToPlay != Stringtype.NOSTRING){
+	//change fret position to suit the chord fingering more.
+	
 	newFretFromPolyphony = stringNote[stringToPlay] - OPENSTRINGNOTES[stringToPlay];
 	distBetweenNewFretAndAutoFret = Math.abs(newFretFromPolyphony - currentHandPos);
 	}else{
+	
 	
 	
 		if(stringToPlay == Stringtype.STRING1){

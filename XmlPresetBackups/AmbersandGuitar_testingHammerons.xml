@@ -9,15 +9,15 @@
         <Processor Type="ScriptProcessor" ID="Interface" Bypassed="0">
           <ChildProcessors/>
           <Content>
-            <Control type="ScriptSlider" id="HandPositionFretForceKnob" value="-1.0"/>
-            <Control type="ScriptSlider" id="StringForceKnob" value="7.0"/>
+            <Control type="ScriptSlider" id="HandPositionFretForceKnob" value="1.0"/>
+            <Control type="ScriptSlider" id="StringForceKnob" value="4.0"/>
             <Control type="ScriptComboBox" id="FrettingEngineComboBox" value="1.0"/>
             <Control type="ScriptButton" id="ResetGlobalRRButton" value="0.0"/>
             <Control type="ScriptSlider" id="IRMixKnob" value="0.7099999785423279"/>
             <Control type="ScriptComboBox" id="cmbIr" value="1.0"/>
             <Control type="ScriptButton" id="ShowPlayingModeButton" value="1.0"/>
             <Control type="ScriptButton" id="ShowArticulationsButton" value="0.0"/>
-            <Control type="ScriptButton" id="ShowDebugPanelButton" value="0.0"/>
+            <Control type="ScriptButton" id="ShowDebugPanelButton" value="1.0"/>
           </Content>
           <UIData Source="AmbersandGuitar_testingHammeronsUIData"/>
         </Processor>
@@ -2260,11 +2260,23 @@
                     <Control type="ScriptButton" id="fixStuckNotes" value="1.0"/>
                   </Content>
                 </Processor>
+                <Processor Type="ScriptProcessor" ID="TremoloContainerTimeStretch" Bypassed="0">
+                  <ChildProcessors/>
+                  <Content>
+                    <Control type="ScriptSlider" id="Knob1" value="1.0"/>
+                  </Content>
+                  <UIData>
+                    <ContentProperties DeviceType="Desktop">
+                      <Component type="ScriptSlider" id="Knob1" x="160" y="0" filmstripImage="{PROJECT_FOLDER}General_Knob_Filmstrip.png"
+                                 numStrips="100" scaleFactor=".2"/>
+                    </ContentProperties>
+                  </UIData>
+                </Processor>
               </ChildProcessors>
             </Processor>
             <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
               <ChildProcessors>
-                <Processor Type="MidiController" ID="Midi Controller1" Bypassed="0" Intensity="1.0"
+                <Processor Type="MidiController" ID="Midi Controller1" Bypassed="0" Intensity="0.6299999952316284"
                            UseTable="0.0" Inverted="0.0" ControllerNumber="1.0" SmoothTime="20.87722206115723"
                            DefaultValue="64.0">
                   <ChildProcessors/>
@@ -2279,7 +2291,7 @@
             </Processor>
             <Processor Type="StreamingSampler" ID="String6TremoloSampler" Bypassed="0"
                        Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
-                       IconColour="ff898989" PreloadSize="8192.0" BufferSize="4096.0"
+                       IconColour="ffffffff" PreloadSize="8192.0" BufferSize="4096.0"
                        VoiceAmount="256.0" SamplerRepeatMode="3.0" RRGroupAmount="1.0"
                        PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0"
                        Reversed="0.0" NumChannels="1" UseStaticMatrix="0.0" Group0Table=""
@@ -2380,15 +2392,17 @@
               <channels>
                 <channelData enabled="1" level="0.0" suffix=""/>
               </channels>
+              <TimestretchOptions Tonality="0.0" SkipLatency="0" Mode="TimeVariant" NumQuarters="0.0"
+                                  PreferredEngine=""/>
             </Processor>
             <Processor Type="StreamingSampler" ID="String5TremoloSampler" Bypassed="0"
                        Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
-                       IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
-                       SamplerRepeatMode="3.0" RRGroupAmount="1.0" PitchTracking="1.0"
-                       OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
-                       NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
-                       Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-                       Group7Table="" SampleMapID="tremolo_string5">
+                       IconColour="ffffffff" PreloadSize="8192.0" BufferSize="4096.0"
+                       VoiceAmount="256.0" SamplerRepeatMode="3.0" RRGroupAmount="1.0"
+                       PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0"
+                       Reversed="0.0" NumChannels="1" UseStaticMatrix="0.0" Group0Table=""
+                       Group1Table="" Group2Table="" Group3Table="" Group4Table="" Group5Table=""
+                       Group6Table="" Group7Table="" SampleMapID="tremolo_string5">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors>
@@ -2457,15 +2471,17 @@
               <channels>
                 <channelData enabled="1" level="0.0" suffix=""/>
               </channels>
+              <TimestretchOptions Tonality="0.0" SkipLatency="0" Mode="TimeVariant" NumQuarters="0.0"
+                                  PreferredEngine=""/>
             </Processor>
             <Processor Type="StreamingSampler" ID="String4TremoloSampler" Bypassed="0"
                        Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
-                       IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
-                       SamplerRepeatMode="3.0" RRGroupAmount="1.0" PitchTracking="1.0"
-                       OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
-                       NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
-                       Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-                       Group7Table="" SampleMapID="tremolo_string4">
+                       IconColour="ff000000" PreloadSize="8192.0" BufferSize="4096.0"
+                       VoiceAmount="256.0" SamplerRepeatMode="3.0" RRGroupAmount="1.0"
+                       PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0"
+                       Reversed="0.0" NumChannels="1" UseStaticMatrix="0.0" Group0Table=""
+                       Group1Table="" Group2Table="" Group3Table="" Group4Table="" Group5Table=""
+                       Group6Table="" Group7Table="" SampleMapID="tremolo_string4">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors>
@@ -2534,6 +2550,8 @@
               <channels>
                 <channelData enabled="1" level="0.0" suffix=""/>
               </channels>
+              <TimestretchOptions Tonality="0.0" SkipLatency="0" Mode="TimeVariant" NumQuarters="0.0"
+                                  PreferredEngine=""/>
             </Processor>
             <Processor Type="StreamingSampler" ID="String3TremoloSampler" Bypassed="0"
                        Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
@@ -2611,6 +2629,8 @@
               <channels>
                 <channelData enabled="1" level="0.0" suffix=""/>
               </channels>
+              <TimestretchOptions Tonality="0.0" SkipLatency="0" Mode="TimeVariant" NumQuarters="0.0"
+                                  PreferredEngine=""/>
             </Processor>
             <Processor Type="StreamingSampler" ID="String2TremoloSampler" Bypassed="0"
                        Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
@@ -2688,6 +2708,8 @@
               <channels>
                 <channelData enabled="1" level="0.0" suffix=""/>
               </channels>
+              <TimestretchOptions Tonality="0.0" SkipLatency="0" Mode="TimeVariant" NumQuarters="0.0"
+                                  PreferredEngine=""/>
             </Processor>
             <Processor Type="StreamingSampler" ID="String1TremoloSampler" Bypassed="0"
                        Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
@@ -2774,6 +2796,8 @@
               <channels>
                 <channelData enabled="1" level="0.0" suffix=""/>
               </channels>
+              <TimestretchOptions Tonality="0.0" SkipLatency="0" Mode="TimeVariant" NumQuarters="0.0"
+                                  PreferredEngine=""/>
             </Processor>
           </ChildProcessors>
           <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
