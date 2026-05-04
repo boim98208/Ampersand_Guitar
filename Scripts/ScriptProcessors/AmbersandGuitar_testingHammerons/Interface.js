@@ -22,6 +22,7 @@ Globals.releaseVolume = 5;
 Globals.articulationPlaying = 0;
 
 Globals.timeStretchRatio = 1;
+var timeStretchRatioBeforeDisabling = 1;
 
 const var NOTESPERSTRING = 22;
 const var NUMOFSTRINGS = 6;
@@ -222,13 +223,22 @@ const var StringRRLabel = [Content.getComponent("String1RRLabel"),
 
 const var DebugPanel = Content.getComponent("DebugPanel");
 
+const var PlayingModeBG = Content.getComponent("PlayingModeBG");
 
+const var ShowArticulationsButton = Content.getComponent("ShowArticulationsButton");
+
+// setting up the buttons that show the GUI
 
 inline function onShowDebugPanelButtonControl(component, value)
 {
 
-	if(value)
+	if(value){
 		DebugPanel.set("visible", true);
+		ShowPlayingModeButton.setValue(1);
+		ShowArticulationsButton.setValue(0);
+		PlayingModeBG.set("visible", 1);
+		ArticulationBG.set("visible", false);
+		}
 	else
 		DebugPanel.set("visible", false);
 	
@@ -238,31 +248,47 @@ inline function onShowDebugPanelButtonControl(component, value)
 Content.getComponent("ShowDebugPanelButton").setControlCallback(onShowDebugPanelButtonControl);
 
 
-const var PlayingModeBG = Content.getComponent("PlayingModeBG");
-
-
-
-
 
 const var ShowPlayingModeButton = Content.getComponent("ShowPlayingModeButton");
 
-ShowPlayingModeButton.setValue(1);
+ShowPlayingModeButton.setValue(0);
+PlayingModeBG.set("visible", true);
 
 inline function onShowPlayingModeButtonControl(component, value)
 {
 	
 	if(ShowPlayingModeButton.getValue() == 0){
-		PlayingModeBG.set("visible", 0);
+		PlayingModeBG.set("visible", false);
+		DebugPanel.set("visible", false);
 	}else{
-		PlayingModeBG.set("visible", 1);
+		PlayingModeBG.set("visible", true);
+		ArticulationBG.set("visible", false);
+		ShowArticulationsButton.setValue(0);
 	}
 
 };
 
 Content.getComponent("ShowPlayingModeButton").setControlCallback(onShowPlayingModeButtonControl);
 
-	
+const var ArticulationBG = Content.getComponent("ArticulationBG");
 
+ArticulationBG.set("visible", false);
+
+inline function onShowArticulationsButtonControl(component, value)
+{
+	if(value == 0){
+		ArticulationBG.set("visible", false);
+		ShowPlayingModeButton.setValue(1);
+		DebugPanel.set("visible", false);
+		PlayingModeBG.set("visible", false);
+	}else{
+		ShowPlayingModeButton.setValue(0);
+		PlayingModeBG.set("visible", false);
+		ArticulationBG.set("visible", true);
+	}
+};
+
+Content.getComponent("ShowArticulationsButton").setControlCallback(onShowArticulationsButtonControl);
 
 //setting up fretMarkers
 
@@ -540,6 +566,7 @@ Content.getComponent("IRMixKnob").setControlCallback(onIRMixKnobControl);
 
 
 
+// setting up articulations page
 
 
 inline function onTremoloTimestretchKnobControl(component, value)
@@ -548,13 +575,33 @@ inline function onTremoloTimestretchKnobControl(component, value)
 	Globals.timeStretchRatio = value;
 };
 
+
 Content.getComponent("TremoloTimestretchKnob").setControlCallback(onTremoloTimestretchKnobControl);
 
 const var TremoloTimestretchKnob = Content.getComponent("TremoloTimestretchKnob");
 
 
+const var EnableTremStretchButton = Content.getComponent("EnableTremStretchButton");
+
+/*
+
+I keep crashing with this. Figure out if you want implementations of this another time
+
+inline function onEnableTremStretchButtonControl(component, value)
+{
+	if(value){
+		Globals.timeStretchRatio = timeStretchRatioBeforeDisabling;
+	}else{
+		
+		timeStretchRatioBeforeDisabling = Globals.timeStretchRatio;
+		Globals.timeStretchRatio = -1;
+	}
+};
+
+Content.getComponent("EnableTremStretchButton").setControlCallback(onEnableTremStretchButtonControl);
 
 
+*/
  
 
 
@@ -668,7 +715,7 @@ function onController()
 	
 	updateStringRRLabels();
 	
-	TremoloTimestretchKnob.setValue( Globals.timeStretchRatio);
+	TremoloTimestretchKnob.setValue(Globals.timeStretchRatio);
 	
 	
 	

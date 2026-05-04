@@ -9,15 +9,16 @@
         <Processor Type="ScriptProcessor" ID="Interface" Bypassed="0">
           <ChildProcessors/>
           <Content>
-            <Control type="ScriptSlider" id="HandPositionFretForceKnob" value="-1.0"/>
-            <Control type="ScriptSlider" id="StringForceKnob" value="7.0"/>
+            <Control type="ScriptSlider" id="HandPositionFretForceKnob" value="1.0"/>
+            <Control type="ScriptSlider" id="StringForceKnob" value="6.0"/>
             <Control type="ScriptComboBox" id="FrettingEngineComboBox" value="1.0"/>
             <Control type="ScriptButton" id="ResetGlobalRRButton" value="0.0"/>
             <Control type="ScriptSlider" id="IRMixKnob" value="0.7099999785423279"/>
             <Control type="ScriptComboBox" id="cmbIr" value="1.0"/>
-            <Control type="ScriptSlider" id="TremoloTimestretchKnob" value="1.279527559055118"/>
-            <Control type="ScriptButton" id="ShowPlayingModeButton" value="1.0"/>
-            <Control type="ScriptButton" id="ShowArticulationsButton" value="0.0"/>
+            <Control type="ScriptSlider" id="TremoloTimestretchKnob" value="0.5"/>
+            <Control type="ScriptButton" id="EnableTremStretchButton" value="0.0"/>
+            <Control type="ScriptButton" id="ShowPlayingModeButton" value="1"/>
+            <Control type="ScriptButton" id="ShowArticulationsButton" value="0"/>
             <Control type="ScriptButton" id="ShowDebugPanelButton" value="1.0"/>
           </Content>
           <UIData Source="AmbersandGuitar_testingHammeronsUIData"/>
@@ -2264,7 +2265,7 @@
                 <Processor Type="ScriptProcessor" ID="TremoloContainerTimeStretch" Bypassed="0">
                   <ChildProcessors/>
                   <Content>
-                    <Control type="ScriptSlider" id="Knob1" value="0.550000011920929"/>
+                    <Control type="ScriptSlider" id="Knob1" value="2.0"/>
                   </Content>
                   <UIData>
                     <ContentProperties DeviceType="Desktop">
@@ -2281,7 +2282,7 @@
               <ChildProcessors>
                 <Processor Type="MidiController" ID="Midi Controller1" Bypassed="0" Intensity="0.6299999952316284"
                            UseTable="0.0" Inverted="0.0" ControllerNumber="1.0" SmoothTime="20.87722206115723"
-                           DefaultValue="64.0">
+                           DefaultValue="93.0">
                   <ChildProcessors/>
                 </Processor>
               </ChildProcessors>

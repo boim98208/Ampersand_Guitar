@@ -23,6 +23,7 @@ for(var i = 0; i < NUMOFSTRINGS; i++){
 
 inline function changeTimestretchRatio(newTimestretchRatio){
 
+
 	for(var i = 0; i < NUMOFSTRINGS; i++){
 		TremoloSamplers[i].asSampler().setTimestretchRatio(newTimestretchRatio);
 	}
@@ -52,13 +53,12 @@ function onNoteOn()
 
 	if(Message.getControllerNumber() == timeStretchCCChannel){
 		Globals.timeStretchRatio = mapTimeStretchRatio(Message.getControllerValue());
-		Console.print(Globals.timeStretchRatio);
+		changeTimestretchRatio(Globals.timeStretchRatio);
 	};
 }
  function onTimer()
 {
-	changeTimestretchRatio(Globals.timeStretchRatio);
-
+	
 }
  function onControl(number, value)
 {
