@@ -9,17 +9,17 @@
         <Processor Type="ScriptProcessor" ID="Interface" Bypassed="0">
           <ChildProcessors/>
           <Content>
-            <Control type="ScriptSlider" id="HandPositionFretForceKnob" value="9"/>
+            <Control type="ScriptSlider" id="HandPositionFretForceKnob" value="-1"/>
             <Control type="ScriptSlider" id="StringForceKnob" value="1.0"/>
             <Control type="ScriptComboBox" id="FrettingEngineComboBox" value="1.0"/>
             <Control type="ScriptButton" id="ResetGlobalRRButton" value="0.0"/>
-            <Control type="ScriptSlider" id="IRMixKnob" value="0.7099999785423279"/>
+            <Control type="ScriptSlider" id="IRMixKnob" value="0.800000011920929"/>
             <Control type="ScriptComboBox" id="cmbIr" value="1.0"/>
-            <Control type="ScriptSlider" id="TremoloTimestretchKnob" value="1.374015748031496"/>
+            <Control type="ScriptSlider" id="TremoloTimestretchKnob" value="1.574803113937378"/>
             <Control type="ScriptButton" id="EnableTremStretchButton" value="0.0"/>
-            <Control type="ScriptButton" id="ShowPlayingModeButton" value="1"/>
+            <Control type="ScriptButton" id="ShowPlayingModeButton" value="1.0"/>
             <Control type="ScriptButton" id="ShowArticulationsButton" value="0"/>
-            <Control type="ScriptButton" id="ShowDebugPanelButton" value="1.0"/>
+            <Control type="ScriptButton" id="ShowDebugPanelButton" value="0.0"/>
           </Content>
           <UIData Source="AmbersandGuitar_testingHammeronsUIData"/>
         </Processor>
@@ -40,8 +40,8 @@
     </Processor>
     <Processor Type="EffectChain" ID="FX" Bypassed="0">
       <ChildProcessors>
-        <Processor Type="Convolution" ID="ConvolutionReverb1" Bypassed="0" DryGain="-14.62622547149658"
-                   WetGain="-2.428284406661987" Latency="0.0" ImpulseLength="1.0"
+        <Processor Type="Convolution" ID="ConvolutionReverb1" Bypassed="0" DryGain="-17.28662109375"
+                   WetGain="-1.522140622138977" Latency="0.0" ImpulseLength="1.0"
                    ProcessInput="1.0" UseBackgroundThread="0.0" Predelay="0.0" HiCut="20000.0"
                    Damping="0.0" FFTType="5.0" FileName="{PROJECT_FOLDER}Ample M (rec 50 perc).wav"
                    min="0" max="8192" loopStart="0" loopEnd="8192">
@@ -58,7 +58,7 @@
             <Processor Type="ScriptProcessor" ID="FrettingEngine" Bypassed="0">
               <ChildProcessors/>
               <Content>
-                <Control type="ScriptButton" id="Button1" value="0.0"/>
+                <Control type="ScriptButton" id="Button1" value="1.0"/>
               </Content>
               <UIData>
                 <ContentProperties DeviceType="Desktop">
@@ -85,7 +85,7 @@
                 <Processor Type="MidiMuter" ID="SusContainerMute" Bypassed="0">
                   <ChildProcessors/>
                   <Content>
-                    <Control type="ScriptButton" id="ignoreButton" value="1.0"/>
+                    <Control type="ScriptButton" id="ignoreButton" value="0.0"/>
                     <Control type="ScriptButton" id="fixStuckNotes" value="1.0"/>
                   </Content>
                 </Processor>
@@ -2258,14 +2258,14 @@
                 <Processor Type="MidiMuter" ID="TremoloContainerMute" Bypassed="0">
                   <ChildProcessors/>
                   <Content>
-                    <Control type="ScriptButton" id="ignoreButton" value="0.0"/>
+                    <Control type="ScriptButton" id="ignoreButton" value="1.0"/>
                     <Control type="ScriptButton" id="fixStuckNotes" value="1.0"/>
                   </Content>
                 </Processor>
                 <Processor Type="ScriptProcessor" ID="TremoloContainerTimeStretch" Bypassed="0">
                   <ChildProcessors/>
                   <Content>
-                    <Control type="ScriptSlider" id="Knob1" value="0.5699999928474426"/>
+                    <Control type="ScriptSlider" id="Knob1" value="0.5"/>
                   </Content>
                   <UIData>
                     <ContentProperties DeviceType="Desktop">
@@ -2855,7 +2855,7 @@
                        OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
                        NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
                        Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-                       Group7Table="">
+                       Group7Table="" SampleMapID="SFX_BackBodyHit">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors/>
@@ -2912,26 +2912,6 @@
               <channels>
                 <channelData enabled="1" level="0.0" suffix=""/>
               </channels>
-              <samplemap ID="SFX_BackBodyHit" RRGroupAmount="6.0" MicPositions=";" CrossfadeGamma="1.0">
-                <sample Root="24" LoKey="24" HiKey="24" LoVel="0" HiVel="127" RRGroup="1"
-                        FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_backBodyHit_RR1.wav"
-                        Duplicate="0"/>
-                <sample Root="24" LoKey="24" HiKey="24" LoVel="0" HiVel="127" RRGroup="2"
-                        FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_backBodyHit_RR2.wav"
-                        Duplicate="0"/>
-                <sample Root="24" LoKey="24" HiKey="24" LoVel="0" HiVel="127" RRGroup="3"
-                        FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_backBodyHit_RR3.wav"
-                        Duplicate="0"/>
-                <sample Root="24" LoKey="24" HiKey="24" LoVel="0" HiVel="127" RRGroup="4"
-                        FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_backBodyHit_RR4.wav"
-                        Duplicate="0"/>
-                <sample Root="24" LoKey="24" HiKey="24" LoVel="0" HiVel="127" RRGroup="5"
-                        FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_backBodyHit_RR5.wav"
-                        Duplicate="0"/>
-                <sample Root="24" LoKey="24" HiKey="24" LoVel="0" HiVel="127" RRGroup="6"
-                        FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_backBodyHit_RR6.wav"
-                        Duplicate="0"/>
-              </samplemap>
             </Processor>
             <Processor Type="StreamingSampler" ID="SFXFrontBodyHitSampler" Bypassed="0"
                        Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"

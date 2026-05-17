@@ -2,8 +2,28 @@
  //for some reason global releases wont turn off mid-script so I'm keeping it off for now
  Globals.emulatedReleasesOn = true;
  
-include("NoteRangeAndOpenStringNote.js");
-
+ const var POSINFINITY = 1/0;
+ 
+ const var NUMOFSTRINGS = Globals.NUMOFSTRINGS;
+ const var LOWESTNOTE = 52;
+ const var HIGHESTNOTE = 97;
+ 
+ const var OPENSTRING6NOTE = 52;
+ const var OPENSTRING5NOTE = 57;
+ const var OPENSTRING4NOTE = 62;
+ const var OPENSTRING3NOTE = 67;
+ const var OPENSTRING2NOTE = 71;
+ const var OPENSTRING1NOTE = 76;
+ 
+ const var NO_NOTE = -1;
+ 
+ const var NOTESPERSTRING = 22;
+ 
+ const var OPENSTRINGNONOTE = POSINFINITY;
+ 
+ const var OPENSTRINGNOTES = [OPENSTRING1NOTE, OPENSTRING2NOTE, OPENSTRING3NOTE, OPENSTRING4NOTE, OPENSTRING5NOTE, OPENSTRING6NOTE];
+ 
+ OPENSTRINGNOTES.push(OPENSTRINGNONOTE);
 
 var legatoKeySwitchPlaying = false;
  
@@ -145,8 +165,6 @@ inline function resetNotes(){
 		stringNote[i] = NO_NOTE;
 	}
 }
-
-Message.setAllNotesOffCallback(resetNotes);
 
 //one more push to make up for the "NOSTRING" and not go out of bounds when scanning string notes
 stringNote.push(POSINFINITY);
@@ -551,6 +569,7 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
  
  inline function playNextNoteLegato(notePlayed, velocityPlayed)
  {
+	Console.print("should be legato");
 
 
 	local isNoteInRange = false;

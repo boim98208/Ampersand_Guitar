@@ -6,11 +6,12 @@ Globals.stringNote1 = -1;
 Globals.stringNote2 = -1;
 Globals.stringNote3 = -1;
 Globals.stringNote4 = -1;
-Globals.stringNote5 = -1;
-Globals.stringNote6 = -1; 
+Globals.stringNote6 = -1;
 
 
+include("KeyswitchConstants.js");
 
+include("NoteRangeAndOpenStringNote.js");
 
 Globals.resetNotes = false;
 
@@ -52,7 +53,13 @@ namespace PerformanceType
 }
 
 
-
+namespace KeyboardColors{
+	const var KEYSWITCHES = Colours.withAlpha(Colours.red, 0.5);
+	const var NOTES = Colours.withAlpha(Colours.cyan, 0.5);
+	const var PERCUSSION = Colours.withAlpha(Colours.green, 0.5);
+	const var LEGATO = Colours.withAlpha(Colours.cornflowerblue, 0.5);
+	const var FORCEFRETHAND = Colours.withAlpha(Colours.deeppink, 0.5);
+}
 
 
 
@@ -111,6 +118,9 @@ inline function onResetGlobalRRButtonControl(component, value)
 		Globals.resetNotes = true;
 		//Globals.resetNotes is put back to false in FrettingEngine after it recognizes it
 	}
+	
+	Engine.allNotesOff();
+	
 };
 
 Content.getComponent("ResetGlobalRRButton").setControlCallback(onResetGlobalRRButtonControl);
@@ -359,7 +369,7 @@ inline function keyswitchForceFret(notePlayed, velocity)
 	
 	//note to self: figure out how to get knobs to change text when given a keyswitch
 
-	if(notePlayed == 51)
+	if(notePlayed == FORCEFRETMODEKEYSWITCH)
 	{
 	Console.print("keyswitch for fret change is hit");
 	newFretPosition = velocity % 18;
@@ -369,7 +379,7 @@ inline function keyswitchForceFret(notePlayed, velocity)
 		Globals.handPositionFret = newFretPosition;
 		
 		
-	}else if(notePlayed == 50)
+	}else if(notePlayed == AUTOFRETMODEKEYSWITCH)
 	{
 	 Console.print("keyswitch for auto fret change is hit");
 
@@ -583,6 +593,9 @@ const var TremoloTimestretchKnob = Content.getComponent("TremoloTimestretchKnob"
 
 const var EnableTremStretchButton = Content.getComponent("EnableTremStretchButton");
 
+
+
+
 /*
 
 I keep crashing with this. Figure out if you want implementations of this another time
@@ -603,6 +616,25 @@ Content.getComponent("EnableTremStretchButton").setControlCallback(onEnableTremS
 
 */
  
+ 
+// Coloring up the keyboard
+for(var i = LOWESTNOTE; i < HIGHESTNOTE + 1; i++){
+	Engine.setKeyColour(i, KeyboardColors.NOTES);
+}
+
+for(var i = FIRSTKEYSWITCH; i < LASTKEYSWITCH + 1; i++){
+	Engine.setKeyColour(i, KeyboardColors.KEYSWITCHES);
+}
+
+for(var i = FIRSTPERCUSSION; i < LASTPERCUSSION + 1; i++){
+	Engine.setKeyColour(i, KeyboardColors.PERCUSSION);
+}
+
+Engine.setKeyColour(legatoKeySwitchNote, KeyboardColors.LEGATO);
+
+Engine.setKeyColour(FORCEFRETMODEKEYSWITCH, KeyboardColors.FORCEFRETHAND);
+Engine.setKeyColour(AUTOFRETMODEKEYSWITCH, KeyboardColors.FORCEFRETHAND);
+
 
 
 
