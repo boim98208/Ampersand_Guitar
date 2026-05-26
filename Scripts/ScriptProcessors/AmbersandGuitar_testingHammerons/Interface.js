@@ -93,7 +93,7 @@ inline function displayFret(fretImg, stringNum)
 	}
 	else if(Globals.stringPerformance[stringNum] == PerformanceType.LEGATODOWN)
 	{
-	Console.print("issue is at " + stringNum);
+//	Console.print("issue is at " + stringNum);
 
 		fretImg.set("fileName", stringPerformanceImgs[PerformanceType.LEGATODOWN]);
 		
@@ -701,33 +701,33 @@ function onController()
 	hideAll();
 
 	if(Globals.stringNote6 != NONOTE){
-		fretImgToControl = fretImages[StringType.STRING6][Globals.stringNote6 - 52];
+		fretImgToControl = fretImages[StringType.STRING6][Globals.stringNote6 - OPENSTRING6NOTE];
 		displayFret(fretImgToControl, StringType.STRING6);
 		
 	}
 	
 	if(Globals.stringNote5 != NONOTE){
-		fretImgToControl = fretImages[StringType.STRING5][Globals.stringNote5 - 57];
+		fretImgToControl = fretImages[StringType.STRING5][Globals.stringNote5 - OPENSTRING5NOTE];
 		displayFret(fretImgToControl, StringType.STRING5);
 	}
 	
 	if(Globals.stringNote4 != NONOTE){
-		fretImgToControl = fretImages[StringType.STRING4][Globals.stringNote4 - 62];
+		fretImgToControl = fretImages[StringType.STRING4][Globals.stringNote4 - OPENSTRING4NOTE];
 		displayFret(fretImgToControl, StringType.STRING4);
 	}
 	
 	if(Globals.stringNote3 != NONOTE){
-		fretImgToControl = fretImages[StringType.STRING3][Globals.stringNote3 - 67];
+		fretImgToControl = fretImages[StringType.STRING3][Globals.stringNote3 - OPENSTRING3NOTE];
 		displayFret(fretImgToControl, StringType.STRING3);
 	}
 	
 	if(Globals.stringNote2 != NONOTE){
-		fretImgToControl = fretImages[StringType.STRING2][Globals.stringNote2 - 71];
+		fretImgToControl = fretImages[StringType.STRING2][Globals.stringNote2 - OPENSTRING2NOTE];
 		displayFret(fretImgToControl, StringType.STRING2);
 	}
 	
 	if(Globals.stringNote1 != NONOTE){
-		fretImgToControl = fretImages[StringType.STRING1][Globals.stringNote1 - 75];
+		fretImgToControl = fretImages[StringType.STRING1][Globals.stringNote1 - OPENSTRING1NOTE];
 		displayFret(fretImgToControl, StringType.STRING1);
 	}
 	

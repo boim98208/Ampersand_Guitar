@@ -11,22 +11,22 @@
     <Component type="ScriptPanel" id="FretBorderPanel" x="260" y="240" itemColour="0"
                itemColour2="0" textColour="16777215" bgColour="16777215" width="450"
                parentComponent="PlayingModeBG">
-      <Component type="ScriptImage" id="FretBorderLow" x="330" y="25" parentComponent="FretBorderPanel"
+      <Component type="ScriptImage" id="FretBorderLow" x="0" y="25" parentComponent="FretBorderPanel"
                  fileName="{PROJECT_FOLDER}PlayingMode_HandBorder.png" scale="0.25"
                  height="15" width="10" text="FretBorderLowForced"/>
-      <Component type="ScriptImage" id="FretBorderLowForced" x="330" y="25" parentComponent="FretBorderPanel"
+      <Component type="ScriptImage" id="FretBorderLowForced" x="0" y="25" parentComponent="FretBorderPanel"
                  fileName="{PROJECT_FOLDER}PlayingMode_HandBorder_Forced.png"
                  scale="0.25" height="15" width="10"/>
-      <Component type="ScriptImage" id="FretBorderHigh" x="407" y="25" parentComponent="FretBorderPanel"
+      <Component type="ScriptImage" id="FretBorderHigh" x="146" y="25" parentComponent="FretBorderPanel"
                  fileName="{PROJECT_FOLDER}PlayingMode_HandBorder.png" scale="0.25"
                  height="15" width="10" text="FretBorderLowForced"/>
-      <Component type="ScriptImage" id="FretBorderHighForced" x="407" y="25" parentComponent="FretBorderPanel"
+      <Component type="ScriptImage" id="FretBorderHighForced" x="146" y="25" parentComponent="FretBorderPanel"
                  fileName="{PROJECT_FOLDER}PlayingMode_HandBorder_Forced.png"
                  scale="0.25" height="15" width="10"/>
-      <Component type="ScriptImage" id="FretBorderCenter" x="368" y="23" parentComponent="FretBorderPanel"
+      <Component type="ScriptImage" id="FretBorderCenter" x="73" y="23" parentComponent="FretBorderPanel"
                  fileName="{PROJECT_FOLDER}PlayingMode_HandCenter.png" height="15"
                  width="15" text="FretBorderLowForced" scale="0.4000000059604645"/>
-      <Component type="ScriptImage" id="FretBorderCenterForced" x="368" y="23"
+      <Component type="ScriptImage" id="FretBorderCenterForced" x="73" y="23"
                  parentComponent="FretBorderPanel" fileName="{PROJECT_FOLDER}PlayingMode_HandCenter_Forced.png"
                  height="15" width="15" text="FretBorderLowForced" scale="0.4000000059604645"/>
     </Component>
@@ -500,7 +500,7 @@
                  scale="0.699999988079071" visible="0"/>
       <Component type="ScriptImage" id="StringForceString1" x="12" y="18" width="605"
                  height="10" parentComponent="StringForcePanel" fileName="{PROJECT_FOLDER}PlayingMode_ForceString_Indicator_String1.png"
-                 scale="0.699999988079071" visible="0"/>
+                 scale="0.699999988079071"/>
     </Component>
     <Component type="ScriptPanel" id="DSPPanel" x="280" y="130" width="557"
                height="100" parentComponent="PlayingModeBG" itemColour="3355443"

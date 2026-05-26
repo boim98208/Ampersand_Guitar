@@ -9,8 +9,8 @@
         <Processor Type="ScriptProcessor" ID="Interface" Bypassed="0">
           <ChildProcessors/>
           <Content>
-            <Control type="ScriptSlider" id="HandPositionFretForceKnob" value="15"/>
-            <Control type="ScriptSlider" id="StringForceKnob" value="1.0"/>
+            <Control type="ScriptSlider" id="HandPositionFretForceKnob" value="2.0"/>
+            <Control type="ScriptSlider" id="StringForceKnob" value="2.0"/>
             <Control type="ScriptComboBox" id="FrettingEngineComboBox" value="1.0"/>
             <Control type="ScriptButton" id="ResetGlobalRRButton" value="0.0"/>
             <Control type="ScriptSlider" id="IRMixKnob" value="0.6000000238418579"/>
@@ -85,7 +85,7 @@
                 <Processor Type="MidiMuter" ID="SusContainerMute" Bypassed="0">
                   <ChildProcessors/>
                   <Content>
-                    <Control type="ScriptButton" id="ignoreButton" value="0.0"/>
+                    <Control type="ScriptButton" id="ignoreButton" value="1.0"/>
                     <Control type="ScriptButton" id="fixStuckNotes" value="1.0"/>
                   </Content>
                 </Processor>
@@ -1734,7 +1734,7 @@
                 <Processor Type="MidiMuter" ID="HarmonicContainerMute" Bypassed="0">
                   <ChildProcessors/>
                   <Content>
-                    <Control type="ScriptButton" id="ignoreButton" value="1.0"/>
+                    <Control type="ScriptButton" id="ignoreButton" value="0.0"/>
                     <Control type="ScriptButton" id="fixStuckNotes" value="1.0"/>
                   </Content>
                 </Processor>
@@ -2300,7 +2300,7 @@
                        PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0"
                        Reversed="0.0" NumChannels="1" UseStaticMatrix="0.0" Group0Table=""
                        Group1Table="" Group2Table="" Group3Table="" Group4Table="" Group5Table=""
-                       Group6Table="" Group7Table="" SampleMapID="tremolo_string6">
+                       Group6Table="" Group7Table="" SampleMapID="Looped/tremolo_string6">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors>
@@ -2406,7 +2406,7 @@
                        PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0"
                        Reversed="0.0" NumChannels="1" UseStaticMatrix="0.0" Group0Table=""
                        Group1Table="" Group2Table="" Group3Table="" Group4Table="" Group5Table=""
-                       Group6Table="" Group7Table="" SampleMapID="tremolo_string5">
+                       Group6Table="" Group7Table="" SampleMapID="Looped/tremolo_string5">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors>
@@ -2485,7 +2485,7 @@
                        PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0"
                        Reversed="0.0" NumChannels="1" UseStaticMatrix="0.0" Group0Table=""
                        Group1Table="" Group2Table="" Group3Table="" Group4Table="" Group5Table=""
-                       Group6Table="" Group7Table="" SampleMapID="tremolo_string4">
+                       Group6Table="" Group7Table="" SampleMapID="Looped/tremolo_string4">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors>
@@ -2564,7 +2564,7 @@
                        OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
                        NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
                        Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-                       Group7Table="" SampleMapID="tremolo_string3">
+                       Group7Table="" SampleMapID="Looped/tremolo_string3">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors>
@@ -2643,7 +2643,7 @@
                        OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
                        NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
                        Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-                       Group7Table="" SampleMapID="tremolo_string2">
+                       Group7Table="" SampleMapID="Looped/tremolo_string2">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors>
@@ -2722,7 +2722,7 @@
                        OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
                        NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
                        Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-                       Group7Table="" SampleMapID="tremolo_string1">
+                       Group7Table="" SampleMapID="Looped/tremolo_string1">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors>
@@ -3448,14 +3448,14 @@
           </ChildProcessors>
           <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
         </Processor>
-        <Processor Type="StreamingSampler" ID="Sampler1" Bypassed="0" Gain="1.0"
-                   Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0" IconColour="0"
-                   PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
+        <Processor Type="StreamingSampler" ID="PickAttackAllStringSampler" Bypassed="1"
+                   Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
+                   IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                    SamplerRepeatMode="3.0" RRGroupAmount="1.0" PitchTracking="1.0"
                    OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
                    NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
                    Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-                   Group7Table="">
+                   Group7Table="" SampleMapID="pickAttack_allString">
           <ChildProcessors>
             <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
               <ChildProcessors/>
@@ -3479,7 +3479,7 @@
             </Processor>
             <Processor Type="ModulatorChain" ID="PitchModulation" Bypassed="0" Intensity="0.0">
               <ChildProcessors>
-                <Processor Type="Random" ID="Random Modulator40" Bypassed="0" Intensity="0.01666666753590107"
+                <Processor Type="Random" ID="Random Modulator40" Bypassed="0" Intensity="0.02500000037252903"
                            Bipolar="1" UseTable="0.0" RandomTableData="">
                   <ChildProcessors/>
                 </Processor>
@@ -3487,7 +3487,7 @@
             </Processor>
             <Processor Type="EffectChain" ID="FX" Bypassed="0">
               <ChildProcessors>
-                <Processor Type="SimpleGain" ID="Simple Gain8" Bypassed="0" Gain="-4.003933429718018"
+                <Processor Type="SimpleGain" ID="Simple Gain8" Bypassed="0" Gain="-5.132894992828369"
                            Delay="0.0" Width="100.0" Balance="0.0" InvertPolarity="0.0">
                   <ChildProcessors>
                     <Processor Type="ModulatorChain" ID="Gain Modulation" Bypassed="0" Intensity="1.0">
@@ -3518,78 +3518,6 @@
           <channels>
             <channelData enabled="1" level="0.0" suffix=""/>
           </channels>
-          <samplemap ID="pickAttack_allString" RRGroupAmount="1.0" MicPositions=";"
-                     CrossfadeGamma="1.0">
-            <sample Root="88" LoKey="88" HiKey="89" LoVel="0" HiVel="127" RRGroup="1"
-                    FileName="C:\Users\Ibrahim Rasyid\Desktop\Pick Attack\ampersand_sustain_dynamic2_string1_E5_RR4_denoise_timealign_noise.wav"
-                    Duplicate="0" LoopEnd="10581" SampleEnd="10581"/>
-            <sample Root="90" LoKey="90" HiKey="91" LoVel="0" HiVel="127" RRGroup="1"
-                    FileName="C:\Users\Ibrahim Rasyid\Desktop\Pick Attack\ampersand_sustain_dynamic2_string1_F#5_RR4_denoise_timealign_noise.wav"
-                    Duplicate="0" LoopEnd="10581" SampleEnd="10581"/>
-            <sample Root="92" LoKey="92" HiKey="92" LoVel="0" HiVel="127" RRGroup="1"
-                    FileName="C:\Users\Ibrahim Rasyid\Desktop\Pick Attack\ampersand_sustain_dynamic2_string1_G#5_RR4_denoise_timealign_noise.wav"
-                    Duplicate="0" LoopEnd="10581" SampleEnd="10581"/>
-            <sample Root="71" LoKey="71" HiKey="72" LoVel="0" HiVel="127" RRGroup="1"
-                    FileName="C:\Users\Ibrahim Rasyid\Desktop\Pick Attack\ampersand_sustain_dynamic3_string2_B3_RR2_denoise_timealign_noise.wav"
-                    Duplicate="0" LoopEnd="10581" SampleEnd="23159"/>
-            <sample Root="73" LoKey="73" HiKey="74" LoVel="0" HiVel="127" RRGroup="1"
-                    FileName="C:\Users\Ibrahim Rasyid\Desktop\Pick Attack\ampersand_sustain_dynamic3_string2_C#4_RR4_denoise_timealign_noise.wav"
-                    Duplicate="0" LoopEnd="10581" SampleEnd="19792"/>
-            <sample Root="75" LoKey="75" HiKey="75" LoVel="0" HiVel="127" RRGroup="1"
-                    FileName="C:\Users\Ibrahim Rasyid\Desktop\Pick Attack\ampersand_sustain_dynamic3_string2_D#4_RR5_denoise_timealign_noise.wav"
-                    Duplicate="0" LoopEnd="10581" SampleEnd="11721"/>
-            <sample Root="66" LoKey="66" HiKey="66" LoVel="0" HiVel="127" RRGroup="1"
-                    FileName="C:\Users\Ibrahim Rasyid\Desktop\Pick Attack\ampersand_sustain_dynamic3_string4_F#3_RR6_denoise_timealign_noise.wav"
-                    Duplicate="0" LoopEnd="10581" SampleEnd="10581"/>
-            <sample Root="78" LoKey="78" HiKey="79" LoVel="0" HiVel="127" RRGroup="1"
-                    FileName="C:\Users\Ibrahim Rasyid\Desktop\Pick Attack\ampersand_sustain_dynamic3_string4_F#4_RR4_denoise_timealign_noise.wav"
-                    Duplicate="0" LoopEnd="10581" SampleEnd="32958"/>
-            <sample Root="80" LoKey="80" HiKey="81" LoVel="0" HiVel="127" RRGroup="1"
-                    FileName="C:\Users\Ibrahim Rasyid\Desktop\Pick Attack\ampersand_sustain_dynamic3_string4_G#4_RR4_denoise_timealign_noise.wav"
-                    Duplicate="0" LoopEnd="10581" SampleEnd="14574"/>
-            <sample Root="57" LoKey="57" HiKey="58" LoVel="0" HiVel="127" RRGroup="1"
-                    FileName="C:\Users\Ibrahim Rasyid\Desktop\Pick Attack\ampersand_sustain_dynamic3_string5_A2_RR4_denoise_timealign_noise.wav"
-                    Duplicate="0" LoopEnd="10581" SampleEnd="10581"/>
-            <sample Root="69" LoKey="69" HiKey="70" LoVel="0" HiVel="127" RRGroup="1"
-                    FileName="C:\Users\Ibrahim Rasyid\Desktop\Pick Attack\ampersand_sustain_dynamic3_string5_A3_RR4_denoise_timealign_noise.wav"
-                    Duplicate="0" LoopEnd="10581" SampleEnd="10581"/>
-            <sample Root="59" LoKey="59" HiKey="60" LoVel="0" HiVel="127" RRGroup="1"
-                    FileName="C:\Users\Ibrahim Rasyid\Desktop\Pick Attack\ampersand_sustain_dynamic3_string5_B2_RR6_denoise_timealign_noise.wav"
-                    Duplicate="0" LoopEnd="10581" SampleEnd="10581"/>
-            <sample Root="61" LoKey="61" HiKey="61" LoVel="0" HiVel="127" RRGroup="1"
-                    FileName="C:\Users\Ibrahim Rasyid\Desktop\Pick Attack\ampersand_sustain_dynamic3_string5_C#3_RR6_denoise_timealign_noise.wav"
-                    Duplicate="0" LoopEnd="10581" SampleEnd="10581"/>
-            <sample Root="67" LoKey="67" HiKey="68" LoVel="0" HiVel="127" RRGroup="1"
-                    FileName="C:\Users\Ibrahim Rasyid\Desktop\Pick Attack\ampersand_sustain_dynamic3_string5_G3_RR4_denoise_timealign_noise.wav"
-                    Duplicate="0" LoopEnd="10581" SampleEnd="10581"/>
-            <sample Root="62" LoKey="62" HiKey="63" LoVel="0" HiVel="127" RRGroup="1"
-                    FileName="C:\Users\Ibrahim Rasyid\Desktop\Pick Attack\ampersand_sustain_dynamic3_string6_D3_RR5_denoise_timealign_noise.wav"
-                    Duplicate="0" LoopEnd="10581" SampleEnd="10581"/>
-            <sample Root="52" LoKey="52" HiKey="53" LoVel="0" HiVel="127" RRGroup="1"
-                    FileName="C:\Users\Ibrahim Rasyid\Desktop\Pick Attack\ampersand_sustain_dynamic3_string6_E2_RR3_denoise_timealign_noise.wav"
-                    Duplicate="0" LoopEnd="10581" SampleEnd="10581"/>
-            <sample Root="64" LoKey="64" HiKey="65" LoVel="0" HiVel="127" RRGroup="1"
-                    FileName="C:\Users\Ibrahim Rasyid\Desktop\Pick Attack\ampersand_sustain_dynamic3_string6_E3_RR4_denoise_timealign_noise.wav"
-                    Duplicate="0" LoopEnd="10581" SampleEnd="10581"/>
-            <sample Root="54" LoKey="54" HiKey="55" LoVel="0" HiVel="127" RRGroup="1"
-                    FileName="C:\Users\Ibrahim Rasyid\Desktop\Pick Attack\ampersand_sustain_dynamic3_string6_F#2_RR5_denoise_timealign_noise.wav"
-                    Duplicate="0" LoopEnd="10581" SampleEnd="10581"/>
-            <sample Root="56" LoKey="56" HiKey="56" LoVel="0" HiVel="127" RRGroup="1"
-                    FileName="C:\Users\Ibrahim Rasyid\Desktop\Pick Attack\ampersand_sustain_dynamic3_string6_G#2_RR5_denoise_timealign_noise.wav"
-                    Duplicate="0" LoopEnd="10581" SampleEnd="10581"/>
-            <sample Root="82" LoKey="82" HiKey="83" LoVel="0" HiVel="127" RRGroup="1"
-                    FileName="C:\Users\Ibrahim Rasyid\Desktop\Pick Attack\ampersand_sustain_dynamic2_string1_A#4_RR5_denoise_timealign_noise.wav"
-                    Duplicate="0" LoopEnd="10581" SampleEnd="10581"/>
-            <sample Root="84" LoKey="84" HiKey="85" LoVel="0" HiVel="127" RRGroup="1"
-                    FileName="C:\Users\Ibrahim Rasyid\Desktop\Pick Attack\ampersand_sustain_dynamic2_string1_C5_RR4_denoise_timealign_noise.wav"
-                    Duplicate="0" LoopEnd="10581" SampleEnd="16526"/>
-            <sample Root="86" LoKey="86" HiKey="87" LoVel="0" HiVel="127" RRGroup="1"
-                    FileName="C:\Users\Ibrahim Rasyid\Desktop\Pick Attack\ampersand_sustain_dynamic2_string1_D5_RR4_denoise_timealign_noise.wav"
-                    Duplicate="0" LoopEnd="10581" SampleEnd="18613"/>
-            <sample Root="76" LoKey="76" HiKey="77" LoVel="0" HiVel="127" RRGroup="1"
-                    FileName="C:\Users\Ibrahim Rasyid\Desktop\Pick Attack\ampersand_sustain_dynamic2_string1_E4_RR3_denoise_timealign_noise.wav"
-                    Duplicate="0" LoopEnd="10581" SampleEnd="36027"/>
-          </samplemap>
         </Processor>
       </ChildProcessors>
       <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<samplemap CrossfadeGamma="1.0" ID="Looped/tremolo_string2" RRGroupAmount="1.0"
+           MicPositions=";">
+  <sample Root="91" LoKey="91" HiKey="92" LoVel="0" HiVel="127" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\tremolo\tremolo_looped\ampersand_tremolo_string2_G5_RR1.wav"
+          Duplicate="1" LoopEnabled="1" LoopStart="22268" LoopEnd="53617"/>
+  <sample Root="79" LoKey="79" HiKey="80" LoVel="0" HiVel="127" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\tremolo\tremolo_looped\ampersand_tremolo_string2_G4_RR1.wav"
+          Duplicate="1" LoopEnabled="1" LoopStart="34460" LoopEnd="134997"/>
+  <sample Root="89" LoKey="89" HiKey="90" LoVel="0" HiVel="127" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\tremolo\tremolo_looped\ampersand_tremolo_string2_F5_RR1.wav"
+          Duplicate="1" LoopEnabled="1" LoopStart="33823" LoopEnd="109139"/>
+  <sample Root="77" LoKey="77" HiKey="78" LoVel="0" HiVel="127" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\tremolo\tremolo_looped\ampersand_tremolo_string2_F4_RR1.wav"
+          Duplicate="1" LoopEnabled="1" LoopStart="63502" LoopEnd="94425"/>
+  <sample Root="87" LoKey="87" HiKey="88" LoVel="0" HiVel="127" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\tremolo\tremolo_looped\ampersand_tremolo_string2_D#5_RR1.wav"
+          Duplicate="1" LoopEnabled="1" LoopStart="79719" LoopEnd="121324"/>
+  <sample Root="75" LoKey="75" HiKey="76" LoVel="0" HiVel="127" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\tremolo\tremolo_looped\ampersand_tremolo_string2_D#4_RR1.wav"
+          Duplicate="1" LoopEnabled="1" LoopStart="44904" LoopEnd="120283"/>
+  <sample Root="85" LoKey="85" HiKey="86" LoVel="0" HiVel="127" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\tremolo\tremolo_looped\ampersand_tremolo_string2_C#5_RR1.wav"
+          Duplicate="1" LoopEnabled="1" LoopStart="32956" LoopEnd="81210"/>
+  <sample Root="73" LoKey="73" HiKey="74" LoVel="0" HiVel="127" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\tremolo\tremolo_looped\ampersand_tremolo_string2_C#4_RR1.wav"
+          Duplicate="1" LoopEnabled="1" LoopStart="14350" LoopEnd="62822"/>
+  <sample Root="83" LoKey="83" HiKey="84" LoVel="0" HiVel="127" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\tremolo\tremolo_looped\ampersand_tremolo_string2_B4_RR1.wav"
+          Duplicate="1" LoopEnabled="1" LoopStart="32558" LoopEnd="68801"/>
+  <sample Root="71" LoKey="71" HiKey="72" LoVel="0" HiVel="127" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\tremolo\tremolo_looped\ampersand_tremolo_string2_B3_RR1.wav"
+          Duplicate="1" LoopEnabled="1" LoopStart="91231" LoopEnd="150604"/>
+  <sample Root="81" LoKey="81" HiKey="82" LoVel="0" HiVel="127" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\tremolo\tremolo_looped\ampersand_tremolo_string2_A4_RR1.wav"
+          Duplicate="1" LoopEnabled="1" LoopStart="55060" LoopEnd="130740"/>
+</samplemap>
