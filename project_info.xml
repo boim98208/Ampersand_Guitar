@@ -41,6 +41,6 @@
   <DefaultUserPreset value=""/>
   <CompileWithPerfetto value="No"/>
   <CompileWithDebugSymbols value="No"/>
-  <IncludeLorisInFrontend value="No"/>
+  <IncludeLorisInFrontend value="1"/>
   <ProjectType value="Instrument"/>
 </ProjectSettings>

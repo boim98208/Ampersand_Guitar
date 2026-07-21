@@ -1,30 +1,11 @@
+ Synth.deferCallbacks(false);
+ //for some reason global releases wont turn off mid-script so I'm keeping it off for now
  Globals.emulatedReleasesOn = true;
  
- const var POSINFINITY = 1/0;
- 
- const var NUMOFSTRINGS = Globals.NUMOFSTRINGS;
- const var LOWESTNOTE = 52;
- const var HIGHESTNOTE = 97;
- 
- const var OPENSTRING6NOTE = 52;
- const var OPENSTRING5NOTE = 57;
- const var OPENSTRING4NOTE = 62;
- const var OPENSTRING3NOTE = 67;
- const var OPENSTRING2NOTE = 71;
- const var OPENSTRING1NOTE = 76;
- 
- const var NO_NOTE = -1;
- 
- const var NOTESPERSTRING = 22;
- 
- const var OPENSTRINGNONOTE = POSINFINITY;
- 
- const var OPENSTRINGNOTES = [OPENSTRING1NOTE, OPENSTRING2NOTE, OPENSTRING3NOTE, OPENSTRING4NOTE, OPENSTRING5NOTE, OPENSTRING6NOTE];
- 
- OPENSTRINGNOTES.push(OPENSTRINGNONOTE);
+include("NoteRangeAndOpenStringNote.js");
+
 
 var legatoKeySwitchPlaying = false;
-const var legatoKeySwitchNote = 28; //E2 in cakewalk
  
  namespace Stringtype
  {
@@ -35,7 +16,7 @@ const var legatoKeySwitchNote = 28; //E2 in cakewalk
      const var STRING4 = 3;
      const var STRING5 = 4;
      const var STRING6 = 5;
-     const var LEGATOOFFSET = 6;
+     const var LEGATOOFFSET = NUMOFSTRINGS;
      
      const var STRING1LEG = 6;
      const var STRING2LEG = 7;
@@ -59,20 +40,10 @@ const var legatoKeySwitchNote = 28; //E2 in cakewalk
  	const var NATURAL = 1;
  	const var MELODY = 2;
  }
+
  
- namespace PerformanceType
- {
- 	const var SUSTAIN = 0;
- 	const var LEGATOUP = 1;
- 	const var LEGATODOWN = 2;
- }
+include("KeyswitchConstants.js");
  
- const var SUSTAINKEYSWITCHNOTE = 36; //C3 in cakewalk
- const var MUTEKEYSWITCHNOTE = 37;
- const var HARMONICKEYSWITCHNOTE = 38;
- const var TREMOLOKEYSWITCHNOTE = 39;
- const var SFXKEYSWITCHNOTE = 40;
- const var legatoKeySwitchNote = 49; //E2 in cakewalk
  
  var legatoKeySwitchPlaying = false;
  
@@ -81,9 +52,11 @@ const var SusContainerMute = Synth.getMidiProcessor("SusContainerMute");
 const var MuteContainerMute = Synth.getMidiProcessor("MuteContainerMute");
 const var HarmonicContainerMute = Synth.getMidiProcessor("HarmonicContainerMute");
 const var TremoloContainerMute = Synth.getMidiProcessor("TremoloContainerMute");
+
+//sfxcontainermute has been disabled because I might just have it be constantly available
 const var SFXContainerMute = Synth.getMidiProcessor("SFXContainerMute");
 
-const var ContainerMutes = [SusContainerMute, MuteContainerMute, HarmonicContainerMute, TremoloContainerMute, SFXContainerMute];
+const var ContainerMutes = [SusContainerMute, MuteContainerMute, HarmonicContainerMute, TremoloContainerMute];
 const var NUMOFKEYSWITCHES = ContainerMutes.length;
 
  
@@ -92,6 +65,8 @@ const var NUMOFKEYSWITCHES = ContainerMutes.length;
 		 ContainerMutes[i].setAttribute("Bypass", true);
 	 }
  }
+ 
+ var currArticulationPlaying = PerformanceType.SUSTAIN;
  
  inline function detectKeySwitch(notePlayed){
 	 
@@ -103,13 +78,29 @@ const var NUMOFKEYSWITCHES = ContainerMutes.length;
 	
 	
 	 setAllContainersMuted();
+	 
+	 //emulated releases probably only work on sustains so set off by default
+	 Globals.emulatedReleasesOn = false;
+	 
 	 if(notePlayed == SUSTAINKEYSWITCHNOTE){
 	 
 		 SusContainerMute.setAttribute("Bypass", false);
-	
+		 currArticulationPlaying = PerformanceType.SUSTAIN;
+		 
+		 Globals.emulatedReleasesOn = true;
 	 }else if(notePlayed == MUTEKEYSWITCHNOTE){
 	 
 		 MuteContainerMute.setAttribute("Bypass", false);
+		 currArticulationPlaying = PerformanceType.MUTE;
+		 
+	 }else if(notePlayed == HARMONICKEYSWITCHNOTE){
+		 
+		 HarmonicContainerMute.setAttribute("Bypass", false);
+		 currArticulationPlaying = PerformanceType.HARMONIC;
+	 }else if(notePlayed == TREMOLOKEYSWITCHNOTE){
+		 
+		 TremoloContainerMute.setAttribute("Bypass", false);
+		 currArticulationPlaying = PerformanceType.TREMOLO;
 	 }
 	 
  }
@@ -156,6 +147,8 @@ inline function resetNotes(){
 		stringNote[i] = NO_NOTE;
 	}
 }
+
+Message.setAllNotesOffCallback(resetNotes);
 
 //one more push to make up for the "NOSTRING" and not go out of bounds when scanning string notes
 stringNote.push(POSINFINITY);
@@ -358,7 +351,7 @@ inline function forceStringLogic(notePlayed, currentHandPos, fretSpaceToChange)
 	
 	updateGlobals(); 
 	playString(Globals.forcedString);
-	Globals.stringPerformance[Globals.forcedString] = PerformanceType.SUSTAIN;
+	Globals.stringPerformance[Globals.forcedString] = currArticulationPlaying;
 	
 	newFretFromForceString = notePlayed - OPENSTRINGNOTES[Globals.forcedString];
 	distanceBetweenForceAndAutoFret = Math.abs(newFretFromForceString - currentHandPos);
@@ -389,6 +382,7 @@ Designed for leads interspersed with chords or simple voicings in the "Natural" 
 Will change fret position if polyphony leads to a really far fret
 */
 
+// the function returns the next fret for the algorithm
 inline function naturalFretting2_2_1(notePlayed, currentHandPos)
 {
 	
@@ -421,17 +415,21 @@ inline function naturalFretting2_2_1(notePlayed, currentHandPos)
 	
 	stringToPlay = stringWithClosestNote(notePlayed, currentHandPos);
 	stringNote[stringToPlay] = notePlayed;
-	Globals.stringPerformance[stringToPlay] = PerformanceType.SUSTAIN;
+	Globals.stringPerformance[stringToPlay] = currArticulationPlaying;
 	playString(stringToPlay);
+	
 	
 	updateGlobals();
 	
 	
 	//when there's polyphony, virtual guitarist moves hand to wherever the biggest change in pos is
-	if(Synth.getNumPressedKeys() >= 2){
+	if(Synth.getNumPressedKeys() >= 2 && stringToPlay != Stringtype.NOSTRING){
+	//change fret position to suit the chord fingering more.
+	
 	newFretFromPolyphony = stringNote[stringToPlay] - OPENSTRINGNOTES[stringToPlay];
 	distBetweenNewFretAndAutoFret = Math.abs(newFretFromPolyphony - currentHandPos);
 	}else{
+	
 	
 	
 		if(stringToPlay == Stringtype.STRING1){
@@ -556,6 +554,7 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
  inline function playNextNoteLegato(notePlayed, velocityPlayed)
  {
 
+
 	local isNoteInRange = false;
 
 	//exit early because it should just play the note on a new string
@@ -644,6 +643,9 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
 	//Message.delayEvent((notePlayed - LOWESTNOTE) * 1000);
 
 	detectKeySwitch(notePlayed);
+	
+	if(Globals.resetNotes == true)
+		resetNotes();
 	
 	if(notePlayed == legatoKeySwitchNote)
 		legatoKeySwitchPlaying = true;

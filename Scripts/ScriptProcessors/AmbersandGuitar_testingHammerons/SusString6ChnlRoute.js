@@ -79,9 +79,11 @@ local releaseNote;
 local numOfReleases;
 
  if(!Globals.emulatedReleasesOn){
+ 
 	 return;
  
 	}
+	
 	
 	if(releaseId != -99)
 		Synth.noteOffByEventId(releaseId);
@@ -110,7 +112,6 @@ local numOfReleases;
 		//consider having go either the volume of the note played or something else
 
 			releaseId = Synth.playNote(releaseNote, 60);
-
 		}
 		
 		

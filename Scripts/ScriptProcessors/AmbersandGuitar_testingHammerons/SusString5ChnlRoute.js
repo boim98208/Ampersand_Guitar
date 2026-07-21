@@ -64,7 +64,7 @@ function onNoteOn()
 		isReleased = true;
 		noteReleased = Message.getNoteNumber();
 		releaseVolumeOverTime = Globals.releaseVolume;
-		Globals.string6ActiveRR = "not playing";
+		Globals.string5ActiveRR = "not playing";
 		Synth.startTimer(0.01);
 		Synth.noteOffByEventId(id);
 	}

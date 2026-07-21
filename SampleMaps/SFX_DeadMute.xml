@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<samplemap CrossfadeGamma="1.0" ID="SFX_DeadMute" RRGroupAmount="8.0" MicPositions=";">
+  <sample Root="23" LoKey="23" HiKey="23" LoVel="0" HiVel="63" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_deadmute_B-1_slow_RR3.wav"
+          Duplicate="0"/>
+  <sample Root="23" LoKey="23" HiKey="23" LoVel="0" HiVel="63" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_deadmute_B-1_slow_RR2.wav"
+          Duplicate="0"/>
+  <sample Root="23" LoKey="23" HiKey="23" LoVel="0" HiVel="63" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_deadmute_B-1_slow_RR1.wav"
+          Duplicate="0"/>
+  <sample Root="23" LoKey="23" HiKey="23" LoVel="64" HiVel="127" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_deadmute_B-1_fast_RR5.wav"
+          Duplicate="0"/>
+  <sample Root="23" LoKey="23" HiKey="23" LoVel="64" HiVel="127" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_deadmute_B-1_fast_RR3.wav"
+          Duplicate="0"/>
+  <sample Root="23" LoKey="23" HiKey="23" LoVel="64" HiVel="127" RRGroup="7"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_deadmute_B-1_fast_RR4.wav"
+          Duplicate="0"/>
+  <sample Root="23" LoKey="23" HiKey="23" LoVel="64" HiVel="127" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_deadmute_B-1_fast_RR2.wav"
+          Duplicate="0"/>
+  <sample Root="23" LoKey="23" HiKey="23" LoVel="64" HiVel="127" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_deadmute_B-1_fast_RR1.wav"
+          Duplicate="0"/>
+  <sample Root="23" LoKey="23" HiKey="23" LoVel="0" HiVel="63" RRGroup="7"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_deadmute_B-1_slow_RR7.wav"
+          Duplicate="0"/>
+  <sample Root="23" LoKey="23" HiKey="23" LoVel="0" HiVel="63" RRGroup="8"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_deadmute_B-1_slow_RR8.wav"
+          Duplicate="0"/>
+  <sample Root="23" LoKey="23" HiKey="23" LoVel="0" HiVel="63" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_deadmute_B-1_slow_RR6.wav"
+          Duplicate="0"/>
+  <sample Root="23" LoKey="23" HiKey="23" LoVel="0" HiVel="63" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_deadmute_B-1_slow_RR5.wav"
+          Duplicate="0"/>
+  <sample Root="23" LoKey="23" HiKey="23" LoVel="0" HiVel="63" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_deadmute_B-1_slow_RR4.wav"
+          Duplicate="0"/>
+  <sample Root="23" LoKey="23" HiKey="23" LoVel="64" HiVel="127" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_deadmute_B-1_fast_RR3.wav"
+          Duplicate="1"/>
+  <sample Root="23" LoKey="23" HiKey="23" LoVel="64" HiVel="127" RRGroup="8"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_deadmute_B-1_fast_RR4.wav"
+          Duplicate="1"/>
+  <sample Root="23" LoKey="23" HiKey="23" LoVel="64" HiVel="127" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\AmbersandTest\sfx\ampersand_sfx_deadmute_B-1_fast_RR4.wav"
+          Duplicate="1"/>
+</samplemap>

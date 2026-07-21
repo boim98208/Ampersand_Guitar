@@ -6,10 +6,13 @@ Globals.stringNote1 = -1;
 Globals.stringNote2 = -1;
 Globals.stringNote3 = -1;
 Globals.stringNote4 = -1;
-Globals.stringNote5 = -1;
-Globals.stringNote6 = -1; 
+Globals.stringNote6 = -1;
+reg i = 0;
 
 
+include("KeyswitchConstants.js");
+
+include("NoteRangeAndOpenStringNote.js");
 
 
 Globals.resetNotes = false;
@@ -17,7 +20,10 @@ Globals.resetNotes = false;
 Globals.frettingEngine = 1;
 Globals.legatoRange = 2;
 
-Globals.releaseVolume = 0;
+Globals.releaseVolume = 5;
+
+Globals.timeStretchRatio = 1;
+var timeStretchRatioBeforeDisabling = 1;
 
 const var NOTESPERSTRING = 22;
 const var NUMOFSTRINGS = 6;
@@ -35,13 +41,14 @@ namespace StringType
     const var STRING6 = 5;
 }
 
-namespace PerformanceType
-{
-	const var SUSTAIN = 0;
-	const var LEGATOUP = 1;
-	const var LEGATODOWN = 2;
-}
 
+namespace KeyboardColors{
+	const var KEYSWITCHES = Colours.withAlpha(Colours.red, 0.5);
+	const var NOTES = Colours.withAlpha(Colours.cyan, 0.5);
+	const var PERCUSSION = Colours.withAlpha(Colours.green, 0.5);
+	const var LEGATO = Colours.withAlpha(Colours.cornflowerblue, 0.5);
+	const var FORCEFRETHAND = Colours.withAlpha(Colours.deeppink, 0.5);
+}
 
 
 
@@ -53,36 +60,88 @@ for(var i = 0; i < NUMOFSTRINGS; i++){
 
 
 //size of this constant array is number of enums in PerformanceType
-const var stringPerformanceImgs = [0, 0, 0];
+const var stringPerformanceImgs = [];
+
+stringPerformanceImgs.reserve(PerformanceType.NUMOFPERFORMANCES);
+
+for(i = 0; i < PerformanceType.NUMOFPERFORMANCES; i++){
+
+	// By default, everything will just have the sustain articulation image
+
+	stringPerformanceImgs.push("{PROJECT_FOLDER}PlayingMode_FretIndicator.png");
+}
 
 stringPerformanceImgs[PerformanceType.SUSTAIN] = "{PROJECT_FOLDER}PlayingMode_FretIndicator.png";
+
+stringPerformanceImgs[PerformanceType.MUTE] = "{PROJECT_FOLDER}PlayingMode_FretIndicator_Mute.png";
+
 stringPerformanceImgs[PerformanceType.LEGATOUP] = "{PROJECT_FOLDER}PlayingMode_FretIndicator_Legatoup.png";
+
 stringPerformanceImgs[PerformanceType.LEGATODOWN] = "{PROJECT_FOLDER}PlayingMode_FretIndicator_Legatodown.png";
 
+stringPerformanceImgs[PerformanceType.HARMONIC] = 
+"{PROJECT_FOLDER}PlayingMode_FretIndicator_Harmonic.png";
 
+stringPerformanceImgs[PerformanceType.TREMOLO] = 
+"{PROJECT_FOLDER}PlayingMode_FretIndicator_Tremolo.png";
+
+
+
+
+
+
+inline function setImage(imgObject, imgAddress){
+	imgObject.set("fileName", imgAddress);
+}
 
 inline function displayFret(fretImg, stringNum)
 {
+	
+	// something isn't getting updated or some strings just wont update?
+
+	Console.print(Globals.stringPerformance[stringNum]);
+
 
 	if(Globals.stringPerformance[stringNum] == PerformanceType.SUSTAIN)
 	{
+
 		fretImg.set("fileName", stringPerformanceImgs[PerformanceType.SUSTAIN]);
+	}
+	else if(Globals.stringPerformance[stringNum] == PerformanceType.MUTE)
+	{
+
+		fretImg.set("fileName", stringPerformanceImgs[PerformanceType.MUTE]);
 	}
 	else if(Globals.stringPerformance[stringNum] == PerformanceType.LEGATOUP)
 	{
-	
 		fretImg.set("fileName", stringPerformanceImgs[PerformanceType.LEGATOUP]);
 	}
 	else if(Globals.stringPerformance[stringNum] == PerformanceType.LEGATODOWN)
 	{
-	Console.print("issue is at " + stringNum);
 
 		fretImg.set("fileName", stringPerformanceImgs[PerformanceType.LEGATODOWN]);
 		
+	}	
+	else if(Globals.stringPerformance[stringNum] == PerformanceType.HARMONIC)
+	{
+
+
+		fretImg.set("fileName", stringPerformanceImgs[PerformanceType.HARMONIC]);
+		
+	}else if(Globals.stringPerformance[stringNum] == PerformanceType.TREMOLO)
+	{
+
+
+		fretImg.set("fileName", stringPerformanceImgs[PerformanceType.TREMOLO]);
+		
+	}else{
+	
+		fretImg.set("fileName", stringPerformanceImgs[PerformanceType.SUSTAIN]);
 	}
 			
 	fretImg.set("visible", true);
 }
+
 
 
 
@@ -97,9 +156,12 @@ inline function onResetGlobalRRButtonControl(component, value)
 		Globals.stringNote6 = -1; 
 		
 		//some notes have a problem of just hanging and not getting off the stringNote array in FrettingEngine
-	//	Globals.resetNotes = true;
+		Globals.resetNotes = true;
 		//Globals.resetNotes is put back to false in FrettingEngine after it recognizes it
 	}
+	
+	Engine.allNotesOff();
+	
 };
 
 Content.getComponent("ResetGlobalRRButton").setControlCallback(onResetGlobalRRButtonControl);
@@ -212,13 +274,22 @@ const var StringRRLabel = [Content.getComponent("String1RRLabel"),
 
 const var DebugPanel = Content.getComponent("DebugPanel");
 
+const var PlayingModeBG = Content.getComponent("PlayingModeBG");
 
+const var ShowArticulationsButton = Content.getComponent("ShowArticulationsButton");
+
+// setting up the buttons that show the GUI
 
 inline function onShowDebugPanelButtonControl(component, value)
 {
 
-	if(value)
+	if(value){
 		DebugPanel.set("visible", true);
+		ShowPlayingModeButton.setValue(1);
+		ShowArticulationsButton.setValue(0);
+		PlayingModeBG.set("visible", 1);
+		ArticulationBG.set("visible", false);
+		}
 	else
 		DebugPanel.set("visible", false);
 	
@@ -228,31 +299,47 @@ inline function onShowDebugPanelButtonControl(component, value)
 Content.getComponent("ShowDebugPanelButton").setControlCallback(onShowDebugPanelButtonControl);
 
 
-const var PlayingModeBG = Content.getComponent("PlayingModeBG");
-
-
-
-
 
 const var ShowPlayingModeButton = Content.getComponent("ShowPlayingModeButton");
 
-ShowPlayingModeButton.setValue(1);
+ShowPlayingModeButton.setValue(0);
+PlayingModeBG.set("visible", true);
 
 inline function onShowPlayingModeButtonControl(component, value)
 {
 	
 	if(ShowPlayingModeButton.getValue() == 0){
-		PlayingModeBG.set("visible", 0);
+		PlayingModeBG.set("visible", false);
+		DebugPanel.set("visible", false);
 	}else{
-		PlayingModeBG.set("visible", 1);
+		PlayingModeBG.set("visible", true);
+		ArticulationBG.set("visible", false);
+		ShowArticulationsButton.setValue(0);
 	}
 
 };
 
 Content.getComponent("ShowPlayingModeButton").setControlCallback(onShowPlayingModeButtonControl);
 
-	
+const var ArticulationBG = Content.getComponent("ArticulationBG");
 
+ArticulationBG.set("visible", false);
+
+inline function onShowArticulationsButtonControl(component, value)
+{
+	if(value == 0){
+		ArticulationBG.set("visible", false);
+		ShowPlayingModeButton.setValue(1);
+		DebugPanel.set("visible", false);
+		PlayingModeBG.set("visible", false);
+	}else{
+		ShowPlayingModeButton.setValue(0);
+		PlayingModeBG.set("visible", false);
+		ArticulationBG.set("visible", true);
+	}
+};
+
+Content.getComponent("ShowArticulationsButton").setControlCallback(onShowArticulationsButtonControl);
 
 //setting up fretMarkers
 
@@ -323,7 +410,7 @@ inline function keyswitchForceFret(notePlayed, velocity)
 	
 	//note to self: figure out how to get knobs to change text when given a keyswitch
 
-	if(notePlayed == 51)
+	if(notePlayed == FORCEFRETMODEKEYSWITCH)
 	{
 	Console.print("keyswitch for fret change is hit");
 	newFretPosition = velocity % 18;
@@ -333,7 +420,7 @@ inline function keyswitchForceFret(notePlayed, velocity)
 		Globals.handPositionFret = newFretPosition;
 		
 		
-	}else if(notePlayed == 50)
+	}else if(notePlayed == AUTOFRETMODEKEYSWITCH)
 	{
 	 Console.print("keyswitch for auto fret change is hit");
 
@@ -388,6 +475,9 @@ ForceStringImages.reverse();
 for( i in ForceStringImages){
 	i.set("visible", false);
 }
+
+
+const var ArticulationPlayingLabel = Content.getComponent("ArticulationPlayingLabel");
 
 
 
@@ -527,10 +617,331 @@ Content.getComponent("IRMixKnob").setControlCallback(onIRMixKnobControl);
 
 
 
+// setting up PB and Vibrato knobs
+
+
+// Probably only using this function to set smoothing times between stuff
+
+inline function copyModulatorParams(source, target)
+{
+	for(var j = 0; j < target.length; j++){
+
+    for (i = 0; i < source.getNumAttributes(); i++)
+    {
+        target[j].setAttribute(i, source.getAttribute(i));
+    }
+    
+    }
+};
+
+const var SourcePitchBendModulator = Synth.getModulator("SourcePitchBendModulator");
+
+const var PitchBendModulators = Synth.getAllModulators("PitchBendModulator");
+
+const var SourceVibratoLFOIntensityMod = Synth.getModulator("SourceVibratoLFOIntensityMod");
+
+const var VibratoLFOIntensityMods = Synth.getAllModulators("VibratoLFOIntensityMod");
+
+const var SourceVibratoLFOFreqMod = Synth.getModulator("SourceVibratoLFOFreqMod");
+
+const var VibratoLFOFreqMods = Synth.getAllModulators("VibratoLFOFreqMod")
+
+
+copyModulatorParams(SourcePitchBendModulator, PitchBendModulators);
+
+copyModulatorParams(SourceVibratoLFOIntensityMod, VibratoLFOIntensityMods);
+
+copyModulatorParams(SourceVibratoLFOFreqMod, VibratoLFOFreqMods);
+
+const var SourceVibratoLFO = Synth.getModulator("SourceVibratoLFO");
+
+const var VibratoLFOs = Synth.getAllModulators("VibratoLFO");
+
+inline function changePitchBendRange(range, PBModulators){
+	local PBModulator = PBModulators[0];
+
+	for(var i = 0; i < PBModulators.length; i++){
+		PBModulator = PBModulators[i];
+		PBModulator.setIntensity(range);
+	}
+}
+
+// This doesn't work for some reason. Please fix it
+
+inline function changeVibratoDepth(depth, VibratoLFOMods){
+	local VibratoLFOMod = VibratoLFOMods[0];
+
+	for(i = 0; i < VibratoLFOMods.length; i++){
+		VibratoLFOMod = VibratoLFOMods[i];
+		VibratoLFOMod.setIntensity(depth);
+	}
+}
+
+
+
+inline function onPitchBendRangeKnobControl(component, value)
+{
+	SourcePitchBendModulator.setIntensity(value);
+	changePitchBendRange(value, PitchBendModulators);
+};
+
+Content.getComponent("PitchBendRangeKnob").setControlCallback(onPitchBendRangeKnobControl);
+
+
+copyModulatorParams(VibratoLFOs, SourceVibratoLFO);
+
+inline function onVibratoDepthKnobControl(component, value)
+{
+	//SourceVibratoLFO.setIntensity(value);
+	SourceVibratoLFO.setIntensity(value);
+	changeVibratoDepth(value, VibratoLFOs);
+	Console.print(value);
+};
+
+Content.getComponent("VibratoDepthKnob").setControlCallback(onVibratoDepthKnobControl);
+
+
+// setting up articulations page
+
+const var SampleAHDSR = Synth.getModulator("SusAHDSR");
+
+namespace AHDSRIndices
+{
+	const var attack = 0;
+	const var decay = 1;
+	const var sustain = 2;
+	const var release = 3;
+}
+
+const var AHDSRAttributes = [0, 0, 0, 0];
+
+AHDSRAttributes[AHDSRIndices.attack] = SampleAHDSR.Attack;
+AHDSRAttributes[AHDSRIndices.decay] = SampleAHDSR.Decay;
+AHDSRAttributes[AHDSRIndices.sustain] = SampleAHDSR.Sustain;
+AHDSRAttributes[AHDSRIndices.release] = SampleAHDSR.Release;
+
+
+
+const var SustainAHDSRKnobs = [Content.getComponent("SustainModulatorsAttack"),
+                               Content.getComponent("SustainModulatorsDecay"),
+                               Content.getComponent("SustainModulatorsSustain"),
+                               Content.getComponent("SustainModulatorsRelease")];
+
+const var SusAHDSRModulators = Synth.getAllModulators("SusAHDSR");
 
 
 
 
+inline function onSustainAHDSRControl(component, value)
+{
+    for (var k = 0; k < SustainAHDSRKnobs.length; k++)
+    {
+        if (SustainAHDSRKnobs[k] == component)
+        {
+            for (var j = 0; j < SusAHDSRModulators.length; j++)
+                SusAHDSRModulators[j].setAttribute(AHDSRAttributes[k], value);
+            return;
+        }
+    }
+}
+
+for (i = 0; i < SustainAHDSRKnobs.length; i++)
+    SustainAHDSRKnobs[i].setControlCallback(onSustainAHDSRControl);
+    
+for(i = 0; i < SustainAHDSRModulators.length; i++){
+	SustainAHDSRModulators[i].setAttribute(SampleAHDSR.AttackCurve, 0.5);
+	SustainAHDSRModulators[i].setAttribute(SampleAHDSR.DecayCurve, 0.5);
+}
+
+
+const var MuteAHDSRKnobs = [Content.getComponent("MuteModulatorsAttack"),
+                            Content.getComponent("MuteModulatorsDecay"),
+                            Content.getComponent("MuteModulatorsMute"),
+                            Content.getComponent("MuteModulatorsRelease")];
+
+
+const var MuteAHDSRModulators = Synth.getAllModulators("MuteAHDSR");
+
+
+inline function onMuteAHDSRControl(component, value)
+{
+    for (var k = 0; k < MuteAHDSRKnobs.length; k++)
+    {
+        if (MuteAHDSRKnobs[k] == component)
+        {
+            for (var j = 0; j < MuteAHDSRModulators.length; j++)
+                MuteAHDSRModulators[j].setAttribute(AHDSRAttributes[k], value);
+            return;
+        }
+    }
+}
+
+for (i = 0; i < MuteAHDSRKnobs.length; i++)
+    MuteAHDSRKnobs[i].setControlCallback(onMuteAHDSRControl);
+
+
+
+const var HarmonicAHDSRKnobs = [Content.getComponent("HarmonicModulatorsAttack"),
+                            Content.getComponent("HarmonicModulatorsDecay"),
+                            Content.getComponent("HarmonicModulatorsHarmonic"),
+                            Content.getComponent("HarmonicModulatorsRelease")];
+
+
+const var HarmonicAHDSRModulators = Synth.getAllModulators("HarmonicAHDSR");
+
+
+inline function onHarmonicAHDSRControl(component, value)
+{
+    for (var k = 0; k < HarmonicAHDSRKnobs.length; k++)
+    {
+        if (HarmonicAHDSRKnobs[k] == component)
+        {
+            for (var j = 0; j < HarmonicAHDSRModulators.length; j++)
+                HarmonicAHDSRModulators[j].setAttribute(AHDSRAttributes[k], value);
+            return;
+        }
+    }
+}
+
+for (i = 0; i < HarmonicAHDSRKnobs.length; i++)
+    HarmonicAHDSRKnobs[i].setControlCallback(onHarmonicAHDSRControl);
+    
+
+for(i = 0; i < HarmonicAHDSRModulators.length; i++){
+	HarmonicAHDSRModulators[i].setAttribute(SampleAHDSR.AttackCurve, 0.5);
+	HarmonicAHDSRModulators[i].setAttribute(SampleAHDSR.DecayCurve, 0.5);
+}
+
+
+
+    
+ const var TremoloAHDSRKnobs = [Content.getComponent("TremoloModulatorsAttack"),
+                             Content.getComponent("TremoloModulatorsDecay"),
+                             Content.getComponent("TremoloModulatorsTremolo"),
+                             Content.getComponent("TremoloModulatorsRelease")];
+ 
+ 
+ const var TremoloAHDSRModulators = Synth.getAllModulators("TremoloAHDSR");
+ 
+ 
+ inline function onTremoloAHDSRControl(component, value)
+ {
+     for (var k = 0; k < TremoloAHDSRKnobs.length; k++)
+     {
+         if (TremoloAHDSRKnobs[k] == component)
+         {
+             for (var j = 0; j < TremoloAHDSRModulators.length; j++)
+                 TremoloAHDSRModulators[j].setAttribute(AHDSRAttributes[k], value);
+             return;
+         }
+     }
+ }
+ 
+ for (i = 0; i < TremoloAHDSRKnobs.length; i++)
+     TremoloAHDSRKnobs[i].setControlCallback(onTremoloAHDSRControl);
+ 
+for(i = 0; i < TremoloAHDSRModulators.length; i++){
+	TremoloAHDSRModulators[i].setAttribute(SampleAHDSR.AttackCurve, 0.5);
+	TremoloAHDSRModulators[i].setAttribute(SampleAHDSR.DecayCurve, 0.5);
+}
+
+
+
+inline function onTremoloTimestretchKnobControl(component, value)
+{
+	Globals.timeStretchRatio = value;
+	Console.print(value);
+};
+
+
+Content.getComponent("TremoloTimestretchKnob").setControlCallback(onTremoloTimestretchKnobControl);
+
+const var TremoloTimestretchKnob = Content.getComponent("TremoloTimestretchKnob");
+
+
+const var EnableTremStretchButton = Content.getComponent("EnableTremStretchButton");
+
+
+
+
+
+
+
+
+/*
+
+I keep crashing with this. Figure out if you want implementations of this another time
+
+inline function onEnableTremStretchButtonControl(component, value)
+{
+	if(value){
+		Globals.timeStretchRatio = timeStretchRatioBeforeDisabling;
+	}else{
+		
+		timeStretchRatioBeforeDisabling = Globals.timeStretchRatio;
+		Globals.timeStretchRatio = -1;
+	}
+};
+
+Content.getComponent("EnableTremStretchButton").setControlCallback(onEnableTremStretchButtonControl);
+
+
+*/
+
+
+const var SFXAHDSRKnobs = [Content.getComponent("SFXModulatorsAttack"),
+                            Content.getComponent("SFXModulatorsDecay"),
+                            Content.getComponent("SFXModulatorsSFX"),
+                            Content.getComponent("SFXModulatorsRelease")];
+
+
+const var SFXAHDSRModulators = Synth.getAllModulators("SFXAHDSR");
+
+
+inline function onSFXAHDSRControl(component, value)
+{
+    for (var k = 0; k < SFXAHDSRKnobs.length; k++)
+    {
+        if (SFXAHDSRKnobs[k] == component)
+        {
+            for (var j = 0; j < SFXAHDSRModulators.length; j++)
+                SFXAHDSRModulators[j].setAttribute(AHDSRAttributes[k], value);
+            return;
+        }
+    }
+}
+
+for (i = 0; i < SFXAHDSRKnobs.length; i++){
+    SFXAHDSRKnobs[i].setControlCallback(onSFXAHDSRControl);
+}
+
+for(i = 0; i < SFXAHDSRModulators.length; i++){
+	SFXAHDSRModulators[i].setAttribute(SampleAHDSR.AttackCurve, 0.5);
+	SFXAHDSRModulators[i].setAttribute(SampleAHDSR.DecayCurve, 0.5);
+}
+
+
+
+
+ 
+ 
+// Coloring up the keyboard
+for(var i = LOWESTNOTE; i < HIGHESTNOTE + 1; i++){
+	Engine.setKeyColour(i, KeyboardColors.NOTES);
+}
+
+for(var i = FIRSTKEYSWITCH; i < LASTKEYSWITCH + 1; i++){
+	Engine.setKeyColour(i, KeyboardColors.KEYSWITCHES);
+}
+
+for(var i = FIRSTPERCUSSION; i < LASTPERCUSSION + 1; i++){
+	Engine.setKeyColour(i, KeyboardColors.PERCUSSION);
+}
+
+
+Engine.setKeyColour(legatoKeySwitchNote, KeyboardColors.LEGATO);
+Engine.setKeyColour(FORCEFRETMODEKEYSWITCH, KeyboardColors.FORCEFRETHAND);
+Engine.setKeyColour(AUTOFRETMODEKEYSWITCH, KeyboardColors.FORCEFRETHAND);
 
 
 
@@ -542,7 +953,7 @@ Content.getComponent("IRMixKnob").setControlCallback(onIRMixKnobControl);
 function onNoteOn()
 {
 	
-	
+
 	local notePlayed = Message.getNoteNumber();
 	local velocityPlayed = Message.getVelocity();
 	
@@ -586,6 +997,8 @@ function onController()
 	    
 	    */
 	    
+
+	    
 	
 }
  function onTimer()
@@ -596,33 +1009,33 @@ function onController()
 	hideAll();
 
 	if(Globals.stringNote6 != NONOTE){
-		fretImgToControl = fretImages[StringType.STRING6][Globals.stringNote6 - 52];
+		fretImgToControl = fretImages[StringType.STRING6][Globals.stringNote6 - OPENSTRING6NOTE];
 		displayFret(fretImgToControl, StringType.STRING6);
 		
 	}
 	
 	if(Globals.stringNote5 != NONOTE){
-		fretImgToControl = fretImages[StringType.STRING5][Globals.stringNote5 - 57];
+		fretImgToControl = fretImages[StringType.STRING5][Globals.stringNote5 - OPENSTRING5NOTE];
 		displayFret(fretImgToControl, StringType.STRING5);
 	}
 	
 	if(Globals.stringNote4 != NONOTE){
-		fretImgToControl = fretImages[StringType.STRING4][Globals.stringNote4 - 62];
+		fretImgToControl = fretImages[StringType.STRING4][Globals.stringNote4 - OPENSTRING4NOTE];
 		displayFret(fretImgToControl, StringType.STRING4);
 	}
 	
 	if(Globals.stringNote3 != NONOTE){
-		fretImgToControl = fretImages[StringType.STRING3][Globals.stringNote3 - 67];
+		fretImgToControl = fretImages[StringType.STRING3][Globals.stringNote3 - OPENSTRING3NOTE];
 		displayFret(fretImgToControl, StringType.STRING3);
 	}
 	
 	if(Globals.stringNote2 != NONOTE){
-		fretImgToControl = fretImages[StringType.STRING2][Globals.stringNote2 - 71];
+		fretImgToControl = fretImages[StringType.STRING2][Globals.stringNote2 - OPENSTRING2NOTE];
 		displayFret(fretImgToControl, StringType.STRING2);
 	}
 	
 	if(Globals.stringNote1 != NONOTE){
-		fretImgToControl = fretImages[StringType.STRING1][Globals.stringNote1 - 75];
+		fretImgToControl = fretImages[StringType.STRING1][Globals.stringNote1 - OPENSTRING1NOTE];
 		displayFret(fretImgToControl, StringType.STRING1);
 	}
 	
@@ -642,7 +1055,7 @@ function onController()
 	
 	updateStringRRLabels();
 	
-	
+	TremoloTimestretchKnob.setValue(Globals.timeStretchRatio);
 	
 	
 	
