@@ -40,13 +40,7 @@ var legatoKeySwitchPlaying = false;
  	const var NATURAL = 1;
  	const var MELODY = 2;
  }
- 
- namespace PerformanceType
- {
- 	const var SUSTAIN = 0;
- 	const var LEGATOUP = 1;
- 	const var LEGATODOWN = 2;
- }
+
  
 include("KeyswitchConstants.js");
  
@@ -72,6 +66,8 @@ const var NUMOFKEYSWITCHES = ContainerMutes.length;
 	 }
  }
  
+ var currArticulationPlaying = PerformanceType.SUSTAIN;
+ 
  inline function detectKeySwitch(notePlayed){
 	 
  
@@ -89,16 +85,22 @@ const var NUMOFKEYSWITCHES = ContainerMutes.length;
 	 if(notePlayed == SUSTAINKEYSWITCHNOTE){
 	 
 		 SusContainerMute.setAttribute("Bypass", false);
+		 currArticulationPlaying = PerformanceType.SUSTAIN;
+		 
 		 Globals.emulatedReleasesOn = true;
 	 }else if(notePlayed == MUTEKEYSWITCHNOTE){
 	 
 		 MuteContainerMute.setAttribute("Bypass", false);
+		 currArticulationPlaying = PerformanceType.MUTE;
+		 
 	 }else if(notePlayed == HARMONICKEYSWITCHNOTE){
 		 
 		 HarmonicContainerMute.setAttribute("Bypass", false);
+		 currArticulationPlaying = PerformanceType.HARMONIC;
 	 }else if(notePlayed == TREMOLOKEYSWITCHNOTE){
 		 
 		 TremoloContainerMute.setAttribute("Bypass", false);
+		 currArticulationPlaying = PerformanceType.TREMOLO;
 	 }
 	 
  }
@@ -349,7 +351,7 @@ inline function forceStringLogic(notePlayed, currentHandPos, fretSpaceToChange)
 	
 	updateGlobals(); 
 	playString(Globals.forcedString);
-	Globals.stringPerformance[Globals.forcedString] = PerformanceType.SUSTAIN;
+	Globals.stringPerformance[Globals.forcedString] = currArticulationPlaying;
 	
 	newFretFromForceString = notePlayed - OPENSTRINGNOTES[Globals.forcedString];
 	distanceBetweenForceAndAutoFret = Math.abs(newFretFromForceString - currentHandPos);
@@ -413,7 +415,7 @@ inline function naturalFretting2_2_1(notePlayed, currentHandPos)
 	
 	stringToPlay = stringWithClosestNote(notePlayed, currentHandPos);
 	stringNote[stringToPlay] = notePlayed;
-	Globals.stringPerformance[stringToPlay] = PerformanceType.SUSTAIN;
+	Globals.stringPerformance[stringToPlay] = currArticulationPlaying;
 	playString(stringToPlay);
 	
 	

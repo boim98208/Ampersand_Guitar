@@ -9,14 +9,39 @@
         <Processor Type="ScriptProcessor" ID="Interface" Bypassed="0">
           <ChildProcessors/>
           <Content>
-            <Control type="ScriptSlider" id="HandPositionFretForceKnob" value="2.0"/>
-            <Control type="ScriptSlider" id="StringForceKnob" value="2.0"/>
+            <Control type="ScriptSlider" id="HandPositionFretForceKnob" value="-1.0"/>
+            <Control type="ScriptSlider" id="StringForceKnob" value="1.0"/>
             <Control type="ScriptComboBox" id="FrettingEngineComboBox" value="1.0"/>
             <Control type="ScriptButton" id="ResetGlobalRRButton" value="0.0"/>
-            <Control type="ScriptSlider" id="IRMixKnob" value="0.6000000238418579"/>
+            <Control type="ScriptSlider" id="IRMixKnob" value="0.5600000023841858"/>
             <Control type="ScriptComboBox" id="cmbIr" value="1.0"/>
-            <Control type="ScriptSlider" id="TremoloTimestretchKnob" value="1.574803113937378"/>
+            <Control type="ScriptSlider" id="VibratoDepthKnob" value="0.9300000071525574"/>
+            <Control type="ScriptSlider" id="VibratoFreqKnob" value="40.0"/>
+            <Control type="ScriptSlider" id="PitchBendRangeKnob" value="0.0"/>
+            <Control type="ScriptSlider" id="SustainModulatorsAttack" value="0.0"/>
+            <Control type="ScriptSlider" id="SustainModulatorsDecay" value="0.0"/>
+            <Control type="ScriptSlider" id="SustainModulatorsSustain" value="0.0"/>
+            <Control type="ScriptSlider" id="SustainModulatorsRelease" value="151.0"/>
+            <Control type="ScriptSlider" id="MuteModulatorsAttack" value="0.0"/>
+            <Control type="ScriptSlider" id="MuteModulatorsDecay" value="0.0"/>
+            <Control type="ScriptSlider" id="MuteModulatorsMute" value="0.0"/>
+            <Control type="ScriptSlider" id="MuteModulatorsRelease" value="151.0"/>
+            <Control type="ScriptSlider" id="HarmonicModulatorsAttack" value="0.0"/>
+            <Control type="ScriptSlider" id="HarmonicModulatorsDecay" value="0.0"/>
+            <Control type="ScriptSlider" id="HarmonicModulatorsHarmonic" value="0.0"/>
+            <Control type="ScriptSlider" id="HarmonicModulatorsRelease" value="151.0"/>
             <Control type="ScriptButton" id="EnableTremStretchButton" value="0.0"/>
+            <Control type="ScriptSlider" id="TremoloModulatorsAttack" value="0.0"/>
+            <Control type="ScriptSlider" id="TremoloModulatorsDecay" value="0.0"/>
+            <Control type="ScriptSlider" id="TremoloModulatorsTremolo" value="-1.100000023841858"/>
+            <Control type="ScriptSlider" id="TremoloModulatorsRelease" value="151.0"/>
+            <Control type="ScriptSlider" id="TremoloTimestretchKnob" value="1.0"/>
+            <Control type="ScriptSlider" id="SFXModulatorsAttack" value="0.0"/>
+            <Control type="ScriptSlider" id="SFXModulatorsDecay" value="0.0"/>
+            <Control type="ScriptSlider" id="SFXModulatorsSFX" value="0.0"/>
+            <Control type="ScriptSlider" id="SFXModulatorsRelease" value="151.0"/>
+            <Control type="ScriptButton" id="NextPageBtn" value="0.0"/>
+            <Control type="ScriptButton" id="PrevPageBtn" value="0.0"/>
             <Control type="ScriptButton" id="ShowPlayingModeButton" value="1"/>
             <Control type="ScriptButton" id="ShowArticulationsButton" value="0"/>
             <Control type="ScriptButton" id="ShowDebugPanelButton" value="1.0"/>
@@ -40,10 +65,10 @@
     </Processor>
     <Processor Type="EffectChain" ID="FX" Bypassed="0">
       <ChildProcessors>
-        <Processor Type="Convolution" ID="ConvolutionReverb1" Bypassed="0" DryGain="-12.44819259643555"
-                   WetGain="-3.673412799835205" Latency="0.0" ImpulseLength="1.0"
+        <Processor Type="Convolution" ID="ConvolutionReverb1" Bypassed="0" DryGain="-11.81125545501709"
+                   WetGain="-4.164220809936523" Latency="0.0" ImpulseLength="1.0"
                    ProcessInput="1.0" UseBackgroundThread="0.0" Predelay="0.0" HiCut="20000.0"
-                   Damping="0.0" FFTType="5.0" FileName="{PROJECT_FOLDER}Ample M (rec 50 perc).wav"
+                   Damping="0.0" FFTType="0.0" FileName="{PROJECT_FOLDER}Ample M (rec 50 perc).wav"
                    min="0" max="8192" loopStart="0" loopEnd="8192">
           <ChildProcessors/>
           <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
@@ -85,7 +110,7 @@
                 <Processor Type="MidiMuter" ID="SusContainerMute" Bypassed="0">
                   <ChildProcessors/>
                   <Content>
-                    <Control type="ScriptButton" id="ignoreButton" value="1.0"/>
+                    <Control type="ScriptButton" id="ignoreButton" value="0.0"/>
                     <Control type="ScriptButton" id="fixStuckNotes" value="1.0"/>
                   </Content>
                 </Processor>
@@ -105,9 +130,9 @@
                        IconColour="ff898989" PreloadSize="8192.0" BufferSize="4096.0"
                        VoiceAmount="256.0" SamplerRepeatMode="3.0" RRGroupAmount="6.0"
                        PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0"
-                       Reversed="0.0" NumChannels="1" UseStaticMatrix="0.0" Group0Table=""
-                       Group1Table="" Group2Table="" Group3Table="" Group4Table="" Group5Table=""
-                       Group6Table="" Group7Table="" SampleMapID="Denoised/sustain_string6_denoise_1_0_0">
+                       Reversed="0.0" NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
+                       Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
+                       Group5Table="" Group6Table="" Group7Table="" SampleMapID="Denoised/sustain_string6_denoise_1_0_0">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors>
@@ -122,10 +147,10 @@
                 </Processor>
                 <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
                   <ChildProcessors>
-                    <Processor Type="AHDSR" ID="AHDSR Envelope1" Bypassed="0" Monophonic="0.0"
-                               Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
-                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
-                               Release="135.684326171875" EcoMode="1.0">
+                    <Processor Type="AHDSR" ID="SusAHDSR" Bypassed="0" Monophonic="0.0" Retrigger="1.0"
+                               Intensity="1.0" AttackCurve="0.5" DecayCurve="0.4173228442668915"
+                               Attack="0.0" AttackLevel="0.0" Hold="1.785698413848877" Decay="1.0"
+                               Sustain="0.0" Release="151.0" EcoMode="1.0">
                       <ChildProcessors>
                         <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
                           <ChildProcessors/>
@@ -156,9 +181,53 @@
                                Bipolar="1" UseTable="0.0" RandomTableData="">
                       <ChildProcessors/>
                     </Processor>
-                    <Processor Type="PitchWheel" ID="Pitch Wheel Modulator1" Bypassed="0" Intensity="0.1666666716337204"
-                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="200.0">
+                    <Processor Type="PitchWheel" ID="SourcePitchBendModulator" Bypassed="0"
+                               Intensity="0.0" Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="22.59832954406738">
                       <ChildProcessors/>
+                    </Processor>
+                    <Processor Type="LFO" ID="SourceVibratoLFO" Bypassed="0" Intensity="0.07750000059604645"
+                               Bipolar="0" Frequency="11.33972263336182" FadeIn="3000.0" WaveformType="1.0"
+                               Legato="1.0" TempoSync="0.0" SmoothingTime="20.0" LoopEnabled="1.0"
+                               PhaseOffset="0.0" SyncToMasterClock="0.0" IgnoreNoteOn="0.0"
+                               CustomWaveform="" StepData="64....f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+.">
+                      <ChildProcessors>
+                        <Processor Type="ModulatorChain" ID="LFO Intensity Mod" Bypassed="0" Intensity="1.0">
+                          <ChildProcessors>
+                            <Processor Type="LFO" ID="SourceVibratoLFOIntensityMod" Bypassed="1" Intensity="0.9300000071525574"
+                                       Frequency="11.33972263336182" FadeIn="3000.0" WaveformType="1.0"
+                                       Legato="1.0" TempoSync="0.0" SmoothingTime="20.0" LoopEnabled="1.0"
+                                       PhaseOffset="0.0" SyncToMasterClock="0.0" IgnoreNoteOn="0.0"
+                                       CustomWaveform="" StepData="64....f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+.">
+                              <ChildProcessors>
+                                <Processor Type="ModulatorChain" ID="LFO Intensity Mod" Bypassed="0" Intensity="1.0">
+                                  <ChildProcessors/>
+                                </Processor>
+                                <Processor Type="ModulatorChain" ID="LFO Frequency Mod" Bypassed="0" Intensity="1.0">
+                                  <ChildProcessors/>
+                                </Processor>
+                              </ChildProcessors>
+                            </Processor>
+                          </ChildProcessors>
+                        </Processor>
+                        <Processor Type="ModulatorChain" ID="LFO Frequency Mod" Bypassed="0" Intensity="1.0">
+                          <ChildProcessors>
+                            <Processor Type="LFO" ID="SourceVibratoLFOFreqMod" Bypassed="1" Intensity="0.9300000071525574"
+                                       Frequency="11.33972263336182" FadeIn="3000.0" WaveformType="1.0"
+                                       Legato="1.0" TempoSync="0.0" SmoothingTime="20.0" LoopEnabled="1.0"
+                                       PhaseOffset="0.0" SyncToMasterClock="0.0" IgnoreNoteOn="0.0"
+                                       CustomWaveform="" StepData="64....f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+.">
+                              <ChildProcessors>
+                                <Processor Type="ModulatorChain" ID="LFO Intensity Mod" Bypassed="0" Intensity="1.0">
+                                  <ChildProcessors/>
+                                </Processor>
+                                <Processor Type="ModulatorChain" ID="LFO Frequency Mod" Bypassed="0" Intensity="1.0">
+                                  <ChildProcessors/>
+                                </Processor>
+                              </ChildProcessors>
+                            </Processor>
+                          </ChildProcessors>
+                        </Processor>
+                      </ChildProcessors>
                     </Processor>
                   </ChildProcessors>
                 </Processor>
@@ -167,8 +236,8 @@
                     <Processor Type="Convolution" ID="ConvolutionReverbSubs" Bypassed="0" DryGain="0.0"
                                WetGain="-6.800000190734863" Latency="0.0" ImpulseLength="1.0"
                                ProcessInput="1.0" UseBackgroundThread="0.0" Predelay="0.0" HiCut="20.0"
-                               Damping="0.0" FFTType="5.0" FileName="D:\Cakewalk Content\guitar crap\guitar irs\Catharsis IRs\2off-pres8.wav"
-                               min="0" max="439" loopStart="0" loopEnd="439">
+                               Damping="0.0" FFTType="0.0" FileName="D:\Cakewalk Content\guitar crap\guitar irs\Catharsis IRs\2off-pres8.wav"
+                               min="0" max="0" loopStart="0" loopEnd="0">
                       <ChildProcessors/>
                       <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
                     </Processor>
@@ -209,9 +278,9 @@
                        IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                        SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
                        OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
-                       NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
-                       Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-                       Group7Table="" SampleMapID="Denoised/sustain_string6_denoise_1_0_0_pseudolegato">
+                       NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
+                       Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
+                       Group5Table="" Group6Table="" Group7Table="" SampleMapID="Denoised/sustain_string6_denoise_1_0_0_pseudolegato">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors>
@@ -226,10 +295,10 @@
                 </Processor>
                 <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
                   <ChildProcessors>
-                    <Processor Type="AHDSR" ID="AHDSR Envelope7" Bypassed="0" Monophonic="0.0"
-                               Retrigger="1.0" Intensity="1.0" AttackCurve="0.9200000166893005"
-                               DecayCurve="0.0" Attack="10.0" AttackLevel="0.0" Hold="10.0"
-                               Decay="300.0" Sustain="0.0" Release="51.0" EcoMode="1.0">
+                    <Processor Type="AHDSR" ID="LegAHDSR" Bypassed="0" Monophonic="0.0" Retrigger="1.0"
+                               Intensity="1.0" AttackCurve="0.9200000166893005" DecayCurve="0.0"
+                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="1.0" Sustain="0.0"
+                               Release="27.09000015258789" EcoMode="1.0">
                       <ChildProcessors>
                         <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
                           <ChildProcessors/>
@@ -260,8 +329,8 @@
                                Bipolar="1" UseTable="0.0" RandomTableData="">
                       <ChildProcessors/>
                     </Processor>
-                    <Processor Type="PitchWheel" ID="Pitch Wheel Modulator7" Bypassed="0" Intensity="0.1666666716337204"
-                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="200.0">
+                    <Processor Type="PitchWheel" ID="PitchBendModulator" Bypassed="0" Intensity="0.0"
+                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="22.59832954406738">
                       <ChildProcessors/>
                     </Processor>
                   </ChildProcessors>
@@ -271,8 +340,8 @@
                     <Processor Type="Convolution" ID="ConvolutionReverbSubs2" Bypassed="0" DryGain="0.0"
                                WetGain="-6.800000190734863" Latency="0.0" ImpulseLength="1.0"
                                ProcessInput="1.0" UseBackgroundThread="0.0" Predelay="0.0" HiCut="20.0"
-                               Damping="0.0" FFTType="5.0" FileName="D:\Cakewalk Content\guitar crap\guitar irs\Catharsis IRs\2off-pres8.wav"
-                               min="0" max="439" loopStart="0" loopEnd="439">
+                               Damping="0.0" FFTType="0.0" FileName="D:\Cakewalk Content\guitar crap\guitar irs\Catharsis IRs\2off-pres8.wav"
+                               min="0" max="0" loopStart="0" loopEnd="0">
                       <ChildProcessors/>
                       <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
                     </Processor>
@@ -325,9 +394,9 @@
                        IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                        SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
                        OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
-                       NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
-                       Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-                       Group7Table="" SampleMapID="Denoised/sustain_string5_denoise_1_0_0">
+                       NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
+                       Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
+                       Group5Table="" Group6Table="" Group7Table="" SampleMapID="Denoised/sustain_string5_denoise_1_0_0">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors>
@@ -349,10 +418,10 @@
                 </Processor>
                 <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
                   <ChildProcessors>
-                    <Processor Type="AHDSR" ID="AHDSR Envelope2" Bypassed="0" Monophonic="0.0"
-                               Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
-                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
-                               Release="135.684326171875" EcoMode="1.0">
+                    <Processor Type="AHDSR" ID="SusAHDSR" Bypassed="0" Monophonic="0.0" Retrigger="1.0"
+                               Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0" Attack="0.0"
+                               AttackLevel="0.0" Hold="10.0" Decay="1.0" Sustain="0.0" Release="151.0"
+                               EcoMode="1.0">
                       <ChildProcessors>
                         <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
                           <ChildProcessors/>
@@ -383,9 +452,53 @@
                                Bipolar="1" UseTable="0.0" RandomTableData="">
                       <ChildProcessors/>
                     </Processor>
-                    <Processor Type="PitchWheel" ID="Pitch Wheel Modulator2" Bypassed="0" Intensity="0.1666666716337204"
-                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="200.0">
+                    <Processor Type="PitchWheel" ID="PitchBendModulator" Bypassed="0" Intensity="0.0"
+                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="22.59832954406738">
                       <ChildProcessors/>
+                    </Processor>
+                    <Processor Type="LFO" ID="VibratoLFO" Bypassed="0" Intensity="0.07750000059604645"
+                               Bipolar="0" Frequency="11.33972263336182" FadeIn="3000.0" WaveformType="1.0"
+                               Legato="1.0" TempoSync="0.0" SmoothingTime="20.0" LoopEnabled="1.0"
+                               PhaseOffset="0.0" SyncToMasterClock="0.0" IgnoreNoteOn="0.0"
+                               CustomWaveform="" StepData="64....f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+.">
+                      <ChildProcessors>
+                        <Processor Type="ModulatorChain" ID="LFO Intensity Mod" Bypassed="0" Intensity="1.0">
+                          <ChildProcessors>
+                            <Processor Type="LFO" ID="VibratoLFOIntensityMod" Bypassed="0" Intensity="0.9300000071525574"
+                                       Frequency="11.33972263336182" FadeIn="3000.0" WaveformType="1.0"
+                                       Legato="1.0" TempoSync="0.0" SmoothingTime="20.0" LoopEnabled="1.0"
+                                       PhaseOffset="0.0" SyncToMasterClock="0.0" IgnoreNoteOn="0.0"
+                                       CustomWaveform="" StepData="64....f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+.">
+                              <ChildProcessors>
+                                <Processor Type="ModulatorChain" ID="LFO Intensity Mod" Bypassed="0" Intensity="1.0">
+                                  <ChildProcessors/>
+                                </Processor>
+                                <Processor Type="ModulatorChain" ID="LFO Frequency Mod" Bypassed="0" Intensity="1.0">
+                                  <ChildProcessors/>
+                                </Processor>
+                              </ChildProcessors>
+                            </Processor>
+                          </ChildProcessors>
+                        </Processor>
+                        <Processor Type="ModulatorChain" ID="LFO Frequency Mod" Bypassed="0" Intensity="1.0">
+                          <ChildProcessors>
+                            <Processor Type="LFO" ID="VibratoLFOFreqMod" Bypassed="0" Intensity="0.9300000071525574"
+                                       Frequency="11.33972263336182" FadeIn="3000.0" WaveformType="1.0"
+                                       Legato="1.0" TempoSync="0.0" SmoothingTime="20.0" LoopEnabled="1.0"
+                                       PhaseOffset="0.0" SyncToMasterClock="0.0" IgnoreNoteOn="0.0"
+                                       CustomWaveform="" StepData="64....f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+.">
+                              <ChildProcessors>
+                                <Processor Type="ModulatorChain" ID="LFO Intensity Mod" Bypassed="0" Intensity="1.0">
+                                  <ChildProcessors/>
+                                </Processor>
+                                <Processor Type="ModulatorChain" ID="LFO Frequency Mod" Bypassed="0" Intensity="1.0">
+                                  <ChildProcessors/>
+                                </Processor>
+                              </ChildProcessors>
+                            </Processor>
+                          </ChildProcessors>
+                        </Processor>
+                      </ChildProcessors>
                     </Processor>
                   </ChildProcessors>
                 </Processor>
@@ -409,9 +522,9 @@
                        IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                        SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
                        OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
-                       NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
-                       Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-                       Group7Table="" SampleMapID="Denoised/sustain_string5_denoise_1_0_0_pseudolegato">
+                       NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
+                       Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
+                       Group5Table="" Group6Table="" Group7Table="" SampleMapID="Denoised/sustain_string5_denoise_1_0_0_pseudolegato">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors>
@@ -433,7 +546,7 @@
                     <Processor Type="AHDSR" ID="AHDSR Envelope3" Bypassed="0" Monophonic="0.0"
                                Retrigger="1.0" Intensity="1.0" AttackCurve="0.9200000166893005"
                                DecayCurve="0.0" Attack="21.0" AttackLevel="0.0" Hold="10.0"
-                               Decay="300.0" Sustain="0.0" Release="135.684326171875" EcoMode="1.0">
+                               Decay="300.0" Sustain="0.0" Release="225.7393341064453" EcoMode="1.0">
                       <ChildProcessors>
                         <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
                           <ChildProcessors/>
@@ -464,8 +577,8 @@
                                Bipolar="1" UseTable="0.0" RandomTableData="">
                       <ChildProcessors/>
                     </Processor>
-                    <Processor Type="PitchWheel" ID="Pitch Wheel Modulator3" Bypassed="0" Intensity="0.1666666716337204"
-                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="200.0">
+                    <Processor Type="PitchWheel" ID="PitchBendModulator" Bypassed="0" Intensity="0.0"
+                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="22.59832954406738">
                       <ChildProcessors/>
                     </Processor>
                   </ChildProcessors>
@@ -495,9 +608,9 @@
                        IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                        SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
                        OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
-                       NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
-                       Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-                       Group7Table="" SampleMapID="Denoised/sustain_string4_denoise_1_0_0">
+                       NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
+                       Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
+                       Group5Table="" Group6Table="" Group7Table="" SampleMapID="Denoised/sustain_string4_denoise_1_0_0">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors>
@@ -519,10 +632,10 @@
                 </Processor>
                 <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
                   <ChildProcessors>
-                    <Processor Type="AHDSR" ID="AHDSR Envelope3" Bypassed="0" Monophonic="0.0"
-                               Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
-                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
-                               Release="135.684326171875" EcoMode="1.0">
+                    <Processor Type="AHDSR" ID="SusAHDSR" Bypassed="0" Monophonic="0.0" Retrigger="1.0"
+                               Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0" Attack="0.0"
+                               AttackLevel="0.0" Hold="10.0" Decay="1.0" Sustain="0.0" Release="151.0"
+                               EcoMode="1.0">
                       <ChildProcessors>
                         <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
                           <ChildProcessors/>
@@ -553,9 +666,53 @@
                                Bipolar="1" UseTable="0.0" RandomTableData="">
                       <ChildProcessors/>
                     </Processor>
-                    <Processor Type="PitchWheel" ID="Pitch Wheel Modulator3" Bypassed="0" Intensity="0.1666666716337204"
-                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="200.0">
+                    <Processor Type="PitchWheel" ID="PitchBendModulator" Bypassed="0" Intensity="0.0"
+                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="22.59832954406738">
                       <ChildProcessors/>
+                    </Processor>
+                    <Processor Type="LFO" ID="VibratoLFO" Bypassed="0" Intensity="0.07750000059604645"
+                               Bipolar="0" Frequency="11.33972263336182" FadeIn="3000.0" WaveformType="1.0"
+                               Legato="1.0" TempoSync="0.0" SmoothingTime="20.0" LoopEnabled="1.0"
+                               PhaseOffset="0.0" SyncToMasterClock="0.0" IgnoreNoteOn="0.0"
+                               CustomWaveform="" StepData="64....f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+.">
+                      <ChildProcessors>
+                        <Processor Type="ModulatorChain" ID="LFO Intensity Mod" Bypassed="0" Intensity="1.0">
+                          <ChildProcessors>
+                            <Processor Type="LFO" ID="VibratoLFOIntensityMod" Bypassed="0" Intensity="0.9300000071525574"
+                                       Frequency="11.33972263336182" FadeIn="3000.0" WaveformType="1.0"
+                                       Legato="1.0" TempoSync="0.0" SmoothingTime="20.0" LoopEnabled="1.0"
+                                       PhaseOffset="0.0" SyncToMasterClock="0.0" IgnoreNoteOn="0.0"
+                                       CustomWaveform="" StepData="64....f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+.">
+                              <ChildProcessors>
+                                <Processor Type="ModulatorChain" ID="LFO Intensity Mod" Bypassed="0" Intensity="1.0">
+                                  <ChildProcessors/>
+                                </Processor>
+                                <Processor Type="ModulatorChain" ID="LFO Frequency Mod" Bypassed="0" Intensity="1.0">
+                                  <ChildProcessors/>
+                                </Processor>
+                              </ChildProcessors>
+                            </Processor>
+                          </ChildProcessors>
+                        </Processor>
+                        <Processor Type="ModulatorChain" ID="LFO Frequency Mod" Bypassed="0" Intensity="1.0">
+                          <ChildProcessors>
+                            <Processor Type="LFO" ID="VibratoLFOFreqMod" Bypassed="0" Intensity="0.9300000071525574"
+                                       Frequency="11.33972263336182" FadeIn="3000.0" WaveformType="1.0"
+                                       Legato="1.0" TempoSync="0.0" SmoothingTime="20.0" LoopEnabled="1.0"
+                                       PhaseOffset="0.0" SyncToMasterClock="0.0" IgnoreNoteOn="0.0"
+                                       CustomWaveform="" StepData="64....f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+.">
+                              <ChildProcessors>
+                                <Processor Type="ModulatorChain" ID="LFO Intensity Mod" Bypassed="0" Intensity="1.0">
+                                  <ChildProcessors/>
+                                </Processor>
+                                <Processor Type="ModulatorChain" ID="LFO Frequency Mod" Bypassed="0" Intensity="1.0">
+                                  <ChildProcessors/>
+                                </Processor>
+                              </ChildProcessors>
+                            </Processor>
+                          </ChildProcessors>
+                        </Processor>
+                      </ChildProcessors>
                     </Processor>
                   </ChildProcessors>
                 </Processor>
@@ -579,9 +736,9 @@
                        IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                        SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
                        OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
-                       NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
-                       Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-                       Group7Table="" SampleMapID="Denoised/sustain_string4_denoise_1_0_0_pseudolegato">
+                       NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
+                       Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
+                       Group5Table="" Group6Table="" Group7Table="" SampleMapID="Denoised/sustain_string4_denoise_1_0_0_pseudolegato">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors>
@@ -634,8 +791,8 @@
                                Bipolar="1" UseTable="0.0" RandomTableData="">
                       <ChildProcessors/>
                     </Processor>
-                    <Processor Type="PitchWheel" ID="Pitch Wheel Modulator5" Bypassed="0" Intensity="0.1666666716337204"
-                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="200.0">
+                    <Processor Type="PitchWheel" ID="PitchBendModulator" Bypassed="0" Intensity="0.0"
+                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="22.59832954406738">
                       <ChildProcessors/>
                     </Processor>
                   </ChildProcessors>
@@ -673,9 +830,9 @@
                        IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                        SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
                        OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
-                       NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
-                       Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-                       Group7Table="" SampleMapID="Denoised/sustain_string3_denoise_1_0_0">
+                       NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
+                       Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
+                       Group5Table="" Group6Table="" Group7Table="" SampleMapID="Denoised/sustain_string3_denoise_1_0_0">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors>
@@ -697,10 +854,10 @@
                 </Processor>
                 <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
                   <ChildProcessors>
-                    <Processor Type="AHDSR" ID="AHDSR Envelope4" Bypassed="0" Monophonic="0.0"
-                               Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
-                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
-                               Release="135.684326171875" EcoMode="1.0">
+                    <Processor Type="AHDSR" ID="SusAHDSR" Bypassed="0" Monophonic="0.0" Retrigger="1.0"
+                               Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0" Attack="0.0"
+                               AttackLevel="0.0" Hold="10.0" Decay="1.0" Sustain="0.0" Release="151.0"
+                               EcoMode="1.0">
                       <ChildProcessors>
                         <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
                           <ChildProcessors/>
@@ -731,9 +888,53 @@
                                Bipolar="1" UseTable="0.0" RandomTableData="">
                       <ChildProcessors/>
                     </Processor>
-                    <Processor Type="PitchWheel" ID="Pitch Wheel Modulator4" Bypassed="0" Intensity="0.1666666716337204"
-                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="200.0">
+                    <Processor Type="PitchWheel" ID="PitchBendModulator" Bypassed="0" Intensity="0.0"
+                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="22.59832954406738">
                       <ChildProcessors/>
+                    </Processor>
+                    <Processor Type="LFO" ID="VibratoLFO" Bypassed="0" Intensity="0.07750000059604645"
+                               Bipolar="0" Frequency="11.33972263336182" FadeIn="3000.0" WaveformType="1.0"
+                               Legato="1.0" TempoSync="0.0" SmoothingTime="20.0" LoopEnabled="1.0"
+                               PhaseOffset="0.0" SyncToMasterClock="0.0" IgnoreNoteOn="0.0"
+                               CustomWaveform="" StepData="64....f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+.">
+                      <ChildProcessors>
+                        <Processor Type="ModulatorChain" ID="LFO Intensity Mod" Bypassed="0" Intensity="1.0">
+                          <ChildProcessors>
+                            <Processor Type="LFO" ID="VibratoLFOIntensityMod" Bypassed="0" Intensity="0.9300000071525574"
+                                       Frequency="11.33972263336182" FadeIn="3000.0" WaveformType="1.0"
+                                       Legato="1.0" TempoSync="0.0" SmoothingTime="20.0" LoopEnabled="1.0"
+                                       PhaseOffset="0.0" SyncToMasterClock="0.0" IgnoreNoteOn="0.0"
+                                       CustomWaveform="" StepData="64....f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+.">
+                              <ChildProcessors>
+                                <Processor Type="ModulatorChain" ID="LFO Intensity Mod" Bypassed="0" Intensity="1.0">
+                                  <ChildProcessors/>
+                                </Processor>
+                                <Processor Type="ModulatorChain" ID="LFO Frequency Mod" Bypassed="0" Intensity="1.0">
+                                  <ChildProcessors/>
+                                </Processor>
+                              </ChildProcessors>
+                            </Processor>
+                          </ChildProcessors>
+                        </Processor>
+                        <Processor Type="ModulatorChain" ID="LFO Frequency Mod" Bypassed="0" Intensity="1.0">
+                          <ChildProcessors>
+                            <Processor Type="LFO" ID="VibratoLFOFreqMod" Bypassed="0" Intensity="0.9300000071525574"
+                                       Frequency="11.33972263336182" FadeIn="3000.0" WaveformType="1.0"
+                                       Legato="1.0" TempoSync="0.0" SmoothingTime="20.0" LoopEnabled="1.0"
+                                       PhaseOffset="0.0" SyncToMasterClock="0.0" IgnoreNoteOn="0.0"
+                                       CustomWaveform="" StepData="64....f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+.">
+                              <ChildProcessors>
+                                <Processor Type="ModulatorChain" ID="LFO Intensity Mod" Bypassed="0" Intensity="1.0">
+                                  <ChildProcessors/>
+                                </Processor>
+                                <Processor Type="ModulatorChain" ID="LFO Frequency Mod" Bypassed="0" Intensity="1.0">
+                                  <ChildProcessors/>
+                                </Processor>
+                              </ChildProcessors>
+                            </Processor>
+                          </ChildProcessors>
+                        </Processor>
+                      </ChildProcessors>
                     </Processor>
                   </ChildProcessors>
                 </Processor>
@@ -757,9 +958,9 @@
                        IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                        SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
                        OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
-                       NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
-                       Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-                       Group7Table="" SampleMapID="Denoised/sustain_string3_denoise_1_0_0_pseudolegato">
+                       NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
+                       Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
+                       Group5Table="" Group6Table="" Group7Table="" SampleMapID="Denoised/sustain_string3_denoise_1_0_0_pseudolegato">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors>
@@ -808,8 +1009,8 @@
                                Bipolar="1" UseTable="0.0" RandomTableData="">
                       <ChildProcessors/>
                     </Processor>
-                    <Processor Type="PitchWheel" ID="Pitch Wheel Modulator8" Bypassed="0" Intensity="0.1666666716337204"
-                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="200.0">
+                    <Processor Type="PitchWheel" ID="PitchBendModulator" Bypassed="0" Intensity="0.0"
+                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="22.59832954406738">
                       <ChildProcessors/>
                     </Processor>
                   </ChildProcessors>
@@ -847,9 +1048,9 @@
                        IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                        SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
                        OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
-                       NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
-                       Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-                       Group7Table="" SampleMapID="Denoised/sustain_string2_denoise_1_0_0">
+                       NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
+                       Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
+                       Group5Table="" Group6Table="" Group7Table="" SampleMapID="Denoised/sustain_string2_denoise_1_0_0">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors>
@@ -871,10 +1072,10 @@
                 </Processor>
                 <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
                   <ChildProcessors>
-                    <Processor Type="AHDSR" ID="AHDSR Envelope5" Bypassed="0" Monophonic="0.0"
-                               Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
-                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
-                               Release="76.18904876708984" EcoMode="1.0">
+                    <Processor Type="AHDSR" ID="SusAHDSR" Bypassed="0" Monophonic="0.0" Retrigger="1.0"
+                               Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0" Attack="0.0"
+                               AttackLevel="0.0" Hold="10.0" Decay="1.0" Sustain="0.0" Release="151.0"
+                               EcoMode="1.0">
                       <ChildProcessors>
                         <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
                           <ChildProcessors/>
@@ -905,9 +1106,53 @@
                                Bipolar="1" UseTable="0.0" RandomTableData="">
                       <ChildProcessors/>
                     </Processor>
-                    <Processor Type="PitchWheel" ID="Pitch Wheel Modulator5" Bypassed="0" Intensity="0.1666666716337204"
-                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="200.0">
+                    <Processor Type="PitchWheel" ID="PitchBendModulator" Bypassed="0" Intensity="0.0"
+                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="22.59832954406738">
                       <ChildProcessors/>
+                    </Processor>
+                    <Processor Type="LFO" ID="VibratoLFO" Bypassed="0" Intensity="0.07750000059604645"
+                               Bipolar="0" Frequency="11.33972263336182" FadeIn="3000.0" WaveformType="1.0"
+                               Legato="1.0" TempoSync="0.0" SmoothingTime="20.0" LoopEnabled="1.0"
+                               PhaseOffset="0.0" SyncToMasterClock="0.0" IgnoreNoteOn="0.0"
+                               CustomWaveform="" StepData="64....f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+.">
+                      <ChildProcessors>
+                        <Processor Type="ModulatorChain" ID="LFO Intensity Mod" Bypassed="0" Intensity="1.0">
+                          <ChildProcessors>
+                            <Processor Type="LFO" ID="VibratoLFOIntensityMod" Bypassed="0" Intensity="0.9300000071525574"
+                                       Frequency="11.33972263336182" FadeIn="3000.0" WaveformType="1.0"
+                                       Legato="1.0" TempoSync="0.0" SmoothingTime="20.0" LoopEnabled="1.0"
+                                       PhaseOffset="0.0" SyncToMasterClock="0.0" IgnoreNoteOn="0.0"
+                                       CustomWaveform="" StepData="64....f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+.">
+                              <ChildProcessors>
+                                <Processor Type="ModulatorChain" ID="LFO Intensity Mod" Bypassed="0" Intensity="1.0">
+                                  <ChildProcessors/>
+                                </Processor>
+                                <Processor Type="ModulatorChain" ID="LFO Frequency Mod" Bypassed="0" Intensity="1.0">
+                                  <ChildProcessors/>
+                                </Processor>
+                              </ChildProcessors>
+                            </Processor>
+                          </ChildProcessors>
+                        </Processor>
+                        <Processor Type="ModulatorChain" ID="LFO Frequency Mod" Bypassed="0" Intensity="1.0">
+                          <ChildProcessors>
+                            <Processor Type="LFO" ID="VibratoLFOFreqMod" Bypassed="0" Intensity="0.9300000071525574"
+                                       Frequency="11.33972263336182" FadeIn="3000.0" WaveformType="1.0"
+                                       Legato="1.0" TempoSync="0.0" SmoothingTime="20.0" LoopEnabled="1.0"
+                                       PhaseOffset="0.0" SyncToMasterClock="0.0" IgnoreNoteOn="0.0"
+                                       CustomWaveform="" StepData="64....f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+.">
+                              <ChildProcessors>
+                                <Processor Type="ModulatorChain" ID="LFO Intensity Mod" Bypassed="0" Intensity="1.0">
+                                  <ChildProcessors/>
+                                </Processor>
+                                <Processor Type="ModulatorChain" ID="LFO Frequency Mod" Bypassed="0" Intensity="1.0">
+                                  <ChildProcessors/>
+                                </Processor>
+                              </ChildProcessors>
+                            </Processor>
+                          </ChildProcessors>
+                        </Processor>
+                      </ChildProcessors>
                     </Processor>
                   </ChildProcessors>
                 </Processor>
@@ -931,9 +1176,9 @@
                        IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                        SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
                        OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
-                       NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
-                       Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-                       Group7Table="" SampleMapID="Denoised/sustain_string2_denoise_1_0_0_pseudolegato">
+                       NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
+                       Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
+                       Group5Table="" Group6Table="" Group7Table="" SampleMapID="Denoised/sustain_string2_denoise_1_0_0_pseudolegato">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors>
@@ -982,8 +1227,8 @@
                                Bipolar="1" UseTable="0.0" RandomTableData="">
                       <ChildProcessors/>
                     </Processor>
-                    <Processor Type="PitchWheel" ID="Pitch Wheel Modulator10" Bypassed="0" Intensity="0.1666666716337204"
-                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="200.0">
+                    <Processor Type="PitchWheel" ID="PitchBendModulator" Bypassed="0" Intensity="0.0"
+                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="22.59832954406738">
                       <ChildProcessors/>
                     </Processor>
                   </ChildProcessors>
@@ -1021,9 +1266,9 @@
                        IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                        SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
                        OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
-                       NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
-                       Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-                       Group7Table="" SampleMapID="Denoised/sustain_string1_denoise_1_0_0">
+                       NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
+                       Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
+                       Group5Table="" Group6Table="" Group7Table="" SampleMapID="Denoised/sustain_string1_denoise_1_0_0">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors>
@@ -1045,10 +1290,10 @@
                 </Processor>
                 <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
                   <ChildProcessors>
-                    <Processor Type="AHDSR" ID="AHDSR Envelope6" Bypassed="0" Monophonic="0.0"
-                               Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
-                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
-                               Release="76.18904876708984" EcoMode="1.0">
+                    <Processor Type="AHDSR" ID="SusAHDSR" Bypassed="0" Monophonic="0.0" Retrigger="1.0"
+                               Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0" Attack="0.0"
+                               AttackLevel="0.0" Hold="10.0" Decay="1.0" Sustain="0.0" Release="151.0"
+                               EcoMode="1.0">
                       <ChildProcessors>
                         <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
                           <ChildProcessors/>
@@ -1079,9 +1324,53 @@
                                Bipolar="1" UseTable="0.0" RandomTableData="">
                       <ChildProcessors/>
                     </Processor>
-                    <Processor Type="PitchWheel" ID="Pitch Wheel Modulator6" Bypassed="0" Intensity="0.1666666716337204"
-                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="200.0">
+                    <Processor Type="PitchWheel" ID="PitchBendModulator" Bypassed="0" Intensity="0.0"
+                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="22.59832954406738">
                       <ChildProcessors/>
+                    </Processor>
+                    <Processor Type="LFO" ID="VibratoLFO" Bypassed="0" Intensity="0.07750000059604645"
+                               Bipolar="0" Frequency="11.33972263336182" FadeIn="3000.0" WaveformType="1.0"
+                               Legato="1.0" TempoSync="0.0" SmoothingTime="20.0" LoopEnabled="1.0"
+                               PhaseOffset="0.0" SyncToMasterClock="0.0" IgnoreNoteOn="0.0"
+                               CustomWaveform="" StepData="64....f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+.">
+                      <ChildProcessors>
+                        <Processor Type="ModulatorChain" ID="LFO Intensity Mod" Bypassed="0" Intensity="1.0">
+                          <ChildProcessors>
+                            <Processor Type="LFO" ID="VibratoLFOIntensityMod" Bypassed="0" Intensity="0.9300000071525574"
+                                       Frequency="11.33972263336182" FadeIn="3000.0" WaveformType="1.0"
+                                       Legato="1.0" TempoSync="0.0" SmoothingTime="20.0" LoopEnabled="1.0"
+                                       PhaseOffset="0.0" SyncToMasterClock="0.0" IgnoreNoteOn="0.0"
+                                       CustomWaveform="" StepData="64....f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+.">
+                              <ChildProcessors>
+                                <Processor Type="ModulatorChain" ID="LFO Intensity Mod" Bypassed="0" Intensity="1.0">
+                                  <ChildProcessors/>
+                                </Processor>
+                                <Processor Type="ModulatorChain" ID="LFO Frequency Mod" Bypassed="0" Intensity="1.0">
+                                  <ChildProcessors/>
+                                </Processor>
+                              </ChildProcessors>
+                            </Processor>
+                          </ChildProcessors>
+                        </Processor>
+                        <Processor Type="ModulatorChain" ID="LFO Frequency Mod" Bypassed="0" Intensity="1.0">
+                          <ChildProcessors>
+                            <Processor Type="LFO" ID="VibratoLFOFreqMod" Bypassed="0" Intensity="0.9300000071525574"
+                                       Frequency="11.33972263336182" FadeIn="3000.0" WaveformType="1.0"
+                                       Legato="1.0" TempoSync="0.0" SmoothingTime="20.0" LoopEnabled="1.0"
+                                       PhaseOffset="0.0" SyncToMasterClock="0.0" IgnoreNoteOn="0.0"
+                                       CustomWaveform="" StepData="64....f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+.">
+                              <ChildProcessors>
+                                <Processor Type="ModulatorChain" ID="LFO Intensity Mod" Bypassed="0" Intensity="1.0">
+                                  <ChildProcessors/>
+                                </Processor>
+                                <Processor Type="ModulatorChain" ID="LFO Frequency Mod" Bypassed="0" Intensity="1.0">
+                                  <ChildProcessors/>
+                                </Processor>
+                              </ChildProcessors>
+                            </Processor>
+                          </ChildProcessors>
+                        </Processor>
+                      </ChildProcessors>
                     </Processor>
                   </ChildProcessors>
                 </Processor>
@@ -1090,7 +1379,7 @@
                     <Processor Type="Convolution" ID="Convolution Reverb2" Bypassed="1" DryGain="-100.0"
                                WetGain="0.0" Latency="0.0" ImpulseLength="1.0" ProcessInput="1.0"
                                UseBackgroundThread="0.0" Predelay="0.0" HiCut="20000.0" Damping="-100.0"
-                               FFTType="5.0" FileName="{PROJECT_FOLDER}xfade_dynamic2_to_dynamic4_string1.wav"
+                               FFTType="0.0" FileName="{PROJECT_FOLDER}xfade_dynamic2_to_dynamic4_string1.wav"
                                min="0" max="422" loopStart="0" loopEnd="422">
                       <ChildProcessors/>
                       <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
@@ -1114,9 +1403,9 @@
                        IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                        SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
                        OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
-                       NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
-                       Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-                       Group7Table="" SampleMapID="Denoised/sustain_string1_denoise_1_0_0_pseudolegato">
+                       NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
+                       Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
+                       Group5Table="" Group6Table="" Group7Table="" SampleMapID="Denoised/sustain_string1_denoise_1_0_0_pseudolegato">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors>
@@ -1165,8 +1454,8 @@
                                Bipolar="1" UseTable="0.0" RandomTableData="">
                       <ChildProcessors/>
                     </Processor>
-                    <Processor Type="PitchWheel" ID="Pitch Wheel Modulator11" Bypassed="0" Intensity="0.1666666716337204"
-                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="200.0">
+                    <Processor Type="PitchWheel" ID="PitchBendModulator" Bypassed="0" Intensity="0.0"
+                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="22.59832954406738">
                       <ChildProcessors/>
                     </Processor>
                   </ChildProcessors>
@@ -1230,9 +1519,9 @@
                        IconColour="ff898989" PreloadSize="8192.0" BufferSize="4096.0"
                        VoiceAmount="256.0" SamplerRepeatMode="3.0" RRGroupAmount="6.0"
                        PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0"
-                       Reversed="0.0" NumChannels="1" UseStaticMatrix="0.0" Group0Table=""
-                       Group1Table="" Group2Table="" Group3Table="" Group4Table="" Group5Table=""
-                       Group6Table="" Group7Table="" SampleMapID="mute_string6">
+                       Reversed="0.0" NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
+                       Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
+                       Group5Table="" Group6Table="" Group7Table="" SampleMapID="mute_string6">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors>
@@ -1247,10 +1536,10 @@
                 </Processor>
                 <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
                   <ChildProcessors>
-                    <Processor Type="AHDSR" ID="AHDSR Envelope13" Bypassed="0" Monophonic="0.0"
-                               Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
-                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
-                               Release="135.684326171875" EcoMode="1.0">
+                    <Processor Type="AHDSR" ID="MuteAHDSR" Bypassed="0" Monophonic="0.0" Retrigger="1.0"
+                               Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0" Attack="0.0"
+                               AttackLevel="0.0" Hold="10.0" Decay="1.0" Sustain="0.0" Release="151.0"
+                               EcoMode="1.0">
                       <ChildProcessors>
                         <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
                           <ChildProcessors/>
@@ -1281,8 +1570,8 @@
                                Bipolar="1" UseTable="0.0" RandomTableData="">
                       <ChildProcessors/>
                     </Processor>
-                    <Processor Type="PitchWheel" ID="Pitch Wheel Modulator13" Bypassed="0" Intensity="0.1666666716337204"
-                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="200.0">
+                    <Processor Type="PitchWheel" ID="PitchBendModulator" Bypassed="0" Intensity="0.0"
+                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="22.59832954406738">
                       <ChildProcessors/>
                     </Processor>
                   </ChildProcessors>
@@ -1292,8 +1581,8 @@
                     <Processor Type="Convolution" ID="ConvolutionReverbSubs3" Bypassed="0" DryGain="0.0"
                                WetGain="-6.800000190734863" Latency="0.0" ImpulseLength="1.0"
                                ProcessInput="1.0" UseBackgroundThread="0.0" Predelay="0.0" HiCut="20.0"
-                               Damping="0.0" FFTType="5.0" FileName="D:\Cakewalk Content\guitar crap\guitar irs\Catharsis IRs\2off-pres8.wav"
-                               min="0" max="439" loopStart="0" loopEnd="439">
+                               Damping="0.0" FFTType="0.0" FileName="D:\Cakewalk Content\guitar crap\guitar irs\Catharsis IRs\2off-pres8.wav"
+                               min="0" max="0" loopStart="0" loopEnd="0">
                       <ChildProcessors/>
                       <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
                     </Processor>
@@ -1334,9 +1623,9 @@
                        IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                        SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
                        OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
-                       NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
-                       Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-                       Group7Table="" SampleMapID="mute_string5">
+                       NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
+                       Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
+                       Group5Table="" Group6Table="" Group7Table="" SampleMapID="mute_string5">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors>
@@ -1351,10 +1640,10 @@
                 </Processor>
                 <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
                   <ChildProcessors>
-                    <Processor Type="AHDSR" ID="AHDSR Envelope15" Bypassed="0" Monophonic="0.0"
-                               Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
-                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
-                               Release="135.684326171875" EcoMode="1.0">
+                    <Processor Type="AHDSR" ID="MuteAHDSR" Bypassed="0" Monophonic="0.0" Retrigger="1.0"
+                               Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0" Attack="0.0"
+                               AttackLevel="0.0" Hold="10.0" Decay="1.0" Sustain="0.0" Release="151.0"
+                               EcoMode="1.0">
                       <ChildProcessors>
                         <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
                           <ChildProcessors/>
@@ -1385,8 +1674,8 @@
                                Bipolar="1" UseTable="0.0" RandomTableData="">
                       <ChildProcessors/>
                     </Processor>
-                    <Processor Type="PitchWheel" ID="Pitch Wheel Modulator15" Bypassed="0" Intensity="0.1666666716337204"
-                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="200.0">
+                    <Processor Type="PitchWheel" ID="PitchBendModulator" Bypassed="0" Intensity="0.0"
+                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="22.59832954406738">
                       <ChildProcessors/>
                     </Processor>
                   </ChildProcessors>
@@ -1411,9 +1700,9 @@
                        IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                        SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
                        OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
-                       NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
-                       Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-                       Group7Table="" SampleMapID="mute_string4">
+                       NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
+                       Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
+                       Group5Table="" Group6Table="" Group7Table="" SampleMapID="mute_string4">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors>
@@ -1428,10 +1717,10 @@
                 </Processor>
                 <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
                   <ChildProcessors>
-                    <Processor Type="AHDSR" ID="AHDSR Envelope17" Bypassed="0" Monophonic="0.0"
-                               Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
-                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
-                               Release="135.684326171875" EcoMode="1.0">
+                    <Processor Type="AHDSR" ID="MuteAHDSR" Bypassed="0" Monophonic="0.0" Retrigger="1.0"
+                               Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0" Attack="0.0"
+                               AttackLevel="0.0" Hold="10.0" Decay="1.0" Sustain="0.0" Release="151.0"
+                               EcoMode="1.0">
                       <ChildProcessors>
                         <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
                           <ChildProcessors/>
@@ -1462,8 +1751,8 @@
                                Bipolar="1" UseTable="0.0" RandomTableData="">
                       <ChildProcessors/>
                     </Processor>
-                    <Processor Type="PitchWheel" ID="Pitch Wheel Modulator17" Bypassed="0" Intensity="0.1666666716337204"
-                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="200.0">
+                    <Processor Type="PitchWheel" ID="PitchBendModulator" Bypassed="0" Intensity="0.0"
+                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="22.59832954406738">
                       <ChildProcessors/>
                     </Processor>
                   </ChildProcessors>
@@ -1488,9 +1777,9 @@
                        IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                        SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
                        OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
-                       NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
-                       Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-                       Group7Table="" SampleMapID="mute_string3">
+                       NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
+                       Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
+                       Group5Table="" Group6Table="" Group7Table="" SampleMapID="mute_string3">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors>
@@ -1505,10 +1794,10 @@
                 </Processor>
                 <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
                   <ChildProcessors>
-                    <Processor Type="AHDSR" ID="AHDSR Envelope19" Bypassed="0" Monophonic="0.0"
-                               Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
-                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
-                               Release="135.684326171875" EcoMode="1.0">
+                    <Processor Type="AHDSR" ID="MuteAHDSR" Bypassed="0" Monophonic="0.0" Retrigger="1.0"
+                               Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0" Attack="0.0"
+                               AttackLevel="0.0" Hold="10.0" Decay="1.0" Sustain="0.0" Release="151.0"
+                               EcoMode="1.0">
                       <ChildProcessors>
                         <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
                           <ChildProcessors/>
@@ -1539,8 +1828,8 @@
                                Bipolar="1" UseTable="0.0" RandomTableData="">
                       <ChildProcessors/>
                     </Processor>
-                    <Processor Type="PitchWheel" ID="Pitch Wheel Modulator19" Bypassed="0" Intensity="0.1666666716337204"
-                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="200.0">
+                    <Processor Type="PitchWheel" ID="PitchBendModulator" Bypassed="0" Intensity="0.0"
+                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="22.59832954406738">
                       <ChildProcessors/>
                     </Processor>
                   </ChildProcessors>
@@ -1565,9 +1854,9 @@
                        IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                        SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
                        OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
-                       NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
-                       Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-                       Group7Table="" SampleMapID="mute_string2">
+                       NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
+                       Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
+                       Group5Table="" Group6Table="" Group7Table="" SampleMapID="mute_string2">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors>
@@ -1582,10 +1871,10 @@
                 </Processor>
                 <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
                   <ChildProcessors>
-                    <Processor Type="AHDSR" ID="AHDSR Envelope21" Bypassed="0" Monophonic="0.0"
-                               Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
-                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
-                               Release="76.18904876708984" EcoMode="1.0">
+                    <Processor Type="AHDSR" ID="MuteAHDSR" Bypassed="0" Monophonic="0.0" Retrigger="1.0"
+                               Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0" Attack="0.0"
+                               AttackLevel="0.0" Hold="10.0" Decay="1.0" Sustain="0.0" Release="151.0"
+                               EcoMode="1.0">
                       <ChildProcessors>
                         <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
                           <ChildProcessors/>
@@ -1616,8 +1905,8 @@
                                Bipolar="1" UseTable="0.0" RandomTableData="">
                       <ChildProcessors/>
                     </Processor>
-                    <Processor Type="PitchWheel" ID="Pitch Wheel Modulator21" Bypassed="0" Intensity="0.1666666716337204"
-                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="200.0">
+                    <Processor Type="PitchWheel" ID="PitchBendModulator" Bypassed="0" Intensity="0.0"
+                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="22.59832954406738">
                       <ChildProcessors/>
                     </Processor>
                   </ChildProcessors>
@@ -1642,9 +1931,9 @@
                        IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                        SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
                        OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
-                       NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
-                       Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-                       Group7Table="" SampleMapID="mute_string1">
+                       NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
+                       Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
+                       Group5Table="" Group6Table="" Group7Table="" SampleMapID="mute_string1">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors>
@@ -1659,10 +1948,10 @@
                 </Processor>
                 <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
                   <ChildProcessors>
-                    <Processor Type="AHDSR" ID="AHDSR Envelope23" Bypassed="0" Monophonic="0.0"
-                               Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
-                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
-                               Release="76.18904876708984" EcoMode="1.0">
+                    <Processor Type="AHDSR" ID="MuteAHDSR" Bypassed="0" Monophonic="0.0" Retrigger="1.0"
+                               Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0" Attack="0.0"
+                               AttackLevel="0.0" Hold="10.0" Decay="1.0" Sustain="0.0" Release="151.0"
+                               EcoMode="1.0">
                       <ChildProcessors>
                         <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
                           <ChildProcessors/>
@@ -1693,8 +1982,8 @@
                                Bipolar="1" UseTable="0.0" RandomTableData="">
                       <ChildProcessors/>
                     </Processor>
-                    <Processor Type="PitchWheel" ID="Pitch Wheel Modulator23" Bypassed="0" Intensity="0.1666666716337204"
-                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="200.0">
+                    <Processor Type="PitchWheel" ID="PitchBendModulator" Bypassed="0" Intensity="0.0"
+                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="22.59832954406738">
                       <ChildProcessors/>
                     </Processor>
                   </ChildProcessors>
@@ -1704,7 +1993,7 @@
                     <Processor Type="Convolution" ID="Convolution Reverb2" Bypassed="1" DryGain="-100.0"
                                WetGain="0.0" Latency="0.0" ImpulseLength="1.0" ProcessInput="1.0"
                                UseBackgroundThread="0.0" Predelay="0.0" HiCut="20000.0" Damping="-100.0"
-                               FFTType="5.0" FileName="{PROJECT_FOLDER}xfade_dynamic2_to_dynamic4_string1.wav"
+                               FFTType="0.0" FileName="{PROJECT_FOLDER}xfade_dynamic2_to_dynamic4_string1.wav"
                                min="0" max="422" loopStart="0" loopEnd="422">
                       <ChildProcessors/>
                       <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
@@ -1734,7 +2023,7 @@
                 <Processor Type="MidiMuter" ID="HarmonicContainerMute" Bypassed="0">
                   <ChildProcessors/>
                   <Content>
-                    <Control type="ScriptButton" id="ignoreButton" value="0.0"/>
+                    <Control type="ScriptButton" id="ignoreButton" value="1.0"/>
                     <Control type="ScriptButton" id="fixStuckNotes" value="1.0"/>
                   </Content>
                 </Processor>
@@ -1754,9 +2043,9 @@
                        IconColour="ff898989" PreloadSize="8192.0" BufferSize="4096.0"
                        VoiceAmount="256.0" SamplerRepeatMode="3.0" RRGroupAmount="2.0"
                        PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0"
-                       Reversed="0.0" NumChannels="1" UseStaticMatrix="0.0" Group0Table=""
-                       Group1Table="" Group2Table="" Group3Table="" Group4Table="" Group5Table=""
-                       Group6Table="" Group7Table="" SampleMapID="harmonic_string6">
+                       Reversed="0.0" NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
+                       Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
+                       Group5Table="" Group6Table="" Group7Table="" SampleMapID="harmonic_string6">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors>
@@ -1771,10 +2060,10 @@
                 </Processor>
                 <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
                   <ChildProcessors>
-                    <Processor Type="AHDSR" ID="AHDSR Envelope19" Bypassed="0" Monophonic="0.0"
-                               Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
-                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
-                               Release="135.684326171875" EcoMode="1.0">
+                    <Processor Type="AHDSR" ID="HarmonicAHDSR" Bypassed="0" Monophonic="0.0"
+                               Retrigger="1.0" Intensity="1.0" AttackCurve="0.5" DecayCurve="0.5"
+                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="1.0" Sustain="0.0"
+                               Release="151.0" EcoMode="1.0">
                       <ChildProcessors>
                         <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
                           <ChildProcessors/>
@@ -1805,8 +2094,8 @@
                                Bipolar="1" UseTable="0.0" RandomTableData="">
                       <ChildProcessors/>
                     </Processor>
-                    <Processor Type="PitchWheel" ID="Pitch Wheel Modulator19" Bypassed="0" Intensity="0.1666666716337204"
-                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="200.0">
+                    <Processor Type="PitchWheel" ID="PitchBendModulator" Bypassed="0" Intensity="0.0"
+                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="22.59832954406738">
                       <ChildProcessors/>
                     </Processor>
                   </ChildProcessors>
@@ -1816,8 +2105,8 @@
                     <Processor Type="Convolution" ID="ConvolutionReverbSubs4" Bypassed="0" DryGain="-1.5"
                                WetGain="-4.700000286102295" Latency="0.0" ImpulseLength="1.0"
                                ProcessInput="1.0" UseBackgroundThread="0.0" Predelay="0.0" HiCut="20.0"
-                               Damping="0.0" FFTType="5.0" FileName="D:\Cakewalk Content\guitar crap\guitar irs\Catharsis IRs\2off-pres8.wav"
-                               min="0" max="439" loopStart="0" loopEnd="439">
+                               Damping="0.0" FFTType="0.0" FileName="D:\Cakewalk Content\guitar crap\guitar irs\Catharsis IRs\2off-pres8.wav"
+                               min="0" max="0" loopStart="0" loopEnd="0">
                       <ChildProcessors/>
                       <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
                     </Processor>
@@ -1858,9 +2147,9 @@
                        IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                        SamplerRepeatMode="3.0" RRGroupAmount="2.0" PitchTracking="1.0"
                        OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
-                       NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
-                       Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-                       Group7Table="" SampleMapID="harmonic_string5">
+                       NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
+                       Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
+                       Group5Table="" Group6Table="" Group7Table="" SampleMapID="harmonic_string5">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors>
@@ -1875,10 +2164,10 @@
                 </Processor>
                 <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
                   <ChildProcessors>
-                    <Processor Type="AHDSR" ID="AHDSR Envelope20" Bypassed="0" Monophonic="0.0"
-                               Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
-                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
-                               Release="135.684326171875" EcoMode="1.0">
+                    <Processor Type="AHDSR" ID="HarmonicAHDSR" Bypassed="0" Monophonic="0.0"
+                               Retrigger="1.0" Intensity="1.0" AttackCurve="0.5" DecayCurve="0.5"
+                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="1.0" Sustain="0.0"
+                               Release="151.0" EcoMode="1.0">
                       <ChildProcessors>
                         <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
                           <ChildProcessors/>
@@ -1909,8 +2198,8 @@
                                Bipolar="1" UseTable="0.0" RandomTableData="">
                       <ChildProcessors/>
                     </Processor>
-                    <Processor Type="PitchWheel" ID="Pitch Wheel Modulator20" Bypassed="0" Intensity="0.1666666716337204"
-                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="200.0">
+                    <Processor Type="PitchWheel" ID="PitchBendModulator" Bypassed="0" Intensity="0.0"
+                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="22.59832954406738">
                       <ChildProcessors/>
                     </Processor>
                   </ChildProcessors>
@@ -1935,9 +2224,9 @@
                        IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                        SamplerRepeatMode="3.0" RRGroupAmount="2.0" PitchTracking="1.0"
                        OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
-                       NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
-                       Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-                       Group7Table="" SampleMapID="harmonic_string4">
+                       NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
+                       Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
+                       Group5Table="" Group6Table="" Group7Table="" SampleMapID="harmonic_string4">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors>
@@ -1952,10 +2241,10 @@
                 </Processor>
                 <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
                   <ChildProcessors>
-                    <Processor Type="AHDSR" ID="AHDSR Envelope21" Bypassed="0" Monophonic="0.0"
-                               Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
-                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
-                               Release="135.684326171875" EcoMode="1.0">
+                    <Processor Type="AHDSR" ID="HarmonicAHDSR" Bypassed="0" Monophonic="0.0"
+                               Retrigger="1.0" Intensity="1.0" AttackCurve="0.5" DecayCurve="0.5"
+                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="1.0" Sustain="0.0"
+                               Release="151.0" EcoMode="1.0">
                       <ChildProcessors>
                         <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
                           <ChildProcessors/>
@@ -1986,8 +2275,8 @@
                                Bipolar="1" UseTable="0.0" RandomTableData="">
                       <ChildProcessors/>
                     </Processor>
-                    <Processor Type="PitchWheel" ID="Pitch Wheel Modulator21" Bypassed="0" Intensity="0.1666666716337204"
-                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="200.0">
+                    <Processor Type="PitchWheel" ID="PitchBendModulator" Bypassed="0" Intensity="0.0"
+                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="22.59832954406738">
                       <ChildProcessors/>
                     </Processor>
                   </ChildProcessors>
@@ -2012,9 +2301,9 @@
                        IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                        SamplerRepeatMode="3.0" RRGroupAmount="2.0" PitchTracking="1.0"
                        OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
-                       NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
-                       Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-                       Group7Table="" SampleMapID="harmonic_string3">
+                       NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
+                       Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
+                       Group5Table="" Group6Table="" Group7Table="" SampleMapID="harmonic_string3">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors>
@@ -2029,10 +2318,10 @@
                 </Processor>
                 <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
                   <ChildProcessors>
-                    <Processor Type="AHDSR" ID="AHDSR Envelope22" Bypassed="0" Monophonic="0.0"
-                               Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
-                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
-                               Release="135.684326171875" EcoMode="1.0">
+                    <Processor Type="AHDSR" ID="HarmonicAHDSR" Bypassed="0" Monophonic="0.0"
+                               Retrigger="1.0" Intensity="1.0" AttackCurve="0.5" DecayCurve="0.5"
+                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="1.0" Sustain="0.0"
+                               Release="151.0" EcoMode="1.0">
                       <ChildProcessors>
                         <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
                           <ChildProcessors/>
@@ -2063,8 +2352,8 @@
                                Bipolar="1" UseTable="0.0" RandomTableData="">
                       <ChildProcessors/>
                     </Processor>
-                    <Processor Type="PitchWheel" ID="Pitch Wheel Modulator22" Bypassed="0" Intensity="0.1666666716337204"
-                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="200.0">
+                    <Processor Type="PitchWheel" ID="PitchBendModulator" Bypassed="0" Intensity="0.0"
+                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="22.59832954406738">
                       <ChildProcessors/>
                     </Processor>
                   </ChildProcessors>
@@ -2089,9 +2378,9 @@
                        IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                        SamplerRepeatMode="3.0" RRGroupAmount="2.0" PitchTracking="1.0"
                        OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
-                       NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
-                       Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-                       Group7Table="" SampleMapID="harmonic_string2">
+                       NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
+                       Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
+                       Group5Table="" Group6Table="" Group7Table="" SampleMapID="harmonic_string2">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors>
@@ -2106,10 +2395,10 @@
                 </Processor>
                 <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
                   <ChildProcessors>
-                    <Processor Type="AHDSR" ID="AHDSR Envelope23" Bypassed="0" Monophonic="0.0"
-                               Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
-                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
-                               Release="76.18904876708984" EcoMode="1.0">
+                    <Processor Type="AHDSR" ID="HarmonicAHDSR" Bypassed="0" Monophonic="0.0"
+                               Retrigger="1.0" Intensity="1.0" AttackCurve="0.5" DecayCurve="0.5"
+                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="1.0" Sustain="0.0"
+                               Release="151.0" EcoMode="1.0">
                       <ChildProcessors>
                         <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
                           <ChildProcessors/>
@@ -2140,8 +2429,8 @@
                                Bipolar="1" UseTable="0.0" RandomTableData="">
                       <ChildProcessors/>
                     </Processor>
-                    <Processor Type="PitchWheel" ID="Pitch Wheel Modulator23" Bypassed="0" Intensity="0.1666666716337204"
-                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="200.0">
+                    <Processor Type="PitchWheel" ID="PitchBendModulator" Bypassed="0" Intensity="0.0"
+                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="22.59832954406738">
                       <ChildProcessors/>
                     </Processor>
                   </ChildProcessors>
@@ -2166,9 +2455,9 @@
                        IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                        SamplerRepeatMode="3.0" RRGroupAmount="2.0" PitchTracking="1.0"
                        OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
-                       NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
-                       Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-                       Group7Table="" SampleMapID="harmonic_string1">
+                       NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
+                       Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
+                       Group5Table="" Group6Table="" Group7Table="" SampleMapID="harmonic_string1">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors>
@@ -2183,10 +2472,10 @@
                 </Processor>
                 <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
                   <ChildProcessors>
-                    <Processor Type="AHDSR" ID="AHDSR Envelope24" Bypassed="0" Monophonic="0.0"
-                               Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
-                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
-                               Release="76.18904876708984" EcoMode="1.0">
+                    <Processor Type="AHDSR" ID="HarmonicAHDSR" Bypassed="0" Monophonic="0.0"
+                               Retrigger="1.0" Intensity="1.0" AttackCurve="0.5" DecayCurve="0.5"
+                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="1.0" Sustain="0.0"
+                               Release="151.0" EcoMode="1.0">
                       <ChildProcessors>
                         <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
                           <ChildProcessors/>
@@ -2217,8 +2506,8 @@
                                Bipolar="1" UseTable="0.0" RandomTableData="">
                       <ChildProcessors/>
                     </Processor>
-                    <Processor Type="PitchWheel" ID="Pitch Wheel Modulator24" Bypassed="0" Intensity="0.1666666716337204"
-                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="200.0">
+                    <Processor Type="PitchWheel" ID="PitchBendModulator" Bypassed="0" Intensity="0.0"
+                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="22.59832954406738">
                       <ChildProcessors/>
                     </Processor>
                   </ChildProcessors>
@@ -2228,7 +2517,7 @@
                     <Processor Type="Convolution" ID="Convolution Reverb3" Bypassed="1" DryGain="-100.0"
                                WetGain="0.0" Latency="0.0" ImpulseLength="1.0" ProcessInput="1.0"
                                UseBackgroundThread="0.0" Predelay="0.0" HiCut="20000.0" Damping="-100.0"
-                               FFTType="5.0" FileName="{PROJECT_FOLDER}xfade_dynamic2_to_dynamic4_string1.wav"
+                               FFTType="0.0" FileName="{PROJECT_FOLDER}xfade_dynamic2_to_dynamic4_string1.wav"
                                min="0" max="422" loopStart="0" loopEnd="422">
                       <ChildProcessors/>
                       <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
@@ -2295,12 +2584,12 @@
             </Processor>
             <Processor Type="StreamingSampler" ID="String6TremoloSampler" Bypassed="0"
                        Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
-                       IconColour="ffffffff" PreloadSize="8192.0" BufferSize="4096.0"
+                       IconColour="ff000000" PreloadSize="8192.0" BufferSize="4096.0"
                        VoiceAmount="256.0" SamplerRepeatMode="3.0" RRGroupAmount="1.0"
                        PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0"
-                       Reversed="0.0" NumChannels="1" UseStaticMatrix="0.0" Group0Table=""
-                       Group1Table="" Group2Table="" Group3Table="" Group4Table="" Group5Table=""
-                       Group6Table="" Group7Table="" SampleMapID="Looped/tremolo_string6">
+                       Reversed="0.0" NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
+                       Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
+                       Group5Table="" Group6Table="" Group7Table="" SampleMapID="Looped/tremolo_string6">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors>
@@ -2315,10 +2604,10 @@
                 </Processor>
                 <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
                   <ChildProcessors>
-                    <Processor Type="AHDSR" ID="AHDSR Envelope25" Bypassed="0" Monophonic="0.0"
-                               Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
-                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
-                               Release="135.684326171875" EcoMode="1.0">
+                    <Processor Type="AHDSR" ID="TremoloAHDSR" Bypassed="0" Monophonic="0.0"
+                               Retrigger="1.0" Intensity="1.0" AttackCurve="0.5" DecayCurve="0.5"
+                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="1.0" Sustain="-1.100000143051147"
+                               Release="151.0" EcoMode="1.0">
                       <ChildProcessors>
                         <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
                           <ChildProcessors/>
@@ -2349,8 +2638,8 @@
                                Bipolar="1" UseTable="0.0" RandomTableData="">
                       <ChildProcessors/>
                     </Processor>
-                    <Processor Type="PitchWheel" ID="Pitch Wheel Modulator25" Bypassed="0" Intensity="0.1666666716337204"
-                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="200.0">
+                    <Processor Type="PitchWheel" ID="PitchBendModulator" Bypassed="0" Intensity="0.0"
+                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="22.59832954406738">
                       <ChildProcessors/>
                     </Processor>
                   </ChildProcessors>
@@ -2360,8 +2649,8 @@
                     <Processor Type="Convolution" ID="ConvolutionReverbSubs5" Bypassed="0" DryGain="-1.5"
                                WetGain="-4.700000286102295" Latency="0.0" ImpulseLength="1.0"
                                ProcessInput="1.0" UseBackgroundThread="0.0" Predelay="0.0" HiCut="20.0"
-                               Damping="0.0" FFTType="5.0" FileName="D:\Cakewalk Content\guitar crap\guitar irs\Catharsis IRs\2off-pres8.wav"
-                               min="0" max="439" loopStart="0" loopEnd="439">
+                               Damping="0.0" FFTType="0.0" FileName="D:\Cakewalk Content\guitar crap\guitar irs\Catharsis IRs\2off-pres8.wav"
+                               min="0" max="0" loopStart="0" loopEnd="0">
                       <ChildProcessors/>
                       <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
                     </Processor>
@@ -2397,16 +2686,16 @@
                 <channelData enabled="1" level="0.0" suffix=""/>
               </channels>
               <TimestretchOptions Tonality="0.0" SkipLatency="0" Mode="TimeVariant" NumQuarters="0.0"
-                                  PreferredEngine=""/>
+                                  SourceBPM="0.0" PreferredEngine=""/>
             </Processor>
             <Processor Type="StreamingSampler" ID="String5TremoloSampler" Bypassed="0"
                        Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                        IconColour="ffffffff" PreloadSize="8192.0" BufferSize="4096.0"
                        VoiceAmount="256.0" SamplerRepeatMode="3.0" RRGroupAmount="1.0"
                        PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0"
-                       Reversed="0.0" NumChannels="1" UseStaticMatrix="0.0" Group0Table=""
-                       Group1Table="" Group2Table="" Group3Table="" Group4Table="" Group5Table=""
-                       Group6Table="" Group7Table="" SampleMapID="Looped/tremolo_string5">
+                       Reversed="0.0" NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
+                       Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
+                       Group5Table="" Group6Table="" Group7Table="" SampleMapID="Looped/tremolo_string5">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors>
@@ -2421,10 +2710,10 @@
                 </Processor>
                 <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
                   <ChildProcessors>
-                    <Processor Type="AHDSR" ID="AHDSR Envelope26" Bypassed="0" Monophonic="0.0"
-                               Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
-                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
-                               Release="135.684326171875" EcoMode="1.0">
+                    <Processor Type="AHDSR" ID="TremoloAHDSR" Bypassed="0" Monophonic="0.0"
+                               Retrigger="1.0" Intensity="1.0" AttackCurve="0.5" DecayCurve="0.5"
+                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="1.0" Sustain="-1.100000143051147"
+                               Release="151.0" EcoMode="1.0">
                       <ChildProcessors>
                         <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
                           <ChildProcessors/>
@@ -2455,8 +2744,8 @@
                                Bipolar="1" UseTable="0.0" RandomTableData="">
                       <ChildProcessors/>
                     </Processor>
-                    <Processor Type="PitchWheel" ID="Pitch Wheel Modulator26" Bypassed="0" Intensity="0.1666666716337204"
-                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="200.0">
+                    <Processor Type="PitchWheel" ID="PitchBendModulator" Bypassed="0" Intensity="0.0"
+                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="22.59832954406738">
                       <ChildProcessors/>
                     </Processor>
                   </ChildProcessors>
@@ -2476,16 +2765,16 @@
                 <channelData enabled="1" level="0.0" suffix=""/>
               </channels>
               <TimestretchOptions Tonality="0.0" SkipLatency="0" Mode="TimeVariant" NumQuarters="0.0"
-                                  PreferredEngine=""/>
+                                  SourceBPM="0.0" PreferredEngine=""/>
             </Processor>
             <Processor Type="StreamingSampler" ID="String4TremoloSampler" Bypassed="0"
                        Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                        IconColour="ff000000" PreloadSize="8192.0" BufferSize="4096.0"
                        VoiceAmount="256.0" SamplerRepeatMode="3.0" RRGroupAmount="1.0"
                        PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0"
-                       Reversed="0.0" NumChannels="1" UseStaticMatrix="0.0" Group0Table=""
-                       Group1Table="" Group2Table="" Group3Table="" Group4Table="" Group5Table=""
-                       Group6Table="" Group7Table="" SampleMapID="Looped/tremolo_string4">
+                       Reversed="0.0" NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
+                       Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
+                       Group5Table="" Group6Table="" Group7Table="" SampleMapID="Looped/tremolo_string4">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors>
@@ -2500,10 +2789,10 @@
                 </Processor>
                 <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
                   <ChildProcessors>
-                    <Processor Type="AHDSR" ID="AHDSR Envelope27" Bypassed="0" Monophonic="0.0"
-                               Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
-                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
-                               Release="135.684326171875" EcoMode="1.0">
+                    <Processor Type="AHDSR" ID="TremoloAHDSR" Bypassed="0" Monophonic="0.0"
+                               Retrigger="1.0" Intensity="1.0" AttackCurve="0.5" DecayCurve="0.5"
+                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="1.0" Sustain="-1.100000143051147"
+                               Release="151.0" EcoMode="1.0">
                       <ChildProcessors>
                         <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
                           <ChildProcessors/>
@@ -2534,8 +2823,8 @@
                                Bipolar="1" UseTable="0.0" RandomTableData="">
                       <ChildProcessors/>
                     </Processor>
-                    <Processor Type="PitchWheel" ID="Pitch Wheel Modulator27" Bypassed="0" Intensity="0.1666666716337204"
-                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="200.0">
+                    <Processor Type="PitchWheel" ID="PitchBendModulator" Bypassed="0" Intensity="0.0"
+                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="22.59832954406738">
                       <ChildProcessors/>
                     </Processor>
                   </ChildProcessors>
@@ -2555,16 +2844,16 @@
                 <channelData enabled="1" level="0.0" suffix=""/>
               </channels>
               <TimestretchOptions Tonality="0.0" SkipLatency="0" Mode="TimeVariant" NumQuarters="0.0"
-                                  PreferredEngine=""/>
+                                  SourceBPM="0.0" PreferredEngine=""/>
             </Processor>
             <Processor Type="StreamingSampler" ID="String3TremoloSampler" Bypassed="0"
                        Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                        IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                        SamplerRepeatMode="3.0" RRGroupAmount="1.0" PitchTracking="1.0"
                        OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
-                       NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
-                       Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-                       Group7Table="" SampleMapID="Looped/tremolo_string3">
+                       NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
+                       Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
+                       Group5Table="" Group6Table="" Group7Table="" SampleMapID="Looped/tremolo_string3">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors>
@@ -2579,10 +2868,10 @@
                 </Processor>
                 <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
                   <ChildProcessors>
-                    <Processor Type="AHDSR" ID="AHDSR Envelope28" Bypassed="0" Monophonic="0.0"
-                               Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
-                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
-                               Release="135.684326171875" EcoMode="1.0">
+                    <Processor Type="AHDSR" ID="TremoloAHDSR" Bypassed="0" Monophonic="0.0"
+                               Retrigger="1.0" Intensity="1.0" AttackCurve="0.5" DecayCurve="0.5"
+                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="1.0" Sustain="-1.100000143051147"
+                               Release="151.0" EcoMode="1.0">
                       <ChildProcessors>
                         <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
                           <ChildProcessors/>
@@ -2613,8 +2902,8 @@
                                Bipolar="1" UseTable="0.0" RandomTableData="">
                       <ChildProcessors/>
                     </Processor>
-                    <Processor Type="PitchWheel" ID="Pitch Wheel Modulator28" Bypassed="0" Intensity="0.1666666716337204"
-                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="200.0">
+                    <Processor Type="PitchWheel" ID="PitchBendModulator" Bypassed="0" Intensity="0.0"
+                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="22.59832954406738">
                       <ChildProcessors/>
                     </Processor>
                   </ChildProcessors>
@@ -2634,16 +2923,16 @@
                 <channelData enabled="1" level="0.0" suffix=""/>
               </channels>
               <TimestretchOptions Tonality="0.0" SkipLatency="0" Mode="TimeVariant" NumQuarters="0.0"
-                                  PreferredEngine=""/>
+                                  SourceBPM="0.0" PreferredEngine=""/>
             </Processor>
             <Processor Type="StreamingSampler" ID="String2TremoloSampler" Bypassed="0"
                        Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                        IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                        SamplerRepeatMode="3.0" RRGroupAmount="1.0" PitchTracking="1.0"
                        OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
-                       NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
-                       Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-                       Group7Table="" SampleMapID="Looped/tremolo_string2">
+                       NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
+                       Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
+                       Group5Table="" Group6Table="" Group7Table="" SampleMapID="Looped/tremolo_string2">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors>
@@ -2658,10 +2947,10 @@
                 </Processor>
                 <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
                   <ChildProcessors>
-                    <Processor Type="AHDSR" ID="AHDSR Envelope29" Bypassed="0" Monophonic="0.0"
-                               Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
-                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
-                               Release="76.18904876708984" EcoMode="1.0">
+                    <Processor Type="AHDSR" ID="TremoloAHDSR" Bypassed="0" Monophonic="0.0"
+                               Retrigger="1.0" Intensity="1.0" AttackCurve="0.5" DecayCurve="0.5"
+                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="1.0" Sustain="-1.100000143051147"
+                               Release="151.0" EcoMode="1.0">
                       <ChildProcessors>
                         <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
                           <ChildProcessors/>
@@ -2692,8 +2981,8 @@
                                Bipolar="1" UseTable="0.0" RandomTableData="">
                       <ChildProcessors/>
                     </Processor>
-                    <Processor Type="PitchWheel" ID="Pitch Wheel Modulator29" Bypassed="0" Intensity="0.1666666716337204"
-                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="200.0">
+                    <Processor Type="PitchWheel" ID="PitchBendModulator" Bypassed="0" Intensity="0.0"
+                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="22.59832954406738">
                       <ChildProcessors/>
                     </Processor>
                   </ChildProcessors>
@@ -2713,16 +3002,16 @@
                 <channelData enabled="1" level="0.0" suffix=""/>
               </channels>
               <TimestretchOptions Tonality="0.0" SkipLatency="0" Mode="TimeVariant" NumQuarters="0.0"
-                                  PreferredEngine=""/>
+                                  SourceBPM="0.0" PreferredEngine=""/>
             </Processor>
             <Processor Type="StreamingSampler" ID="String1TremoloSampler" Bypassed="0"
                        Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                        IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                        SamplerRepeatMode="3.0" RRGroupAmount="1.0" PitchTracking="1.0"
                        OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
-                       NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
-                       Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-                       Group7Table="" SampleMapID="Looped/tremolo_string1">
+                       NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
+                       Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
+                       Group5Table="" Group6Table="" Group7Table="" SampleMapID="Looped/tremolo_string1">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors>
@@ -2737,10 +3026,10 @@
                 </Processor>
                 <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
                   <ChildProcessors>
-                    <Processor Type="AHDSR" ID="AHDSR Envelope30" Bypassed="0" Monophonic="0.0"
-                               Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
-                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
-                               Release="76.18904876708984" EcoMode="1.0">
+                    <Processor Type="AHDSR" ID="TremoloAHDSR" Bypassed="0" Monophonic="0.0"
+                               Retrigger="1.0" Intensity="1.0" AttackCurve="0.5" DecayCurve="0.5"
+                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="1.0" Sustain="-1.100000143051147"
+                               Release="151.0" EcoMode="1.0">
                       <ChildProcessors>
                         <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
                           <ChildProcessors/>
@@ -2771,8 +3060,8 @@
                                Bipolar="1" UseTable="0.0" RandomTableData="">
                       <ChildProcessors/>
                     </Processor>
-                    <Processor Type="PitchWheel" ID="Pitch Wheel Modulator30" Bypassed="0" Intensity="0.1666666716337204"
-                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="200.0">
+                    <Processor Type="PitchWheel" ID="PitchBendModulator" Bypassed="0" Intensity="0.0"
+                               Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="22.59832954406738">
                       <ChildProcessors/>
                     </Processor>
                   </ChildProcessors>
@@ -2782,7 +3071,7 @@
                     <Processor Type="Convolution" ID="Convolution Reverb4" Bypassed="1" DryGain="-100.0"
                                WetGain="0.0" Latency="0.0" ImpulseLength="1.0" ProcessInput="1.0"
                                UseBackgroundThread="0.0" Predelay="0.0" HiCut="20000.0" Damping="-100.0"
-                               FFTType="5.0" FileName="{PROJECT_FOLDER}xfade_dynamic2_to_dynamic4_string1.wav"
+                               FFTType="0.0" FileName="{PROJECT_FOLDER}xfade_dynamic2_to_dynamic4_string1.wav"
                                min="0" max="422" loopStart="0" loopEnd="422">
                       <ChildProcessors/>
                       <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
@@ -2801,7 +3090,7 @@
                 <channelData enabled="1" level="0.0" suffix=""/>
               </channels>
               <TimestretchOptions Tonality="0.0" SkipLatency="0" Mode="TimeVariant" NumQuarters="0.0"
-                                  PreferredEngine=""/>
+                                  SourceBPM="0.0" PreferredEngine=""/>
             </Processor>
           </ChildProcessors>
           <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
@@ -2853,19 +3142,19 @@
                        IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                        SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
                        OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
-                       NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
-                       Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-                       Group7Table="" SampleMapID="SFX_BackBodyHit">
+                       NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
+                       Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
+                       Group5Table="" Group6Table="" Group7Table="" SampleMapID="SFX_BackBodyHit">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors/>
                 </Processor>
                 <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
                   <ChildProcessors>
-                    <Processor Type="AHDSR" ID="AHDSR Envelope13" Bypassed="0" Monophonic="0.0"
-                               Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
-                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
-                               Release="20.0" EcoMode="1.0">
+                    <Processor Type="AHDSR" ID="SFXAHDSR" Bypassed="0" Monophonic="0.0" Retrigger="1.0"
+                               Intensity="1.0" AttackCurve="0.5" DecayCurve="0.5" Attack="0.0"
+                               AttackLevel="0.0" Hold="10.0" Decay="1.0" Sustain="0.0" Release="151.0"
+                               EcoMode="1.0">
                       <ChildProcessors>
                         <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
                           <ChildProcessors/>
@@ -2918,19 +3207,19 @@
                        IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                        SamplerRepeatMode="3.0" RRGroupAmount="3.0" PitchTracking="1.0"
                        OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
-                       NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
-                       Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-                       Group7Table="" SampleMapID="SFX_FrontBodyHit">
+                       NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
+                       Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
+                       Group5Table="" Group6Table="" Group7Table="" SampleMapID="SFX_FrontBodyHit">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors/>
                 </Processor>
                 <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
                   <ChildProcessors>
-                    <Processor Type="AHDSR" ID="AHDSR Envelope14" Bypassed="0" Monophonic="0.0"
-                               Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
-                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
-                               Release="20.0" EcoMode="1.0">
+                    <Processor Type="AHDSR" ID="SFXAHDSR" Bypassed="0" Monophonic="0.0" Retrigger="1.0"
+                               Intensity="1.0" AttackCurve="0.5" DecayCurve="0.5" Attack="0.0"
+                               AttackLevel="0.0" Hold="10.0" Decay="1.0" Sustain="0.0" Release="151.0"
+                               EcoMode="1.0">
                       <ChildProcessors>
                         <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
                           <ChildProcessors/>
@@ -2983,19 +3272,19 @@
                        IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                        SamplerRepeatMode="3.0" RRGroupAmount="4.0" PitchTracking="1.0"
                        OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
-                       NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
-                       Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-                       Group7Table="" SampleMapID="SFX_FrontSnare">
+                       NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
+                       Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
+                       Group5Table="" Group6Table="" Group7Table="" SampleMapID="SFX_FrontSnare">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors/>
                 </Processor>
                 <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
                   <ChildProcessors>
-                    <Processor Type="AHDSR" ID="AHDSR Envelope15" Bypassed="0" Monophonic="0.0"
-                               Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
-                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
-                               Release="20.0" EcoMode="1.0">
+                    <Processor Type="AHDSR" ID="SFXAHDSR" Bypassed="0" Monophonic="0.0" Retrigger="1.0"
+                               Intensity="1.0" AttackCurve="0.5" DecayCurve="0.5" Attack="0.0"
+                               AttackLevel="0.0" Hold="10.0" Decay="1.0" Sustain="0.0" Release="151.0"
+                               EcoMode="1.0">
                       <ChildProcessors>
                         <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
                           <ChildProcessors/>
@@ -3048,19 +3337,19 @@
                        IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                        SamplerRepeatMode="3.0" RRGroupAmount="5.0" PitchTracking="1.0"
                        OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
-                       NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
-                       Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-                       Group7Table="" SampleMapID="SFX_SideBodyHit">
+                       NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
+                       Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
+                       Group5Table="" Group6Table="" Group7Table="" SampleMapID="SFX_SideBodyHit">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors/>
                 </Processor>
                 <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
                   <ChildProcessors>
-                    <Processor Type="AHDSR" ID="AHDSR Envelope16" Bypassed="0" Monophonic="0.0"
-                               Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
-                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
-                               Release="20.0" EcoMode="1.0">
+                    <Processor Type="AHDSR" ID="SFXAHDSR" Bypassed="0" Monophonic="0.0" Retrigger="1.0"
+                               Intensity="1.0" AttackCurve="0.5" DecayCurve="0.5" Attack="0.0"
+                               AttackLevel="0.0" Hold="10.0" Decay="1.0" Sustain="0.0" Release="151.0"
+                               EcoMode="1.0">
                       <ChildProcessors>
                         <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
                           <ChildProcessors/>
@@ -3113,19 +3402,19 @@
                        PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                        SamplerRepeatMode="3.0" RRGroupAmount="5.0" PitchTracking="1.0"
                        OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
-                       NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
-                       Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-                       Group7Table="" SampleMapID="SFX_TapAll">
+                       NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
+                       Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
+                       Group5Table="" Group6Table="" Group7Table="" SampleMapID="SFX_TapAll">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors/>
                 </Processor>
                 <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
                   <ChildProcessors>
-                    <Processor Type="AHDSR" ID="AHDSR Envelope17" Bypassed="0" Monophonic="0.0"
-                               Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
-                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
-                               Release="20.0" EcoMode="1.0">
+                    <Processor Type="AHDSR" ID="SFXAHDSR" Bypassed="0" Monophonic="0.0" Retrigger="1.0"
+                               Intensity="1.0" AttackCurve="0.5" DecayCurve="0.5" Attack="0.0"
+                               AttackLevel="0.0" Hold="10.0" Decay="1.0" Sustain="0.0" Release="151.0"
+                               EcoMode="1.0">
                       <ChildProcessors>
                         <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
                           <ChildProcessors/>
@@ -3178,19 +3467,19 @@
                        PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                        SamplerRepeatMode="3.0" RRGroupAmount="7.0" PitchTracking="1.0"
                        OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
-                       NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
-                       Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-                       Group7Table="" SampleMapID="SFX_TapSeq">
+                       NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
+                       Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
+                       Group5Table="" Group6Table="" Group7Table="" SampleMapID="SFX_TapSeq">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors/>
                 </Processor>
                 <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
                   <ChildProcessors>
-                    <Processor Type="AHDSR" ID="AHDSR Envelope18" Bypassed="0" Monophonic="0.0"
-                               Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
-                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
-                               Release="20.0" EcoMode="1.0">
+                    <Processor Type="AHDSR" ID="SFXAHDSR" Bypassed="0" Monophonic="0.0" Retrigger="1.0"
+                               Intensity="1.0" AttackCurve="0.5" DecayCurve="0.5" Attack="0.0"
+                               AttackLevel="0.0" Hold="10.0" Decay="1.0" Sustain="0.0" Release="151.0"
+                               EcoMode="1.0">
                       <ChildProcessors>
                         <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
                           <ChildProcessors/>
@@ -3243,19 +3532,19 @@
                        IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                        SamplerRepeatMode="3.0" RRGroupAmount="3.0" PitchTracking="1.0"
                        OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
-                       NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
-                       Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-                       Group7Table="" SampleMapID="SFX_NutStrum">
+                       NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
+                       Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
+                       Group5Table="" Group6Table="" Group7Table="" SampleMapID="SFX_NutStrum">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors/>
                 </Processor>
                 <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
                   <ChildProcessors>
-                    <Processor Type="AHDSR" ID="AHDSR Envelope19" Bypassed="0" Monophonic="0.0"
-                               Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
-                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
-                               Release="1500.0" EcoMode="1.0">
+                    <Processor Type="AHDSR" ID="SFXAHDSR" Bypassed="0" Monophonic="0.0" Retrigger="1.0"
+                               Intensity="1.0" AttackCurve="0.5" DecayCurve="0.5" Attack="0.0"
+                               AttackLevel="0.0" Hold="10.0" Decay="1.0" Sustain="0.0" Release="151.0"
+                               EcoMode="1.0">
                       <ChildProcessors>
                         <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
                           <ChildProcessors/>
@@ -3308,21 +3597,25 @@
                        PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                        SamplerRepeatMode="3.0" RRGroupAmount="1.0" PitchTracking="1.0"
                        OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
-                       NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
-                       Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-                       Group7Table="" SampleMapID="SFX_Slide">
+                       NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
+                       Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
+                       Group5Table="" Group6Table="" Group7Table="" SampleMapID="SFX_Slide">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors/>
                 </Processor>
                 <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
                   <ChildProcessors>
-                    <Processor Type="SimpleEnvelope" ID="DefaultEnvelope1" Bypassed="0" Monophonic="0.0"
-                               Retrigger="1.0" Intensity="1.0" Attack="999.0" Release="437.0"
-                               LinearMode="1.0">
+                    <Processor Type="Velocity" ID="Velocity Modulator26" Bypassed="0" Intensity="1.0"
+                               UseTable="1.0" Inverted="0.0" DecibelMode="0.0" VelocityTableData="48...............vOPPP.+....9C...vOPPP.+.........vO...f+....9C...vO">
+                      <ChildProcessors/>
+                    </Processor>
+                    <Processor Type="AHDSR" ID="SFXAHDSR" Bypassed="0" Monophonic="0.0" Retrigger="1.0"
+                               Intensity="1.0" AttackCurve="0.5" DecayCurve="0.5" Attack="0.0"
+                               AttackLevel="0.0" Hold="10.0" Decay="1.0" Sustain="0.0" Release="151.0"
+                               EcoMode="1.0">
                       <ChildProcessors>
-                        <Processor Type="ModulatorChain" ID="Attack Time Modulation" Bypassed="0"
-                                   Intensity="1.0">
+                        <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
                           <ChildProcessors>
                             <Processor Type="Velocity" ID="Velocity Modulator32" Bypassed="0" Intensity="1.0"
                                        UseTable="1.0" Inverted="1.0" DecibelMode="0.0" VelocityTableData="60...............vO....+....9C...vO....+.........vO2q6U+3c2c8C...vO...f+....9C...vO">
@@ -3330,11 +3623,19 @@
                             </Processor>
                           </ChildProcessors>
                         </Processor>
+                        <Processor Type="ModulatorChain" ID="Attack Level" Bypassed="0" Intensity="1.0">
+                          <ChildProcessors/>
+                        </Processor>
+                        <Processor Type="ModulatorChain" ID="Decay Time" Bypassed="0" Intensity="1.0">
+                          <ChildProcessors/>
+                        </Processor>
+                        <Processor Type="ModulatorChain" ID="Sustain Level" Bypassed="0" Intensity="1.0">
+                          <ChildProcessors/>
+                        </Processor>
+                        <Processor Type="ModulatorChain" ID="Release Time" Bypassed="0" Intensity="1.0">
+                          <ChildProcessors/>
+                        </Processor>
                       </ChildProcessors>
-                    </Processor>
-                    <Processor Type="Velocity" ID="Velocity Modulator26" Bypassed="0" Intensity="1.0"
-                               UseTable="1.0" Inverted="0.0" DecibelMode="0.0" VelocityTableData="48...............vOPPP.+....9C...vOPPP.+.........vO...f+....9C...vO">
-                      <ChildProcessors/>
                     </Processor>
                   </ChildProcessors>
                 </Processor>
@@ -3385,19 +3686,19 @@
                        IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                        SamplerRepeatMode="3.0" RRGroupAmount="8.0" PitchTracking="1.0"
                        OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
-                       NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
-                       Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-                       Group7Table="" SampleMapID="SFX_DeadMute">
+                       NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
+                       Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
+                       Group5Table="" Group6Table="" Group7Table="" SampleMapID="SFX_DeadMute">
               <ChildProcessors>
                 <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
                   <ChildProcessors/>
                 </Processor>
                 <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
                   <ChildProcessors>
-                    <Processor Type="AHDSR" ID="AHDSR Envelope38" Bypassed="0" Monophonic="0.0"
-                               Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
-                               Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
-                               Release="20.0" EcoMode="1.0">
+                    <Processor Type="AHDSR" ID="SFXAHDSR" Bypassed="0" Monophonic="0.0" Retrigger="1.0"
+                               Intensity="1.0" AttackCurve="0.5" DecayCurve="0.5" Attack="0.0"
+                               AttackLevel="0.0" Hold="10.0" Decay="1.0" Sustain="0.0" Release="151.0"
+                               EcoMode="1.0">
                       <ChildProcessors>
                         <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
                           <ChildProcessors/>
@@ -3453,9 +3754,9 @@
                    IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                    SamplerRepeatMode="3.0" RRGroupAmount="1.0" PitchTracking="1.0"
                    OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
-                   NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
-                   Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-                   Group7Table="" SampleMapID="pickAttack_allString">
+                   NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
+                   Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
+                   Group5Table="" Group6Table="" Group7Table="" SampleMapID="pickAttack_allString">
           <ChildProcessors>
             <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
               <ChildProcessors/>
@@ -3525,27 +3826,30 @@
   </ChildProcessors>
   <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
   <macro_controls>
-    <macro name="Release" value="40.0" midi_cc="-1">
+    <macro name="Release" value="45.0" midi_cc="-1">
       <controlled_parameter id="AHDSR Envelope3" parameter="7" parameter_name="Release Time"
                             min="0.0" max="20000.0" low="0.0" high="20000.0" skew="0.2313782131597592"
                             step="1.0" inverted="0" readonly="1" converter="54.nT6K8CRKoE..VEFa0U1Pu4lckIGckIG.AHPXiQWZ1UF.ADf.lUmaiQWZu4F.AXPATkVakA.."/>
-      <controlled_parameter id="AHDSR Envelope2" parameter="7" parameter_name="Release Time"
-                            min="0.0" max="20000.0" low="0.0" high="20000.0" skew="0.2313782131597592"
+      <controlled_parameter id="SusAHDSR" parameter="7" parameter_name="Release Time" min="0.0"
+                            max="20000.0" low="0.0" high="20000.0" skew="0.2313782131597592"
                             step="1.0" inverted="0" readonly="1" converter="54.nT6K8CRKoE..VEFa0U1Pu4lckIGckIG.AHPXiQWZ1UF.ADf.lUmaiQWZu4F.AXPATkVakA.."/>
-      <controlled_parameter id="AHDSR Envelope1" parameter="7" parameter_name="Release Time"
-                            min="0.0" max="20000.0" low="0.0" high="20000.0" skew="0.2313782131597592"
+      <controlled_parameter id="SusAHDSR" parameter="7" parameter_name="Release Time" min="0.0"
+                            max="20000.0" low="0.0" high="20000.0" skew="0.2313782131597592"
                             step="1.0" inverted="0" readonly="1" converter="54.nT6K8CRKoE..VEFa0U1Pu4lckIGckIG.AHPXiQWZ1UF.ADf.lUmaiQWZu4F.AXPATkVakA.."/>
-      <controlled_parameter id="AHDSR Envelope4" parameter="7" parameter_name="Release Time"
-                            min="0.0" max="20000.0" low="0.0" high="20000.0" skew="0.2313782131597592"
+      <controlled_parameter id="SusAHDSR" parameter="7" parameter_name="Release Time" min="0.0"
+                            max="20000.0" low="0.0" high="20000.0" skew="0.2313782131597592"
                             step="1.0" inverted="0" readonly="1" converter="54.nT6K8CRKoE..VEFa0U1Pu4lckIGckIG.AHPXiQWZ1UF.ADf.lUmaiQWZu4F.AXPATkVakA.."/>
+      <controlled_parameter id="SusAHDSR" parameter="7" parameter_name="Release" min="1.0"
+                            max="20000.0" low="1.0" high="20000.0" skew="0.16491748125393"
+                            step="0.0" inverted="0" readonly="1" converter="54.nT6K8CRKoE..VEFa0U1Pu4lckIGckIG.AHPXiQWZ1UF.ADf.lUmaiQWZu4F.AXPATkVakA.."/>
     </macro>
-    <macro name="Macro 2" value="0.0" midi_cc="-1"/>
+    <macro name="Macro 2" value="55.0" midi_cc="-1"/>
     <macro name="Macro 3" value="0.0" midi_cc="-1"/>
     <macro name="Macro 4" value="0.0" midi_cc="-1"/>
     <macro name="Macro 5" value="0.0" midi_cc="-1"/>
     <macro name="Macro 6" value="0.0" midi_cc="-1"/>
     <macro name="Macro 7" value="0.0" midi_cc="-1"/>
-    <macro name="Macro 8" value="0.0" midi_cc="-1"/>
+    <macro name="Macro 8" value="54.39242172241211" midi_cc="-1"/>
   </macro_controls>
   <MidiAutomation>
     <Controller Controller="2" Channel="-1" Processor="TremoloContainerTimeStretch"
