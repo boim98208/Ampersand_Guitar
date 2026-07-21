@@ -1,0 +1,665 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<samplemap CrossfadeGamma="1.0" ID="sustain_string4" RRGroupAmount="6.0"
+           MicPositions=";">
+  <sample Root="80" LoKey="80" HiKey="81" LoVel="0" HiVel="63" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_G#4_RR3_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3076"/>
+  <sample Root="80" LoKey="80" HiKey="81" LoVel="0" HiVel="63" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_G#4_RR2_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3084"/>
+  <sample Root="80" LoKey="80" HiKey="81" LoVel="0" HiVel="63" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_G#4_RR1_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3053"/>
+  <sample Root="68" LoKey="68" HiKey="69" LoVel="0" HiVel="63" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_G#3_RR6_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3179"/>
+  <sample Root="68" LoKey="68" HiKey="69" LoVel="0" HiVel="63" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_G#3_RR5_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3034"/>
+  <sample Root="68" LoKey="68" HiKey="69" LoVel="0" HiVel="63" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_G#3_RR4_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3094"/>
+  <sample Root="68" LoKey="68" HiKey="69" LoVel="0" HiVel="63" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_G#3_RR3_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3101"/>
+  <sample Root="68" LoKey="68" HiKey="69" LoVel="0" HiVel="63" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_G#3_RR2_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3108"/>
+  <sample Root="68" LoKey="68" HiKey="69" LoVel="0" HiVel="63" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_G#3_RR1_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3023"/>
+  <sample Root="78" LoKey="78" HiKey="79" LoVel="0" HiVel="63" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_F#4_RR6_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3111"/>
+  <sample Root="78" LoKey="78" HiKey="79" LoVel="0" HiVel="63" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_F#4_RR5_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3083"/>
+  <sample Root="78" LoKey="78" HiKey="79" LoVel="0" HiVel="63" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_F#4_RR4_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3122"/>
+  <sample Root="78" LoKey="78" HiKey="79" LoVel="0" HiVel="63" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_F#4_RR3_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3120"/>
+  <sample Root="78" LoKey="78" HiKey="79" LoVel="0" HiVel="63" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_F#4_RR2_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3100"/>
+  <sample Root="78" LoKey="78" HiKey="79" LoVel="0" HiVel="63" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_F#4_RR1_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3045"/>
+  <sample Root="66" LoKey="66" HiKey="67" LoVel="0" HiVel="63" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_F#3_RR6_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="2473"/>
+  <sample Root="66" LoKey="66" HiKey="67" LoVel="0" HiVel="63" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_F#3_RR5_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3103"/>
+  <sample Root="66" LoKey="66" HiKey="67" LoVel="0" HiVel="63" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_F#3_RR4_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3129"/>
+  <sample Root="66" LoKey="66" HiKey="67" LoVel="0" HiVel="63" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_F#3_RR3_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3051"/>
+  <sample Root="66" LoKey="66" HiKey="67" LoVel="0" HiVel="63" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_F#3_RR2_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3126"/>
+  <sample Root="66" LoKey="66" HiKey="67" LoVel="0" HiVel="63" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_F#3_RR1_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="2974"/>
+  <sample Root="76" LoKey="76" HiKey="77" LoVel="0" HiVel="63" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_E4_RR6_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3039"/>
+  <sample Root="76" LoKey="76" HiKey="77" LoVel="0" HiVel="63" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_E4_RR5_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3105"/>
+  <sample Root="76" LoKey="76" HiKey="77" LoVel="0" HiVel="63" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_E4_RR4_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3209"/>
+  <sample Root="76" LoKey="76" HiKey="77" LoVel="0" HiVel="63" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_E4_RR3_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="2946"/>
+  <sample Root="76" LoKey="76" HiKey="77" LoVel="0" HiVel="63" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_E4_RR2_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3096"/>
+  <sample Root="76" LoKey="76" HiKey="77" LoVel="0" HiVel="63" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_E4_RR1_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3070"/>
+  <sample Root="64" LoKey="64" HiKey="65" LoVel="0" HiVel="63" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_E3_RR6_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3191"/>
+  <sample Root="64" LoKey="64" HiKey="65" LoVel="0" HiVel="63" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_E3_RR5_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3094"/>
+  <sample Root="64" LoKey="64" HiKey="65" LoVel="0" HiVel="63" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_E3_RR4_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3148"/>
+  <sample Root="64" LoKey="64" HiKey="65" LoVel="0" HiVel="63" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_E3_RR3_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3029"/>
+  <sample Root="64" LoKey="64" HiKey="65" LoVel="0" HiVel="63" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_E3_RR2_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3090"/>
+  <sample Root="64" LoKey="64" HiKey="65" LoVel="0" HiVel="63" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_E3_RR1_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3104"/>
+  <sample Root="74" LoKey="74" HiKey="75" LoVel="0" HiVel="63" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_D4_RR6_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3141"/>
+  <sample Root="74" LoKey="74" HiKey="75" LoVel="0" HiVel="63" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_D4_RR5_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3101"/>
+  <sample Root="74" LoKey="74" HiKey="75" LoVel="0" HiVel="63" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_D4_RR4_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3093"/>
+  <sample Root="74" LoKey="74" HiKey="75" LoVel="0" HiVel="63" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_D4_RR3_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3102"/>
+  <sample Root="74" LoKey="74" HiKey="75" LoVel="0" HiVel="63" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_D4_RR2_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3151"/>
+  <sample Root="74" LoKey="74" HiKey="75" LoVel="0" HiVel="63" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_D4_RR1_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="2978"/>
+  <sample Root="62" LoKey="62" HiKey="63" LoVel="0" HiVel="63" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_D3_RR6_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3066"/>
+  <sample Root="62" LoKey="62" HiKey="63" LoVel="0" HiVel="63" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_D3_RR5_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3106"/>
+  <sample Root="62" LoKey="62" HiKey="63" LoVel="0" HiVel="63" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_D3_RR4_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3034"/>
+  <sample Root="62" LoKey="62" HiKey="63" LoVel="0" HiVel="63" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_D3_RR3_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3123"/>
+  <sample Root="62" LoKey="62" HiKey="63" LoVel="0" HiVel="63" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_D3_RR2_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3089"/>
+  <sample Root="62" LoKey="62" HiKey="63" LoVel="0" HiVel="63" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_D3_RR1_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3189"/>
+  <sample Root="72" LoKey="72" HiKey="73" LoVel="0" HiVel="63" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_C4_RR6_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3120"/>
+  <sample Root="72" LoKey="72" HiKey="73" LoVel="0" HiVel="63" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_C4_RR5_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3132"/>
+  <sample Root="72" LoKey="72" HiKey="73" LoVel="0" HiVel="63" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_C4_RR4_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3099"/>
+  <sample Root="72" LoKey="72" HiKey="73" LoVel="0" HiVel="63" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_C4_RR3_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="2999"/>
+  <sample Root="72" LoKey="72" HiKey="73" LoVel="0" HiVel="63" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_C4_RR2_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3103"/>
+  <sample Root="72" LoKey="72" HiKey="73" LoVel="0" HiVel="63" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_C4_RR1_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3086"/>
+  <sample Root="82" LoKey="82" HiKey="83" LoVel="0" HiVel="63" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_A#4_RR6_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3097"/>
+  <sample Root="82" LoKey="82" HiKey="83" LoVel="0" HiVel="63" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_A#4_RR5_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3048"/>
+  <sample Root="82" LoKey="82" HiKey="83" LoVel="0" HiVel="63" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_A#4_RR4_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3079"/>
+  <sample Root="82" LoKey="82" HiKey="83" LoVel="0" HiVel="63" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_A#4_RR3_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3116"/>
+  <sample Root="82" LoKey="82" HiKey="83" LoVel="0" HiVel="63" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_A#4_RR2_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3085"/>
+  <sample Root="82" LoKey="82" HiKey="83" LoVel="0" HiVel="63" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_A#4_RR1_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="2969"/>
+  <sample Root="70" LoKey="70" HiKey="71" LoVel="0" HiVel="63" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_A#3_RR6_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3187"/>
+  <sample Root="70" LoKey="70" HiKey="71" LoVel="0" HiVel="63" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_A#3_RR5_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3015"/>
+  <sample Root="70" LoKey="70" HiKey="71" LoVel="0" HiVel="63" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_A#3_RR4_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3114"/>
+  <sample Root="70" LoKey="70" HiKey="71" LoVel="0" HiVel="63" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_A#3_RR3_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3120"/>
+  <sample Root="70" LoKey="70" HiKey="71" LoVel="0" HiVel="63" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_A#3_RR2_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3055"/>
+  <sample Root="70" LoKey="70" HiKey="71" LoVel="0" HiVel="63" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_A#3_RR1_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3065"/>
+  <sample Root="62" LoKey="62" HiKey="63" LoVel="115" HiVel="127" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_D3_RR1_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="5183"/>
+  <sample Root="62" LoKey="62" HiKey="63" LoVel="115" HiVel="127" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_D3_RR2_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="5209"/>
+  <sample Root="62" LoKey="62" HiKey="63" LoVel="115" HiVel="127" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_D3_RR3_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="5289"/>
+  <sample Root="62" LoKey="62" HiKey="63" LoVel="115" HiVel="127" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_D3_RR4_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="5201"/>
+  <sample Root="62" LoKey="62" HiKey="63" LoVel="115" HiVel="127" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_D3_RR5_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="5198"/>
+  <sample Root="62" LoKey="62" HiKey="63" LoVel="115" HiVel="127" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_D3_RR6_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="5710"/>
+  <sample Root="64" LoKey="64" HiKey="65" LoVel="115" HiVel="127" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_E3_RR1_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="4771"/>
+  <sample Root="64" LoKey="64" HiKey="65" LoVel="115" HiVel="127" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_E3_RR2_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="5207"/>
+  <sample Root="64" LoKey="64" HiKey="65" LoVel="115" HiVel="127" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_E3_RR3_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="5291"/>
+  <sample Root="64" LoKey="64" HiKey="65" LoVel="115" HiVel="127" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_E3_RR4_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="5179"/>
+  <sample Root="64" LoKey="64" HiKey="65" LoVel="115" HiVel="127" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_E3_RR5_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="5220"/>
+  <sample Root="66" LoKey="66" HiKey="67" LoVel="115" HiVel="127" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_F#3_RR1_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="5252"/>
+  <sample Root="66" LoKey="66" HiKey="67" LoVel="115" HiVel="127" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_F#3_RR2_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="5214"/>
+  <sample Root="66" LoKey="66" HiKey="67" LoVel="115" HiVel="127" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_F#3_RR3_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="5199"/>
+  <sample Root="66" LoKey="66" HiKey="67" LoVel="115" HiVel="127" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_F#3_RR4_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="5231"/>
+  <sample Root="66" LoKey="66" HiKey="67" LoVel="115" HiVel="127" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_F#3_RR5_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="5348"/>
+  <sample Root="68" LoKey="68" HiKey="69" LoVel="115" HiVel="127" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_G#3_RR1_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="5078"/>
+  <sample Root="68" LoKey="68" HiKey="69" LoVel="115" HiVel="127" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_G#3_RR2_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="5272"/>
+  <sample Root="68" LoKey="68" HiKey="69" LoVel="115" HiVel="127" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_G#3_RR3_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="5214"/>
+  <sample Root="68" LoKey="68" HiKey="69" LoVel="115" HiVel="127" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_G#3_RR4_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="5208"/>
+  <sample Root="68" LoKey="68" HiKey="69" LoVel="115" HiVel="127" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_G#3_RR5_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="5219"/>
+  <sample Root="70" LoKey="70" HiKey="71" LoVel="115" HiVel="127" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_A#3_RR1_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="3466"/>
+  <sample Root="70" LoKey="70" HiKey="71" LoVel="115" HiVel="127" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_A#3_RR2_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="3513"/>
+  <sample Root="70" LoKey="70" HiKey="71" LoVel="115" HiVel="127" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_A#3_RR3_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="3405"/>
+  <sample Root="70" LoKey="70" HiKey="71" LoVel="115" HiVel="127" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_A#3_RR4_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="3503"/>
+  <sample Root="70" LoKey="70" HiKey="71" LoVel="115" HiVel="127" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_A#3_RR5_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="3367"/>
+  <sample Root="70" LoKey="70" HiKey="71" LoVel="115" HiVel="127" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_A#3_RR6_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="3487"/>
+  <sample Root="72" LoKey="72" HiKey="73" LoVel="115" HiVel="127" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_C4_RR1_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="3459"/>
+  <sample Root="72" LoKey="72" HiKey="73" LoVel="115" HiVel="127" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_C4_RR2_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="3472"/>
+  <sample Root="72" LoKey="72" HiKey="73" LoVel="115" HiVel="127" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_C4_RR3_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="3491"/>
+  <sample Root="72" LoKey="72" HiKey="73" LoVel="115" HiVel="127" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_C4_RR4_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="3437"/>
+  <sample Root="72" LoKey="72" HiKey="73" LoVel="115" HiVel="127" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_C4_RR5_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="3454"/>
+  <sample Root="74" LoKey="74" HiKey="75" LoVel="115" HiVel="127" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_D4_RR1_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="3462"/>
+  <sample Root="74" LoKey="74" HiKey="75" LoVel="115" HiVel="127" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_D4_RR2_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="3398"/>
+  <sample Root="74" LoKey="74" HiKey="75" LoVel="115" HiVel="127" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_D4_RR3_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="3498"/>
+  <sample Root="74" LoKey="74" HiKey="75" LoVel="115" HiVel="127" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_D4_RR4_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="3484"/>
+  <sample Root="74" LoKey="74" HiKey="75" LoVel="115" HiVel="127" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_D4_RR5_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="3479"/>
+  <sample Root="76" LoKey="76" HiKey="77" LoVel="115" HiVel="127" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_E4_RR1_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="3470"/>
+  <sample Root="76" LoKey="76" HiKey="77" LoVel="115" HiVel="127" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_E4_RR2_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="3479"/>
+  <sample Root="76" LoKey="76" HiKey="77" LoVel="115" HiVel="127" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_E4_RR3_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="3462"/>
+  <sample Root="76" LoKey="76" HiKey="77" LoVel="115" HiVel="127" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_E4_RR4_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="3401"/>
+  <sample Root="76" LoKey="76" HiKey="77" LoVel="115" HiVel="127" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_E4_RR5_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="3502"/>
+  <sample Root="78" LoKey="78" HiKey="79" LoVel="115" HiVel="127" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_F#4_RR1_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="3469"/>
+  <sample Root="78" LoKey="78" HiKey="79" LoVel="115" HiVel="127" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_F#4_RR2_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="3404"/>
+  <sample Root="78" LoKey="78" HiKey="79" LoVel="115" HiVel="127" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_F#4_RR3_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="3557"/>
+  <sample Root="78" LoKey="78" HiKey="79" LoVel="115" HiVel="127" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_F#4_RR4_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="3400"/>
+  <sample Root="78" LoKey="78" HiKey="79" LoVel="115" HiVel="127" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_F#4_RR5_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="3475"/>
+  <sample Root="80" LoKey="80" HiKey="81" LoVel="115" HiVel="127" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_G#4_RR1_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="3481"/>
+  <sample Root="80" LoKey="80" HiKey="81" LoVel="115" HiVel="127" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_G#4_RR2_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="3408"/>
+  <sample Root="80" LoKey="80" HiKey="81" LoVel="115" HiVel="127" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_G#4_RR3_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="3492"/>
+  <sample Root="80" LoKey="80" HiKey="81" LoVel="115" HiVel="127" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_G#4_RR4_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="3446"/>
+  <sample Root="80" LoKey="80" HiKey="81" LoVel="115" HiVel="127" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_G#4_RR5_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="3481"/>
+  <sample Root="82" LoKey="82" HiKey="83" LoVel="115" HiVel="127" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_A#4_RR1_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="3436"/>
+  <sample Root="82" LoKey="82" HiKey="83" LoVel="115" HiVel="127" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_A#4_RR2_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="3470"/>
+  <sample Root="82" LoKey="82" HiKey="83" LoVel="115" HiVel="127" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_A#4_RR3_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="3481"/>
+  <sample Root="82" LoKey="82" HiKey="83" LoVel="115" HiVel="127" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_A#4_RR4_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="3463"/>
+  <sample Root="82" LoKey="82" HiKey="83" LoVel="115" HiVel="127" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_A#4_RR5_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="5075"/>
+  <sample Root="80" LoKey="80" HiKey="81" LoVel="49" HiVel="119" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_G#4_RR6_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3363"/>
+  <sample Root="80" LoKey="80" HiKey="81" LoVel="49" HiVel="119" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_G#4_RR5_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3366"/>
+  <sample Root="80" LoKey="80" HiKey="81" LoVel="49" HiVel="119" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_G#4_RR4_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3376"/>
+  <sample Root="80" LoKey="80" HiKey="81" LoVel="49" HiVel="119" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_G#4_RR3_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3341"/>
+  <sample Root="80" LoKey="80" HiKey="81" LoVel="49" HiVel="119" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_G#4_RR2_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3381"/>
+  <sample Root="80" LoKey="80" HiKey="81" LoVel="49" HiVel="119" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_G#4_RR1_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3353"/>
+  <sample Root="68" LoKey="68" HiKey="69" LoVel="49" HiVel="119" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_G#3_RR6_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3361"/>
+  <sample Root="68" LoKey="68" HiKey="69" LoVel="49" HiVel="119" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_G#3_RR5_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3374"/>
+  <sample Root="68" LoKey="68" HiKey="69" LoVel="49" HiVel="119" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_G#3_RR4_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3401"/>
+  <sample Root="68" LoKey="68" HiKey="69" LoVel="49" HiVel="119" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_G#3_RR3_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3325"/>
+  <sample Root="68" LoKey="68" HiKey="69" LoVel="49" HiVel="119" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_G#3_RR2_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3382"/>
+  <sample Root="68" LoKey="68" HiKey="69" LoVel="49" HiVel="119" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_G#3_RR1_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3358"/>
+  <sample Root="78" LoKey="78" HiKey="79" LoVel="49" HiVel="119" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_F#4_RR6_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3378"/>
+  <sample Root="78" LoKey="78" HiKey="79" LoVel="49" HiVel="119" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_F#4_RR5_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3353"/>
+  <sample Root="78" LoKey="78" HiKey="79" LoVel="49" HiVel="119" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_F#4_RR4_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3393"/>
+  <sample Root="78" LoKey="78" HiKey="79" LoVel="49" HiVel="119" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_F#4_RR3_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3350"/>
+  <sample Root="78" LoKey="78" HiKey="79" LoVel="49" HiVel="119" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_F#4_RR2_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3378"/>
+  <sample Root="78" LoKey="78" HiKey="79" LoVel="49" HiVel="119" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_F#4_RR1_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3374"/>
+  <sample Root="66" LoKey="66" HiKey="67" LoVel="49" HiVel="119" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_F#3_RR6_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="5152"/>
+  <sample Root="66" LoKey="66" HiKey="67" LoVel="49" HiVel="119" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_F#3_RR5_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="5142"/>
+  <sample Root="66" LoKey="66" HiKey="67" LoVel="49" HiVel="119" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_F#3_RR4_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="5108"/>
+  <sample Root="66" LoKey="66" HiKey="67" LoVel="49" HiVel="119" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_F#3_RR3_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="5142"/>
+  <sample Root="66" LoKey="66" HiKey="67" LoVel="49" HiVel="119" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_F#3_RR2_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="5120"/>
+  <sample Root="66" LoKey="66" HiKey="67" LoVel="49" HiVel="119" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_F#3_RR1_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="5146"/>
+  <sample Root="76" LoKey="76" HiKey="77" LoVel="49" HiVel="119" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_E4_RR6_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3386"/>
+  <sample Root="76" LoKey="76" HiKey="77" LoVel="49" HiVel="119" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_E4_RR5_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3306"/>
+  <sample Root="76" LoKey="76" HiKey="77" LoVel="49" HiVel="119" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_E4_RR4_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3419"/>
+  <sample Root="76" LoKey="76" HiKey="77" LoVel="49" HiVel="119" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_E4_RR3_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3355"/>
+  <sample Root="76" LoKey="76" HiKey="77" LoVel="49" HiVel="119" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_E4_RR2_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3349"/>
+  <sample Root="76" LoKey="76" HiKey="77" LoVel="49" HiVel="119" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_E4_RR1_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3393"/>
+  <sample Root="64" LoKey="64" HiKey="65" LoVel="49" HiVel="119" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_E3_RR6_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="5142"/>
+  <sample Root="64" LoKey="64" HiKey="65" LoVel="49" HiVel="119" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_E3_RR5_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="5129"/>
+  <sample Root="64" LoKey="64" HiKey="65" LoVel="49" HiVel="119" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_E3_RR4_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="5125"/>
+  <sample Root="64" LoKey="64" HiKey="65" LoVel="49" HiVel="119" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_E3_RR3_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="5144"/>
+  <sample Root="64" LoKey="64" HiKey="65" LoVel="49" HiVel="119" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_E3_RR2_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="5108"/>
+  <sample Root="64" LoKey="64" HiKey="65" LoVel="49" HiVel="119" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_E3_RR1_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="5123"/>
+  <sample Root="74" LoKey="74" HiKey="75" LoVel="49" HiVel="119" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_D4_RR6_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3390"/>
+  <sample Root="74" LoKey="74" HiKey="75" LoVel="49" HiVel="119" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_D4_RR5_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3359"/>
+  <sample Root="74" LoKey="74" HiKey="75" LoVel="49" HiVel="119" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_D4_RR4_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3362"/>
+  <sample Root="74" LoKey="74" HiKey="75" LoVel="49" HiVel="119" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_D4_RR3_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3371"/>
+  <sample Root="74" LoKey="74" HiKey="75" LoVel="49" HiVel="119" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_D4_RR2_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3357"/>
+  <sample Root="74" LoKey="74" HiKey="75" LoVel="49" HiVel="119" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_D4_RR1_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3361"/>
+  <sample Root="62" LoKey="62" HiKey="63" LoVel="49" HiVel="119" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_D3_RR6_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="5152"/>
+  <sample Root="62" LoKey="62" HiKey="63" LoVel="49" HiVel="119" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_D3_RR5_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="5151"/>
+  <sample Root="62" LoKey="62" HiKey="63" LoVel="49" HiVel="119" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_D3_RR4_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="5115"/>
+  <sample Root="62" LoKey="62" HiKey="63" LoVel="49" HiVel="119" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_D3_RR3_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="5154"/>
+  <sample Root="62" LoKey="62" HiKey="63" LoVel="49" HiVel="119" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_D3_RR2_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="5122"/>
+  <sample Root="62" LoKey="62" HiKey="63" LoVel="49" HiVel="119" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_D3_RR1_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="5114"/>
+  <sample Root="72" LoKey="72" HiKey="73" LoVel="49" HiVel="119" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_C4_RR6_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3388"/>
+  <sample Root="72" LoKey="72" HiKey="73" LoVel="49" HiVel="119" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_C4_RR5_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3378"/>
+  <sample Root="72" LoKey="72" HiKey="73" LoVel="49" HiVel="119" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_C4_RR4_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3390"/>
+  <sample Root="72" LoKey="72" HiKey="73" LoVel="49" HiVel="119" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_C4_RR3_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3337"/>
+  <sample Root="72" LoKey="72" HiKey="73" LoVel="49" HiVel="119" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_C4_RR2_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3408"/>
+  <sample Root="72" LoKey="72" HiKey="73" LoVel="49" HiVel="119" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_C4_RR1_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3330"/>
+  <sample Root="82" LoKey="82" HiKey="83" LoVel="49" HiVel="119" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_A#4_RR6_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3383"/>
+  <sample Root="82" LoKey="82" HiKey="83" LoVel="49" HiVel="119" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_A#4_RR5_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3349"/>
+  <sample Root="82" LoKey="82" HiKey="83" LoVel="49" HiVel="119" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_A#4_RR4_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3366"/>
+  <sample Root="82" LoKey="82" HiKey="83" LoVel="49" HiVel="119" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_A#4_RR3_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3396"/>
+  <sample Root="82" LoKey="82" HiKey="83" LoVel="49" HiVel="119" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_A#4_RR2_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3353"/>
+  <sample Root="82" LoKey="82" HiKey="83" LoVel="49" HiVel="119" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_A#4_RR1_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3375"/>
+  <sample Root="70" LoKey="70" HiKey="71" LoVel="49" HiVel="119" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_A#3_RR6_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3353"/>
+  <sample Root="70" LoKey="70" HiKey="71" LoVel="49" HiVel="119" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_A#3_RR5_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3382"/>
+  <sample Root="70" LoKey="70" HiKey="71" LoVel="49" HiVel="119" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_A#3_RR4_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3371"/>
+  <sample Root="70" LoKey="70" HiKey="71" LoVel="49" HiVel="119" RRGroup="3"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_A#3_RR3_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3360"/>
+  <sample Root="70" LoKey="70" HiKey="71" LoVel="49" HiVel="119" RRGroup="2"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_A#3_RR2_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3355"/>
+  <sample Root="70" LoKey="70" HiKey="71" LoVel="49" HiVel="119" RRGroup="1"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic3_string4_A#3_RR1_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="5" LowerVelocityXFade="15"
+          SampleStartMod="3383"/>
+  <sample Root="80" LoKey="80" HiKey="81" LoVel="0" HiVel="63" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_G#4_RR6_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3217"/>
+  <sample Root="80" LoKey="80" HiKey="81" LoVel="0" HiVel="63" RRGroup="5"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_G#4_RR5_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3046"/>
+  <sample Root="80" LoKey="80" HiKey="81" LoVel="0" HiVel="63" RRGroup="4"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic1_string4_G#4_RR4_denoise_timealign.wav"
+          Duplicate="1" UpperVelocityXFade="15" SampleStartMod="3124"/>
+  <sample Root="64" LoKey="64" HiKey="65" LoVel="115" HiVel="127" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_E3_RR3_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="5291"/>
+  <sample Root="66" LoKey="66" HiKey="67" LoVel="115" HiVel="127" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_F#3_RR3_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="5199"/>
+  <sample Root="68" LoKey="68" HiKey="69" LoVel="115" HiVel="127" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_G#3_RR3_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="5214"/>
+  <sample Root="72" LoKey="72" HiKey="73" LoVel="115" HiVel="127" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_C4_RR3_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="3491"/>
+  <sample Root="74" LoKey="74" HiKey="75" LoVel="115" HiVel="127" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_D4_RR3_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="3498"/>
+  <sample Root="76" LoKey="76" HiKey="77" LoVel="115" HiVel="127" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_E4_RR3_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="3462"/>
+  <sample Root="78" LoKey="78" HiKey="79" LoVel="115" HiVel="127" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_F#4_RR3_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="3557"/>
+  <sample Root="80" LoKey="80" HiKey="81" LoVel="115" HiVel="127" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_G#4_RR3_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="3492"/>
+  <sample Root="82" LoKey="82" HiKey="83" LoVel="115" HiVel="127" RRGroup="6"
+          FileName="D:\Reaper Projects\Reaper Projects\Batch editing for libraries\Ambersand\timealign exports\ampersand_sustain_dynamic4_string4_A#4_RR3_denoise_timealign.wav"
+          Duplicate="1" LowerVelocityXFade="5" SampleStartMod="3481"/>
+</samplemap>

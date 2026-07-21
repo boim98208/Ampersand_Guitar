@@ -1,0 +1,1147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Processor Type="SynthChain" ID="AmbersandGuitar_Main" Bypassed="0" Gain="1.0"
+           Balance="0.0" VoiceLimit="64.0" KillFadeTime="20.0" IconColour="0"
+           packageName="" BuildVersion="650">
+  <EditorStates BodyShown="0" Visible="1" Solo="0" Folded="1"/>
+  <ChildProcessors>
+    <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
+      <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+      <ChildProcessors>
+        <Processor Type="ScriptProcessor" ID="Interface" Bypassed="0" Script="Globals.forcedHandPositionFret = -1;&#10;Globals.forcedString = -1;&#10;Globals.handPositionFret = 0;&#10;Globals.stringNote1 = -1;&#10;Globals.stringNote2 = -1;&#10;Globals.stringNote3 = -1;&#10;Globals.stringNote4 = -1;&#10;Globals.stringNote5 = -1;&#10;Globals.stringNote6 = -1; &#10;Globals.frettingEngine = 1;&#10;const NOTESPERSTRING = 22;&#10;&#10;&#10;&#10;Globals.string6ActiveRR = &quot;not playing&quot;;&#10;Globals.string5ActiveRR = &quot;not playing&quot;;&#10;Globals.string4ActiveRR = &quot;not playing&quot;;&#10;Globals.string3ActiveRR = &quot;not playing&quot;;&#10;Globals.string2ActiveRR = &quot;not playing&quot;;&#10;Globals.string1ActiveRR = &quot;not playing&quot;;&#10;&#10;&#10;&#10;&#10;const var NUMOFSTRINGS = 6;&#10;&#10;&#10; Content.makeFrontInterface(1020, 600);&#10; &#10;//connecting with fret markers on the UI&#10;&#10;const var NOTESPERSTRING = 22;&#10;Globals.NUMOFSTRINGS = 6;&#10;Globals.pitchBendOffset = 0;&#10;&#10;&#10;&#10;const var handPositionFretLabel = Content.getComponent(&quot;handPositionFretLabel&quot;);&#10;&#10;&#10;&#10;&#10;const var HandPositionFretForceKnob = Content.getComponent(&quot;HandPositionFretForceKnob&quot;);&#10;&#10;inline function handPositionFretForceKnobChange(value){&#10;&#9;&#10;&#9;// - 2 to normalize with the code&#10;&#10;&#9;Globals.forcedHandPositionFret = value - 2;&#10;&#10;&#9;Console.print(Globals.forcedHandPositionFret);&#10;&#10;}&#10;&#10;inline function onHandPositionFretForceKnobControl(component, value)&#10;{&#10;&#9;handPositionFretForceKnobChange(value);&#10;};&#10;&#10;Content.getComponent(&quot;HandPositionFretForceKnob&quot;).setControlCallback(onHandPositionFretForceKnobControl);&#10;&#10;&#10;&#10;const var StringForceKnob = Content.getComponent(&quot;StringForceKnob&quot;);&#10;&#10;&#10;inline function onStringForceKnobControl(component, value)&#10;{&#10;&#9;Globals.forcedString = value - 2;&#10;&#9;Console.print(Globals.forcedString);&#10;};&#10;&#10;Content.getComponent(&quot;StringForceKnob&quot;).setControlCallback(onStringForceKnobControl);&#10;&#10;&#10;&#10;&#10;const var FrettingEngineComboBox = Content.getComponent(&quot;FrettingEngineComboBox&quot;);&#10;&#10;&#10;inline function onFrettingEngineComboBoxControl(component, value)&#10;{&#10;&#9;Globals.frettingEngine = value;&#10;};&#10;&#10;Content.getComponent(&quot;FrettingEngineComboBox&quot;).setControlCallback(onFrettingEngineComboBoxControl);&#10;&#10;&#10;const var StringRRLabel = [Content.getComponent(&quot;String1RRLabel&quot;),&#10;                           Content.getComponent(&quot;String2RRLabel&quot;),&#10;                           Content.getComponent(&quot;String3RRLabel&quot;),&#10;                           Content.getComponent(&quot;String4RRLabel&quot;),&#10;                           Content.getComponent(&quot;String5RRLabel&quot;),&#10;                           Content.getComponent(&quot;String6RRLabel&quot;)];&#10;&#10;&#10;const var DebugPanel = Content.getComponent(&quot;DebugPanel&quot;);&#10;&#10;&#10;&#10;inline function onShowDebugPanelButtonControl(component, value)&#10;{&#10;&#10;&#9;if(value)&#10;&#9;&#9;DebugPanel.set(&quot;visible&quot;, true);&#10;&#9;else&#10;&#9;&#9;DebugPanel.set(&quot;visible&quot;, false);&#10;&#9;&#10;&#9;&#10;};&#10;&#10;Content.getComponent(&quot;ShowDebugPanelButton&quot;).setControlCallback(onShowDebugPanelButtonControl);&#10;&#10;&#10;const var PlayingModeBG = Content.getComponent(&quot;PlayingModeBG&quot;);&#10;&#10;&#10;&#10;&#10;&#10;const var ShowPlayingModeButton = Content.getComponent(&quot;ShowPlayingModeButton&quot;);&#10;&#10;ShowPlayingModeButton.setValue(1);&#10;&#10;inline function onShowPlayingModeButtonControl(component, value)&#10;{&#10;&#9;&#10;&#9;if(ShowPlayingModeButton.getValue() == 0){&#10;&#9;&#9;PlayingModeBG.set(&quot;visible&quot;, 0);&#10;&#9;}else{&#10;&#9;&#9;PlayingModeBG.set(&quot;visible&quot;, 1);&#10;&#9;}&#10;&#10;};&#10;&#10;Content.getComponent(&quot;ShowPlayingModeButton&quot;).setControlCallback(onShowPlayingModeButtonControl);&#10;&#10;&#9;&#10;&#10;namespace stringType&#10;{&#10;&#10;    const var STRING1 = 0;&#10;    const var STRING2 = 1;&#10;    const var STRING3 = 2;&#10;    const var STRING4 = 3;&#10;    const var STRING5 = 4;&#10;    const var STRING6 = 5;&#10;&#10;}&#10;&#10;//setting up fretMarkers&#10;&#10;var fretImages = [];&#10;for (var str = 0; str &lt; Globals.NUMOFSTRINGS; str++){&#10;&#9;&#10;&#9;var row = [];&#10;&#9;&#10;&#9;for (var j = 0; j &lt; NOTESPERSTRING; j++){&#10;&#9;&#9;row.push(Content.getComponent(&quot;String&quot; + (str + 1) + &quot;Fret&quot; + j + &quot;Marker&quot;));&#10;&#9;}&#10;&#9;fretImages.push(row);&#10;}&#10;&#10;&#10;for (var i = 0; i &lt; Globals.NUMOFSTRINGS; i++){&#10;&#9;for (var j = 0; j &lt; NOTESPERSTRING; j++){&#10;&#9;&#9;fretImages[i][j].set(&quot;visible&quot;, false);&#10;&#9;}&#10;}&#10;&#10;&#10;inline function updateStringRRLabels()&#10;{&#10;&#9;//looks like there's a way do global arrays. Look into later&#10;&#10;&#9;StringRRLabel[0].set(&quot;text&quot;, Globals.string1ActiveRR);&#10;&#9;StringRRLabel[1].set(&quot;text&quot;, Globals.string2ActiveRR);&#10;&#9;StringRRLabel[2].set(&quot;text&quot;, Globals.string3ActiveRR);&#10;&#9;StringRRLabel[3].set(&quot;text&quot;, Globals.string4ActiveRR);&#10;&#9;StringRRLabel[4].set(&quot;text&quot;, Globals.string5ActiveRR);&#10;&#9;StringRRLabel[5].set(&quot;text&quot;, Globals.string6ActiveRR);&#10;&#9;&#10;&#9;&#10;}&#10;&#10;&#10;&#10;&#10;inline function hideAll()&#10;{&#10;    for (var i = 0; i &lt; Globals.NUMOFSTRINGS; i++)&#10;        for (var j = 0; j &lt; NOTESPERSTRING; j++)&#10;            fretImages[i][j].set(&quot;visible&quot;, false);&#10;}&#10;&#10;inline function hideString(stringNum){&#10;&#9;for(var j = 0; j &lt; NOTESPERSTRING; j++){&#10;&#9;&#9;fretImages[stringNum][j].set(&quot;visible&quot;, false);&#10;&#9;}&#10;}&#10;&#10;inline function cap(num, limit)&#10;{&#10;&#9; if(num &gt; limit)&#10;&#9; {&#10;&#9;&#9; return limit;&#10;&#9; }else{&#10;&#9;&#9; return num;&#10;&#9; }&#10;}&#10;&#10;inline function keyswitchForceFret(notePlayed, velocity)&#10;{&#10;&#9;local newFretPosition;&#10;&#10;&#9;&#10;&#9;//note to self: figure out how to get knobs to change text when given a keyswitch&#10;&#10;&#9;if(notePlayed == 51)&#10;&#9;{&#10;&#9;Console.print(&quot;keyswitch for fret change is hit&quot;);&#10;&#9;newFretPosition = velocity % 18;&#10;&#10;&#9;&#9;HandPositionFretForceKnob.setValue(newFretPosition);&#10;&#9;&#9;Globals.forcedHandPositionFret = newFretPosition;&#10;&#9;&#9;&#10;&#9;&#9;Console.print(Globals.forcedHandPositionFret);&#10;&#9;&#9;&#10;&#9;&#9;&#10;&#9;}else if(notePlayed == 50)&#10;&#9;{&#10;&#9; Console.print(&quot;keyswitch for auto fret change is hit&quot;);&#10;&#10;&#9;&#9;HandPositionFretForceKnob.setValue(-1);&#10;&#9;&#9;Globals.forcedHandPositionFret = -1;&#10;&#9;&#9;&#10;&#9;}&#10;}&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;function onNoteOn()&#10;{&#10;&#9;&#10;&#9;&#10;&#9;local notePlayed = Message.getNoteNumber();&#10;&#9;local velocityPlayed = Message.getVelocity();&#10;&#9;&#10;&#9;&#10;&#9;keyswitchForceFret(notePlayed, velocityPlayed);&#10;&#9;&#10;&#10;&#9;&#10;&#9;Synth.startTimer(0.05);&#10;&#9;&#10;&#10;}&#10;      function onNoteOff()&#10;{&#10;&#9;Synth.startTimer(0.05);&#10;}&#10; //const var MAX_BEND_PIXELS = 15;&#10;&#10;function onController()&#10;{&#10;&#9;&#10;&#9;//script to move fret markers. Implement later if needed&#10;&#10;&#9;/*&#10;&#10;&#9;var normalized = 0;&#10;&#9;var raw = 0;&#10;&#9;&#10;&#9;if (Message.getControllerNumber() == 128)&#10;&#9;    {&#10;&#9;        raw = Message.getControllerValue();  // 0 to 16383, center = 8192&#10;&#9;&#10;&#9;        // Normalize to -1.0 to +1.0&#10;&#9;        normalized = (raw - 8192) / 8192.0;&#10;&#9;&#10;&#9;        // Convert to pixel offset&#10;&#9;        Globals.pitchBendOffset = normalized * MAX_BEND_PIXELS;&#10;&#9;&#9;&#9;Console.print(Globals.pitchBendOffset);&#10;&#10;&#9;    }&#10;&#9;    &#10;&#9;    */&#10;&#9;    &#10;&#9;&#10;}&#10; function onTimer()&#10;{&#10;&#9;&#10;&#9;hideAll();&#10;&#9;&#10;&#9;if(Globals.stringNote6 &gt;= 52 &amp;&amp; Globals.stringNote6 &lt;= 73){&#10;&#9;&#9;fretImages[stringType.STRING6][Globals.stringNote6 - 52].set(&quot;visible&quot;, true);&#10;&#9;}&#10;&#9;&#10;&#9;if(Globals.stringNote5 &gt;= 57 &amp;&amp; Globals.stringNote5 &lt;= 78){&#10;&#9;&#9;fretImages[stringType.STRING5][Globals.stringNote5 - 57].set(&quot;visible&quot;, true);&#10;&#9;}&#10;&#9;&#10;&#9;if(Globals.stringNote4 &gt;= 62 &amp;&amp; Globals.stringNote4 &lt;= 83){&#10;&#9;&#9;fretImages[stringType.STRING4][Globals.stringNote4 - 62].set(&quot;visible&quot;, true);&#10;&#9;}&#10;&#9;&#10;&#9;if(Globals.stringNote3 &gt;= 67 &amp;&amp; Globals.stringNote3 &lt;= 88){&#10;&#9;&#9;fretImages[stringType.STRING3][Globals.stringNote3 - 67].set(&quot;visible&quot;, true);&#10;&#9;}&#10;&#9;&#10;&#9;if(Globals.stringNote2 &gt;= 71 &amp;&amp; Globals.stringNote2 &lt;= 92){&#10;&#9;&#9;fretImages[stringType.STRING2][Globals.stringNote2 - 71].set(&quot;visible&quot;, true);&#10;&#9;}&#10;&#9;&#10;&#9;if(Globals.stringNote1 &gt;= 76 &amp;&amp; Globals.stringNote1 &lt;= 97){&#10;&#9;&#9;fretImages[stringType.STRING1][Globals.stringNote1 - 76].set(&quot;visible&quot;, true);&#10;&#9;}&#10;&#9;&#10;&#9;handPositionFretLabel.set(&quot;text&quot;, Globals.handPositionFret != -1 ? Globals.handPositionFret : &quot;&quot;);&#10;&#9;&#10;&#9;updateStringRRLabels();&#10;&#9;&#10;&#9;&#10;&#9;&#10;&#9;&#10;&#9;&#10;&#9;&#10;}&#10; function onControl(number, value)&#10;{&#10;&#9;&#10;}&#10; ">
+          <EditorStates BodyShown="1" Visible="1" Solo="0" contentShown="1" onInitOpen="1"/>
+          <ChildProcessors/>
+          <Content>
+            <Control type="ScriptSlider" id="HandPositionFretForceKnob" value="5.0"/>
+            <Control type="ScriptSlider" id="StringForceKnob" value="1.0"/>
+            <Control type="ScriptComboBox" id="FrettingEngineComboBox" value="1.0"/>
+            <Control type="ScriptButton" id="ShowPlayingModeButton" value="1.0"/>
+            <Control type="ScriptButton" id="ShowArticulationsButton" value="0.0"/>
+            <Control type="ScriptButton" id="ShowDebugPanelButton" value="1.0"/>
+          </Content>
+          <UIData>
+            <ContentProperties DeviceType="Desktop">
+              <Component type="ScriptImage" id="PlayingModeBG" x="0.0" y="0.0" width="1020.0"
+                         height="800.0" fileName="{PROJECT_FOLDER}PlayingMode_BG.png"
+                         scale="0.699999988079071">
+                <Component type="ScriptPanel" id="PerformanceOptionsPanel" x="10.0" y="370.0"
+                           height="195.0" width="436.0" itemColour="0" itemColour2="0" bgColour="16777215"
+                           textColour="16777215" borderSize="0.0" parentComponent="PlayingModeBG">
+                  <Component type="ScriptSlider" id="HandPositionFretForceKnob" x="224.0"
+                             y="12.0" text="Fret: Auto" width="726.0" mode="Discrete" stepSize="1.0"
+                             middlePosition="10.0" min="1.0" max="19.0" parentComponent="PerformanceOptionsPanel"
+                             filmstripImage="{PROJECT_FOLDER}ForceFretPosition_Knob_Filmstrip.png"
+                             height="47.0" scaleFactor="0.25" numStrips="19.0" mouseSensitivity="0.699999988079071"
+                             showValuePopup="Above"/>
+                  <Component type="ScriptSlider" id="StringForceKnob" x="224.0" y="62.0" width="185.0"
+                             text="string: 6.0" mode="Discrete" stepSize="1.0" middlePosition="4.0"
+                             max="7.0" min="1.0" defaultValue="1.0" parentComponent="PerformanceOptionsPanel"
+                             filmstripImage="{PROJECT_FOLDER}ForceString_Knob_Filmstrip.png"
+                             numStrips="7.0" scaleFactor="0.25" mouseSensitivity="0.699999988079071"
+                             showValuePopup="Below"/>
+                  <Component type="ScriptComboBox" id="FrettingEngineComboBox" x="230.0" y="122.0"
+                             max="2" items="Natural&#10;Melody" enableMidiLearn="1" parentComponent="PerformanceOptionsPanel"/>
+                  <Component type="ScriptLabel" id="FrettingModeLabel" x="50.0" y="122.0"
+                             width="130.0" height="30.0" text="Fretting Mode:" fontSize="28.0"
+                             parentComponent="PerformanceOptionsPanel" visible="0" enabled="0"/>
+                  <Component type="ScriptLabel" id="ForceStringTextLabel" x="30.0" y="72.0"
+                             parentComponent="PerformanceOptionsPanel" fontSize="30.0" text="Force String:"
+                             width="189.0" visible="0" enabled="0"/>
+                  <Component type="ScriptLabel" id="ForceFretPositionLabel" x="10.0" y="12.0"
+                             parentComponent="PerformanceOptionsPanel" text="Force Fret Position:"
+                             fontSize="30.0" width="210.0" height="30.0" visible="0" enabled="0"/>
+                </Component>
+                <Component type="ScriptPanel" id="String6FretMarkers" x="1.0" y="322.0"
+                           width="1020.0" height="54.0" parentComponent="PlayingModeBG"
+                           itemColour="0" itemColour2="0" textColour="16777215" bgColour="16777215">
+                  <Component type="ScriptImage" id="String6Fret0Marker" x="264.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String6FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String6Fret1Marker" x="289.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String6FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String6Fret2Marker" x="327.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String6FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String6Fret3Marker" x="359.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String6FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String6Fret4Marker" x="390.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String6FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String6Fret5Marker" x="415.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String6FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String6Fret6Marker" x="440.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String6FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String6Fret7Marker" x="460.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String6FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String6Fret9Marker" x="496.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="ScriptPanel1" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String6Fret11Marker" x="530.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="ScriptPanel1" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String6Fret13Marker" x="562.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="ScriptPanel1" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String6Fret15Marker" x="595.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="ScriptPanel1" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String6Fret17Marker" x="630.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="ScriptPanel1" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String6Fret19Marker" x="661.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="ScriptPanel1" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String6Fret21Marker" x="685.0" y="17.0"
+                             width="11.0" height="17.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="ScriptPanel1" text="" visible="0"/>
+                </Component>
+                <Component type="ScriptPanel" id="String5FretMarkers" x="1.0" y="313.0"
+                           width="1020.0" height="54.0" parentComponent="PlayingModeBG"
+                           itemColour="0" itemColour2="0" textColour="16777215" bgColour="16777215">
+                  <Component type="ScriptImage" id="String5Fret0Marker" x="264.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String5FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String5Fret1Marker" x="289.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String5FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String5Fret2Marker" x="327.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String5FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String5Fret3Marker" x="359.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String5FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String5Fret4Marker" x="390.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String5FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String5Fret5Marker" x="415.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String5FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String5Fret6Marker" x="440.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String5FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String5Fret7Marker" x="460.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String5FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String5Fret9Marker" x="496.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="ScriptPanel1" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String5Fret11Marker" x="530.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="ScriptPanel1" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String5Fret13Marker" x="562.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="ScriptPanel1" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String5Fret15Marker" x="595.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="ScriptPanel1" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String5Fret17Marker" x="630.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="ScriptPanel1" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String5Fret19Marker" x="661.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="ScriptPanel1" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String5Fret21Marker" x="685.0" y="17.0"
+                             width="11.0" height="17.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="ScriptPanel1" text="" visible="0"/>
+                </Component>
+                <Component type="ScriptPanel" id="String4FretMarkers" x="1.0" y="305.0"
+                           width="1020.0" height="54.0" parentComponent="PlayingModeBG"
+                           itemColour="0" itemColour2="0" textColour="16777215" bgColour="16777215">
+                  <Component type="ScriptImage" id="String4Fret0Marker" x="264.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String4FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String4Fret1Marker" x="289.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String4FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String4Fret2Marker" x="327.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String4FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String4Fret3Marker" x="359.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String4FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String4Fret4Marker" x="390.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String4FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String4Fret5Marker" x="415.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String4FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String4Fret6Marker" x="440.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String4FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String4Fret7Marker" x="460.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String4FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String4Fret9Marker" x="496.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="ScriptPanel1" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String4Fret11Marker" x="530.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="ScriptPanel1" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String4Fret13Marker" x="562.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="ScriptPanel1" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String4Fret15Marker" x="595.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="ScriptPanel1" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String4Fret17Marker" x="630.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="ScriptPanel1" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String4Fret19Marker" x="661.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="ScriptPanel1" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String4Fret21Marker" x="685.0" y="17.0"
+                             width="11.0" height="17.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="ScriptPanel1" text="" visible="0"/>
+                </Component>
+                <Component type="ScriptPanel" id="String3FretMarkers" x="1.0" y="296.0"
+                           width="1020.0" height="54.0" parentComponent="PlayingModeBG"
+                           itemColour="0" itemColour2="0" textColour="16777215" bgColour="16777215">
+                  <Component type="ScriptImage" id="String3Fret0Marker" x="264.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String3FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String3Fret1Marker" x="289.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String3FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String3Fret2Marker" x="327.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String3FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String3Fret3Marker" x="359.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String3FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String3Fret4Marker" x="390.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String3FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String3Fret5Marker" x="415.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String3FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String3Fret6Marker" x="440.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String3FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String3Fret7Marker" x="460.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String3FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String3Fret9Marker" x="496.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="ScriptPanel1" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String3Fret11Marker" x="530.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="ScriptPanel1" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String3Fret13Marker" x="562.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="ScriptPanel1" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String3Fret15Marker" x="595.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="ScriptPanel1" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String3Fret17Marker" x="630.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="ScriptPanel1" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String3Fret19Marker" x="661.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="ScriptPanel1" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String3Fret21Marker" x="685.0" y="17.0"
+                             width="11.0" height="17.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="ScriptPanel1" text="" visible="0"/>
+                </Component>
+                <Component type="ScriptPanel" id="String2FretMarkers" x="1.0" y="288.0"
+                           width="1020.0" height="54.0" parentComponent="PlayingModeBG"
+                           itemColour="0" itemColour2="0" textColour="16777215" bgColour="16777215">
+                  <Component type="ScriptImage" id="String2Fret0Marker" x="264.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String2FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String2Fret1Marker" x="289.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String2FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String2Fret2Marker" x="327.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String2FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String2Fret3Marker" x="359.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String2FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String2Fret4Marker" x="390.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String2FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String2Fret5Marker" x="415.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String2FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String2Fret6Marker" x="440.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String2FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String2Fret7Marker" x="460.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String2FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String2Fret9Marker" x="496.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="ScriptPanel1" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String2Fret11Marker" x="530.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="ScriptPanel1" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String2Fret13Marker" x="562.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="ScriptPanel1" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String2Fret15Marker" x="595.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="ScriptPanel1" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String2Fret17Marker" x="630.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="ScriptPanel1" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String2Fret19Marker" x="661.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="ScriptPanel1" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String2Fret21Marker" x="685.0" y="17.0"
+                             width="11.0" height="17.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="ScriptPanel1" text="" visible="0"/>
+                </Component>
+                <Component type="ScriptPanel" id="String1FretMarkers" x="1.0" y="279.0"
+                           width="1020.0" height="54.0" parentComponent="PlayingModeBG"
+                           itemColour="0" itemColour2="0" textColour="16777215" bgColour="16777215">
+                  <Component type="ScriptImage" id="String1Fret0Marker" x="264.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String1FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String1Fret1Marker" x="289.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String1FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String1Fret2Marker" x="327.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String1FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String1Fret3Marker" x="359.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String1FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String1Fret4Marker" x="390.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String1FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String1Fret5Marker" x="415.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String1FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String1Fret6Marker" x="440.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String1FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String1Fret7Marker" x="460.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="String1FretMarkers" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String1Fret9Marker" x="496.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="ScriptPanel1" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String1Fret11Marker" x="530.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="ScriptPanel1" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String1Fret13Marker" x="562.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="ScriptPanel1" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String1Fret15Marker" x="595.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="ScriptPanel1" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String1Fret17Marker" x="630.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="ScriptPanel1" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String1Fret19Marker" x="661.0" y="17.0"
+                             width="11.0" height="40.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="ScriptPanel1" text="" visible="0"/>
+                  <Component type="ScriptImage" id="String1Fret21Marker" x="685.0" y="17.0"
+                             width="11.0" height="17.0" fileName="{PROJECT_FOLDER}PlayingMode_FretIndicator.png"
+                             parentComponent="ScriptPanel1" text="" visible="0"/>
+                </Component>
+              </Component>
+              <Component type="ScriptPanel" id="DebugPanel" x="40.0" y="0.0" itemColour="0"
+                         itemColour2="0" bgColour="16777215" textColour="16777215" borderSize="0.0"
+                         width="936.0" height="120.0">
+                <Component type="ScriptImage" id="NerdDetails_BG" x="160.0" y="10.0" width="597.0"
+                           height="100.0" parentComponent="DebugPanel" fileName="{PROJECT_FOLDER}PlayingMode_NerdDetails_BG.png"/>
+                <Component type="ScriptLabel" id="handPositionFretLabel" x="545.0" y="16.0"
+                           width="39.0" fontSize="20.0" height="13.0" text="5" parentComponent="DebugPanel"
+                           textColour="4278190080"/>
+                <Component type="ScriptLabel" id="HandPositionFretTextLabel" x="20.0" y="20.0"
+                           text="Hand Fret Position:" fontSize="20.0" width="137.0" parentComponent="DebugPanel"
+                           textColour="4278190080" visible="0"/>
+                <Component type="ScriptLabel" id="String1RRLabel" x="655.0" y="57.0" width="100.0"
+                           height="21.0" parentComponent="DebugPanel" text="not playing"
+                           textColour="4278190080" fontSize="16.0"/>
+                <Component type="ScriptLabel" id="String2RRLabel" x="557.0" y="57.0" width="100.0"
+                           height="21.0" parentComponent="DebugPanel" text="not playing"
+                           textColour="4278190080" fontSize="16.0"/>
+                <Component type="ScriptLabel" id="String3RRLabel" x="457.0" y="57.0" width="100.0"
+                           height="21.0" parentComponent="DebugPanel" text="not playing"
+                           textColour="4278190080" fontSize="16.0"/>
+                <Component type="ScriptLabel" id="String4RRLabel" x="359.0" y="57.0" width="100.0"
+                           height="21.0" parentComponent="DebugPanel" text="not playing"
+                           textColour="4278190080" fontSize="16.0"/>
+                <Component type="ScriptLabel" id="String5RRLabel" x="262.0" y="57.0" width="100.0"
+                           height="21.0" parentComponent="DebugPanel" text="not playing"
+                           textColour="4278190080" fontSize="16.0"/>
+                <Component type="ScriptLabel" id="String6RRLabel" x="161.0" y="57.0" width="100.0"
+                           height="21.0" parentComponent="DebugPanel" text="not playing"
+                           textColour="4278190080" fontSize="16.0"/>
+                <Component type="ScriptLabel" id="DebugPanelRRLabel" x="30.0" y="50.0" width="141.0"
+                           height="41.0" parentComponent="DebugPanel" text="RR Display For Each String"
+                           alignment="left" textColour="4278190080" enabled="0" visible="0"/>
+                <Component type="ScriptLabel" id="DebugPanelString6RRLabel" x="0.0" y="110.0"
+                           parentComponent="DebugPanel" text="String 6" textColour="4278190080"
+                           visible="0"/>
+                <Component type="ScriptLabel" id="DebugPanelString5RRLabel" x="110.0" y="110.0"
+                           parentComponent="DebugPanel" text="String 5" textColour="4278190080"
+                           visible="0"/>
+                <Component type="ScriptLabel" id="DebugPanelString4RRLabel" x="230.0" y="110.0"
+                           parentComponent="DebugPanel" text="String 4" textColour="4278190080"
+                           visible="0"/>
+                <Component type="ScriptLabel" id="DebugPanelString3RRLabel" x="340.0" y="110.0"
+                           parentComponent="DebugPanel" text="String 3" textColour="4278190080"
+                           visible="0"/>
+                <Component type="ScriptLabel" id="DebugPanelString2RRLabel" x="460.0" y="110.0"
+                           parentComponent="DebugPanel" text="String 2" textColour="4278190080"
+                           visible="0"/>
+                <Component type="ScriptLabel" id="DebugPanelString1RRLabel" x="580.0" y="110.0"
+                           parentComponent="DebugPanel" text="String 1" textColour="4278190080"
+                           visible="0"/>
+              </Component>
+              <Component type="ScriptButton" id="ShowPlayingModeButton" x="259.0" y="538.0"
+                         text="Show Main Playing Controls" width="188.0" filmstripImage="{PROJECT_FOLDER}PlayingMode_Button_Filmstrip.png"
+                         scaleFactor="0.3149999976158142" defaultValue="1.0" height="28.0"/>
+              <Component type="ScriptButton" id="ShowArticulationsButton" x="423.0" y="538.0"
+                         text="Show Main Playing Controls" width="202.0" filmstripImage="{PROJECT_FOLDER}Articulations_Button_Filmstrip.png"
+                         scaleFactor="0.3149999976158142"/>
+              <Component type="ScriptButton" id="ShowDebugPanelButton" x="613.0" y="538.0"
+                         text="Show Performance Details" width="197.0" filmstripImage="{PROJECT_FOLDER}NerdDetails_Button_Filmstrip.png"
+                         scaleFactor="0.3149999976158142"/>
+            </ContentProperties>
+          </UIData>
+        </Processor>
+        <Processor Type="ScriptProcessor" ID="FretDisplayScript" Bypassed="0" Script=" function onNoteOn()&#10;{&#10;&#9;&#10;}&#10; function onNoteOff()&#10;{&#10;&#9;&#10;}&#10; function onController()&#10;{&#10;&#9;&#10;}&#10; function onTimer()&#10;{&#10;&#9;&#10;}&#10; function onControl(number, value)&#10;{&#10;&#9;&#10;}&#10; ">
+          <EditorStates BodyShown="1" Visible="1" Solo="0" contentShown="1" onInitOpen="1"/>
+          <ChildProcessors/>
+          <Content/>
+          <UIData>
+            <ContentProperties DeviceType="Desktop"/>
+          </UIData>
+        </Processor>
+      </ChildProcessors>
+    </Processor>
+    <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
+      <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+      <ChildProcessors/>
+    </Processor>
+    <Processor Type="ModulatorChain" ID="PitchModulation" Bypassed="1" Intensity="0.0">
+      <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+      <ChildProcessors/>
+    </Processor>
+    <Processor Type="EffectChain" ID="FX" Bypassed="0">
+      <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+      <ChildProcessors/>
+    </Processor>
+    <Processor Type="SynthChain" ID="Container0" Bypassed="0" Gain="1.0" Balance="0.0"
+               VoiceLimit="256.0" KillFadeTime="20.0" IconColour="0">
+      <EditorStates BodyShown="0" Visible="1" Solo="0" Folded="1"/>
+      <ChildProcessors>
+        <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
+          <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+          <ChildProcessors>
+            <Processor Type="ScriptProcessor" ID="FrettingEngine" Bypassed="0" Script=" const var POSINFINITY = 1/0;&#10; &#10; const var NUMOFSTRINGS = Globals.NUMOFSTRINGS;&#10; const var LOWESTNOTE = 52;&#10; const var HIGHESTNOTE = 97;&#10; &#10; const var OPENSTRING6NOTE = 52;&#10; const var OPENSTRING5NOTE = 57;&#10; const var OPENSTRING4NOTE = 62;&#10; const var OPENSTRING3NOTE = 67;&#10; const var OPENSTRING2NOTE = 71;&#10; const var OPENSTRING1NOTE = 76;&#10; &#10; const var NOTESPERSTRING = 22;&#10; &#10; const var OPENSTRINGNONOTE = POSINFINITY;&#10; &#10; const var OPENSTRINGNOTES = [OPENSTRING1NOTE, OPENSTRING2NOTE, OPENSTRING3NOTE, OPENSTRING4NOTE, OPENSTRING5NOTE, OPENSTRING6NOTE];&#10; &#10; OPENSTRINGNOTES.push(OPENSTRINGNONOTE);&#10;&#10;&#10;&#10; &#10; namespace Stringtype&#10; {&#10; &#10;     const var STRING1 = 0;&#10;     const var STRING2 = 1;&#10;     const var STRING3 = 2;&#10;     const var STRING4 = 3;&#10;     const var STRING5 = 4;&#10;     const var STRING6 = 5;&#10;     const var NOSTRING = 6;&#10; &#10; }&#10; &#10; namespace FrettingEngine&#10; {&#10;&#9;//make sure this lines up with the item list from the combo box&#10;&#10; &#9;const var NATURAL = 1;&#10; &#9;const var MELODY = 2;&#10; }&#10; &#10; &#10; const var string6Mute = Synth.getMidiProcessor(&quot;Container0String6Mute&quot;);&#10; const var string5Mute = Synth.getMidiProcessor(&quot;Container0String5Mute&quot;);&#10; const var string4Mute = Synth.getMidiProcessor(&quot;Container0String4Mute&quot;);&#10; const var string3Mute = Synth.getMidiProcessor(&quot;Container0String3Mute&quot;);&#10; const var string2Mute = Synth.getMidiProcessor(&quot;Container0String2Mute&quot;);&#10; const var string1Mute = Synth.getMidiProcessor(&quot;Container0String1Mute&quot;);&#10; &#10;/*&#10; string6Mute.setAttribute(&quot;Bypass&quot;, true);&#10; string5Mute.setAttribute(&quot;Bypass&quot;, true);&#10; string4Mute.setAttribute(&quot;Bypass&quot;, true);&#10; string3Mute.setAttribute(&quot;Bypass&quot;, true);&#10; string2Mute.setAttribute(&quot;Bypass&quot;, true);&#10; string1Mute.setAttribute(&quot;Bypass&quot;, true);&#10; */&#10; &#10; //variables to correspond with the Fretdisplay&#10; Globals.stringNote1 = -1;&#10; Globals.stringNote2 = -1;&#10; Globals.stringNote3 = -1;&#10; Globals.stringNote4 = -1;&#10; Globals.stringNote5 = -1;&#10; Globals.stringNote6 = -1;&#10; Globals.handPositionFret = 0;&#10;&#10; /*&#10;     stringNotes holds the note played by each string&#10;    on each index. Index 0 holds note played by string 1 &#10;    (the high string) while index 5 holds note played by&#10;    string 5 (the low string)&#10; */&#10;var stringNote = [];&#10;stringNote.reserve(NUMOFSTRINGS);&#10;for(i = 0; i &lt; NUMOFSTRINGS; i++){&#10;&#9;stringNote.push(-1);&#10;}&#10;&#10;//one more push to make up for the &quot;NOSTRING&quot; and not go out of bounds&#10;stringNote.push(POSINFINITY);&#10;&#10;&#10;//this is where the leftmost part of the virtual guitarist's hand is&#10;&#10;&#10;&#10;//functions to ensure only one sampler plays a voice at a time&#10;&#10;&#10;//setAttributes might be redundant right now but I'm too scared of it breaking&#10;//so I'll leave it there for now&#10;&#10;/*&#10;inline function playString6(){ &#10;string6Mute.setAttribute(&quot;Bypass&quot;, false);&#10;Message.setChannel(6); &#10;}&#10;&#10;inline function playString5(){ &#10;string5Mute.setAttribute(&quot;Bypass&quot;, false);&#10;Message.setChannel(5); }&#10;&#10;inline function playString4(){&#10;string4Mute.setAttribute(&quot;Bypass&quot;, false);&#10; Message.setChannel(4); }&#10;&#10;inline function playString3(){&#10;string3Mute.setAttribute(&quot;Bypass&quot;, false);&#10; Message.setChannel(3); }&#10;&#10;inline function playString2(){&#10;&#9;string2Mute.setAttribute(&quot;Bypass&quot;, false);&#10; Message.setChannel(2); }&#10;&#10;inline function playString1(){ &#10;string1Mute.setAttribute(&quot;Bypass&quot;, false);&#10;Message.setChannel(1); }&#10;*/&#10;&#10;&#10;//this should only take the Stringtype enum&#10;inline function playString(theStringType){&#10;&#9;&#10;&#9;//adding 1 because the enum starts on 0 but channels start on 1&#10;&#9;Message.setChannel(theStringType + 1);&#10;}&#10; &#10; &#10; &#10; inline function isBetweenIncl(num, lowBound, highBound){&#10; &#9; return num &gt;= lowBound &amp;&amp; num &lt;= highBound;&#10; }&#10; &#10;&#10; &#10; inline function updateGlobals(){&#10;&#9; Globals.stringNote1 = stringNote[Stringtype.STRING1];&#10;&#9; Globals.stringNote2 = stringNote[Stringtype.STRING2];&#10;&#9; Globals.stringNote3 = stringNote[Stringtype.STRING3];&#10;&#9; Globals.stringNote4 = stringNote[Stringtype.STRING4];&#10;&#9; Globals.stringNote5 = stringNote[Stringtype.STRING5];&#10;&#9; Globals.stringNote6 = stringNote[Stringtype.STRING6];&#10; }&#10; &#10; inline function isPolyphonyPlaying(){&#10;&#9; return Synth.getNumPressedKeys() &gt;= 1;&#10; }&#10; &#10; //fretting engine designed for going low to high string then going back down&#10; //use primarily for quick debugging &#10; &#10; inline function primitiveFretting(notePlayed){&#10; &#10;&#9; if (stringNote[Stringtype.STRING6] == -1){&#10;&#9; &#9;playString6();&#10;&#9; &#9;stringNote[Stringtype.STRING6] = notePlayed;&#10;&#9; &#9;updateGlobals();&#10;&#9; &#9;return;&#10;&#9; }else if (stringNote[Stringtype.STRING5] == -1){&#10;&#9; &#9;playString5();&#10;&#9; &#9;stringNote[Stringtype.STRING5] = notePlayed;&#10;&#9; &#9;updateGlobals();&#10;&#9; &#9;return;&#10;&#9; }else if (stringNote[Stringtype.STRING4] == -1){&#10;&#9; &#9;playString4();&#10;&#9; &#9;stringNote[Stringtype.STRING4] = notePlayed;&#10;&#9; &#9;updateGlobals();&#10;&#9; &#9;return;&#10;&#9; }else if (stringNote[Stringtype.STRING3] == -1){&#10;&#9; &#9;playString3();&#10;&#9; &#9;stringNote[Stringtype.STRING3] = notePlayed;&#10;&#9; &#9;updateGlobals();&#10;&#9; &#9;return;&#10;&#9; }else if (stringNote[Stringtype.STRING2] == -1){&#10;&#9; &#9;playString2();&#10;&#9; &#9;stringNote[Stringtype.STRING2] = notePlayed;&#10;&#9; &#9;updateGlobals();&#10;&#9; &#9;return;&#10;&#9; }else if (stringNote[Stringtype.STRING1] == -1){&#10;&#9; &#9;playString1();&#10;&#9; &#9;stringNote[Stringtype.STRING1] = notePlayed;&#10;&#9; &#9;updateGlobals();&#10;&#9; &#9;return;&#10;&#9; }&#10;&#9; &#10;&#9; &#10; }&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;/* &#10;The main logic for the &quot;Natural&quot; fretting mode in polyphony&#10;*/&#10;inline function stringWithClosestNote(notePlayed, currentHandPos){&#10;&#9;&#10;&#9;local currString = Stringtype.NOSTRING;&#10;&#9;//arbitrary big number to replace later&#10;&#9;local currDist = POSINFINITY;&#10;&#9;local distToCompare;&#10;&#9;&#10;&#9;for(i = NUMOFSTRINGS - 1; i &gt; -1; i--){&#10;&#9;&#9;if(stringNote[i] == -1 &amp;&amp; isBetweenIncl(notePlayed, OPENSTRINGNOTES[i], OPENSTRINGNOTES[i] + NOTESPERSTRING)){&#10;&#9;&#9;&#10;&#9;&#9;&#10;&#9;&#9;// the - 2 fixes it for some reason. It seems that without it the system just straight up misses notes&#10;&#9;&#9;&#10;&#9;&#9;distToCompare = Math.abs((notePlayed - OPENSTRINGNOTES[i] - 2) - currentHandPos);&#10;&#9;&#9;&#10;&#9;Console.print(currentHandPos);&#10;&#9;&#9;&#10;&#9;&#9;&#9;if(Math.min(currDist, distToCompare) == distToCompare)&#10;&#9;&#9;&#9;{&#10;&#9;&#9;&#9;&#9;currString = i;&#10;&#9;&#9;&#9;&#9;currDist = distToCompare;&#10;&#9;&#9;&#9;}&#10;&#9;&#9;}&#10;&#9;}&#10;&#9;&#10;&#9;return currString;&#10;&#9;&#10;&#9;&#10;}&#10;&#10;/* &#10;The main logic for the &quot;Melody&quot; fretting mode&#10;*/&#10;inline function stringWithMelodyNote(notePlayed, currentHandPos)&#10;{&#10;&#9;&#10;&#9;&#10;&#9;local currString = Stringtype.NOSTRING;&#10;&#9;//arbitrary big number to replace later&#10;&#9;local currDist = POSINFINITY;&#10;&#9;local distToCompare;&#10;&#9;&#10;&#9;for(i = NUMOFSTRINGS - 1; i &gt; -1; i--)&#10;&#9;{&#10;&#9;&#9;if(stringNote[i] == -1 &amp;&amp; isBetweenIncl(notePlayed, OPENSTRINGNOTES[i], OPENSTRINGNOTES[i] + NOTESPERSTRING)){&#10;&#9;&#9;&#10;&#9;&#9;&#10;&#9;&#9;// the - 2 fixes it for some reason. It seems that without it the system just straight up misses notes&#10;&#9;&#9;distToCompare = Math.abs((notePlayed - OPENSTRINGNOTES[i] - 2) - currentHandPos);&#10;&#9;&#10;&#9;&#9;&#10;&#9;&#9;&#10;&#9;&#9;&#9;if(Math.min(currDist - (i* 2), distToCompare) == distToCompare){&#10;&#9;&#9;&#9;&#9;currString = i;&#10;&#9;&#9;&#9;&#9;currDist = distToCompare;&#10;&#9;&#9;&#9;}&#10;&#9;&#9;}&#10;&#9;}&#10;&#9;&#10;&#9;return currString;&#10;}&#10;&#10;&#10;inline function forceStringLogic(notePlayed, currentHandPos, fretSpaceToChange)&#10;{&#10;&#10;&#9;local newFretFromForceString;&#10;&#9;local distanceBetweenForceAndAutoFret;&#10;&#10;&#9;if(isBetweenIncl(notePlayed, OPENSTRINGNOTES[Globals.forcedString], OPENSTRINGNOTES[Globals.forcedString] + (NOTESPERSTRING - 1)) &amp;&amp; stringNote[Globals.forcedString] == -1)&#10;&#9;{&#10;&#9;&#10;&#9;&#10;&#9;&#10;&#9;stringNote[Globals.forcedString] = notePlayed; &#10;&#9;updateGlobals(); &#10;&#9;playString(Globals.forcedString);&#10;&#9;&#10;&#9;newFretFromForceString = notePlayed - OPENSTRINGNOTES[Globals.forcedString];&#10;&#9;distanceBetweenForceAndAutoFret = Math.abs(newFretFromForceString - currentHandPos);&#10;&#9;&#10;&#9;//changes fret position if forceString's frets go a certain distance&#10;&#9;if(distanceBetweenForceAndAutoFret &lt; fretSpaceToChange)&#10;&#9;&#9;{&#10;&#9;&#9;return currentHandPos;&#10;&#9;&#9;}&#10;&#9;else&#10;&#9;&#9;{&#10;&#9;&#9;if(newFretFromForceString &gt; 17)&#10;&#9;&#9;&#9;return 17;&#10;&#9;&#9;else&#10;&#9;&#9;&#9;return newFretFromForceString;&#10;&#9;&#9;}&#10;&#9;&#9;&#10;&#9;}&#10;&#9;&#10;}&#10;&#10;&#10;&#10;&#10;/* &#10;fretting choice to be as close as possible to the fret position. &#10;Designed for leads interspersed with chords or simple voicings in the &quot;Natural&quot; fretting mode&#10;Will change fret position if polyphony leads to a really far fret&#10;*/&#10;&#10;inline function naturalFretting2_2_1(notePlayed, currentHandPos)&#10;{&#10;&#9;&#10;&#10;&#9;local distBetweenNewFretAndAutoFret = 0;&#10;&#9;local newFretFromPolyphony;&#10;&#9;local fretSpaceToChange = 2;&#10;&#9;local stringToPlay;&#10;&#9;&#10;&#9;if(!isBetweenIncl(notePlayed, LOWESTNOTE, HIGHESTNOTE)){&#10;&#9;    return currentHandPos;&#10;&#9;}&#10;&#9;&#10;&#9;&#10;&#9;//Going to force string mode&#10;&#9;if(Globals.forcedString != -1)&#10;&#9;{&#10;&#10;&#9;&#9;if(isBetweenIncl(notePlayed, OPENSTRINGNOTES[Globals.forcedString], OPENSTRINGNOTES[Globals.forcedString] + NOTESPERSTRING - 1) &amp;&amp; stringNote[Globals.forcedString] == -1)&#10;&#9;&#9;{&#10;&#9;&#9;&#10;&#9;&#9;&#9;return forceStringLogic(notePlayed, currentHandPos, fretSpaceToChange);&#10;&#9;&#9;&#9;&#10;&#9;&#9;}&#10;&#9;}&#10;&#9;&#10;&#9;&#10;&#9;//no forced string and therefore just goes as normal&#10;&#9;&#10;&#9;&#10;&#9;stringToPlay = stringWithClosestNote(notePlayed, currentHandPos);&#10;&#9;stringNote[stringToPlay] = notePlayed;&#10;&#9;playString(stringToPlay);&#10;&#9;&#10;&#9;updateGlobals();&#10;&#9;&#10;&#9;&#10;&#9;//when there's polyphony, virtual guitarist moves hand to wherever the biggest change in pos is&#10;&#9;if(Synth.getNumPressedKeys() &gt;= 2){&#10;&#9;newFretFromPolyphony = stringNote[stringToPlay] - OPENSTRINGNOTES[stringToPlay];&#10;&#9;distBetweenNewFretAndAutoFret = Math.abs(newFretFromPolyphony - currentHandPos);&#10;&#9;}else{&#10;&#9;&#10;&#9;&#10;&#9;&#9;if(stringToPlay == Stringtype.STRING1){&#10;&#9;&#9;&#9;if(notePlayed - currentHandPos &lt; OPENSTRING1NOTE + 5)&#10;&#9;            return currentHandPos;&#10;&#9;        else&#10;&#9;            return notePlayed - OPENSTRING1NOTE - 4;&#10;&#9;&#9;}&#10;&#9;&#9;&#10;&#9;&#9;if(stringToPlay == Stringtype.STRING6){&#10;&#9;&#9;&#9;if(notePlayed &lt; currentHandPos + OPENSTRING6NOTE)&#10;&#9;&#9;&#9;            return notePlayed - OPENSTRING6NOTE;&#10;&#9;&#9;}&#10;&#9;&#10;&#9;}&#10;&#9;&#10;&#9;//I dont really understand why, but + 2 seems like a number that makes this work&#10;&#9;&#10;&#9;if(distBetweenNewFretAndAutoFret &lt; fretSpaceToChange + 2)&#10;&#9;{&#10;&#10;&#9;&#9;return currentHandPos;&#10;&#9;}else&#10;&#9;{&#10;&#10;&#9;&#9;&#9;return cap(notePlayed - OPENSTRINGNOTES[stringToPlay], NOTESPERSTRING - 5);&#10;&#9;&#9;&#10;&#9;}&#10;&#10;&#9;&#10;}&#10;&#10;&#10;/* &#10;fretting choice that likes to lean more to being on the same string. &#10;Designed for timbre jumps in lead or melody playing, especially when monophonic. &#10;&#10;Stiiiiill kinda rough tho. It likes to skip strings a little too much it seems. &#10;The logic on choosing between strings needs to weigh the closer strings more than the closest fret&#10;*/&#10;&#10;inline function melodyFretting1_0_0(notePlayed, currentHandPos)&#10;{&#10;&#9;&#10;&#9;local distBetweenNewFretAndAutoFret = 0;&#10;&#9;local newFretFromPolyphony;&#10;&#9;local fretSpaceToChange = 5;&#10;&#9;local stringToPlay;&#10;&#9;&#10;&#9;if(!isBetweenIncl(notePlayed, LOWESTNOTE, HIGHESTNOTE)){&#10;&#9;    return currentHandPos;&#10;&#9;}&#10;&#9;&#10;&#9;&#10;&#9;//Going to force string mode&#10;&#9;if(Globals.forcedString != -1)&#10;&#9;{&#10;&#10;&#9;&#9;if(isBetweenIncl(notePlayed, OPENSTRINGNOTES[Globals.forcedString], OPENSTRINGNOTES[Globals.forcedString] + NOTESPERSTRING - 1) &amp;&amp; stringNote[Globals.forcedString] == -1)&#10;&#9;&#9;{&#10;&#9;&#9;&#10;&#9;&#9;&#9;return forceStringLogic(notePlayed, currentHandPos, fretSpaceToChange);&#10;&#9;&#9;&#9;&#10;&#9;&#9;}&#10;&#9;}&#10;&#9;&#10;&#9;&#10;&#9;//no forced string and therefore just goes as normal&#10;&#9;&#10;&#9;&#10;&#9;stringToPlay = stringWithMelodyNote(notePlayed, currentHandPos);&#10;&#9;stringNote[stringToPlay] = notePlayed;&#10;&#9;playString(stringToPlay);&#10;&#9;&#10;&#9;updateGlobals();&#10;&#9;&#10;&#9;&#10;&#9;//when there's polyphony, virtual guitarist moves hand to wherever the biggest change in pos is&#10;&#9;if(Synth.getNumPressedKeys() &gt;= 2){&#10;&#9;newFretFromPolyphony = stringNote[stringToPlay] - OPENSTRINGNOTES[stringToPlay];&#10;&#9;distBetweenNewFretAndAutoFret = Math.abs(newFretFromPolyphony - currentHandPos);&#10;&#9;}&#10;&#9;&#10;&#10;&#9;&#10;&#9;//I dont really understand why, but + 2 seems like a number that makes this work&#10;&#9;&#10;&#9;if(distBetweenNewFretAndAutoFret &lt; fretSpaceToChange + 2)&#10;&#9;{&#10;&#9;&#9;return currentHandPos;&#10;&#9;}else&#10;&#9;{&#10;&#9;&#9;return newFretFromPolyphony;&#10;&#9;}&#10;}&#10;&#10;&#10; &#10; inline function isEventStillPlaying(eventId)&#10; {&#10;     for (var i = 0; i &lt; 128; i++)&#10;     {&#10;         if (activeIds.getValue(i) == eventId)&#10;             return true;&#10;     }&#10;     return false;&#10; }&#10; &#10; inline function cap(num, limit)&#10; {&#10;&#9; if(num &gt; limit)&#10;&#9; {&#10;&#9;&#9; return limit;&#10;&#9; }else{&#10;&#9;&#9; return num;&#10;&#9; }&#10; }&#10; &#10; &#10; &#10; &#10; function onNoteOn()&#10;{&#10;&#9;local notePlayed = Message.getNoteNumber();&#10;&#9;local velocityPlayed = Message.getVelocity();&#10;&#9;&#10;&#9;&#10;&#9;//easy way to implement strumming system? Look into later&#10;&#9;//Message.delayEvent((notePlayed - LOWESTNOTE) * 1000);&#10;&#9;&#10;if(isBetweenIncl(notePlayed, LOWESTNOTE, HIGHESTNOTE)){&#10;&#10;&#9;&#10;&#9;&#9;if(Globals.frettingEngine == FrettingEngine.NATURAL)&#10;&#9;&#9;{&#10;&#9;&#10;&#9;&#9;&#9;if(Globals.forcedHandPositionFret == -1)&#10;&#9;&#9;&#9;{&#10;&#9;&#10;&#9;&#9;&#9;&#9;Globals.handPositionFret = naturalFretting2_2_1(notePlayed, Globals.handPositionFret);&#10;&#9;&#9;&#9;&#9;&#10;&#9;&#9;&#9;}else{&#10;&#9;&#9;&#9;&#9;&#10;&#9;&#9;&#9;&#9;Console.print(&quot;you should be playing here&quot;);&#10;&#9;&#9;&#9;&#9;Console.print(Globals.forcedHandPositionFret);&#10;&#9;&#9;&#9;&#9;Globals.handPositionFret = naturalFretting2_2_1(notePlayed, Globals.forcedHandPositionFret);&#10;&#9;&#9;&#9;}&#10;&#9;&#9;}else if(Globals.frettingEngine == FrettingEngine.MELODY)&#10;&#9;&#9;{&#10;&#9;&#10;&#9;&#9;&#9;if(Globals.forcedHandPositionFret == -1)&#10;&#9;&#9;&#9;&#9;&#9;{&#10;&#9;&#9;&#9;&#9;&#9;&#9;Globals.handPositionFret = melodyFretting1_0_0(notePlayed, Globals.handPositionFret);&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#10;&#9;&#9;&#9;&#9;&#9;}else&#10;&#9;&#9;&#9;&#9;&#9;{&#10;&#9;&#9;&#9;&#9;&#9;&#9;Globals.handPositionFret = melodyFretting1_0_0(notePlayed, Globals.forcedHandPositionFret);&#10;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;}&#10;&#9;&#9;&#10;&#9;&#9;//Had a bug where handPositionFret became -4 and I have no idea why so I'm normalizing out of caution&#10;&#9;&#9;if(Globals.handPositionFret &lt; 0){&#10;&#9;&#9;&#9;Globals.handPositionFret = 0;&#10;&#9;&#9;}&#10;&#9;&#10;&#9;}&#10;&#9;&#10;&#9;&#10;}function onNoteOff()&#10;{&#10;    local releasedNote = Message.getNoteNumber();&#10;    &#10;&#10;&#10;    if(stringNote[Stringtype.STRING6] == releasedNote){&#10;        stringNote[Stringtype.STRING6] = -1;&#10;        playString(Stringtype.STRING6);&#10;    }else if(stringNote[Stringtype.STRING5] == releasedNote){&#10;        stringNote[Stringtype.STRING5] = -1;&#10;        playString(Stringtype.STRING5);&#10;    }else if(stringNote[Stringtype.STRING4] == releasedNote){&#10;        stringNote[Stringtype.STRING4] = -1;&#10;        playString(Stringtype.STRING4);&#10;    }else if(stringNote[Stringtype.STRING3] == releasedNote){&#10;        stringNote[Stringtype.STRING3] = -1;&#10;        playString(Stringtype.STRING3);&#10;    }else if(stringNote[Stringtype.STRING2] == releasedNote){&#10;        stringNote[Stringtype.STRING2] = -1;&#10;        playString(Stringtype.STRING2);&#10;    }else if(stringNote[Stringtype.STRING1] == releasedNote){&#10;        stringNote[Stringtype.STRING1] = -1;&#10;        playString(Stringtype.STRING1);&#10;    }&#10;    &#10;    &#10;&#10;    updateGlobals();&#10;}function onController()&#10;{&#10;&#9;&#10;}&#10; function onTimer()&#10;{&#10;&#9;&#10;}&#10; function onControl(number, value)&#10;{&#10;&#9;&#10;}&#10; ">
+              <EditorStates BodyShown="1" Visible="1" Solo="0" contentShown="1" onInitOpen="1"/>
+              <ChildProcessors/>
+              <Content/>
+              <UIData>
+                <ContentProperties DeviceType="Desktop"/>
+              </UIData>
+            </Processor>
+          </ChildProcessors>
+        </Processor>
+        <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
+          <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+          <ChildProcessors/>
+        </Processor>
+        <Processor Type="ModulatorChain" ID="PitchModulation" Bypassed="1" Intensity="0.0">
+          <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+          <ChildProcessors/>
+        </Processor>
+        <Processor Type="EffectChain" ID="FX" Bypassed="0">
+          <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+          <ChildProcessors>
+            <Processor Type="Convolution" ID="Convolution Reverb1" Bypassed="1" DryGain="0.0"
+                       WetGain="-100.0" Latency="0.0" ImpulseLength="1.0" ProcessInput="1.0"
+                       UseBackgroundThread="0.0" Predelay="0.0" HiCut="20000.0" Damping="0.0"
+                       FFTType="5.0" FileName="{PROJECT_FOLDER}xfade_dynamic2_to_dynamic4_string1.wav"
+                       min="0" max="1736" loopStart="0" loopEnd="1736">
+              <EditorStates BodyShown="1" Visible="1" Solo="0"/>
+              <ChildProcessors/>
+              <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
+            </Processor>
+          </ChildProcessors>
+        </Processor>
+        <Processor Type="StreamingSampler" ID="Container0String6Sampler" Bypassed="0"
+                   Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
+                   IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
+                   SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
+                   OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
+                   NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
+                   Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
+                   Group7Table="" SampleMapID="Denoised/sustain_string6_denoise_1_0_0">
+          <EditorStates BodyShown="1" Visible="1" Solo="0" MapPanelShown="1" BigSampleMap="1"
+                        Folded="1"/>
+          <ChildProcessors>
+            <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
+              <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+              <ChildProcessors>
+                <Processor Type="MidiMuter" ID="Container0String6Mute" Bypassed="0">
+                  <EditorStates BodyShown="1" Visible="1" Solo="0"/>
+                  <ChildProcessors/>
+                  <Content>
+                    <Control type="ScriptButton" id="ignoreButton" value="0.0"/>
+                    <Control type="ScriptButton" id="fixStuckNotes" value="1.0"/>
+                  </Content>
+                </Processor>
+                <Processor Type="ScriptProcessor" ID="Container0String6ChnlRoute" Bypassed="0"
+                           Script=" function onNoteOn()&#10;{&#10;&#10;&#10;&#9;if(Message.getChannel() != 6){&#10;&#9;&#9;&#10;&#9;&#9;Message.ignoreEvent(true);&#10;&#9;}else{&#10;&#9;&#9;//is now playing the note and updates&#9;&#10;&#9;&#9;Globals.string6ActiveRR = Sampler.getActiveRRGroup();&#10;&#9;}&#10;&#9;&#10;}&#10; function onNoteOff()&#10;{&#10;&#10;&#9;if(Message.getChannel() != 6){&#10;&#9;&#9;Message.ignoreEvent(true);&#10;&#9;}else{&#10;&#9;&#9;Globals.string6ActiveRR = &quot;not playing&quot;;&#10;&#9;}&#10;}&#10; function onController()&#10;{&#10;&#9;&#10;}&#10; function onTimer()&#10;{&#10;&#9;&#10;}&#10; function onControl(number, value)&#10;{&#10;&#9;&#10;}&#10; ">
+                  <EditorStates BodyShown="1" Visible="1" Solo="0" contentShown="1" onInitOpen="1"/>
+                  <ChildProcessors/>
+                  <Content/>
+                  <UIData>
+                    <ContentProperties DeviceType="Desktop"/>
+                  </UIData>
+                </Processor>
+              </ChildProcessors>
+            </Processor>
+            <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
+              <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+              <ChildProcessors>
+                <Processor Type="AHDSR" ID="AHDSR Envelope1" Bypassed="0" Monophonic="0.0"
+                           Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
+                           Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
+                           Release="76.18904876708984" EcoMode="1.0">
+                  <EditorStates BodyShown="1" Visible="1" Solo="0"/>
+                  <ChildProcessors>
+                    <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
+                      <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+                      <ChildProcessors/>
+                    </Processor>
+                    <Processor Type="ModulatorChain" ID="Attack Level" Bypassed="0" Intensity="1.0">
+                      <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+                      <ChildProcessors/>
+                    </Processor>
+                    <Processor Type="ModulatorChain" ID="Decay Time" Bypassed="0" Intensity="1.0">
+                      <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+                      <ChildProcessors/>
+                    </Processor>
+                    <Processor Type="ModulatorChain" ID="Sustain Level" Bypassed="0" Intensity="1.0">
+                      <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+                      <ChildProcessors/>
+                    </Processor>
+                    <Processor Type="ModulatorChain" ID="Release Time" Bypassed="0" Intensity="1.0">
+                      <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+                      <ChildProcessors/>
+                    </Processor>
+                  </ChildProcessors>
+                </Processor>
+                <Processor Type="Velocity" ID="Velocity Modulator1" Bypassed="0" Intensity="0.8999999761581421"
+                           UseTable="0.0" Inverted="0.0" DecibelMode="0.0">
+                  <EditorStates BodyShown="1" Visible="1" Solo="0"/>
+                  <ChildProcessors/>
+                </Processor>
+              </ChildProcessors>
+            </Processor>
+            <Processor Type="ModulatorChain" ID="PitchModulation" Bypassed="0" Intensity="0.0">
+              <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+              <ChildProcessors>
+                <Processor Type="Random" ID="Random Modulator1" Bypassed="0" Intensity="0.001666666590608656"
+                           Bipolar="1" UseTable="0.0" RandomTableData="">
+                  <EditorStates BodyShown="1" Visible="1" Solo="0"/>
+                  <ChildProcessors/>
+                </Processor>
+                <Processor Type="PitchWheel" ID="Pitch Wheel Modulator1" Bypassed="0" Intensity="0.1666666716337204"
+                           Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="200.0">
+                  <EditorStates BodyShown="1" Visible="1" Solo="0"/>
+                  <ChildProcessors/>
+                </Processor>
+              </ChildProcessors>
+            </Processor>
+            <Processor Type="EffectChain" ID="FX" Bypassed="0">
+              <EditorStates BodyShown="1" Visible="0" Solo="0" Folded="1"/>
+              <ChildProcessors>
+                <Processor Type="Convolution" ID="Convolution Reverb1" Bypassed="0" DryGain="-100.0"
+                           WetGain="0.0" Latency="0.0" ImpulseLength="1.0" ProcessInput="1.0"
+                           UseBackgroundThread="0.0" Predelay="0.0" HiCut="20000.0" Damping="0.0"
+                           FFTType="5.0" FileName="{PROJECT_FOLDER}xfade_dynamic2_to_dynamic4_string1.wav"
+                           min="0" max="8192" loopStart="0" loopEnd="8192">
+                  <EditorStates BodyShown="1" Visible="1" Solo="0"/>
+                  <ChildProcessors/>
+                  <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
+                </Processor>
+              </ChildProcessors>
+            </Processor>
+            <Processor Type="ModulatorChain" ID="Sample Start" Bypassed="0" Intensity="1.0">
+              <EditorStates BodyShown="1" Visible="0" Solo="0" Folded="1"/>
+              <ChildProcessors/>
+            </Processor>
+            <Processor Type="ModulatorChain" ID="Group Fade" Bypassed="0" Intensity="1.0">
+              <EditorStates BodyShown="1" Visible="0" Solo="0" Folded="1"/>
+              <ChildProcessors/>
+            </Processor>
+          </ChildProcessors>
+          <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
+          <channels>
+            <channelData enabled="1" level="0.0" suffix=""/>
+          </channels>
+        </Processor>
+        <Processor Type="StreamingSampler" ID="Container0String5Sampler" Bypassed="0"
+                   Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
+                   IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
+                   SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
+                   OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
+                   NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
+                   Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
+                   Group7Table="" SampleMapID="Denoised/sustain_string5_denoise_1_0_0">
+          <EditorStates BodyShown="1" Visible="1" Solo="0" MapPanelShown="1" BigSampleMap="1"
+                        Folded="1"/>
+          <ChildProcessors>
+            <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
+              <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+              <ChildProcessors>
+                <Processor Type="MidiMuter" ID="Container0String5Mute" Bypassed="0">
+                  <EditorStates BodyShown="1" Visible="1" Solo="0"/>
+                  <ChildProcessors/>
+                  <Content>
+                    <Control type="ScriptButton" id="ignoreButton" value="0.0"/>
+                    <Control type="ScriptButton" id="fixStuckNotes" value="1.0"/>
+                  </Content>
+                </Processor>
+                <Processor Type="ScriptProcessor" ID="Container0String5ChnlRoute" Bypassed="0"
+                           Script=" function onNoteOn()&#10;{&#10;&#9;if(Message.getChannel() != 5){&#10;&#9;&#9;&#10;&#9;&#9;Message.ignoreEvent(true);&#10;&#9;}else{&#10;&#9;&#9;//is now playing the note and updates&#9;&#10;&#9;&#9;Globals.string5ActiveRR = Sampler.getActiveRRGroup();&#10;&#9;}&#10;}&#10; function onNoteOff()&#10;{&#10;&#9;if(Message.getChannel() != 5){&#10;&#9;&#9;Message.ignoreEvent(true);&#10;&#9;}else{&#10;&#9;&#9;Globals.string5ActiveRR = &quot;not playing&quot;;&#10;&#9;}&#10;}&#10; function onController()&#10;{&#10;&#9;&#10;}&#10; function onTimer()&#10;{&#10;&#9;&#10;}&#10; function onControl(number, value)&#10;{&#10;&#9;&#10;}&#10; ">
+                  <EditorStates BodyShown="1" Visible="1" Solo="0" contentShown="1" onInitOpen="1"/>
+                  <ChildProcessors/>
+                  <Content/>
+                  <UIData>
+                    <ContentProperties DeviceType="Desktop"/>
+                  </UIData>
+                </Processor>
+              </ChildProcessors>
+            </Processor>
+            <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
+              <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+              <ChildProcessors>
+                <Processor Type="AHDSR" ID="AHDSR Envelope2" Bypassed="0" Monophonic="0.0"
+                           Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
+                           Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
+                           Release="76.18904876708984" EcoMode="1.0">
+                  <EditorStates BodyShown="1" Visible="1" Solo="0"/>
+                  <ChildProcessors>
+                    <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
+                      <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+                      <ChildProcessors/>
+                    </Processor>
+                    <Processor Type="ModulatorChain" ID="Attack Level" Bypassed="0" Intensity="1.0">
+                      <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+                      <ChildProcessors/>
+                    </Processor>
+                    <Processor Type="ModulatorChain" ID="Decay Time" Bypassed="0" Intensity="1.0">
+                      <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+                      <ChildProcessors/>
+                    </Processor>
+                    <Processor Type="ModulatorChain" ID="Sustain Level" Bypassed="0" Intensity="1.0">
+                      <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+                      <ChildProcessors/>
+                    </Processor>
+                    <Processor Type="ModulatorChain" ID="Release Time" Bypassed="0" Intensity="1.0">
+                      <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+                      <ChildProcessors/>
+                    </Processor>
+                  </ChildProcessors>
+                </Processor>
+                <Processor Type="Velocity" ID="Velocity Modulator2" Bypassed="0" Intensity="0.8999999761581421"
+                           UseTable="0.0" Inverted="0.0" DecibelMode="0.0">
+                  <EditorStates BodyShown="1" Visible="1" Solo="0"/>
+                  <ChildProcessors/>
+                </Processor>
+              </ChildProcessors>
+            </Processor>
+            <Processor Type="ModulatorChain" ID="PitchModulation" Bypassed="0" Intensity="0.0">
+              <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+              <ChildProcessors>
+                <Processor Type="Random" ID="Random Modulator2" Bypassed="0" Intensity="0.001666666590608656"
+                           Bipolar="1" UseTable="0.0" RandomTableData="">
+                  <EditorStates BodyShown="1" Visible="1" Solo="0"/>
+                  <ChildProcessors/>
+                </Processor>
+                <Processor Type="PitchWheel" ID="Pitch Wheel Modulator2" Bypassed="0" Intensity="0.1666666716337204"
+                           Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="200.0">
+                  <EditorStates BodyShown="1" Visible="1" Solo="0"/>
+                  <ChildProcessors/>
+                </Processor>
+              </ChildProcessors>
+            </Processor>
+            <Processor Type="EffectChain" ID="FX" Bypassed="0">
+              <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+              <ChildProcessors/>
+            </Processor>
+            <Processor Type="ModulatorChain" ID="Sample Start" Bypassed="0" Intensity="1.0">
+              <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+              <ChildProcessors/>
+            </Processor>
+            <Processor Type="ModulatorChain" ID="Group Fade" Bypassed="0" Intensity="1.0">
+              <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+              <ChildProcessors/>
+            </Processor>
+          </ChildProcessors>
+          <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
+          <channels>
+            <channelData enabled="1" level="0.0" suffix=""/>
+          </channels>
+        </Processor>
+        <Processor Type="StreamingSampler" ID="Container0String4Sampler" Bypassed="0"
+                   Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
+                   IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
+                   SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
+                   OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
+                   NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
+                   Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
+                   Group7Table="" SampleMapID="Denoised/sustain_string4_denoise_1_0_0">
+          <EditorStates BodyShown="1" Visible="1" Solo="0" MapPanelShown="1" BigSampleMap="1"
+                        Folded="1"/>
+          <ChildProcessors>
+            <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
+              <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+              <ChildProcessors>
+                <Processor Type="MidiMuter" ID="Container0String4Mute" Bypassed="0">
+                  <EditorStates BodyShown="1" Visible="1" Solo="0"/>
+                  <ChildProcessors/>
+                  <Content>
+                    <Control type="ScriptButton" id="ignoreButton" value="0.0"/>
+                    <Control type="ScriptButton" id="fixStuckNotes" value="1.0"/>
+                  </Content>
+                </Processor>
+                <Processor Type="ScriptProcessor" ID="Container0String4ChnlRoute" Bypassed="0"
+                           Script=" function onNoteOn()&#10;{&#10;&#9;if(Message.getChannel() != 4){&#10;&#9;&#9;&#10;&#9;&#9;Message.ignoreEvent(true);&#10;&#9;}else{&#10;&#9;&#9;//is now playing the note and updates&#9;&#10;&#9;&#9;Globals.string4ActiveRR = Sampler.getActiveRRGroup();&#10;&#9;}&#10;}&#10; function onNoteOff()&#10;{&#10;&#9;if(Message.getChannel() != 4){&#10;&#9;&#9;Message.ignoreEvent(true);&#10;&#9;}else{&#10;&#9;&#9;Globals.string4ActiveRR = &quot;not playing&quot;;&#10;&#9;}&#10;}&#10; function onController()&#10;{&#10;&#9;&#10;}&#10; function onTimer()&#10;{&#10;&#9;&#10;}&#10; function onControl(number, value)&#10;{&#10;&#9;&#10;}&#10; ">
+                  <EditorStates BodyShown="1" Visible="1" Solo="0" contentShown="1" onInitOpen="1"/>
+                  <ChildProcessors/>
+                  <Content/>
+                  <UIData>
+                    <ContentProperties DeviceType="Desktop"/>
+                  </UIData>
+                </Processor>
+              </ChildProcessors>
+            </Processor>
+            <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
+              <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+              <ChildProcessors>
+                <Processor Type="AHDSR" ID="AHDSR Envelope3" Bypassed="0" Monophonic="0.0"
+                           Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
+                           Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
+                           Release="76.18904876708984" EcoMode="1.0">
+                  <EditorStates BodyShown="1" Visible="1" Solo="0"/>
+                  <ChildProcessors>
+                    <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
+                      <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+                      <ChildProcessors/>
+                    </Processor>
+                    <Processor Type="ModulatorChain" ID="Attack Level" Bypassed="0" Intensity="1.0">
+                      <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+                      <ChildProcessors/>
+                    </Processor>
+                    <Processor Type="ModulatorChain" ID="Decay Time" Bypassed="0" Intensity="1.0">
+                      <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+                      <ChildProcessors/>
+                    </Processor>
+                    <Processor Type="ModulatorChain" ID="Sustain Level" Bypassed="0" Intensity="1.0">
+                      <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+                      <ChildProcessors/>
+                    </Processor>
+                    <Processor Type="ModulatorChain" ID="Release Time" Bypassed="0" Intensity="1.0">
+                      <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+                      <ChildProcessors/>
+                    </Processor>
+                  </ChildProcessors>
+                </Processor>
+                <Processor Type="Velocity" ID="Velocity Modulator3" Bypassed="0" Intensity="0.8999999761581421"
+                           UseTable="0.0" Inverted="0.0" DecibelMode="0.0">
+                  <EditorStates BodyShown="1" Visible="1" Solo="0"/>
+                  <ChildProcessors/>
+                </Processor>
+              </ChildProcessors>
+            </Processor>
+            <Processor Type="ModulatorChain" ID="PitchModulation" Bypassed="0" Intensity="0.0">
+              <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+              <ChildProcessors>
+                <Processor Type="Random" ID="Random Modulator3" Bypassed="0" Intensity="0.001666666590608656"
+                           Bipolar="1" UseTable="0.0" RandomTableData="">
+                  <EditorStates BodyShown="1" Visible="1" Solo="0"/>
+                  <ChildProcessors/>
+                </Processor>
+                <Processor Type="PitchWheel" ID="Pitch Wheel Modulator3" Bypassed="0" Intensity="0.1666666716337204"
+                           Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="200.0">
+                  <EditorStates BodyShown="1" Visible="1" Solo="0"/>
+                  <ChildProcessors/>
+                </Processor>
+              </ChildProcessors>
+            </Processor>
+            <Processor Type="EffectChain" ID="FX" Bypassed="0">
+              <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+              <ChildProcessors/>
+            </Processor>
+            <Processor Type="ModulatorChain" ID="Sample Start" Bypassed="0" Intensity="1.0">
+              <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+              <ChildProcessors/>
+            </Processor>
+            <Processor Type="ModulatorChain" ID="Group Fade" Bypassed="0" Intensity="1.0">
+              <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+              <ChildProcessors/>
+            </Processor>
+          </ChildProcessors>
+          <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
+          <channels>
+            <channelData enabled="1" level="0.0" suffix=""/>
+          </channels>
+        </Processor>
+        <Processor Type="StreamingSampler" ID="Container0String3Sampler" Bypassed="0"
+                   Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
+                   IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
+                   SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
+                   OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
+                   NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
+                   Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
+                   Group7Table="" SampleMapID="Denoised/sustain_string3_denoise_1_0_0">
+          <EditorStates BodyShown="1" Visible="1" Solo="0" MapPanelShown="1" BigSampleMap="1"
+                        Folded="1"/>
+          <ChildProcessors>
+            <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
+              <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+              <ChildProcessors>
+                <Processor Type="MidiMuter" ID="Container0String3Mute" Bypassed="0">
+                  <EditorStates BodyShown="1" Visible="1" Solo="0"/>
+                  <ChildProcessors/>
+                  <Content>
+                    <Control type="ScriptButton" id="ignoreButton" value="0.0"/>
+                    <Control type="ScriptButton" id="fixStuckNotes" value="1.0"/>
+                  </Content>
+                </Processor>
+                <Processor Type="ScriptProcessor" ID="Container0String3ChnlRoute" Bypassed="0"
+                           Script=" function onNoteOn()&#10;{&#10;&#10;&#9;if(Message.getChannel() != 3){&#10;&#9;&#9;&#10;&#9;&#9;Message.ignoreEvent(true);&#10;&#9;&#9;Globals.string3ActiveRR = &quot;not playing&quot;;&#10;&#9;}else{&#10;&#9;&#9;&#10;&#9;&#10;&#9;&#9;//is now playing the note and updates&#9;&#10;&#9;&#9;Globals.string3ActiveRR = Sampler.getActiveRRGroup();&#10;&#9;}&#10;}&#10; function onNoteOff()&#10;{&#10;&#9;if(Message.getChannel() != 3){&#10;&#9;&#9;Message.ignoreEvent(true);&#10;&#9;}else{&#10;&#9;&#10;&#9;&#9;Globals.string3ActiveRR = &quot;not playing&quot;;&#10;&#9;}&#10;}&#10; function onController()&#10;{&#10;&#9;&#10;}&#10; function onTimer()&#10;{&#10;&#9;&#10;}&#10; function onControl(number, value)&#10;{&#10;&#9;&#10;}&#10; ">
+                  <EditorStates BodyShown="1" Visible="1" Solo="0" contentShown="1" onInitOpen="1"/>
+                  <ChildProcessors/>
+                  <Content/>
+                  <UIData>
+                    <ContentProperties DeviceType="Desktop"/>
+                  </UIData>
+                </Processor>
+              </ChildProcessors>
+            </Processor>
+            <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
+              <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+              <ChildProcessors>
+                <Processor Type="AHDSR" ID="AHDSR Envelope4" Bypassed="0" Monophonic="0.0"
+                           Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
+                           Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
+                           Release="76.18904876708984" EcoMode="1.0">
+                  <EditorStates BodyShown="1" Visible="1" Solo="0"/>
+                  <ChildProcessors>
+                    <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
+                      <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+                      <ChildProcessors/>
+                    </Processor>
+                    <Processor Type="ModulatorChain" ID="Attack Level" Bypassed="0" Intensity="1.0">
+                      <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+                      <ChildProcessors/>
+                    </Processor>
+                    <Processor Type="ModulatorChain" ID="Decay Time" Bypassed="0" Intensity="1.0">
+                      <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+                      <ChildProcessors/>
+                    </Processor>
+                    <Processor Type="ModulatorChain" ID="Sustain Level" Bypassed="0" Intensity="1.0">
+                      <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+                      <ChildProcessors/>
+                    </Processor>
+                    <Processor Type="ModulatorChain" ID="Release Time" Bypassed="0" Intensity="1.0">
+                      <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+                      <ChildProcessors/>
+                    </Processor>
+                  </ChildProcessors>
+                </Processor>
+                <Processor Type="Velocity" ID="Velocity Modulator4" Bypassed="0" Intensity="0.8999999761581421"
+                           UseTable="0.0" Inverted="0.0" DecibelMode="0.0">
+                  <EditorStates BodyShown="1" Visible="1" Solo="0"/>
+                  <ChildProcessors/>
+                </Processor>
+              </ChildProcessors>
+            </Processor>
+            <Processor Type="ModulatorChain" ID="PitchModulation" Bypassed="0" Intensity="0.0">
+              <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+              <ChildProcessors>
+                <Processor Type="Random" ID="Random Modulator4" Bypassed="0" Intensity="0.001666666590608656"
+                           Bipolar="1" UseTable="0.0" RandomTableData="">
+                  <EditorStates BodyShown="1" Visible="1" Solo="0"/>
+                  <ChildProcessors/>
+                </Processor>
+                <Processor Type="PitchWheel" ID="Pitch Wheel Modulator4" Bypassed="0" Intensity="0.1666666716337204"
+                           Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="200.0">
+                  <EditorStates BodyShown="1" Visible="1" Solo="0"/>
+                  <ChildProcessors/>
+                </Processor>
+              </ChildProcessors>
+            </Processor>
+            <Processor Type="EffectChain" ID="FX" Bypassed="0">
+              <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+              <ChildProcessors/>
+            </Processor>
+            <Processor Type="ModulatorChain" ID="Sample Start" Bypassed="0" Intensity="1.0">
+              <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+              <ChildProcessors/>
+            </Processor>
+            <Processor Type="ModulatorChain" ID="Group Fade" Bypassed="0" Intensity="1.0">
+              <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+              <ChildProcessors/>
+            </Processor>
+          </ChildProcessors>
+          <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
+          <channels>
+            <channelData enabled="1" level="0.0" suffix=""/>
+          </channels>
+        </Processor>
+        <Processor Type="StreamingSampler" ID="Container0String2Sampler" Bypassed="0"
+                   Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
+                   IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
+                   SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
+                   OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
+                   NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
+                   Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
+                   Group7Table="" SampleMapID="Denoised/sustain_string2_denoise_1_0_0">
+          <EditorStates BodyShown="1" Visible="1" Solo="0" MapPanelShown="1" BigSampleMap="1"
+                        Folded="1"/>
+          <ChildProcessors>
+            <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
+              <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+              <ChildProcessors>
+                <Processor Type="MidiMuter" ID="Container0String2Mute" Bypassed="0">
+                  <EditorStates BodyShown="1" Visible="1" Solo="0"/>
+                  <ChildProcessors/>
+                  <Content>
+                    <Control type="ScriptButton" id="ignoreButton" value="0.0"/>
+                    <Control type="ScriptButton" id="fixStuckNotes" value="1.0"/>
+                  </Content>
+                </Processor>
+                <Processor Type="ScriptProcessor" ID="Container0String2ChnlRoute" Bypassed="0"
+                           Script=" function onNoteOn()&#10;{&#10;&#9;if(Message.getChannel() != 2){&#10;&#9;&#9;&#10;&#9;&#9;Message.ignoreEvent(true);&#10;&#9;&#9;Globals.string3ActiveRR = &quot;not playing&quot;;&#10;&#9;}else{&#10;&#9;&#9;//is now playing the note and updates&#9;&#10;&#9; Globals.string2ActiveRR = Sampler.getActiveRRGroup();&#10;&#9;}&#10;}&#10; function onNoteOff()&#10;{&#10;&#9;if(Message.getChannel() != 2){&#10;&#9;&#9;Message.ignoreEvent(true);&#10;&#9;}else{&#10;&#9;&#9;Globals.string2ActiveRR = &quot;not playing&quot;;&#10;&#9;}&#10;}&#10; function onController()&#10;{&#10;&#9;&#10;}&#10; function onTimer()&#10;{&#10;&#9;&#10;}&#10; function onControl(number, value)&#10;{&#10;&#9;&#10;}&#10; ">
+                  <EditorStates BodyShown="1" Visible="1" Solo="0" contentShown="1" onInitOpen="1"/>
+                  <ChildProcessors/>
+                  <Content/>
+                  <UIData>
+                    <ContentProperties DeviceType="Desktop"/>
+                  </UIData>
+                </Processor>
+              </ChildProcessors>
+            </Processor>
+            <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
+              <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+              <ChildProcessors>
+                <Processor Type="AHDSR" ID="AHDSR Envelope5" Bypassed="0" Monophonic="0.0"
+                           Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
+                           Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
+                           Release="76.18904876708984" EcoMode="1.0">
+                  <EditorStates BodyShown="1" Visible="1" Solo="0"/>
+                  <ChildProcessors>
+                    <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
+                      <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+                      <ChildProcessors/>
+                    </Processor>
+                    <Processor Type="ModulatorChain" ID="Attack Level" Bypassed="0" Intensity="1.0">
+                      <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+                      <ChildProcessors/>
+                    </Processor>
+                    <Processor Type="ModulatorChain" ID="Decay Time" Bypassed="0" Intensity="1.0">
+                      <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+                      <ChildProcessors/>
+                    </Processor>
+                    <Processor Type="ModulatorChain" ID="Sustain Level" Bypassed="0" Intensity="1.0">
+                      <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+                      <ChildProcessors/>
+                    </Processor>
+                    <Processor Type="ModulatorChain" ID="Release Time" Bypassed="0" Intensity="1.0">
+                      <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+                      <ChildProcessors/>
+                    </Processor>
+                  </ChildProcessors>
+                </Processor>
+                <Processor Type="Velocity" ID="Velocity Modulator5" Bypassed="0" Intensity="0.8999999761581421"
+                           UseTable="0.0" Inverted="0.0" DecibelMode="0.0">
+                  <EditorStates BodyShown="1" Visible="1" Solo="0"/>
+                  <ChildProcessors/>
+                </Processor>
+              </ChildProcessors>
+            </Processor>
+            <Processor Type="ModulatorChain" ID="PitchModulation" Bypassed="0" Intensity="0.0">
+              <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+              <ChildProcessors>
+                <Processor Type="Random" ID="Random Modulator5" Bypassed="0" Intensity="0.001666666590608656"
+                           Bipolar="1" UseTable="0.0" RandomTableData="">
+                  <EditorStates BodyShown="1" Visible="1" Solo="0"/>
+                  <ChildProcessors/>
+                </Processor>
+                <Processor Type="PitchWheel" ID="Pitch Wheel Modulator5" Bypassed="0" Intensity="0.1666666716337204"
+                           Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="200.0">
+                  <EditorStates BodyShown="1" Visible="1" Solo="0"/>
+                  <ChildProcessors/>
+                </Processor>
+              </ChildProcessors>
+            </Processor>
+            <Processor Type="EffectChain" ID="FX" Bypassed="0">
+              <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+              <ChildProcessors/>
+            </Processor>
+            <Processor Type="ModulatorChain" ID="Sample Start" Bypassed="0" Intensity="1.0">
+              <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+              <ChildProcessors/>
+            </Processor>
+            <Processor Type="ModulatorChain" ID="Group Fade" Bypassed="0" Intensity="1.0">
+              <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+              <ChildProcessors/>
+            </Processor>
+          </ChildProcessors>
+          <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
+          <channels>
+            <channelData enabled="1" level="0.0" suffix=""/>
+          </channels>
+        </Processor>
+        <Processor Type="StreamingSampler" ID="Container0String1Sampler" Bypassed="0"
+                   Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
+                   IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
+                   SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
+                   OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
+                   NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
+                   Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
+                   Group7Table="" SampleMapID="Denoised/sustain_string1_denoise_1_0_0">
+          <EditorStates BodyShown="1" Visible="1" Solo="0" MapPanelShown="1" BigSampleMap="1"
+                        Folded="1"/>
+          <ChildProcessors>
+            <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
+              <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+              <ChildProcessors>
+                <Processor Type="MidiMuter" ID="Container0String1Mute" Bypassed="0">
+                  <EditorStates BodyShown="1" Visible="1" Solo="0"/>
+                  <ChildProcessors/>
+                  <Content>
+                    <Control type="ScriptButton" id="ignoreButton" value="0.0"/>
+                    <Control type="ScriptButton" id="fixStuckNotes" value="1.0"/>
+                  </Content>
+                </Processor>
+                <Processor Type="ScriptProcessor" ID="Container0String1ChnlRoute" Bypassed="0"
+                           Script=" function onNoteOn()&#10;{&#10;&#9;if(Message.getChannel() != 1){&#10;&#9;&#9;&#10;&#9;&#9;Message.ignoreEvent(true);&#10;&#9;}else{&#10;&#9;&#9;//is now playing the note and updates&#9;&#10;&#9;&#9;Globals.string1ActiveRR = Sampler.getActiveRRGroup();&#10;&#9;}&#10;}&#10; function onNoteOff()&#10;{&#10;&#9;if(Message.getChannel() != 1){&#10;&#9;&#9;Message.ignoreEvent(true);&#10;&#9;}else{&#10;&#9;&#9;Globals.string1ActiveRR = &quot;not playing&quot;;&#10;&#9;}&#10;}&#10; function onController()&#10;{&#10;&#9;&#10;}&#10; function onTimer()&#10;{&#10;&#9;&#10;}&#10; function onControl(number, value)&#10;{&#10;&#9;&#10;}&#10; ">
+                  <EditorStates BodyShown="1" Visible="1" Solo="0" contentShown="1" onInitOpen="1"/>
+                  <ChildProcessors/>
+                  <Content/>
+                  <UIData>
+                    <ContentProperties DeviceType="Desktop"/>
+                  </UIData>
+                </Processor>
+              </ChildProcessors>
+            </Processor>
+            <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
+              <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+              <ChildProcessors>
+                <Processor Type="AHDSR" ID="AHDSR Envelope6" Bypassed="0" Monophonic="0.0"
+                           Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
+                           Attack="0.0" AttackLevel="0.0" Hold="10.0" Decay="300.0" Sustain="0.0"
+                           Release="76.18904876708984" EcoMode="1.0">
+                  <EditorStates BodyShown="1" Visible="1" Solo="0"/>
+                  <ChildProcessors>
+                    <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
+                      <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+                      <ChildProcessors/>
+                    </Processor>
+                    <Processor Type="ModulatorChain" ID="Attack Level" Bypassed="0" Intensity="1.0">
+                      <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+                      <ChildProcessors/>
+                    </Processor>
+                    <Processor Type="ModulatorChain" ID="Decay Time" Bypassed="0" Intensity="1.0">
+                      <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+                      <ChildProcessors/>
+                    </Processor>
+                    <Processor Type="ModulatorChain" ID="Sustain Level" Bypassed="0" Intensity="1.0">
+                      <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+                      <ChildProcessors/>
+                    </Processor>
+                    <Processor Type="ModulatorChain" ID="Release Time" Bypassed="0" Intensity="1.0">
+                      <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+                      <ChildProcessors/>
+                    </Processor>
+                  </ChildProcessors>
+                </Processor>
+                <Processor Type="Velocity" ID="Velocity Modulator6" Bypassed="0" Intensity="0.8999999761581421"
+                           UseTable="0.0" Inverted="0.0" DecibelMode="0.0">
+                  <EditorStates BodyShown="1" Visible="1" Solo="0"/>
+                  <ChildProcessors/>
+                </Processor>
+              </ChildProcessors>
+            </Processor>
+            <Processor Type="ModulatorChain" ID="PitchModulation" Bypassed="0" Intensity="0.0">
+              <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+              <ChildProcessors>
+                <Processor Type="Random" ID="Random Modulator6" Bypassed="0" Intensity="0.001666666590608656"
+                           Bipolar="1" UseTable="0.0" RandomTableData="">
+                  <EditorStates BodyShown="1" Visible="1" Solo="0"/>
+                  <ChildProcessors/>
+                </Processor>
+                <Processor Type="PitchWheel" ID="Pitch Wheel Modulator6" Bypassed="0" Intensity="0.1666666716337204"
+                           Bipolar="1" UseTable="0.0" Inverted="0.0" SmoothTime="200.0">
+                  <EditorStates BodyShown="1" Visible="1" Solo="0"/>
+                  <ChildProcessors/>
+                </Processor>
+              </ChildProcessors>
+            </Processor>
+            <Processor Type="EffectChain" ID="FX" Bypassed="0">
+              <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+              <ChildProcessors>
+                <Processor Type="Convolution" ID="Convolution Reverb2" Bypassed="1" DryGain="-100.0"
+                           WetGain="0.0" Latency="0.0" ImpulseLength="1.0" ProcessInput="1.0"
+                           UseBackgroundThread="0.0" Predelay="0.0" HiCut="20000.0" Damping="-100.0"
+                           FFTType="5.0" FileName="{PROJECT_FOLDER}xfade_dynamic2_to_dynamic4_string1.wav"
+                           min="0" max="422" loopStart="0" loopEnd="422">
+                  <EditorStates BodyShown="1" Visible="1" Solo="0"/>
+                  <ChildProcessors/>
+                  <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
+                </Processor>
+              </ChildProcessors>
+            </Processor>
+            <Processor Type="ModulatorChain" ID="Sample Start" Bypassed="0" Intensity="1.0">
+              <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+              <ChildProcessors/>
+            </Processor>
+            <Processor Type="ModulatorChain" ID="Group Fade" Bypassed="0" Intensity="1.0">
+              <EditorStates BodyShown="1" Visible="0" Solo="0"/>
+              <ChildProcessors/>
+            </Processor>
+          </ChildProcessors>
+          <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
+          <channels>
+            <channelData enabled="1" level="0.0" suffix=""/>
+          </channels>
+        </Processor>
+      </ChildProcessors>
+      <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
+    </Processor>
+  </ChildProcessors>
+  <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
+  <macro_controls>
+    <macro name="Release" value="35.0" midi_cc="-1">
+      <controlled_parameter id="AHDSR Envelope3" parameter="7" parameter_name="Release Time"
+                            min="0.0" max="20000.0" low="0.0" high="20000.0" skew="0.2313782131597592"
+                            step="1.0" inverted="0" readonly="1" converter="54.nT6K8CRKoE..VEFa0U1Pu4lckIGckIG.AHPXiQWZ1UF.ADf.lUmaiQWZu4F.AXPATkVakA.."/>
+      <controlled_parameter id="AHDSR Envelope2" parameter="7" parameter_name="Release Time"
+                            min="0.0" max="20000.0" low="0.0" high="20000.0" skew="0.2313782131597592"
+                            step="1.0" inverted="0" readonly="1" converter="54.nT6K8CRKoE..VEFa0U1Pu4lckIGckIG.AHPXiQWZ1UF.ADf.lUmaiQWZu4F.AXPATkVakA.."/>
+      <controlled_parameter id="AHDSR Envelope1" parameter="7" parameter_name="Release Time"
+                            min="0.0" max="20000.0" low="0.0" high="20000.0" skew="0.2313782131597592"
+                            step="1.0" inverted="0" readonly="1" converter="54.nT6K8CRKoE..VEFa0U1Pu4lckIGckIG.AHPXiQWZ1UF.ADf.lUmaiQWZu4F.AXPATkVakA.."/>
+      <controlled_parameter id="AHDSR Envelope4" parameter="7" parameter_name="Release Time"
+                            min="0.0" max="20000.0" low="0.0" high="20000.0" skew="0.2313782131597592"
+                            step="1.0" inverted="0" readonly="1" converter="54.nT6K8CRKoE..VEFa0U1Pu4lckIGckIG.AHPXiQWZ1UF.ADf.lUmaiQWZu4F.AXPATkVakA.."/>
+    </macro>
+    <macro name="Macro 2" value="0.0" midi_cc="-1"/>
+    <macro name="Macro 3" value="0.0" midi_cc="-1"/>
+    <macro name="Macro 4" value="0.0" midi_cc="-1"/>
+    <macro name="Macro 5" value="0.0" midi_cc="-1"/>
+    <macro name="Macro 6" value="0.0" midi_cc="-1"/>
+    <macro name="Macro 7" value="0.0" midi_cc="-1"/>
+    <macro name="Macro 8" value="0.0" midi_cc="-1"/>
+  </macro_controls>
+  <MidiAutomation/>
+  <MPEData Enabled="0"/>
+</Processor>

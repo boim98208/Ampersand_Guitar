@@ -1,0 +1,1 @@
+Due to the size of the actual samples folder, samples will be hosted on a separate remote drive. From there, you should be able to download those files and change the sample maps directories to wherevever is needed for it
