@@ -22,7 +22,7 @@
                  height="15" width="10" text="FretBorderLowForced"/>
       <Component type="ScriptImage" id="FretBorderHighForced" x="146" y="25" parentComponent="FretBorderPanel"
                  fileName="{PROJECT_FOLDER}PlayingMode_HandBorder_Forced.png"
-                 scale="0.25" height="15" width="10"/>
+                 scale="0.25" height="15" width="10" visible="0"/>
       <Component type="ScriptImage" id="FretBorderCenter" x="73" y="23" parentComponent="FretBorderPanel"
                  fileName="{PROJECT_FOLDER}PlayingMode_HandCenter.png" height="15"
                  width="15" text="FretBorderLowForced" scale="0.4000000059604645"/>
@@ -546,10 +546,21 @@
                  numStrips="100.0" scaleFactor="0.2000000029802322" mouseSensitivity="0.5"
                  max="12.0" stepSize="1.0" defaultValue="2.0" showValuePopup="Above"/>
     </Component>
+    <Component type="ScriptPanel" id="DoubleTrackingPnl" x="490" y="390" width="186"
+               height="71" parentComponent="PlayingModeBG" itemColour="0" itemColour2="0"
+               textColour="16777215" bgColour="16777215">
+      <Component type="ScriptButton" id="DoubleTrackingBtn" x="-1" y="17" width="32"
+                 height="29" parentComponent="DoubleTrackingPnl" filmstripImage="{PROJECT_FOLDER}Checkbox_Filmstrip.png"
+                 scaleFactor="0.5"/>
+      <Component type="ScriptLabel" id="DoubleTrackingLabel" x="20" y="-20" width="120"
+                 height="100" parentComponent="DoubleTrackingPnl" fontName="Shehroz"
+                 textColour="4278190080" text="Double Tracking" fontSize="26.0"
+                 editable="0"/>
+    </Component>
   </Component>
   <Component type="ScriptPanel" id="DebugPanel" x="160" y="0" itemColour="0"
              itemColour2="0" bgColour="16777215" textColour="16777215" borderSize="0.0"
-             width="606" height="112">
+             width="606" height="112" visible="0">
     <Component type="ScriptImage" id="NerdDetails_BG" x="3" y="3" width="597"
                height="100" parentComponent="DebugPanel" fileName="{PROJECT_FOLDER}PlayingMode_NerdDetails_BG.png"/>
     <Component type="ScriptLabel" id="handPositionFretLabel" x="388" y="9" width="39"
@@ -705,7 +716,8 @@
       <Component type="ScriptLabel" id="EnableTimeStretchLabel" x="769" y="-21"
                  width="184" height="100" parentComponent="TremoloModulatorsPnl"
                  fontName="Shehroz" text="Enable Speed Control" fontSize="24.0"
-                 fontStyle="Regular" textColour="4278190080" alignment="right"/>
+                 fontStyle="Regular" textColour="4278190080" alignment="right"
+                 editable="0"/>
     </Component>
     <Component type="ScriptPanel" id="SFXModulatorsPnl" x="29" y="387" width="952"
                height="60" parentComponent="ArticulationBG" itemColour="0" itemColour2="0"

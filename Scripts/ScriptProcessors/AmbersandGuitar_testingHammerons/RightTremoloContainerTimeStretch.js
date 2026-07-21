@@ -7,7 +7,7 @@ const var timeStretchCCChannel = 3;
  
  
  for(var i = 0; i < NUMOFSTRINGS; i++){
-	 TremoloSamplers.push(Synth.getChildSynth("LeftString" + (i + 1) + "TremoloSampler"));
+	 TremoloSamplers.push(Synth.getChildSynth("RightString" + (i + 1) + "TremoloSampler"));
  }
  
  var stretchRatio;

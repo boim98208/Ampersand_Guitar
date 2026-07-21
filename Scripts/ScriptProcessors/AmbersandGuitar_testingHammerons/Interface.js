@@ -206,7 +206,7 @@ Globals.string1ActiveRR = "not playing";
 Synth.deferCallbacks(true);
  Content.makeFrontInterface(1020, 600);
  
-//connecting with fret markers on the UI
+// connecting with fret markers on the UI
 
 const var NOTESPERSTRING = 22;
 Globals.NUMOFSTRINGS = 6;
@@ -214,9 +214,37 @@ Globals.pitchBendOffset = 0;
 
 
 
+// Setting up Double Tracking
+
+const var LeftGuitarGain = Synth.getEffect("LeftGuitarGain");
+
+const var RightGuitarGain = Synth.getEffect("RightGuitarGain");
+
+const var RightContainerMute = Synth.getMidiProcessor("RightContainerMute");
+
+
+inline function onDoubleTrackingBtnControl(component, value)
+{
+	if(value){
+		LeftGuitarGain.setAttribute(LeftGuitarGain.Balance, -100.0);
+	
+		RightContainerMute.setAttribute("Bypass", false);
+		RightGuitarGain.setAttribute(RightGuitarGain.Gain, 0.0);
+	}else{
+		
+		LeftGuitarGain.setAttribute(LeftGuitarGain.Balance, 0.0);
+	
+		RightContainerMute.setAttribute("Bypass", true);
+		RightGuitarGain.setAttribute(RightGuitarGain.Gain, -100.0);
+	}
+};
+
+Content.getComponent("DoubleTrackingBtn").setControlCallback(onDoubleTrackingBtnControl);
+
+
+
+
 const var handPositionFretLabel = Content.getComponent("handPositionFretLabel");
-
-
 
 
 const var HandPositionFretForceKnob = Content.getComponent("HandPositionFretForceKnob");

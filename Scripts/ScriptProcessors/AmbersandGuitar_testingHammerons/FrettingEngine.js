@@ -4,11 +4,15 @@
  
 include("NoteRangeAndOpenStringNote.js");
 
+include("KeyswitchConstants.js");
+
 
 var legatoKeySwitchPlaying = false;
  
  namespace Stringtype
  {
+ 
+ // these dictate the midi channel and array index these values come in at
  
      const var STRING1 = 0;
      const var STRING2 = 1;
@@ -109,14 +113,7 @@ const var NUMOFKEYSWITCHES = ContainerMutes.length;
  
  
  
-/*
- string6Mute.setAttribute("Bypass", true);
- string5Mute.setAttribute("Bypass", true);
- string4Mute.setAttribute("Bypass", true);
- string3Mute.setAttribute("Bypass", true);
- string2Mute.setAttribute("Bypass", true);
- string1Mute.setAttribute("Bypass", true);
- */
+
  
  //variables to correspond with the Fretdisplay
  Globals.stringNote1 = NO_NOTE;
@@ -363,8 +360,9 @@ inline function forceStringLogic(notePlayed, currentHandPos, fretSpaceToChange)
 		}
 	else
 		{
-		if(newFretFromForceString > 17)
-			return 17;
+	// originally condition was greater than 17, still not sure why it needs this cap
+		if(newFretFromForceString > NOTESPERSTRING - 5)
+			return NOTESPERSTRING - 5;
 		else
 			return newFretFromForceString;
 		}
