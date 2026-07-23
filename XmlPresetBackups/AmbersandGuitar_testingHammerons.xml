@@ -49,7 +49,7 @@
             <Control type="ScriptButton" id="NextPageBtn" value="0.0"/>
             <Control type="ScriptButton" id="PrevPageBtn" value="0.0"/>
             <Control type="ScriptButton" id="ShowPlayingModeButton" value="1"/>
-            <Control type="ScriptButton" id="ShowArticulationsButton" value="0.0"/>
+            <Control type="ScriptButton" id="ShowArticulationsButton" value="0"/>
             <Control type="ScriptButton" id="ShowDebugPanelButton" value="0.0"/>
           </Content>
           <UIData Source="AmbersandGuitar_testingHammeronsUIData"/>

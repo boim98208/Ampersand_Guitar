@@ -4,8 +4,7 @@
   <Component type="ScriptImage" id="CreditsBG" x="0" y="-60" width="1020"
              height="800" fileName="{PROJECT_FOLDER}Credits_BG.png" scale="0.699999988079071"/>
   <Component type="ScriptImage" id="PlayingModeBG" x="0" y="-60" width="1020"
-             height="800" fileName="{PROJECT_FOLDER}PlayingMode_BG.png" scale="0.699999988079071"
-             visible="0">
+             height="800" fileName="{PROJECT_FOLDER}PlayingMode_BG.png" scale="0.699999988079071">
     <Component type="ScriptLabel" id="CurrArticulationPlayingLabel" x="530"
                y="490" width="100" height="34" parentComponent="PlayingModeBG"
                text="Sustain" textColour="4278190080" fontName="Shehroz" fontSize="18.0"
@@ -625,7 +624,7 @@
       <Component type="ScriptButton" id="PurgeSustainBtn" x="259" y="18" width="30"
                  height="30" parentComponent="SustainModulatorsPnl" text="Enable speed change"
                  filmstripImage="{PROJECT_FOLDER}Articulation_PurgeButton_Filmstrip.png"
-                 scaleFactor="0.5"/>
+                 scaleFactor="0.5" defaultValue="1"/>
     </Component>
     <Component type="ScriptPanel" id="MuteModulatorsPnl" x="7" y="206" width="723"
                height="60" parentComponent="ArticulationBG" itemColour="0" itemColour2="0"
@@ -653,7 +652,7 @@
                  mode="Time" defaultValue="151.0" macroControl="No MacroControl"/>
       <Component type="ScriptButton" id="PurgeMuteBtn" x="259" y="18" width="30"
                  height="30" parentComponent="MuteModulatorsPnl" text="Bruh" filmstripImage="{PROJECT_FOLDER}Articulation_PurgeButton_Filmstrip.png"
-                 scaleFactor="0.5"/>
+                 scaleFactor="0.5" defaultValue="1"/>
     </Component>
     <Component type="ScriptPanel" id="HarmonicModulatorsPnl" x="14" y="266"
                width="723" height="60" parentComponent="ArticulationBG" itemColour="0"
@@ -685,7 +684,7 @@
       <Component type="ScriptButton" id="PurgeHarmonicBtn" x="259" y="18" width="30"
                  height="30" parentComponent="HarmonicModulatorsPnl" text="Enable speed change"
                  filmstripImage="{PROJECT_FOLDER}Articulation_PurgeButton_Filmstrip.png"
-                 scaleFactor="0.5"/>
+                 scaleFactor="0.5" defaultValue="1"/>
     </Component>
     <Component type="ScriptPanel" id="TremoloModulatorsPnl" x="20" y="325" width="1000"
                height="60" parentComponent="ArticulationBG" itemColour="0" itemColour2="0"
@@ -727,7 +726,7 @@
       <Component type="ScriptButton" id="PurgeTremoloBtn" x="259" y="18" width="30"
                  height="30" parentComponent="TremoloModulatorsPnl" text="Enable speed change"
                  filmstripImage="{PROJECT_FOLDER}Articulation_PurgeButton_Filmstrip.png"
-                 scaleFactor="0.5"/>
+                 scaleFactor="0.5" defaultValue="1"/>
     </Component>
     <Component type="ScriptPanel" id="SFXModulatorsPnl" x="29" y="387" width="952"
                height="60" parentComponent="ArticulationBG" itemColour="0" itemColour2="0"
@@ -754,7 +753,7 @@
       <Component type="ScriptButton" id="PurgeSFXBtn" x="259" y="18" width="30"
                  height="30" parentComponent="SFXModulatorsPnl" text="Enable speed change"
                  filmstripImage="{PROJECT_FOLDER}Articulation_PurgeButton_Filmstrip.png"
-                 scaleFactor="0.5"/>
+                 scaleFactor="0.5" defaultValue="1"/>
     </Component>
     <Component type="ScriptButton" id="NextPageBtn" x="50" y="80" width="25"
                height="28" parentComponent="ArticulationBG" isMomentary="1"

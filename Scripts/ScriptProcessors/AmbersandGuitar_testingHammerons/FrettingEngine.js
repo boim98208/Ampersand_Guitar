@@ -638,7 +638,7 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
  // Maybe make it randomized later
  
 
-inline function createAllLeftArticSamplerArray(articName, lowBound, highBound, hasDoubleTrack){
+inline function createAllLeftArticSamplerArray(articName, lowBound, highBound){
 	
 	local samplerArrayToReturn = [];
 	local samplerToPush;
@@ -656,7 +656,7 @@ inline function createAllLeftArticSamplerArray(articName, lowBound, highBound, h
 }
 
 
-inline function createAllRightArticSamplerArray(articName, lowBound, highBound, hasDoubleTrack){
+inline function createAllRightArticSamplerArray(articName, lowBound, highBound){
 	
 	local samplerArrayToReturn = [];
 	local samplerToPush;
@@ -673,7 +673,11 @@ inline function createAllRightArticSamplerArray(articName, lowBound, highBound, 
 	
 }
  
+ const var susSamplerName = "Sus";
+ const var susSamplerLowestStringNum = 1;
+ const var susSamplerHighestStringNum = NUMOFSTRINGS;
  
+ const var AllSusSamplers = createAllArticSamplerArray(susSamplerName, susSamplerLowestStringNum, susSamplerHighestStringNum, susHasDoubleTrack);
  
  
  function onNoteOn()

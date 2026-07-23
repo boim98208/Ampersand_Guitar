@@ -1157,7 +1157,7 @@ for(var i = FIRSTPERCUSSION; i < LASTPERCUSSION + 1; i++){
 }
 
 
-Engine.setKeyColour(legatoKeySwitchNote, KeyboardColors.LEGATO);
+Engine.setKeyColour(LEGATOKEYSWITCHNOTE, KeyboardColors.LEGATO);
 Engine.setKeyColour(FORCEFRETMODEKEYSWITCH, KeyboardColors.FORCEFRETHAND);
 Engine.setKeyColour(AUTOFRETMODEKEYSWITCH, KeyboardColors.FORCEFRETHAND);
 
