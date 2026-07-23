@@ -949,35 +949,163 @@ for(i = 0; i < SFXAHDSRModulators.length; i++){
 }
 
 
-inline function createAllArticSamplerArray(articName, numbOfSamplers, hasDoubleTrack){
+// setting up purging
+
+const var samplerForEnums = Synth.getChildSynth("LeftString1SusSampler");
+
+
+
+
+inline function purgeAllSamplersInArray(samplerArray){
+	local samplerToPurge;
+
+	for(i = 0; i < samplerArray.length; i++){
+		samplerToPurge = samplerArray[i];
+		samplerToPurge.setAttribute(samplerForEnums.Purged, true);
+	}
+}
+
+inline function loadAllSamplersInArray(samplerArray){
+	local samplerToLoad;
+
+	for(i = 0; i < samplerArray.length; i++){
+		samplerToLoad = samplerArray[i];
+		samplerToLoad.setAttribute(samplerForEnums.Purged, false);
+	}
+}
+
+inline function purgeArticButtonFunction(value, articSamplerArray){
+
+	if(value){
+		loadAllSamplersInArray(articSamplerArray);
+	}else{
+		purgeAllSamplersInArray(articSamplerArray);
+	}
+}
+
+// this helper function follows the assumption of samplers following the strings
+// and that the samplers follow convention of Left/RightString[Num][Artic]Sampler or String[Num][Artic]Sampler
+inline function createAllArticSamplerArray(articName, lowBound, highBound, hasDoubleTrack){
+	
+
+	local samplerArrayToReturn = [];
+	local samplerToPush;
+
+	if(hasDoubleTrack){
+		samplerArrayToReturn.reserve(numOfSamplers * 2);
+	}else{
+		samplerArrayToReturn.reserve(numOfSamplers);
+	}
+	
+	if(hasDoubleTrack){
+		for(i = lowBound; i <= highBound; i++){
+			samplerToPush = Synth.getSampler("LeftString" + i + articName + "Sampler");
+			samplerArrayToReturn.push(samplerToPush);
+			
+			samplerToPush = Synth.getSampler("RightString" + i + articName + "Sampler");
+			samplerArrayToReturn.push(samplerToPush);
+		}
+	}else{
+		for(i = lowBound; i <= highBound; i++){
+			samplerToPush = Synth.getSampler("String" + i + articName + "Sampler");
+		}
+	}
+	
+	return samplerArrayToReturn;
 	
 }
 
-const var sampleForEnums = Synth.getChildSynth("LeftString6SusSampler");
 
-const var AllSusSamplers = [];
-AllSusSamplers.reserve(NUMOFSTRINGS * 2);
+const var susSamplerName = "Sus";
+const var susSamplerLowestStringNum = 1;
+const var susSamplerHighestStringNum = NUMOFSTRINGS;
+const var susHasDoubleTrack = true;
 
-for (i = 0; i < NUMOFSTRINGS * 2; i++){
-	AllSusSamplers.push()
-}
+const var AllSusSamplers = createAllArticSamplerArray(susSamplerName, susSamplerLowestStringNum, susSamplerHighestStringNum, susHasDoubleTrack);
+
 
 inline function onPurgeSustainBtnControl(component, value)
 {
-
+	purgeArticButtonFunction(value, AllSusSamplers);
 };
 
 Content.getComponent("PurgeSustainBtn").setControlCallback(onPurgeSustainBtnControl);
 
 
 
+const var muteSamplerName = "Mute";
+const var muteSamplerLowestStringNum = 1;
+const var muteSamplerHighestStringNum = NUMOFSTRINGS;
+const var muteHasDoubleTrack = true;
+
+const var AllMuteSamplers = createAllArticSamplerArray(muteSamplerName, muteSamplerLowestStringNum, muteSamplerHighestStringNum, muteHasDoubleTrack);
+
+
+inline function onPurgeMuteBtnControl(component, value)
+{
+	purgeArticButtonFunction(value, AllMuteSamplers);
+};
+
+Content.getComponent("PurgeMuteBtn").setControlCallback(onPurgeMuteBtnControl);
+
+
+
+const var harmonicSamplerName = "Harmonic";
+const var harmonicSamplerLowestStringNum = 1;
+const var harmonicSamplerHighestStringNum = NUMOFSTRINGS;
+const var harmonicHasDoubleTrack = true;
+
+const var AllHarmonicSamplers = createAllArticSamplerArray(harmonicSamplerName, harmonicSamplerLowestStringNum, harmonicSamplerHighestStringNum, harmonicHasDoubleTrack);
+
+
+inline function onPurgeHarmonicBtnControl(component, value)
+{
+	purgeArticButtonFunction(value, AllHarmonicSamplers);
+};
+
+Content.getComponent("PurgeHarmonicBtn").setControlCallback(onPurgeHarmonicBtnControl);
+ 
+ 
+ 
+const var tremoloSamplerName = "Tremolo";
+const var tremoloSamplerLowestStringNum = 1;
+const var tremoloSamplerHighestStringNum = NUMOFSTRINGS;
+const var tremoloHasDoubleTrack = true;
+
+const var AllTremoloSamplers = createAllArticSamplerArray(tremoloSamplerName, tremoloSamplerLowestStringNum, tremoloSamplerHighestStringNum, tremoloHasDoubleTrack);
+
+
+inline function onPurgeTremoloBtnControl(component, value)
+{
+	purgeArticButtonFunction(value, AllTremoloSamplers);
+};
+
+Content.getComponent("PurgeTremoloBtn").setControlCallback(onPurgeTremoloBtnControl);
 
 
 
 
+
+const var allSFXSamplerNames = ["BackBodyHit",]
+AllSFXSamplers.reserve(AllLeftSFXSamplers.length + AllRightSFXSamplers);
+
+
+inline function onPurgeSFXBtnControl(component, value)
+{
+	purgeArticButtonFunction(value, AllSFXSamplers);
+};
+
+Content.getComponent("PurgeSFXBtn").setControlCallback(onPurgeSFXBtnControl);
  
  
 // setting up the keyboard
+
+// reset the keyboard
+for(i = 0; i < 127; i++){
+	Engine.setKeyColour(i, Colours.withAlpha(Colours.red, 0.0));
+}
+
+
 for(var i = LOWESTNOTE; i < HIGHESTNOTE + 1; i++){
 	Engine.setKeyColour(i, KeyboardColors.NOTES);
 }

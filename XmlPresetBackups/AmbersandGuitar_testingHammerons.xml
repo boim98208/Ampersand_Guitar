@@ -28,23 +28,27 @@
             <Control type="ScriptSlider" id="MuteModulatorsDecay" value="0.0"/>
             <Control type="ScriptSlider" id="MuteModulatorsMute" value="0.0"/>
             <Control type="ScriptSlider" id="MuteModulatorsRelease" value="151.0"/>
+            <Control type="ScriptButton" id="PurgeMuteBtn" value="0.0"/>
             <Control type="ScriptSlider" id="HarmonicModulatorsAttack" value="0.0"/>
             <Control type="ScriptSlider" id="HarmonicModulatorsDecay" value="0.0"/>
             <Control type="ScriptSlider" id="HarmonicModulatorsHarmonic" value="0.0"/>
             <Control type="ScriptSlider" id="HarmonicModulatorsRelease" value="151.0"/>
+            <Control type="ScriptButton" id="PurgeHarmonicBtn" value="0.0"/>
             <Control type="ScriptButton" id="EnableTremStretchButton" value="0.0"/>
             <Control type="ScriptSlider" id="TremoloModulatorsAttack" value="0.0"/>
             <Control type="ScriptSlider" id="TremoloModulatorsDecay" value="0.0"/>
             <Control type="ScriptSlider" id="TremoloModulatorsTremolo" value="-1.100000023841858"/>
             <Control type="ScriptSlider" id="TremoloModulatorsRelease" value="151.0"/>
-            <Control type="ScriptSlider" id="TremoloTimestretchKnob" value="1.0"/>
+            <Control type="ScriptSlider" id="TremoloTimestretchKnob" value="2.0"/>
+            <Control type="ScriptButton" id="PurgeTremoloBtn" value="0.0"/>
             <Control type="ScriptSlider" id="SFXModulatorsAttack" value="0.0"/>
             <Control type="ScriptSlider" id="SFXModulatorsDecay" value="0.0"/>
             <Control type="ScriptSlider" id="SFXModulatorsSFX" value="0.0"/>
             <Control type="ScriptSlider" id="SFXModulatorsRelease" value="151.0"/>
+            <Control type="ScriptButton" id="PurgeSFXBtn" value="0.0"/>
             <Control type="ScriptButton" id="NextPageBtn" value="0.0"/>
             <Control type="ScriptButton" id="PrevPageBtn" value="0.0"/>
-            <Control type="ScriptButton" id="ShowPlayingModeButton" value="0.0"/>
+            <Control type="ScriptButton" id="ShowPlayingModeButton" value="0"/>
             <Control type="ScriptButton" id="ShowArticulationsButton" value="1.0"/>
             <Control type="ScriptButton" id="ShowDebugPanelButton" value="0.0"/>
           </Content>
@@ -165,7 +169,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="ff898989" PreloadSize="8192.0" BufferSize="4096.0"
                            VoiceAmount="256.0" SamplerRepeatMode="3.0" RRGroupAmount="6.0"
-                           PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0"
+                           PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0"
                            Reversed="0.0" NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="mute_string6">
@@ -269,7 +273,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                            SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
-                           OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
+                           OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0" Reversed="0.0"
                            NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="mute_string5">
@@ -346,7 +350,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                            SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
-                           OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
+                           OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0" Reversed="0.0"
                            NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="mute_string4">
@@ -423,7 +427,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                            SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
-                           OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
+                           OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0" Reversed="0.0"
                            NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="mute_string3">
@@ -500,7 +504,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                            SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
-                           OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
+                           OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0" Reversed="0.0"
                            NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="mute_string2">
@@ -577,7 +581,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                            SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
-                           OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
+                           OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0" Reversed="0.0"
                            NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="mute_string1">
@@ -689,7 +693,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="ff898989" PreloadSize="8192.0" BufferSize="4096.0"
                            VoiceAmount="256.0" SamplerRepeatMode="3.0" RRGroupAmount="6.0"
-                           PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0"
+                           PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0"
                            Reversed="0.0" NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="Denoised/sustain_string6_denoise_1_0_0">
@@ -710,7 +714,7 @@
                         <Processor Type="AHDSR" ID="SusAHDSR" Bypassed="0" Monophonic="0.0" Retrigger="1.0"
                                    Intensity="1.0" AttackCurve="0.5" DecayCurve="0.4173228442668915"
                                    Attack="0.0" AttackLevel="0.0" Hold="1.785698413848877" Decay="1.0"
-                                   Sustain="0.0" Release="38.04982376098633" EcoMode="1.0">
+                                   Sustain="0.0" Release="151.0" EcoMode="1.0">
                           <ChildProcessors>
                             <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
                               <ChildProcessors/>
@@ -954,7 +958,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                            SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
-                           OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
+                           OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0" Reversed="0.0"
                            NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="Denoised/sustain_string5_denoise_1_0_0">
@@ -1168,7 +1172,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                            SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
-                           OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
+                           OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0" Reversed="0.0"
                            NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="Denoised/sustain_string4_denoise_1_0_0">
@@ -1390,7 +1394,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                            SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
-                           OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
+                           OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0" Reversed="0.0"
                            NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="Denoised/sustain_string3_denoise_1_0_0">
@@ -1608,7 +1612,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                            SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
-                           OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
+                           OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0" Reversed="0.0"
                            NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="Denoised/sustain_string2_denoise_1_0_0">
@@ -1826,7 +1830,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                            SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
-                           OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
+                           OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0" Reversed="0.0"
                            NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="Denoised/sustain_string1_denoise_1_0_0">
@@ -2079,7 +2083,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="ff898989" PreloadSize="8192.0" BufferSize="4096.0"
                            VoiceAmount="256.0" SamplerRepeatMode="3.0" RRGroupAmount="2.0"
-                           PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0"
+                           PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0"
                            Reversed="0.0" NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="harmonic_string6">
@@ -2183,7 +2187,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                            SamplerRepeatMode="3.0" RRGroupAmount="2.0" PitchTracking="1.0"
-                           OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
+                           OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0" Reversed="0.0"
                            NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="harmonic_string5">
@@ -2260,7 +2264,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                            SamplerRepeatMode="3.0" RRGroupAmount="2.0" PitchTracking="1.0"
-                           OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
+                           OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0" Reversed="0.0"
                            NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="harmonic_string4">
@@ -2337,7 +2341,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                            SamplerRepeatMode="3.0" RRGroupAmount="2.0" PitchTracking="1.0"
-                           OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
+                           OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0" Reversed="0.0"
                            NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="harmonic_string3">
@@ -2414,7 +2418,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                            SamplerRepeatMode="3.0" RRGroupAmount="2.0" PitchTracking="1.0"
-                           OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
+                           OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0" Reversed="0.0"
                            NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="harmonic_string2">
@@ -2491,7 +2495,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                            SamplerRepeatMode="3.0" RRGroupAmount="2.0" PitchTracking="1.0"
-                           OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
+                           OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0" Reversed="0.0"
                            NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="harmonic_string1">
@@ -2623,7 +2627,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="ff000000" PreloadSize="8192.0" BufferSize="4096.0"
                            VoiceAmount="256.0" SamplerRepeatMode="3.0" RRGroupAmount="1.0"
-                           PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0"
+                           PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0"
                            Reversed="0.0" NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="Looped/tremolo_string6">
@@ -2729,7 +2733,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="ffffffff" PreloadSize="8192.0" BufferSize="4096.0"
                            VoiceAmount="256.0" SamplerRepeatMode="3.0" RRGroupAmount="1.0"
-                           PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0"
+                           PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0"
                            Reversed="0.0" NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="Looped/tremolo_string5">
@@ -2808,7 +2812,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="ff000000" PreloadSize="8192.0" BufferSize="4096.0"
                            VoiceAmount="256.0" SamplerRepeatMode="3.0" RRGroupAmount="1.0"
-                           PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0"
+                           PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0"
                            Reversed="0.0" NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="Looped/tremolo_string4">
@@ -2887,7 +2891,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                            SamplerRepeatMode="3.0" RRGroupAmount="1.0" PitchTracking="1.0"
-                           OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
+                           OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0" Reversed="0.0"
                            NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="Looped/tremolo_string3">
@@ -2966,7 +2970,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                            SamplerRepeatMode="3.0" RRGroupAmount="1.0" PitchTracking="1.0"
-                           OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
+                           OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0" Reversed="0.0"
                            NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="Looped/tremolo_string2">
@@ -3045,7 +3049,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                            SamplerRepeatMode="3.0" RRGroupAmount="1.0" PitchTracking="1.0"
-                           OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
+                           OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0" Reversed="0.0"
                            NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="Looped/tremolo_string1">
@@ -3858,7 +3862,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="ff898989" PreloadSize="8192.0" BufferSize="4096.0"
                            VoiceAmount="256.0" SamplerRepeatMode="3.0" RRGroupAmount="6.0"
-                           PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0"
+                           PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0"
                            Reversed="0.0" NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="mute_string6">
@@ -3962,7 +3966,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                            SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
-                           OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
+                           OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0" Reversed="0.0"
                            NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="mute_string5">
@@ -4039,7 +4043,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                            SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
-                           OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
+                           OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0" Reversed="0.0"
                            NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="mute_string4">
@@ -4116,7 +4120,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                            SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
-                           OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
+                           OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0" Reversed="0.0"
                            NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="mute_string3">
@@ -4193,7 +4197,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                            SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
-                           OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
+                           OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0" Reversed="0.0"
                            NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="mute_string2">
@@ -4270,7 +4274,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                            SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
-                           OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
+                           OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0" Reversed="0.0"
                            NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="mute_string1">
@@ -4382,7 +4386,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="ff898989" PreloadSize="8192.0" BufferSize="4096.0"
                            VoiceAmount="256.0" SamplerRepeatMode="3.0" RRGroupAmount="6.0"
-                           PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0"
+                           PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0"
                            Reversed="0.0" NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="Denoised/sustain_string6_denoise_1_0_0">
@@ -4647,7 +4651,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                            SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
-                           OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
+                           OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0" Reversed="0.0"
                            NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="Denoised/sustain_string5_denoise_1_0_0">
@@ -4861,7 +4865,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                            SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
-                           OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
+                           OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0" Reversed="0.0"
                            NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="Denoised/sustain_string4_denoise_1_0_0">
@@ -5083,7 +5087,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                            SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
-                           OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
+                           OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0" Reversed="0.0"
                            NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="Denoised/sustain_string3_denoise_1_0_0">
@@ -5301,7 +5305,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                            SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
-                           OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
+                           OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0" Reversed="0.0"
                            NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="Denoised/sustain_string2_denoise_1_0_0">
@@ -5519,7 +5523,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                            SamplerRepeatMode="3.0" RRGroupAmount="6.0" PitchTracking="1.0"
-                           OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
+                           OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0" Reversed="0.0"
                            NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="Denoised/sustain_string1_denoise_1_0_0">
@@ -5772,7 +5776,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="ff898989" PreloadSize="8192.0" BufferSize="4096.0"
                            VoiceAmount="256.0" SamplerRepeatMode="3.0" RRGroupAmount="2.0"
-                           PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0"
+                           PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0"
                            Reversed="0.0" NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="harmonic_string6">
@@ -5876,7 +5880,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                            SamplerRepeatMode="3.0" RRGroupAmount="2.0" PitchTracking="1.0"
-                           OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
+                           OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0" Reversed="0.0"
                            NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="harmonic_string5">
@@ -5953,7 +5957,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                            SamplerRepeatMode="3.0" RRGroupAmount="2.0" PitchTracking="1.0"
-                           OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
+                           OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0" Reversed="0.0"
                            NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="harmonic_string4">
@@ -6030,7 +6034,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                            SamplerRepeatMode="3.0" RRGroupAmount="2.0" PitchTracking="1.0"
-                           OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
+                           OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0" Reversed="0.0"
                            NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="harmonic_string3">
@@ -6107,7 +6111,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                            SamplerRepeatMode="3.0" RRGroupAmount="2.0" PitchTracking="1.0"
-                           OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
+                           OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0" Reversed="0.0"
                            NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="harmonic_string2">
@@ -6184,7 +6188,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                            SamplerRepeatMode="3.0" RRGroupAmount="2.0" PitchTracking="1.0"
-                           OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
+                           OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0" Reversed="0.0"
                            NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="harmonic_string1">
@@ -6317,7 +6321,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="ff000000" PreloadSize="8192.0" BufferSize="4096.0"
                            VoiceAmount="256.0" SamplerRepeatMode="3.0" RRGroupAmount="1.0"
-                           PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0"
+                           PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0"
                            Reversed="0.0" NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="Looped/tremolo_string6">
@@ -6423,7 +6427,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="ffffffff" PreloadSize="8192.0" BufferSize="4096.0"
                            VoiceAmount="256.0" SamplerRepeatMode="3.0" RRGroupAmount="1.0"
-                           PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0"
+                           PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0"
                            Reversed="0.0" NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="Looped/tremolo_string5">
@@ -6502,7 +6506,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="ff000000" PreloadSize="8192.0" BufferSize="4096.0"
                            VoiceAmount="256.0" SamplerRepeatMode="3.0" RRGroupAmount="1.0"
-                           PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0"
+                           PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0"
                            Reversed="0.0" NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="Looped/tremolo_string4">
@@ -6581,7 +6585,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                            SamplerRepeatMode="3.0" RRGroupAmount="1.0" PitchTracking="1.0"
-                           OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
+                           OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0" Reversed="0.0"
                            NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="Looped/tremolo_string3">
@@ -6660,7 +6664,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                            SamplerRepeatMode="3.0" RRGroupAmount="1.0" PitchTracking="1.0"
-                           OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
+                           OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0" Reversed="0.0"
                            NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="Looped/tremolo_string2">
@@ -6739,7 +6743,7 @@
                            Gain="1.0" Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0"
                            IconColour="0" PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                            SamplerRepeatMode="3.0" RRGroupAmount="1.0" PitchTracking="1.0"
-                           OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
+                           OneShot="0.0" CrossfadeGroups="0.0" Purged="1.0" Reversed="0.0"
                            NumChannels="1" UseStaticMatrix="0.0" LowPassEnvelopeOrder="0.0"
                            Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                            Group5Table="" Group6Table="" Group7Table="" SampleMapID="Looped/tremolo_string1">
