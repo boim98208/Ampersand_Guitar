@@ -1,6 +1,8 @@
  Synth.deferCallbacks(false);
- //for some reason global releases wont turn off mid-script so I'm keeping it off for now
- Globals.emulatedReleasesOn = true;
+ 
+ 
+ //Emulated releases didn't go as well as planned. But I'll keep it here for now
+ Globals.emulatedReleasesOn = false;
  
 include("NoteRangeAndOpenStringNote.js");
 
@@ -44,9 +46,6 @@ var legatoKeySwitchPlaying = false;
  	const var NATURAL = 1;
  	const var MELODY = 2;
  }
-
- 
-include("KeyswitchConstants.js");
  
  
  var legatoKeySwitchPlaying = false;
@@ -70,7 +69,7 @@ const var NUMOFKEYSWITCHES = ContainerMutes.length;
 	 }
  }
  
- var currArticulationPlaying = PerformanceType.SUSTAIN;
+ Globals.currArticulationPlaying = PerformanceType.SUSTAIN;
  
  inline function detectKeySwitch(notePlayed){
 	 
@@ -89,22 +88,27 @@ const var NUMOFKEYSWITCHES = ContainerMutes.length;
 	 if(notePlayed == SUSTAINKEYSWITCHNOTE){
 	 
 		 SusContainerMute.setAttribute("Bypass", false);
-		 currArticulationPlaying = PerformanceType.SUSTAIN;
+		 Globals.currArticulationPlaying = PerformanceType.SUSTAIN;
 		 
 		 Globals.emulatedReleasesOn = true;
 	 }else if(notePlayed == MUTEKEYSWITCHNOTE){
 	 
 		 MuteContainerMute.setAttribute("Bypass", false);
-		 currArticulationPlaying = PerformanceType.MUTE;
+		 Globals.currArticulationPlaying = PerformanceType.MUTE;
 		 
 	 }else if(notePlayed == HARMONICKEYSWITCHNOTE){
 		 
 		 HarmonicContainerMute.setAttribute("Bypass", false);
-		 currArticulationPlaying = PerformanceType.HARMONIC;
+		 Globals.currArticulationPlaying = PerformanceType.HARMONIC;
 	 }else if(notePlayed == TREMOLOKEYSWITCHNOTE){
 		 
 		 TremoloContainerMute.setAttribute("Bypass", false);
-		 currArticulationPlaying = PerformanceType.TREMOLO;
+		 Globals.currArticulationPlaying = PerformanceType.TREMOLO;
+	 }else if(notePlayed == SFXKEYSWITCHNOTE){
+	 
+	 Console.print("are you coming here");
+		 Globals.currArticulationPlaying = PerformanceType.SFX;
+		 
 	 }
 	 
  }
@@ -116,6 +120,8 @@ const var NUMOFKEYSWITCHES = ContainerMutes.length;
 
  
  //variables to correspond with the Fretdisplay
+ 
+ //please refactor this later to all just be an array
  Globals.stringNote1 = NO_NOTE;
  Globals.stringNote2 = NO_NOTE;
  Globals.stringNote3 = NO_NOTE;
@@ -153,7 +159,7 @@ stringNote.push(POSINFINITY);
 
 
 
-//GUI TO HELP ME DEBUG
+// GUI TO HELP ME DEBUG
 
 inline function onButton1Control(component, value)
 {
@@ -169,11 +175,11 @@ Content.getComponent("Button1").setControlCallback(onButton1Control);
 
 
 
-//functions to ensure only one sampler plays a voice at a time
-//this should only take the Stringtype enum
+// functions to ensure only one sampler plays a voice at a time
+// this should only take the Stringtype enum
 inline function playString(theStringType){
 	
-	//adding 1 because the enum starts on 0 but channels start on 1
+	// adding 1 because the enum starts on 0 but channels start on 1
 	Message.setChannel(theStringType + 1);
 }
  
@@ -218,12 +224,9 @@ inline function playString(theStringType){
 	 return Synth.getNumPressedKeys() > 1;
  }
  
- inline function sustainKeySwitchPressed(){
-	 
- }
  
- //fretting engine designed for going low to high string then going back down
- //use primarily for quick debugging 
+ // fretting engine designed for going low to high string then going back down
+ // used primarily for quick debugging 
  
  inline function primitiveFretting(notePlayed){
  
@@ -592,7 +595,7 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
   }
  
  
- //interfacing between different fretting engines
+ // interfacing between different fretting engines
  
  inline function playNextNoteOnNewString(notePlayed, velocityPlayed){
 	 
@@ -628,6 +631,48 @@ inline function melodyFretting1_0_0(notePlayed, currentHandPos)
  			}
 	 
  }
+ 
+ 
+ 
+ // setting up RR handling. Primarily just here to make double tracking between left and right.
+ // Maybe make it randomized later
+ 
+
+inline function createAllLeftArticSamplerArray(articName, lowBound, highBound, hasDoubleTrack){
+	
+	local samplerArrayToReturn = [];
+	local samplerToPush;
+	local numOfSamplers = highBound - lowBound + 1;
+
+	samplerArrayToReturn.reserve(numOfSamplers);
+	
+	for(i = lowBound; i <= highBound; i++){
+		samplerToPush = Synth.getSampler("LeftString" + i + articName + "Sampler");
+		samplerArrayToReturn.push(samplerToPush);
+	}
+
+	return samplerArrayToReturn;
+	
+}
+
+
+inline function createAllRightArticSamplerArray(articName, lowBound, highBound, hasDoubleTrack){
+	
+	local samplerArrayToReturn = [];
+	local samplerToPush;
+	local numOfSamplers = highBound - lowBound + 1;
+
+	samplerArrayToReturn.reserve(numOfSamplers);
+	
+	for(i = lowBound; i <= highBound; i++){
+		samplerToPush = Synth.getSampler("RightString" + i + articName + "Sampler");
+		samplerArrayToReturn.push(samplerToPush);
+	}
+
+	return samplerArrayToReturn;
+	
+}
+ 
  
  
  

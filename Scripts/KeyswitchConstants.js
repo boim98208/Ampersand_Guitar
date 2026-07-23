@@ -25,7 +25,8 @@
  	const var MUTE = 3;
  	const var HARMONIC = 4;
  	const var TREMOLO = 5;
+ 	const var SFX = 6;
  	
- 	const var NUMOFPERFORMANCES = 6;
- 	//SFX will just be separate keys down low
+ 	const var NUMOFPERFORMANCES = 7;
+ 	//SFX will just be separate keys down low... maybe
  }

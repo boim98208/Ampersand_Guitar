@@ -99,8 +99,6 @@ inline function displayFret(fretImg, stringNum)
 	
 	// something isn't getting updated or some strings just wont update?
 
-	Console.print(Globals.stringPerformance[stringNum]);
-
 
 	if(Globals.stringPerformance[stringNum] == PerformanceType.SUSTAIN)
 	{
@@ -244,6 +242,10 @@ Content.getComponent("DoubleTrackingBtn").setControlCallback(onDoubleTrackingBtn
 
 
 
+// Setting up playing mode GUI
+
+
+
 const var handPositionFretLabel = Content.getComponent("handPositionFretLabel");
 
 
@@ -305,6 +307,29 @@ const var DebugPanel = Content.getComponent("DebugPanel");
 const var PlayingModeBG = Content.getComponent("PlayingModeBG");
 
 const var ShowArticulationsButton = Content.getComponent("ShowArticulationsButton");
+
+
+const var CurrArticulationPlayingLabel = Content.getComponent("CurrArticulationPlayingLabel");
+
+inline function updateCurrArticPlayingLabel(){
+	
+
+	if(Globals.currArticulationPlaying == PerformanceType.SUSTAIN)
+		CurrArticulationPlayingLabel.set("text", "Sustain");
+	else if(Globals.currArticulationPlaying == PerformanceType.MUTE)
+		CurrArticulationPlayingLabel.set("text", "Mute");
+	else if(Globals.currArticulationPlaying == PerformanceType.HARMONIC)
+		CurrArticulationPlayingLabel.set("text", "Harmonic");
+	else if(Globals.currArticulationPlaying == PerformanceType.TREMOLO)
+		CurrArticulationPlayingLabel.set("text", "Tremolo");
+	else if(Globals.currArticulationPlaying == PerformanceType.SFX)
+			CurrArticulationPlayingLabel.set("text", "SFX");
+	
+}
+
+
+
+
 
 // setting up the buttons that show the GUI
 
@@ -723,7 +748,6 @@ inline function onVibratoDepthKnobControl(component, value)
 	//SourceVibratoLFO.setIntensity(value);
 	SourceVibratoLFO.setIntensity(value);
 	changeVibratoDepth(value, VibratoLFOs);
-	Console.print(value);
 };
 
 Content.getComponent("VibratoDepthKnob").setControlCallback(onVibratoDepthKnobControl);
@@ -878,7 +902,6 @@ for(i = 0; i < TremoloAHDSRModulators.length; i++){
 inline function onTremoloTimestretchKnobControl(component, value)
 {
 	Globals.timeStretchRatio = value;
-	Console.print(value);
 };
 
 
@@ -955,7 +978,7 @@ const var samplerForEnums = Synth.getChildSynth("LeftString1SusSampler");
 
 
 
-
+// purges all the samples from samplers from RAM
 inline function purgeAllSamplersInArray(samplerArray){
 	local samplerToPurge;
 
@@ -965,6 +988,7 @@ inline function purgeAllSamplersInArray(samplerArray){
 	}
 }
 
+// gets all the samples from samplers into RAM
 inline function loadAllSamplersInArray(samplerArray){
 	local samplerToLoad;
 
@@ -973,6 +997,19 @@ inline function loadAllSamplersInArray(samplerArray){
 		samplerToLoad.setAttribute(samplerForEnums.Purged, false);
 	}
 }
+
+// Lazy load works like kontakt purge where everything is purged until it's played
+// not implemented yet
+inline function lazyLoadAllSamplersInArray(samplerArray){
+	local samplerToLoad;
+	
+	for(i = 0; i < samplerArray.length; i++){
+		samplerToLoad = samplerArray[i];
+		samplerToLoad.setAttribute(samplerForEnums.Purged, false);
+	}
+
+}
+
 
 inline function purgeArticButtonFunction(value, articSamplerArray){
 
@@ -990,6 +1027,7 @@ inline function createAllArticSamplerArray(articName, lowBound, highBound, hasDo
 
 	local samplerArrayToReturn = [];
 	local samplerToPush;
+	local numOfSamplers = highBound - lowBound + 1;
 
 	if(hasDoubleTrack){
 		samplerArrayToReturn.reserve(numOfSamplers * 2);
@@ -1085,8 +1123,8 @@ Content.getComponent("PurgeTremoloBtn").setControlCallback(onPurgeTremoloBtnCont
 
 
 
-
-const var allSFXSamplerNames = ["BackBodyHit",]
+/*
+const var allSFXSamplerNames = ["BackBodyHit"]
 AllSFXSamplers.reserve(AllLeftSFXSamplers.length + AllRightSFXSamplers);
 
 
@@ -1097,7 +1135,7 @@ inline function onPurgeSFXBtnControl(component, value)
 
 Content.getComponent("PurgeSFXBtn").setControlCallback(onPurgeSFXBtnControl);
  
- 
+ */
 // setting up the keyboard
 
 // reset the keyboard
@@ -1234,6 +1272,7 @@ function onController()
 	}
 	
 	updateStringRRLabels();
+	updateCurrArticPlayingLabel();
 	
 	TremoloTimestretchKnob.setValue(Globals.timeStretchRatio);
 	
