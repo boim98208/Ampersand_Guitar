@@ -4,7 +4,8 @@
   <Component type="ScriptImage" id="CreditsBG" x="0" y="-60" width="1020"
              height="800" fileName="{PROJECT_FOLDER}Credits_BG.png" scale="0.699999988079071"/>
   <Component type="ScriptImage" id="PlayingModeBG" x="0" y="-60" width="1020"
-             height="800" fileName="{PROJECT_FOLDER}PlayingMode_BG.png" scale="0.699999988079071">
+             height="800" fileName="{PROJECT_FOLDER}PlayingMode_BG.png" scale="0.699999988079071"
+             visible="0">
     <Component type="ScriptLabel" id="ArticulationPlayingLabel" x="430" y="430"
                width="100" height="100" parentComponent="PlayingModeBG" text="test"
                textColour="4278190080"/>
@@ -590,11 +591,7 @@
                textColour="4278190080" updateAfterInit="0" enabled="0" visible="0"/>
   </Component>
   <Component type="ScriptImage" id="ArticulationBG" x="0" y="-60" width="1020"
-             height="600" fileName="{PROJECT_FOLDER}Articulations_BG.png"
-             visible="0">
-    <Component type="ScriptLabel" id="TremSpeedLabel" x="0" y="120" width="100"
-               height="100" parentComponent="ArticulationBG" text="Trem Speed"
-               textColour="4278190080"/>
+             height="600" fileName="{PROJECT_FOLDER}Articulations_BG.png">
     <Component type="ScriptPanel" id="SustainModulatorsPnl" x="0" y="150" width="723"
                height="60" parentComponent="ArticulationBG" itemColour="0" itemColour2="0"
                textColour="16777215" bgColour="16777215">
@@ -622,6 +619,10 @@
                  scaleFactor="0.25" max="20000.0" mouseSensitivity="0.5" showValuePopup="Left"
                  middlePosition="150.0" parentComponent="SustainModulatorsPnl"
                  width="52" mode="Time" defaultValue="151.0" macroControl="No MacroControl"/>
+      <Component type="ScriptButton" id="PurgeSustainBtn" x="262" y="18" width="30"
+                 height="30" parentComponent="SustainModulatorsPnl" text="Enable speed change"
+                 filmstripImage="{PROJECT_FOLDER}Articulation_PurgeButton_Filmstrip.png"
+                 scaleFactor="0.5"/>
     </Component>
     <Component type="ScriptPanel" id="MuteModulatorsPnl" x="7" y="206" width="723"
                height="60" parentComponent="ArticulationBG" itemColour="0" itemColour2="0"

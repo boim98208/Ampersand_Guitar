@@ -949,11 +949,35 @@ for(i = 0; i < SFXAHDSRModulators.length; i++){
 }
 
 
+inline function createAllArticSamplerArray(articName, numbOfSamplers, hasDoubleTrack){
+	
+}
+
+const var sampleForEnums = Synth.getChildSynth("LeftString6SusSampler");
+
+const var AllSusSamplers = [];
+AllSusSamplers.reserve(NUMOFSTRINGS * 2);
+
+for (i = 0; i < NUMOFSTRINGS * 2; i++){
+	AllSusSamplers.push()
+}
+
+inline function onPurgeSustainBtnControl(component, value)
+{
+
+};
+
+Content.getComponent("PurgeSustainBtn").setControlCallback(onPurgeSustainBtnControl);
+
+
+
+
+
 
 
  
  
-// Coloring up the keyboard
+// setting up the keyboard
 for(var i = LOWESTNOTE; i < HIGHESTNOTE + 1; i++){
 	Engine.setKeyColour(i, KeyboardColors.NOTES);
 }
