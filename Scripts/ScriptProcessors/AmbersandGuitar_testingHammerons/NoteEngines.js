@@ -231,6 +231,11 @@ inline function onButton1Control(component, value)
 	for(var i = 0; i < NUMOFSTRINGS; i++){
 		Console.print("String " + (i + 1) + ": " + stringNote[i] +" | legato: " + stringNote[i + StringType.LEGATOOFFSET]);
 	}
+	
+	
+/*	for(var i = 0; i < NUMOFSTRINGS; i++){
+			Console.print("String " + (i + 1) + ": " + notesToTest[i] +" | legato: " + stringNote[i + StringType.LEGATOOFFSET]);
+		}*/
 };
 
 Content.getComponent("Button1").setControlCallback(onButton1Control);
@@ -991,7 +996,6 @@ inline function strumIfStrumKeyPressed(notePlayed, noteIdsToUpdate, notesToStrum
 
 		
 	if(notePlayed == StrummingKeyswitches.downStrumKeyswitch){
-		Console.print("hellow");
 	
 		downStrumHeld = true;
 		currStrummingDirection = StrummingDirections.downStrumming;
@@ -1061,8 +1065,8 @@ inline function singleNoteStrum(notesToStrum, noteIdsToUpdate, noteVelocity)
 
 	
 	local numOfStringToStrum = NO_NOTE;
-	local noteToStrum;
 	local midiChannelToPlay;
+	local noteToStrum;
 
 
 		for(i = 0; i < NUMOFSTRINGS && numOfStringToStrum == NO_NOTE; i++){
@@ -1076,6 +1080,7 @@ inline function singleNoteStrum(notesToStrum, noteIdsToUpdate, noteVelocity)
 	noteToStrum = notesToStrum[numOfStringToStrum];
 		// + 1 because enums start at 0 but 
 		if(noteIdsToUpdate[numOfStringToStrum] != NO_NOTE){
+		
 			Synth.noteOffByEventId(noteIdsToUpdate[numOfStringToStrum]);
 		}
 		noteIdsToUpdate[numOfStringToStrum] = Synth.addNoteOn(midiChannelToPlay, noteToStrum, noteVelocity, 1);		
@@ -1107,7 +1112,7 @@ inline function upStrum(notesToStrum, noteIdsToUpdate, noteVelocity, playingStru
 	local strumRandomizationPercent = linMap(noteVelocity, 1, 127, slowestStrumRandomizationPercent, fastestStrumRandomizationPercent);
 	
 	for(i = 0; i < notesToStrum.length; i++){
-		if(notesToStrum[i] != NO_NOTE){
+		if(notesToStrum[i] != NO_NOTE && notesToStrum[i] != POSINFINITY){
 			numOfNotesToPlay++;
 		}
 	}
@@ -1116,6 +1121,9 @@ inline function upStrum(notesToStrum, noteIdsToUpdate, noteVelocity, playingStru
 		indivNoteDelay = totalTimeSamples/(numOfNotesToPlay - 1);
 	else if(numOfNotesToPlay == 1)
 	{
+	
+	Console.print(numOfNotesToPlay);
+
 		// only one note is held
 		singleNoteStrum(notesToStrum, noteIdsToUpdate, noteVelocity);
 	}else{
@@ -1185,7 +1193,7 @@ inline function downStrum(notesToStrum, noteIdsToUpdate, noteVelocity, playingSt
 	local strumRandomizationPercent = linMap(noteVelocity, 1, 127, slowestStrumRandomizationPercent, fastestStrumRandomizationPercent);
 	
 	for(i = 0; i < notesToStrum.length; i++){
-		if(notesToStrum[i] != NO_NOTE){
+		if(notesToStrum[i] != NO_NOTE && notesToStrum[i] != POSINFINITY){
 			numOfNotesToPlay++;
 		}
 	}
@@ -1194,6 +1202,7 @@ inline function downStrum(notesToStrum, noteIdsToUpdate, noteVelocity, playingSt
 		indivNoteDelay = totalTimeSamples/(numOfNotesToPlay - 1);
 	else if(numOfNotesToPlay == 1)
 	{
+
 		// only one note is held
 		singleNoteStrum(notesToStrum, noteIdsToUpdate, noteVelocity);
 	}else{
@@ -1220,9 +1229,11 @@ inline function downStrum(notesToStrum, noteIdsToUpdate, noteVelocity, playingSt
 			indivNoteDelayRandomized = capAtLimits(0, POSINFINITY, indivNoteDelayRandomized);
 			
 			if(noteIdsToUpdate[j] != NO_NOTE){
-			Console.print(j);	
 			
 				Synth.noteOffDelayedByEventId(noteIdsToUpdate[j], indivNoteDelayRandomized - 1);
+				
+				//Synth.noteOffByEventId(noteIdsToUpdate[j]);
+				
 			}
 			
 			randomizedNoteVelocity = noteVelocity + randomAddOrSub(randVelDeviation);
@@ -1232,6 +1243,7 @@ inline function downStrum(notesToStrum, noteIdsToUpdate, noteVelocity, playingSt
 			stringChannelToSendTo = stringEnumToMidiChannel(j);
 			
 			noteIdsToUpdate[j] = Synth.addNoteOn(stringChannelToSendTo, notesToStrum[j], randomizedNoteVelocity, indivNoteDelayRandomized);
+			
 			
 			Globals.g_stringNotes[j] = notesToStrum[j];
 			
@@ -1262,6 +1274,8 @@ inline function releaseStrumKeyIfReleased(noteReleased, noteIdsToUpdate, notesTo
 	
 	
 	if(downStrumHeld || upStrumHeld){
+		Console.print("hello");
+	
 		return false;
 	}
 	
@@ -1274,18 +1288,15 @@ inline function releaseStrumKeyIfReleased(noteReleased, noteIdsToUpdate, notesTo
 	Synth.noteOffDelayedByEventId(noteIdsToUpdate[i], Math.random() * Engine.getSamplesForMilliSeconds(10));
 		noteIdsToUpdate[i] = -1;
 		Globals.g_stringNotes[i] = NO_NOTE;
-		if(eventIds.getValue(notesToUpdate[i]) == NO_NOTE){
-		
-			notesToUpdate[i] == NO_NOTE;
-		}
+
 		
 			}
 		}
 		
 		
-		for(i = 0; i < notesToUpdate.length; i++){
+	/*	for(i = 0; i < notesToUpdate.length; i++){
 			notesToUpdate[i] = -1;
-		}
+		}*/
 		
 }
 
@@ -1295,7 +1306,6 @@ const var IdsToTest = [-1, -1, -1, -1, -1, -1];
 
 inline function individualNoteStrum(notePlayed, noteVelocity, notesToStrumFrom, noteIdsToUpdate, strumNoteIdsToUpdate){
 	
-	Console.print("hello");
 
 	local heightOfNoteToPlay;
 	local noteFound = false;
@@ -1475,11 +1485,14 @@ inline function randomAddOrSub(deviation){
 	
 
 	
-//	strumIfStrumKeyPressed(notePlayed, stringNoteId, stringNote, velocityPlayed);
-
-	strumIfStrumKeyPressed(notePlayed, IdsToTest, notesToTest, velocityPlayed);
+	strumIfStrumKeyPressed(notePlayed, stringNoteId, stringNote, velocityPlayed);
 	
-	individualNoteStrum(notePlayed, velocityPlayed, notesToTest, IdsToTest, indivNoteStrumIds);
+	individualNoteStrum(notePlayed, velocityPlayed, stringNote, stringNoteId, indivNoteStrumIds);
+
+//	strumIfStrumKeyPressed(notePlayed, IdsToTest, notesToTest, velocityPlayed);
+	
+//	individualNoteStrum(notePlayed, velocityPlayed, notesToTest, IdsToTest, indivNoteStrumIds);
+
 	
 }
 function onNoteOff()
@@ -1488,21 +1501,31 @@ function onNoteOff()
     local releasedNoteId = Message.getEventId();
     local noteFound = false;
     local noteFoundInLegato = false;
+    local eventIdListIndexToRemoveId = 0;
     
-    eventIds.setValue(releasedNote, NO_NOTE);
 
 	if(releasedNote == legatoKeySwitchNote)
 		legatoKeySwitchPlaying = false;
+		
+		if(eventIds.getIndex(releasedNoteId) != NO_NOTE){
+			
+			eventIdListIndexToRemoveId = eventIds.getIndex(releasedNoteId);
+			
+			    for (i = 0; i < NUMOFSTRINGS && !noteFound; i++)
+				{
+				    if (stringNote[i] == releasedNote)
+				    {
+				        noteOffString(i, stringNote, stringNoteId);
+				        noteFound = true;
+				    }
+				    
+				}
+			
+			eventIds.setValue(eventIdListIndexToRemoveId, NO_NOTE);
 
-    for (i = 0; i < NUMOFSTRINGS && !noteFound; i++)
-		{
-		    if (stringNoteId[i] == releasedNoteId)
-		    {
-		        noteOffString(i, stringNote, stringNoteId);
-		        noteFound = true;
-		        
-		    }
 		}
+		
+
 
 		
 	for (var i = StringType.LEGATOOFFSET; i < stringNote.length && !noteFoundInLegato; i++)
@@ -1518,13 +1541,15 @@ function onNoteOff()
 			    }
 			}
 			
-//	releaseStrumKeyIfReleased(releasedNote, stringNoteId, stringNote);
+	releaseStrumKeyIfReleased(releasedNote, stringNoteId, stringNote);
+
+	indivNoteStrumReleaseIfReleased(releasedNote, stringNoteId, indivNoteStrumIds);
 	
-	releaseStrumKeyIfReleased(releasedNote, IdsToTest, notesToTest);
+//	releaseStrumKeyIfReleased(releasedNote, IdsToTest, notesToTest);
 	
-	indivNoteStrumReleaseIfReleased(releasedNote, IdsToTest, indivNoteStrumIds);
+//	indivNoteStrumReleaseIfReleased(releasedNote, IdsToTest, indivNoteStrumIds);
 	
-//	individualNoteStrum(notePlayed, velocityPlayed, notesToTest, IdsToTest, indivNoteStrumIds);
+
     
     updateGlobals();
 }function onController()
