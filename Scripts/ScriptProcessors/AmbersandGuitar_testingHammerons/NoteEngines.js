@@ -2,6 +2,8 @@
  Synth.setFixNoteOnAfterNoteOff(true);
  
  
+ Content.makeFrontInterface(800, 400);
+ 
  reg i = 0;
  reg rrCounter = 1;
  
@@ -15,8 +17,14 @@ include("KeyswitchConstants.js");
 
 var legatoKeySwitchPlaying = false;
  
- 
 
+
+ const var NoteIdLabels = [Content.getComponent("noteId1"),
+                    Content.getComponent("noteId6"),
+                    Content.getComponent("noteId5"),
+                    Content.getComponent("noteId4"),
+                    Content.getComponent("noteId3"),
+                    Content.getComponent("noteId2")];
  
  
  
@@ -1230,7 +1238,7 @@ inline function downStrum(notesToStrum, noteIdsToUpdate, noteVelocity, playingSt
 			
 			if(noteIdsToUpdate[j] != NO_NOTE){
 			
-				Synth.noteOffDelayedByEventId(noteIdsToUpdate[j], indivNoteDelayRandomized - 1);
+				Synth.noteOffDelayedByEventId(noteIdsToUpdate[j], indivNoteDelayRandomized);
 				
 				//Synth.noteOffByEventId(noteIdsToUpdate[j]);
 				
@@ -1488,6 +1496,10 @@ inline function randomAddOrSub(deviation){
 	strumIfStrumKeyPressed(notePlayed, stringNoteId, stringNote, velocityPlayed);
 	
 	individualNoteStrum(notePlayed, velocityPlayed, stringNote, stringNoteId, indivNoteStrumIds);
+	
+	for(i = 0; i < NoteIdLabels.length; i++){
+		NoteIdLabels[i].set("text", stringNoteId[i]);
+	}
 
 //	strumIfStrumKeyPressed(notePlayed, IdsToTest, notesToTest, velocityPlayed);
 	
@@ -1550,6 +1562,9 @@ function onNoteOff()
 //	indivNoteStrumReleaseIfReleased(releasedNote, IdsToTest, indivNoteStrumIds);
 	
 
+	for(i = 0; i < NoteIdLabels.length; i++){
+		NoteIdLabels[i].set("text", stringNoteId[i]);
+	}
     
     updateGlobals();
 }function onController()
