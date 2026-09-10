@@ -169,8 +169,15 @@ const var NUMOFKEYSWITCHES = 4;
     (the high string) while index 5 holds note played by
     string 6 (the low string)
  */
-var stringNote = [];
-var stringNoteId = [];
+const var stringNote = [];
+stringNote.reserve(NUMOFSTRINGS * 2);
+
+const var stringNoteId = [];
+stringNoteId.reserve(NUMOFSTRINGS * 2);
+
+const var indivNoteStrumIds = [];
+indivNoteStrumIds.reserve(NUMOFSTRINGS);
+
 const var eventIds = Engine.createMidiList();
 eventIds.fill(NO_NOTE); 
 
@@ -194,6 +201,10 @@ stringNote.reserve(NUMOFSTRINGS);
 for(i = 0; i < NUMOFSTRINGS * 2; i++){
 	stringNote.push(NO_NOTE);
 	stringNoteId.push(NO_NOTE);
+}
+
+for(i = 0; i < NUMOFSTRINGS; i++){
+	indivNoteStrumIds.push(NO_NOTE);
 }
 
 
@@ -1282,7 +1293,7 @@ inline function releaseStrumKeyIfReleased(noteReleased, noteIdsToUpdate, notesTo
 const var notesToTest = [79, 71, 67, 64, 59, 52];
 const var IdsToTest = [-1, -1, -1, -1, -1, -1];
 
-inline function individualNoteStrum(notePlayed, noteVelocity, notesToStrumFrom, noteIdsToUpdate){
+inline function individualNoteStrum(notePlayed, noteVelocity, notesToStrumFrom, noteIdsToUpdate, strumNoteIdsToUpdate){
 	
 	Console.print("hello");
 
@@ -1293,6 +1304,7 @@ inline function individualNoteStrum(notePlayed, noteVelocity, notesToStrumFrom, 
 	local stringOfNoteToPlay;
 	local midiChannelToPlayString = 0;
 	local notesAvailableToPlay = 0;
+	local indexOfStrumNoteIdToUpdate = 0;
 	
 	if(!isBetweenIncl(notePlayed, StrummingKeyswitches.lowIndivStrumKeyswitch, StrummingKeyswitches.highIndivStrumKeyswitch)){
 		return false;
@@ -1300,6 +1312,7 @@ inline function individualNoteStrum(notePlayed, noteVelocity, notesToStrumFrom, 
 	
 	
 	heightOfNoteToPlay = notePlayed - StrummingKeyswitches.lowIndivStrumKeyswitch + 1;
+	indexOfStrumNoteIdToUpdate = notePlayed - StrummingKeyswitches.lowIndivStrumKeyswitch;
 	
 	for(i = NUMOFSTRINGS - 1; i >= 0; i--){
 		if(notesToStrumFrom[i] != NO_NOTE){
@@ -1330,6 +1343,11 @@ inline function individualNoteStrum(notePlayed, noteVelocity, notesToStrumFrom, 
 		}
 	}
 	
+	if(noteToPlay == NO_NOTE){
+		return false;
+	}
+
+	
 	if(noteIdsToUpdate[stringOfNoteToPlay] != NO_NOTE){
 		Synth.noteOffByEventId(noteIdsToUpdate[stringOfNoteToPlay]);
 		noteIdsToUpdate[stringOfNoteToPlay] = NO_NOTE;
@@ -1339,9 +1357,52 @@ inline function individualNoteStrum(notePlayed, noteVelocity, notesToStrumFrom, 
 	midiChannelToPlayString = stringEnumToMidiChannel(stringOfNoteToPlay);
 	
 	
+	incrementRR(stringOfNoteToPlay);
+	
+	Console.print(noteToPlay);
+	
 	noteIdsToUpdate[stringOfNoteToPlay] = Synth.addNoteOn(midiChannelToPlayString, noteToPlay, noteVelocity, 0);
 	
+	strumNoteIdsToUpdate[indexOfStrumNoteIdToUpdate] = noteIdsToUpdate[stringOfNoteToPlay];
+	
 	return true;
+	
+}
+
+
+inline function indivNoteStrumReleaseIfReleased(noteReleased, noteIdsToUpdate, strumNoteIdsToUpdate)
+{
+	local indexOfNoteToRelease;
+	local noteIdToRelease;
+	local strumNoteIdFoundInNoteIds = false;
+	
+	
+	if(!isBetweenIncl(noteReleased, StrummingKeyswitches.lowIndivStrumKeyswitch, StrummingKeyswitches.highIndivStrumKeyswitch)){
+		return false;
+	}	
+	
+	indexOfNoteToRelease = noteReleased - StrummingKeyswitches.lowIndivStrumKeyswitch;
+	
+	noteIdToRelease = strumNoteIdsToUpdate[indexOfNoteToRelease];
+	
+	if(noteIdToRelease != NO_NOTE){
+		Synth.noteOffByEventId(noteIdToRelease);
+		strumNoteIdsToUpdate[indexOfNoteToRelease] = NO_NOTE;
+		
+		for(i = 0; i < noteIdsToUpdate.length && !strumNoteIdFoundInNoteIds; i++){
+			if (noteIdsToUpdate[i] == noteIdToRelease){
+				noteIdsToUpdate[i] = NO_NOTE;
+				strumNoteIdFoundInNoteIds = true;
+			}
+		}
+		
+		return true;
+		
+	}else{
+		return false;
+	}
+	
+	
 	
 }
 
@@ -1414,9 +1475,11 @@ inline function randomAddOrSub(deviation){
 	
 
 	
-	strumIfStrumKeyPressed(notePlayed, stringNoteId, stringNote, velocityPlayed);
+//	strumIfStrumKeyPressed(notePlayed, stringNoteId, stringNote, velocityPlayed);
+
+	strumIfStrumKeyPressed(notePlayed, IdsToTest, notesToTest, velocityPlayed);
 	
-	individualNoteStrum(notePlayed, velocityPlayed, notesToTest, IdsToTest);
+	individualNoteStrum(notePlayed, velocityPlayed, notesToTest, IdsToTest, indivNoteStrumIds);
 	
 }
 function onNoteOff()
@@ -1455,7 +1518,13 @@ function onNoteOff()
 			    }
 			}
 			
-	releaseStrumKeyIfReleased(releasedNote, stringNoteId, stringNote);
+//	releaseStrumKeyIfReleased(releasedNote, stringNoteId, stringNote);
+	
+	releaseStrumKeyIfReleased(releasedNote, IdsToTest, notesToTest);
+	
+	indivNoteStrumReleaseIfReleased(releasedNote, IdsToTest, indivNoteStrumIds);
+	
+//	individualNoteStrum(notePlayed, velocityPlayed, notesToTest, IdsToTest, indivNoteStrumIds);
     
     updateGlobals();
 }function onController()
