@@ -294,8 +294,7 @@ inline function incrementRR(stringToPlay){
 
 inline function noteOffStringHolder(stringToOff, stringNotesToUpdate, stringIdsToUpdate){
 	// adding 1 because the enum starts on 0 but channels start on 1
-	
-	Console.print(stringIdsToUpdate[stringToOff]);
+
 
 	Globals.g_stringNotes[stringToOff] = NO_NOTE;
 	
@@ -1322,8 +1321,9 @@ inline function releaseStrumKeyIfReleased(noteReleased, noteIdsToUpdate, notesTo
 	for(i = 0; i < noteIdsToUpdate.length; i++){
 		
 		if(noteIdsToUpdate[i] != -1 && notePlayedMethod[i] == StringPlayingMethod.fullStrumKey){
-			
-	Console.print(notePlayedMethod[i]);
+		
+		Console.print(notePlayedMethod[i]);
+		
 	Synth.noteOffDelayedByEventId(noteIdsToUpdate[i], Math.random() * Engine.getSamplesForMilliSeconds(10));
 		noteIdsToUpdate[i] = -1;
 		Globals.g_stringNotes[i] = NO_NOTE;
@@ -1410,7 +1410,7 @@ inline function individualNoteStrum(notePlayed, noteVelocity, notesToStrumFrom, 
 	
 	noteIdsToUpdate[stringOfNoteToPlay] = Synth.addNoteOn(midiChannelToPlayString, noteToPlay, noteVelocity, 0);
 	
-	notePlayedMethod[j] = StringPlayingMethod.indivStrumKey;
+	notePlayedMethod[stringOfNoteToPlay] = StringPlayingMethod.indivStrumKey;
 	
 	strumNoteIdsToUpdate[indexOfStrumNoteIdToUpdate] = noteIdsToUpdate[stringOfNoteToPlay];
 	
@@ -1438,12 +1438,19 @@ inline function indivNoteStrumReleaseIfReleased(noteReleased, noteIdsToUpdate, s
 		Synth.noteOffByEventId(noteIdToRelease);
 		strumNoteIdsToUpdate[indexOfNoteToRelease] = NO_NOTE;
 		
-		for(i = 0; i < noteIdsToUpdate.length && !strumNoteIdFoundInNoteIds; i++){
+	/*	for(i = 0; i < noteIdsToUpdate.length && !strumNoteIdFoundInNoteIds; i++){
 			if (noteIdsToUpdate[i] == noteIdToRelease){
 				noteIdsToUpdate[i] = NO_NOTE;
 				strumNoteIdFoundInNoteIds = true;
 			}
-		}
+		}*/
+		
+		for(i = 0; i < noteIdsToUpdate.length && !strumNoteIdFoundInNoteIds; i++){
+					if (noteIdsToUpdate[i] == noteIdToRelease){
+						noteIdsToUpdate[i] = NO_NOTE;
+						strumNoteIdFoundInNoteIds = true;
+					}
+				}
 		
 		return true;
 		
