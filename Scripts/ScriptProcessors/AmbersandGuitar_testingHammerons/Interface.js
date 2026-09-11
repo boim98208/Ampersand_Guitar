@@ -194,6 +194,13 @@
  Globals.g_string2ActiveRR = "not playing";
  Globals.g_string1ActiveRR = "not playing";
  
+ Globals.g_stringActiveRRs = [];
+ Globals.g_stringActiveRRs.reserve(NUMOFSTRINGS);
+
+for(i = 0; i < NUMOFSTRINGS; i++){
+	Globals.g_stringActiveRRs.push(NO_NOTE);
+}
+
  
  Synth.deferCallbacks(true);
   Content.makeFrontInterface(1020, 600);
@@ -425,12 +432,29 @@
  {
  	//looks like there's a way do global arrays. Look into later
  
- 	StringRRLabel[0].set("text", Globals.g_string1ActiveRR);
+ /*	StringRRLabel[0].set("text", Globals.g_string1ActiveRR);
  	StringRRLabel[1].set("text", Globals.g_string2ActiveRR);
  	StringRRLabel[2].set("text", Globals.g_string3ActiveRR);
  	StringRRLabel[3].set("text", Globals.g_string4ActiveRR);
  	StringRRLabel[4].set("text", Globals.g_string5ActiveRR);
- 	StringRRLabel[5].set("text", Globals.g_string6ActiveRR);
+ 	StringRRLabel[5].set("text", Globals.g_string6ActiveRR);*/
+ 	
+ 	StringRRLabel[0].set("text", Globals.g_stringActiveRRs[0]);
+ 	StringRRLabel[1].set("text", Globals.g_stringActiveRRs[1]);
+ 	StringRRLabel[2].set("text", Globals.g_stringActiveRRs[2]);
+ 	StringRRLabel[3].set("text", Globals.g_stringActiveRRs[3]);
+ 	StringRRLabel[4].set("text", Globals.g_stringActiveRRs[4]);
+ 	StringRRLabel[5].set("text", Globals.g_stringActiveRRs[5]);
+ 	
+ 	for(i = 0; i < Globals.g_stringActiveRRs.length; i++){
+	 	
+	 	if(Globals.g_stringActiveRRs[i] == NO_NOTE)
+	 		StringRRLabel[i].set("text", "Not Playing");
+	 	else
+	 	{
+	 	//	StringRRLabel[i].set("text", Globals.g_stringActiveRRs[i]);
+	 	}
+ 	}
  	
  
  }

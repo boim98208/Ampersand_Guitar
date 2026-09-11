@@ -271,9 +271,10 @@ inline function playString(stringToPlay){
 	// consider refactoring stringNote to be updated here rather than the melody fretting point
 	
 	if(!Globals.g_strummingModeOn){
-	
+	Globals.g_stringActiveRRs[stringToPlay] = rrCounter;
 		stringNoteId[stringToPlay] = Synth.addNoteOn(stringChannelToSend, Message.getNoteNumber(), Message.getVelocity(), 0);
 		notePlayedMethod[stringToPlay] = StringPlayingMethod.pianoRoll;
+		incrementRR(stringToPlay);
 	}
 	
 	
@@ -283,7 +284,6 @@ inline function playString(stringToPlay){
 	
 	// adding 1 because the enum starts on 0 but channels start on 1
 	Message.setChannel(stringEnumToMidiChannel(stringToPlay));
-	incrementRR(stringToPlay);
 }
 
 inline function incrementRR(stringToPlay){
@@ -307,6 +307,7 @@ inline function noteOffStringHolder(stringToOff, stringNotesToUpdate, stringIdsT
 
 inline function noteOffStringSound(stringToOff, stringNotesToUpdate, stringIdsToUpdate){
 	
+	Globals.g_stringActiveRRs[stringToOff] = NO_NOTE;
 	Synth.noteOffByEventId(stringIdsToUpdate[stringToOff]);
 	
 }
@@ -1170,7 +1171,7 @@ inline function upStrum(notesToStrum, noteIdsToUpdate, noteVelocity, playingStru
 	
 	// highest note is the first one in the array, so start there
 	
-	 for(var j = 0; numOfNotePlayingInSeq < NUMOFSTRINGS && thisStrumDirection == playingStrummingDirection && j < notesToStrum.length; j++){
+	 for(var j = 0; numOfNotePlayingInSeq < NUMOFSTRINGS && thisStrumDirection == playingStrummingDirection && j < notesToStrum.length - 1; j++){
 	 
 	 // thisStrumDirection == playingStrummingDirection is so that a strum can be stopped midway
 	 
@@ -1183,8 +1184,7 @@ inline function upStrum(notesToStrum, noteIdsToUpdate, noteVelocity, playingStru
 			// making sure no NoteOn message has a negative timestamp
 			indivNoteDelayRandomized = capAtLimits(0, POSINFINITY, indivNoteDelayRandomized);
 			
-			if(noteIdsToUpdate[j] != NO_NOTE){
-			
+			if(noteIdsToUpdate[j] != NO_NOTE  && notesToStrum[i] != POSINFINITY){
 				Synth.noteOffDelayedByEventId(noteIdsToUpdate[j], indivNoteDelayRandomized - 1);
 			}
 			
@@ -1197,6 +1197,8 @@ inline function upStrum(notesToStrum, noteIdsToUpdate, noteVelocity, playingStru
 			noteIdsToUpdate[j] = Synth.addNoteOn(stringChannelToSendTo, notesToStrum[j], randomizedNoteVelocity, indivNoteDelayRandomized);
 			
 			Globals.g_stringNotes[j] = notesToStrum[j];
+			Globals.g_stringActiveRRs[j] = rrCounter;
+			incrementRR(j);
 			
 			notePlayedMethod[j] = StringPlayingMethod.fullStrumKey;
 			
@@ -1284,6 +1286,8 @@ inline function downStrum(notesToStrum, noteIdsToUpdate, noteVelocity, playingSt
 			
 			
 			Globals.g_stringNotes[j] = notesToStrum[j];
+			Globals.g_stringActiveRRs[j] = rrCounter;
+			incrementRR(j);
 			
 			notePlayedMethod[j] = StringPlayingMethod.fullStrumKey;
 			
@@ -1321,8 +1325,6 @@ inline function releaseStrumKeyIfReleased(noteReleased, noteIdsToUpdate, notesTo
 	for(i = 0; i < noteIdsToUpdate.length; i++){
 		
 		if(noteIdsToUpdate[i] != -1 && notePlayedMethod[i] == StringPlayingMethod.fullStrumKey){
-		
-		Console.print(notePlayedMethod[i]);
 		
 	Synth.noteOffDelayedByEventId(noteIdsToUpdate[i], Math.random() * Engine.getSamplesForMilliSeconds(10));
 		noteIdsToUpdate[i] = -1;

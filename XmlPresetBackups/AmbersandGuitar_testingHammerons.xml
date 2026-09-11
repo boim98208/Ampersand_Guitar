@@ -9,7 +9,7 @@
         <Processor Type="ScriptProcessor" ID="Interface" Bypassed="0">
           <ChildProcessors/>
           <Content>
-            <Control type="ScriptSlider" id="HandPositionFretForceKnob" value="0.0"/>
+            <Control type="ScriptSlider" id="HandPositionFretForceKnob" value="11.0"/>
             <Control type="ScriptSlider" id="StringForceKnob" value="1.0"/>
             <Control type="ScriptComboBox" id="FrettingEngineComboBox" value="1.0"/>
             <Control type="ScriptButton" id="ResetGlobalRRButton" value="0.0"/>
@@ -18,8 +18,8 @@
             <Control type="ScriptSlider" id="VibratoDepthKnob" value="0.0"/>
             <Control type="ScriptSlider" id="VibratoFreqKnob" value="8.5"/>
             <Control type="ScriptSlider" id="PitchBendRangeKnob" value="2.0"/>
-            <Control type="ScriptButton" id="DoubleTrackingBtn" value="0.0"/>
-            <Control type="ScriptButton" id="StrummingModeEnableBtn" value="0.0"/>
+            <Control type="ScriptButton" id="DoubleTrackingBtn" value="1.0"/>
+            <Control type="ScriptButton" id="StrummingModeEnableBtn" value="1.0"/>
             <Control type="ScriptSlider" id="SustainModulatorsAttack" value="0.0"/>
             <Control type="ScriptSlider" id="SustainModulatorsDecay" value="0.0"/>
             <Control type="ScriptSlider" id="SustainModulatorsSustain" value="0.0"/>
@@ -69,22 +69,22 @@
                 <Component type="ScriptPanel" id="FretBorderPanel" x="260" y="240" itemColour="0"
                            itemColour2="0" textColour="16777215" bgColour="16777215" width="450"
                            parentComponent="PlayingModeBG">
-                  <Component type="ScriptImage" id="FretBorderLow" x="0" y="25" parentComponent="FretBorderPanel"
+                  <Component type="ScriptImage" id="FretBorderLow" x="230" y="25" parentComponent="FretBorderPanel"
                              fileName="{PROJECT_FOLDER}PlayingMode_HandBorder.png" scale="0.25"
                              height="15" width="10" text="FretBorderLowForced"/>
-                  <Component type="ScriptImage" id="FretBorderLowForced" x="0" y="25" parentComponent="FretBorderPanel"
+                  <Component type="ScriptImage" id="FretBorderLowForced" x="230" y="25" parentComponent="FretBorderPanel"
                              fileName="{PROJECT_FOLDER}PlayingMode_HandBorder_Forced.png"
                              scale="0.25" height="15" width="10"/>
-                  <Component type="ScriptImage" id="FretBorderHigh" x="146" y="25" parentComponent="FretBorderPanel"
+                  <Component type="ScriptImage" id="FretBorderHigh" x="312" y="25" parentComponent="FretBorderPanel"
                              fileName="{PROJECT_FOLDER}PlayingMode_HandBorder.png" scale="0.25"
                              height="15" width="10" text="FretBorderLowForced"/>
-                  <Component type="ScriptImage" id="FretBorderHighForced" x="146" y="25" parentComponent="FretBorderPanel"
+                  <Component type="ScriptImage" id="FretBorderHighForced" x="312" y="25" parentComponent="FretBorderPanel"
                              fileName="{PROJECT_FOLDER}PlayingMode_HandBorder_Forced.png"
                              scale="0.25" height="15" width="10"/>
-                  <Component type="ScriptImage" id="FretBorderCenter" x="73" y="23" parentComponent="FretBorderPanel"
+                  <Component type="ScriptImage" id="FretBorderCenter" x="271" y="23" parentComponent="FretBorderPanel"
                              fileName="{PROJECT_FOLDER}PlayingMode_HandCenter.png" height="15"
                              width="15" text="FretBorderLowForced" scale="0.4000000059604645"/>
-                  <Component type="ScriptImage" id="FretBorderCenterForced" x="73" y="23"
+                  <Component type="ScriptImage" id="FretBorderCenterForced" x="271" y="23"
                              parentComponent="FretBorderPanel" fileName="{PROJECT_FOLDER}PlayingMode_HandCenter_Forced.png"
                              height="15" width="15" text="FretBorderLowForced" scale="0.4000000059604645"/>
                 </Component>
@@ -634,25 +634,25 @@
                 <Component type="ScriptImage" id="NerdDetails_BG" x="3" y="3" width="597"
                            height="100" parentComponent="DebugPanel" fileName="{PROJECT_FOLDER}PlayingMode_NerdDetails_BG.png"/>
                 <Component type="ScriptLabel" id="handPositionFretLabel" x="388" y="9" width="39"
-                           fontSize="20.0" height="13" text="10" parentComponent="DebugPanel"
+                           fontSize="20.0" height="13" text="9.0" parentComponent="DebugPanel"
                            textColour="4278190080"/>
                 <Component type="ScriptLabel" id="String1RRLabel" x="498" y="50" width="100"
-                           height="21" parentComponent="DebugPanel" text="not playing" textColour="4278190080"
+                           height="21" parentComponent="DebugPanel" text="Not Playing" textColour="4278190080"
                            fontSize="16.0"/>
                 <Component type="ScriptLabel" id="String2RRLabel" x="400" y="50" width="100"
-                           height="21" parentComponent="DebugPanel" text="not playing" textColour="4278190080"
+                           height="21" parentComponent="DebugPanel" text="Not Playing" textColour="4278190080"
                            fontSize="16.0"/>
                 <Component type="ScriptLabel" id="String3RRLabel" x="300" y="50" width="100"
-                           height="21" parentComponent="DebugPanel" text="not playing" textColour="4278190080"
+                           height="21" parentComponent="DebugPanel" text="Not Playing" textColour="4278190080"
                            fontSize="16.0"/>
                 <Component type="ScriptLabel" id="String4RRLabel" x="202" y="50" width="100"
-                           height="21" parentComponent="DebugPanel" text="not playing" textColour="4278190080"
+                           height="21" parentComponent="DebugPanel" text="Not Playing" textColour="4278190080"
                            fontSize="16.0"/>
                 <Component type="ScriptLabel" id="String5RRLabel" x="105" y="50" width="100"
-                           height="21" parentComponent="DebugPanel" text="not playing" textColour="4278190080"
+                           height="21" parentComponent="DebugPanel" text="Not Playing" textColour="4278190080"
                            fontSize="16.0"/>
                 <Component type="ScriptLabel" id="String6RRLabel" x="4" y="50" width="100"
-                           height="21" parentComponent="DebugPanel" text="not playing" textColour="4278190080"
+                           height="21" parentComponent="DebugPanel" text="Not Playing" textColour="4278190080"
                            fontSize="16.0"/>
               </Component>
               <Component type="ScriptImage" id="ArticulationBG" x="0" y="-60" width="1020"
@@ -908,7 +908,7 @@
             <Processor Type="EffectChain" ID="FX" Bypassed="0">
               <ChildProcessors>
                 <Processor Type="SimpleGain" ID="LeftGuitarGain" Bypassed="0" Gain="0.0"
-                           Delay="0.0" Width="100.0" Balance="0.0" InvertPolarity="0.0">
+                           Delay="0.0" Width="100.0" Balance="-100.0" InvertPolarity="0.0">
                   <ChildProcessors>
                     <Processor Type="ModulatorChain" ID="Gain Modulation" Bypassed="0" Intensity="1.0">
                       <ChildProcessors/>
@@ -4605,7 +4605,7 @@
                 <Processor Type="MidiMuter" ID="RightContainerMute" Bypassed="0">
                   <ChildProcessors/>
                   <Content>
-                    <Control type="ScriptButton" id="ignoreButton" value="1.0"/>
+                    <Control type="ScriptButton" id="ignoreButton" value="0.0"/>
                     <Control type="ScriptButton" id="fixStuckNotes" value="1.0"/>
                   </Content>
                 </Processor>
@@ -4619,7 +4619,7 @@
             </Processor>
             <Processor Type="EffectChain" ID="FX" Bypassed="0">
               <ChildProcessors>
-                <Processor Type="SimpleGain" ID="RightGuitarGain" Bypassed="0" Gain="-100.0"
+                <Processor Type="SimpleGain" ID="RightGuitarGain" Bypassed="0" Gain="0.0"
                            Delay="0.0" Width="100.0" Balance="100.0" InvertPolarity="0.0">
                   <ChildProcessors>
                     <Processor Type="ModulatorChain" ID="Gain Modulation" Bypassed="0" Intensity="1.0">
