@@ -65,3 +65,10 @@ namespace StrummingKeyswitches{
 	
 	const var highIndivStrumKeyswitch = individualStrumKeyswitches[NUMOFSTRINGS - 1];
 }
+
+
+namespace StringPlayingMethod{
+	const var pianoRoll = 0;
+	const var fullStrumKey = 1;
+	const var indivStrumKey = 2;
+}

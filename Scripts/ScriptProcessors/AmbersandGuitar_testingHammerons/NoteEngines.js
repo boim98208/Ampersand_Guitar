@@ -20,11 +20,11 @@ var legatoKeySwitchPlaying = false;
 
 
  const var NoteIdLabels = [Content.getComponent("noteId1"),
-                    Content.getComponent("noteId6"),
-                    Content.getComponent("noteId5"),
-                    Content.getComponent("noteId4"),
+                    Content.getComponent("noteId2"),
                     Content.getComponent("noteId3"),
-                    Content.getComponent("noteId2")];
+                    Content.getComponent("noteId4"),
+                    Content.getComponent("noteId5"),
+                    Content.getComponent("noteId6")];
  
  
  
@@ -178,16 +178,21 @@ const var NUMOFKEYSWITCHES = 4;
     string 6 (the low string)
  */
 const var stringNote = [];
-stringNote.reserve(NUMOFSTRINGS * 2);
+stringNote.reserve(NUMOFSTRINGS * 2 + 1);
 
 const var stringNoteId = [];
-stringNoteId.reserve(NUMOFSTRINGS * 2);
+stringNoteId.reserve(NUMOFSTRINGS * 2 + 1);
 
 const var indivNoteStrumIds = [];
 indivNoteStrumIds.reserve(NUMOFSTRINGS);
 
+const var notePlayedMethod = [];
+notePlayedMethod.reserve(g_NUMOFSTRINGS * 2 + 1);
+
 const var eventIds = Engine.createMidiList();
 eventIds.fill(NO_NOTE); 
+
+
 
 // use this to check for upcoming notes now please
 inline function getActiveEventIds(resultList)
@@ -209,7 +214,13 @@ stringNote.reserve(NUMOFSTRINGS);
 for(i = 0; i < NUMOFSTRINGS * 2; i++){
 	stringNote.push(NO_NOTE);
 	stringNoteId.push(NO_NOTE);
+	notePlayedMethod.push(NO_NOTE);
 }
+
+//one more push to make up for the "NOSTRING" and not go out of bounds when scanning string notes
+
+stringNote.push(POSINFINITY);
+
 
 for(i = 0; i < NUMOFSTRINGS; i++){
 	indivNoteStrumIds.push(NO_NOTE);
@@ -224,8 +235,6 @@ inline function resetNotes(){
 
 Message.setAllNotesOffCallback(resetNotes);
 
-//one more push to make up for the "NOSTRING" and not go out of bounds when scanning string notes
-stringNote.push(POSINFINITY);
 
 
 
@@ -255,11 +264,21 @@ Content.getComponent("Button1").setControlCallback(onButton1Control);
 // this should only take the StringType enum
 inline function playString(stringToPlay){
 	
+	Message.ignoreEvent(true);
+	local stringChannelToSend = stringEnumToMidiChannel(stringToPlay);
 	
+	 
 	// consider refactoring stringNote to be updated here rather than the melody fretting point
-	stringNoteId[stringToPlay] = Message.getEventId();
+	
+	if(!Globals.g_strummingModeOn){
+	
+		stringNoteId[stringToPlay] = Synth.addNoteOn(stringChannelToSend, Message.getNoteNumber(), Message.getVelocity(), 0);
+		notePlayedMethod[stringToPlay] = StringPlayingMethod.pianoRoll;
+	}
+	
+	
+	
 	Globals.g_stringNotes[stringToPlay] = Message.getNoteNumber();
-
 	
 	
 	// adding 1 because the enum starts on 0 but channels start on 1
@@ -273,16 +292,27 @@ inline function incrementRR(stringToPlay){
 	}
 }
 
-inline function noteOffString(stringToOff, stringNotesToUpdate, stringIdsToUpdate){
+inline function noteOffStringHolder(stringToOff, stringNotesToUpdate, stringIdsToUpdate){
 	// adding 1 because the enum starts on 0 but channels start on 1
-	Synth.noteOffByEventId(stringIdsToUpdate[stringToOff]);
-	local midiChannelToSend = stringEnumToMidiChannel(stringToOff);
+	
+	Console.print(stringIdsToUpdate[stringToOff]);
+
 	Globals.g_stringNotes[stringToOff] = NO_NOTE;
 	
 	stringNotesToUpdate[stringToOff] = NO_NOTE;
+	
+	if(notePlayedMethod[stringToOff] == StringPlayingMethod.pianoRoll){
 	stringIdsToUpdate[stringToOff] = NO_NOTE;
-	Message.setChannel(midiChannelToSend);
+	}
 }
+
+inline function noteOffStringSound(stringToOff, stringNotesToUpdate, stringIdsToUpdate){
+	
+	Synth.noteOffByEventId(stringIdsToUpdate[stringToOff]);
+	
+}
+
+
 
 inline function updateGlobalStringNote(stringToUpdate, notePlayed, RRPlayed){
 	Globals.g_stringNotes[stringToUpdate] = notePlayed;
@@ -1093,8 +1123,6 @@ inline function singleNoteStrum(notesToStrum, noteIdsToUpdate, noteVelocity)
 		}
 		noteIdsToUpdate[numOfStringToStrum] = Synth.addNoteOn(midiChannelToPlay, noteToStrum, noteVelocity, 1);		
 		
-	Console.print(midiChannelToPlay);
-		
 }
 
 
@@ -1129,11 +1157,10 @@ inline function upStrum(notesToStrum, noteIdsToUpdate, noteVelocity, playingStru
 		indivNoteDelay = totalTimeSamples/(numOfNotesToPlay - 1);
 	else if(numOfNotesToPlay == 1)
 	{
-	
-	Console.print(numOfNotesToPlay);
 
 		// only one note is held
 		singleNoteStrum(notesToStrum, noteIdsToUpdate, noteVelocity);
+		return true;
 	}else{
 		// did not down strum because no notes
 		return false;
@@ -1158,6 +1185,7 @@ inline function upStrum(notesToStrum, noteIdsToUpdate, noteVelocity, playingStru
 			indivNoteDelayRandomized = capAtLimits(0, POSINFINITY, indivNoteDelayRandomized);
 			
 			if(noteIdsToUpdate[j] != NO_NOTE){
+			
 				Synth.noteOffDelayedByEventId(noteIdsToUpdate[j], indivNoteDelayRandomized - 1);
 			}
 			
@@ -1170,6 +1198,8 @@ inline function upStrum(notesToStrum, noteIdsToUpdate, noteVelocity, playingStru
 			noteIdsToUpdate[j] = Synth.addNoteOn(stringChannelToSendTo, notesToStrum[j], randomizedNoteVelocity, indivNoteDelayRandomized);
 			
 			Globals.g_stringNotes[j] = notesToStrum[j];
+			
+			notePlayedMethod[j] = StringPlayingMethod.fullStrumKey;
 			
 			numOfNotePlayingInSeq++;
 			
@@ -1213,6 +1243,7 @@ inline function downStrum(notesToStrum, noteIdsToUpdate, noteVelocity, playingSt
 
 		// only one note is held
 		singleNoteStrum(notesToStrum, noteIdsToUpdate, noteVelocity);
+		return true;
 	}else{
 		// did not down strum because no notes
 		return false;
@@ -1255,6 +1286,8 @@ inline function downStrum(notesToStrum, noteIdsToUpdate, noteVelocity, playingSt
 			
 			Globals.g_stringNotes[j] = notesToStrum[j];
 			
+			notePlayedMethod[j] = StringPlayingMethod.fullStrumKey;
+			
 			numOfNotePlayingInSeq++;
 			
 			
@@ -1282,17 +1315,15 @@ inline function releaseStrumKeyIfReleased(noteReleased, noteIdsToUpdate, notesTo
 	
 	
 	if(downStrumHeld || upStrumHeld){
-		Console.print("hello");
-	
 		return false;
 	}
 	
 	
 	for(i = 0; i < noteIdsToUpdate.length; i++){
 		
-		if(noteIdsToUpdate[i] != -1){
+		if(noteIdsToUpdate[i] != -1 && notePlayedMethod[i] == StringPlayingMethod.fullStrumKey){
 			
-	
+	Console.print(notePlayedMethod[i]);
 	Synth.noteOffDelayedByEventId(noteIdsToUpdate[i], Math.random() * Engine.getSamplesForMilliSeconds(10));
 		noteIdsToUpdate[i] = -1;
 		Globals.g_stringNotes[i] = NO_NOTE;
@@ -1377,9 +1408,9 @@ inline function individualNoteStrum(notePlayed, noteVelocity, notesToStrumFrom, 
 	
 	incrementRR(stringOfNoteToPlay);
 	
-	Console.print(noteToPlay);
-	
 	noteIdsToUpdate[stringOfNoteToPlay] = Synth.addNoteOn(midiChannelToPlayString, noteToPlay, noteVelocity, 0);
+	
+	notePlayedMethod[j] = StringPlayingMethod.indivStrumKey;
 	
 	strumNoteIdsToUpdate[indexOfStrumNoteIdToUpdate] = noteIdsToUpdate[stringOfNoteToPlay];
 	
@@ -1451,8 +1482,11 @@ inline function randomAddOrSub(deviation){
 	local notePlayed = Message.getNoteNumber();
 	local velocityPlayed = Message.getVelocity();
 	local notePlayedId = Message.getEventId();
+	
+	local didPlayNoteLegato = false;
+	local didPlayOnNewString = false;
 
-	eventIds.setValue(notePlayed, notePlayedId);
+//	eventIds.setValue(notePlayed, notePlayedId);
 	
 	//easy way to implement strumming system? Look into later
 	//Message.delayEvent((notePlayed - LOWESTNOTE) * 1000);
@@ -1466,14 +1500,11 @@ inline function randomAddOrSub(deviation){
 		legatoKeySwitchPlaying = true;
 	
 	if(isBetweenIncl(notePlayed, LOWESTNOTE, HIGHESTNOTE)){
-		
-		if(Globals.g_strummingModeOn){
-			Message.ignoreEvent(true);
-		}
+	
 	
 		if(legatoKeySwitchPlaying){
 			
-			local didPlayNoteLegato = playNextNoteLegato(notePlayed, velocityPlayed);
+			didPlayNoteLegato = playNextNoteLegato(notePlayed, velocityPlayed);
 			
 			if(!didPlayNoteLegato){
 		
@@ -1485,9 +1516,19 @@ inline function randomAddOrSub(deviation){
 		
 		}else{
 	
-			playNextNoteOnNewString(notePlayed, velocityPlayed);
+			 playNextNoteOnNewString(notePlayed, velocityPlayed);
+			
+			
 			
 		}
+		
+		for(i = 0; i < stringNote.length - 1; i++){
+			if(stringNote[i] != NO_NOTE){
+			
+				eventIds.setValue(stringNote[i], stringNoteId[i]);
+			}
+		}
+		
 	}
 	
 	
@@ -1514,28 +1555,33 @@ function onNoteOff()
     local noteFound = false;
     local noteFoundInLegato = false;
     local eventIdListIndexToRemoveId = 0;
-    
+    Message.ignoreEvent(true);
 
 	if(releasedNote == legatoKeySwitchNote)
 		legatoKeySwitchPlaying = false;
 		
-		if(eventIds.getIndex(releasedNoteId) != NO_NOTE){
+		
 			
 			eventIdListIndexToRemoveId = eventIds.getIndex(releasedNoteId);
+			
 			
 			    for (i = 0; i < NUMOFSTRINGS && !noteFound; i++)
 				{
 				    if (stringNote[i] == releasedNote)
 				    {
-				        noteOffString(i, stringNote, stringNoteId);
+
+						if(notePlayedMethod[i] == StringPlayingMethod.pianoRoll){
+						noteOffStringSound(i, stringNote, stringNoteId);
+						}
+				        noteOffStringHolder(i, stringNote, stringNoteId);
 				        noteFound = true;
 				    }
 				    
 				}
 			
-			eventIds.setValue(eventIdListIndexToRemoveId, NO_NOTE);
+		//	eventIds.setValue(eventIdListIndexToRemoveId, NO_NOTE);
 
-		}
+		
 		
 
 
@@ -1548,7 +1594,7 @@ function onNoteOff()
 			    {
 	
 			        stringNote[i] = NO_NOTE;
-			        noteOffString(i, stringNote, stringNoteId);
+			        noteOffStringSound(i, stringNote, stringNoteId);
 			        noteFoundInLegato = true;
 			    }
 			}

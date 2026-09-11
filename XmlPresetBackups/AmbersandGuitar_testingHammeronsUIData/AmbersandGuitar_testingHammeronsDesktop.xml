@@ -14,5 +14,5 @@
   <Component type="ScriptLabel" id="noteId2" x="340" y="80" width="100" height="100"
              text="-1"/>
   <Component type="ScriptLabel" id="noteId1" x="430" y="80" width="100" height="100"
-             text="-1"/>
+             text="10259"/>
 </ContentProperties>
