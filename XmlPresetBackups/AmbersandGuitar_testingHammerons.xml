@@ -19,7 +19,7 @@
             <Control type="ScriptSlider" id="VibratoFreqKnob" value="8.5"/>
             <Control type="ScriptSlider" id="PitchBendRangeKnob" value="2.0"/>
             <Control type="ScriptButton" id="DoubleTrackingBtn" value="1.0"/>
-            <Control type="ScriptButton" id="StrummingModeEnableBtn" value="1.0"/>
+            <Control type="ScriptButton" id="StrummingModeEnableBtn" value="0.0"/>
             <Control type="ScriptSlider" id="SustainModulatorsAttack" value="0.0"/>
             <Control type="ScriptSlider" id="SustainModulatorsDecay" value="0.0"/>
             <Control type="ScriptSlider" id="SustainModulatorsSustain" value="0.0"/>
@@ -643,16 +643,16 @@
                            height="21" parentComponent="DebugPanel" text="Not Playing" textColour="4278190080"
                            fontSize="16.0"/>
                 <Component type="ScriptLabel" id="String3RRLabel" x="300" y="50" width="100"
-                           height="21" parentComponent="DebugPanel" text="Not Playing" textColour="4278190080"
+                           height="21" parentComponent="DebugPanel" text="2" textColour="4278190080"
                            fontSize="16.0"/>
                 <Component type="ScriptLabel" id="String4RRLabel" x="202" y="50" width="100"
-                           height="21" parentComponent="DebugPanel" text="Not Playing" textColour="4278190080"
+                           height="21" parentComponent="DebugPanel" text="1" textColour="4278190080"
                            fontSize="16.0"/>
                 <Component type="ScriptLabel" id="String5RRLabel" x="105" y="50" width="100"
-                           height="21" parentComponent="DebugPanel" text="Not Playing" textColour="4278190080"
+                           height="21" parentComponent="DebugPanel" text="4" textColour="4278190080"
                            fontSize="16.0"/>
                 <Component type="ScriptLabel" id="String6RRLabel" x="4" y="50" width="100"
-                           height="21" parentComponent="DebugPanel" text="Not Playing" textColour="4278190080"
+                           height="21" parentComponent="DebugPanel" text="6" textColour="4278190080"
                            fontSize="16.0"/>
               </Component>
               <Component type="ScriptImage" id="ArticulationBG" x="0" y="-60" width="1020"
@@ -8405,6 +8405,10 @@
                 MacroIndex="-1" Start="0.5" End="2.0" FullStart="0.5" FullEnd="2.0"
                 Skew="0.6309297535714574" Interval="0.01" Converter="37.nT6K8CBGgC..VEFa0U1Pu4lckIGckIG.ADPXiQWZ1UF.ADf..."
                 Attribute="Knob1" Inverted="0"/>
+    <Controller Controller="10" Channel="-1" Processor="Interface" MacroIndex="-1"
+                Start="0.0" End="1.0" FullStart="0.0" FullEnd="1.0" Skew="1.0"
+                Interval="1.0" Converter="53.nT6K8CBKgE..VEFa0U1Pu4lckIGckIG.AHPZzUVayAP.HTvSlYlBO4F.gMFcoYWY.DP.B.."
+                Attribute="StrummingModeEnableBtn" Inverted="0"/>
   </MidiAutomation>
   <MPEData Enabled="0"/>
 </Processor>

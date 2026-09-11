@@ -1114,6 +1114,8 @@ inline function singleNoteStrum(notesToStrum, noteIdsToUpdate, noteVelocity)
 			}
 		}
 		
+		Console.print(numOfStringToStrum);
+		
 	midiChannelToPlay = stringEnumToMidiChannel(numOfStringToStrum);
 	noteToStrum = notesToStrum[numOfStringToStrum];
 		// + 1 because enums start at 0 but 
