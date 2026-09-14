@@ -5,7 +5,7 @@
  Content.makeFrontInterface(800, 400);
  
  reg i = 0;
- reg rrCounter = 1;
+ reg LinearRRCounter = 1;
  
  //Emulated releases didn't go as well as planned. But I'll keep it here for now
  Globals.g_emulatedReleasesOn = false;
@@ -271,7 +271,7 @@ inline function playString(stringToPlay){
 	// consider refactoring stringNote to be updated here rather than the melody fretting point
 	
 	if(!Globals.g_strummingModeOn){
-	Globals.g_stringActiveRRs[stringToPlay] = rrCounter;
+	Globals.g_stringActiveRRs[stringToPlay] = LinearRRCounter;
 		stringNoteId[stringToPlay] = Synth.addNoteOn(stringChannelToSend, Message.getNoteNumber(), Message.getVelocity(), 0);
 		notePlayedMethod[stringToPlay] = StringPlayingMethod.pianoRoll;
 		incrementRR(stringToPlay);
@@ -289,6 +289,8 @@ inline function playString(stringToPlay){
 inline function incrementRR(stringToPlay){
 	if(Globals.g_currRRBehaviour == RRBehaviour.LINEAR){
 		linearRR_incrementSamplersRR(stringToPlay);
+	}else if(Globals.g_currRRBehaviour == RRBehaviour.RANDOM){
+		randomRR_incrementSamplersRR(stringToPlay);
 	}
 }
 
@@ -935,6 +937,8 @@ inline function disableStandardRRBehaviour(){
 
 // keep in mind that the right samplers still need disabled RRs as it needs to very precisely be incremented from the left
 
+// setting up RR behaviour
+
 inline function linearRR_EnableBehaviour(){
 	
 
@@ -951,7 +955,24 @@ inline function linearRR_EnableBehaviour(){
 	}
 }
 
-linearRR_EnableBehaviour();
+inline function randomRR_EnableBehaviour(){
+	
+	Globals.g_currRRBehaviour = RRBehaviour.RANDOM;
+	
+	for(i = 0; i < AllLeftSamplers.length; i++){
+		if(AllLeftSamplers[i] != -1){
+	
+			for(var j = 0; j < AllLeftSamplers[i].length; j++){
+				AllLeftSamplers[i][j].asSampler().enableRoundRobin(false);
+				AllRightSamplers[i][j].asSampler().enableRoundRobin(false);
+			}
+		}
+	}
+}
+
+
+
+randomRR_EnableBehaviour();
 
 const var numOfRRs = [];
 numOfRRs.reserve(PerformanceType.NUMOFPERFORMANCES);
@@ -960,6 +981,8 @@ for(i = 0; i < PerformanceType.NUMOFPERFORMANCES; i++){
 	numOfRRs.push(-1);
 }
 
+
+// setting up RR behaviours
 
 // I'd rather do this manually but the functions are bugging out on me for some reason
 // will need to look into getNumActiveGroups and getRRGroupsForMessage
@@ -973,9 +996,29 @@ numOfRRs[PerformanceType.LEGATODOWN] = 6;
 // Make sure any sampler that only has 1 RR does transposition trick to not go down to mono
 numOfRRs[PerformanceType.TREMOLO] = 1;
 
+const var randomRRCounters = [];
+randomRRCounters.reserve(PerformanceType.NUMOFPERFORMANCES);
+
+for(i = 0; i < PerformanceType.NUMOFPERFORMANCES; i++){
+	randomRRCounters.push(0);
+}
+
+Console.print(randomRRCounters[0]);
+
+
+const var randomRRsToGoThrough = [];
+randomRRsToGoThrough.reserve(PerformanceType.NUMOFPERFORMANCES);
+
+for(i = 0; i < numOfRRs[i]; i++){
+	randomRRsToGoThrough.push([]);
+	randomRRsToGoThrough[i].reserve(numOfRRs[i]);
+	
+	for(var j = 0; j < numOfRRs[i]; j++){
+		randomRRsToGoThrough[i].push(j + 1);
+	}
+}
+
 inline function linearRR_incrementSamplersRR(stringPlaying){
-
-
 
 	local rightSamplerToIncrement;
 	local leftSamplerToIncrement;
@@ -993,10 +1036,10 @@ inline function linearRR_incrementSamplersRR(stringPlaying){
 	
 	if(numOfRRs[currArticulation] >= 2){
 	
-	rrCounter = (rrCounter % numOfRRs[currArticulation]) + 1;
+	LinearRRCounter = (LinearRRCounter % numOfRRs[currArticulation]) + 1;
 	
 	
-	RRForLeftSampler = rrCounter;
+	RRForLeftSampler = LinearRRCounter;
 	
 	// % makes sure it doesn't loop around and the final + 1 because 0th RR passes error
 	RRForRightSampler = (RRFromLeftSampler % numOfRRs[currArticulation]) + 1;
@@ -1010,6 +1053,35 @@ inline function linearRR_incrementSamplersRR(stringPlaying){
 		rightSamplerToIncrement.asSampler().setActiveGroup(1);
 		leftSamplerToIncrement.asSampler().setActiveGroup(1);
 	}
+}
+
+inline function randomRR_incrementSamplersRR(stringPlaying){
+
+	local rightSamplerToIncrement;
+	local leftSamplerToIncrement;
+	local RRForLeftSampler;
+	local RRForRightSampler;
+	local currArticulation;
+	local stringToPlay = stringPlaying % NUMOFSTRINGS;
+	
+	
+	currArticulation = Globals.g_currArticulationPlaying;
+	
+	rightSamplerToIncrement = AllRightSamplers[currArticulation][stringToPlay];
+	leftSamplerToIncrement = AllLeftSamplers[currArticulation][stringToPlay];
+	
+	
+	if(numOfRRs[currArticulation] >= 3){
+	
+	randomRRCounters[currArticulation] = (randomRRCounters[currArticulation] % (numOfRRs[currArticulation])) + 1;
+	
+	
+	if(randomRRCounters[currArticulation] == 1){
+		shuffleArray(randomRRsToGoThrough[currArticulation]);
+	}
+	
+}
+
 }
 
 
@@ -1199,7 +1271,7 @@ inline function upStrum(notesToStrum, noteIdsToUpdate, noteVelocity, playingStru
 			noteIdsToUpdate[j] = Synth.addNoteOn(stringChannelToSendTo, notesToStrum[j], randomizedNoteVelocity, indivNoteDelayRandomized);
 			
 			Globals.g_stringNotes[j] = notesToStrum[j];
-			Globals.g_stringActiveRRs[j] = rrCounter;
+			Globals.g_stringActiveRRs[j] = LinearRRCounter;
 			incrementRR(j);
 			
 			notePlayedMethod[j] = StringPlayingMethod.fullStrumKey;
@@ -1288,7 +1360,7 @@ inline function downStrum(notesToStrum, noteIdsToUpdate, noteVelocity, playingSt
 			
 			
 			Globals.g_stringNotes[j] = notesToStrum[j];
-			Globals.g_stringActiveRRs[j] = rrCounter;
+			Globals.g_stringActiveRRs[j] = LinearRRCounter;
 			incrementRR(j);
 			
 			notePlayedMethod[j] = StringPlayingMethod.fullStrumKey;
