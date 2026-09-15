@@ -271,7 +271,7 @@ inline function playString(stringToPlay){
 	// consider refactoring stringNote to be updated here rather than the melody fretting point
 	
 	if(!Globals.g_strummingModeOn){
-	Globals.g_stringActiveRRs[stringToPlay] = LinearRRCounter;
+	Globals.g_stringActiveRRs[stringToPlay] = getActiveRRPlayed(stringToPlay);
 		stringNoteId[stringToPlay] = Synth.addNoteOn(stringChannelToSend, Message.getNoteNumber(), Message.getVelocity(), 0);
 		notePlayedMethod[stringToPlay] = StringPlayingMethod.pianoRoll;
 		incrementRR(stringToPlay);
@@ -304,6 +304,21 @@ inline function noteOffStringHolder(stringToOff, stringNotesToUpdate, stringIdsT
 	
 	if(notePlayedMethod[stringToOff] == StringPlayingMethod.pianoRoll){
 	stringIdsToUpdate[stringToOff] = NO_NOTE;
+	}
+}
+
+inline function getActiveRRPlayed(stringToPlay){
+
+	local currArticulation = Globals.g_currArticulationPlaying;
+	local currRandomRRCounter = randomRRCounters[currArticulation];
+	
+	if(Globals.g_currRRBehaviour == RRBehaviour.LINEAR){
+		return LinearRRCounter;
+	}else if(Globals.g_currRRBehaviour == RRBehaviour.RANDOM){
+		
+		
+	
+		return randomRRsToGoThrough[currArticulation][currRandomRRCounter];
 	}
 }
 
@@ -1055,6 +1070,18 @@ inline function linearRR_incrementSamplersRR(stringPlaying){
 	}
 }
 
+inline function shuffleArray(arr)
+{
+    for (i = arr.length - 1; i > 0; i--)
+    {
+        local j = Math.floor(Math.random() * (i + 1));
+        local temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+    return arr;
+}
+
 inline function randomRR_incrementSamplersRR(stringPlaying){
 
 	local rightSamplerToIncrement;
@@ -1062,6 +1089,7 @@ inline function randomRR_incrementSamplersRR(stringPlaying){
 	local RRForLeftSampler;
 	local RRForRightSampler;
 	local currArticulation;
+	local lastRRPlayed;	
 	local stringToPlay = stringPlaying % NUMOFSTRINGS;
 	
 	
@@ -1073,14 +1101,34 @@ inline function randomRR_incrementSamplersRR(stringPlaying){
 	
 	if(numOfRRs[currArticulation] >= 3){
 	
-	randomRRCounters[currArticulation] = (randomRRCounters[currArticulation] % (numOfRRs[currArticulation])) + 1;
+	randomRRCounters[currArticulation] = (randomRRCounters[currArticulation] + 1) % numOfRRs[currArticulation];
 	
 	
-	if(randomRRCounters[currArticulation] == 1){
+	if(randomRRCounters[currArticulation] == 0){
+		lastRRPlayed = randomRRsToGoThrough[currArticulation][randomRRsToGoThrough[currArticulation].length - 1];
+		
 		shuffleArray(randomRRsToGoThrough[currArticulation]);
+		
+		while(randomRRsToGoThrough[currArticulation][0] == lastRRPlayed){
+		// avoid the exact same sample to play twice
+		shuffleArray(randomRRsToGoThrough[currArticulation]);
+		}
+		
 	}
 	
-}
+	RRForLeftSampler = randomRRsToGoThrough[currArticulation][randomRRCounters[currArticulation]];
+	
+	RRForRightSampler = (RRForLeftSampler % numOfRRs[currArticulation]) + 1;
+	
+	rightSamplerToIncrement.asSampler().setActiveGroup(RRForRightSampler);
+	leftSamplerToIncrement.asSampler().setActiveGroup(RRForLeftSampler);
+	
+	}else{
+		
+		// yeah I ain't writing new code for this crap
+	
+		linearRR_incrementSamplersRR(stringPlaying);
+	}
 
 }
 
@@ -1271,7 +1319,7 @@ inline function upStrum(notesToStrum, noteIdsToUpdate, noteVelocity, playingStru
 			noteIdsToUpdate[j] = Synth.addNoteOn(stringChannelToSendTo, notesToStrum[j], randomizedNoteVelocity, indivNoteDelayRandomized);
 			
 			Globals.g_stringNotes[j] = notesToStrum[j];
-			Globals.g_stringActiveRRs[j] = LinearRRCounter;
+			Globals.g_stringActiveRRs[j] = getActiveRRPlayed(j);
 			incrementRR(j);
 			
 			notePlayedMethod[j] = StringPlayingMethod.fullStrumKey;
@@ -1360,7 +1408,7 @@ inline function downStrum(notesToStrum, noteIdsToUpdate, noteVelocity, playingSt
 			
 			
 			Globals.g_stringNotes[j] = notesToStrum[j];
-			Globals.g_stringActiveRRs[j] = LinearRRCounter;
+			Globals.g_stringActiveRRs[j] = getActiveRRPlayed(j);
 			incrementRR(j);
 			
 			notePlayedMethod[j] = StringPlayingMethod.fullStrumKey;
@@ -1562,6 +1610,7 @@ inline function randomAddOrSub(deviation){
  
  function onNoteOn()
 {
+
 	local notePlayed = Message.getNoteNumber();
 	local velocityPlayed = Message.getVelocity();
 	local notePlayedId = Message.getEventId();
