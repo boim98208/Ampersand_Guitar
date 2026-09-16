@@ -997,8 +997,6 @@ for(i = 0; i < PerformanceType.NUMOFPERFORMANCES; i++){
 }
 
 
-// setting up RR behaviours
-
 // I'd rather do this manually but the functions are bugging out on me for some reason
 // will need to look into getNumActiveGroups and getRRGroupsForMessage
 
@@ -1136,6 +1134,15 @@ inline function randomRR_incrementSamplersRR(stringPlaying){
 
 // setting up strumming functions
 
+const var fastestTotalStrumTime = 25;
+const var slowestTotalStrumTime = 250;
+
+const var randVelDeviation = 10;
+
+
+const var fastestStrumRandomizationPercent = 0.45;
+const var slowestStrumRandomizationPercent = 0.1;
+
 inline function linMap(value, inMin, inMax, outMin, outMax)
 {
     return outMin + (value - inMin) * (outMax - outMin) / (inMax - inMin);
@@ -1174,14 +1181,7 @@ inline function strumIfStrumKeyPressed(notePlayed, noteIdsToUpdate, notesToStrum
 
 
 
-const var fastestTotalStrumTime = 25;
-const var slowestTotalStrumTime = 500;
 
-const var randVelDeviation = 10;
-
-
-const var fastestStrumRandomizationPercent = 0.45;
-const var slowestStrumRandomizationPercent = 0.1;
   
 const var notesFilteredForStrum = [];
 notesFilteredForStrum.reserve(NUMOFSTRINGS);
@@ -1252,7 +1252,7 @@ inline function upStrum(notesToStrum, noteIdsToUpdate, noteVelocity, playingStru
 
 	local thisStrumDirection = playingStrummingDirection;
 	
-	local totalTimeMS = linMap(noteVelocity, 1, 127, slowestTotalStrumTime, fastestTotalStrumTime);
+	local totalTimeMS = linMap(Globals.g_strumSpeed, 1, 127, slowestTotalStrumTime, fastestTotalStrumTime);
 	
 	
 	local totalTimeSamples = Engine.getSamplesForMilliSeconds(totalTimeMS);
@@ -1337,7 +1337,7 @@ inline function downStrum(notesToStrum, noteIdsToUpdate, noteVelocity, playingSt
 
 	local thisStrumDirection = playingStrummingDirection;
 	
-	local totalTimeMS = linMap(noteVelocity, 1, 127, slowestTotalStrumTime, fastestTotalStrumTime);
+	local totalTimeMS = linMap(Globals.g_strumSpeed, 1, 127, slowestTotalStrumTime, fastestTotalStrumTime);
 	
 	local totalTimeSamples = Engine.getSamplesForMilliSeconds(totalTimeMS);
 	local indivNoteDelay;
@@ -1451,7 +1451,7 @@ inline function releaseStrumKeyIfReleased(noteReleased, noteIdsToUpdate, notesTo
 	Synth.noteOffDelayedByEventId(noteIdsToUpdate[i], Math.random() * Engine.getSamplesForMilliSeconds(10));
 		noteIdsToUpdate[i] = -1;
 		Globals.g_stringNotes[i] = NO_NOTE;
-
+		Globals.g_stringActiveRRs[i] = NO_NOTE;
 		
 			}
 		}
@@ -1534,6 +1534,8 @@ inline function individualNoteStrum(notePlayed, noteVelocity, notesToStrumFrom, 
 	
 	noteIdsToUpdate[stringOfNoteToPlay] = Synth.addNoteOn(midiChannelToPlayString, noteToPlay, noteVelocity, 0);
 	
+	Globals.g_stringActiveRRs[stringOfNoteToPlay] = getActiveRRPlayed(stringOfNoteToPlay);
+	
 	notePlayedMethod[stringOfNoteToPlay] = StringPlayingMethod.indivStrumKey;
 	
 	strumNoteIdsToUpdate[indexOfStrumNoteIdToUpdate] = noteIdsToUpdate[stringOfNoteToPlay];
@@ -1573,6 +1575,7 @@ inline function indivNoteStrumReleaseIfReleased(noteReleased, noteIdsToUpdate, s
 					if (noteIdsToUpdate[i] == noteIdToRelease){
 						noteIdsToUpdate[i] = NO_NOTE;
 						strumNoteIdFoundInNoteIds = true;
+						Globals.g_stringActiveRRs[i] = NO_NOTE;
 					}
 				}
 		
@@ -1618,10 +1621,10 @@ inline function randomAddOrSub(deviation){
 	local didPlayNoteLegato = false;
 	local didPlayOnNewString = false;
 
+	Console.print(notePlayed + " has the count of " + Synth.getNumPressedKeys());
+
 //	eventIds.setValue(notePlayed, notePlayedId);
-	
-	//easy way to implement strumming system? Look into later
-	//Message.delayEvent((notePlayed - LOWESTNOTE) * 1000);
+
 
 	detectKeySwitch(notePlayed);
 	

@@ -1,12 +1,9 @@
  Globals.g_forcedHandPositionFret = -1;
  Globals.g_forcedString = -1;
  Globals.g_handPositionFret = 0;
+ Globals.g_strumSpeed = 1;
  
- Globals.g_stringNote1 = -1;
- Globals.g_stringNote2 = -1;
- Globals.g_stringNote3 = -1;
- Globals.g_stringNote4 = -1;
- Globals.g_stringNote6 = -1;
+ 
  reg i = 0;
  
  
@@ -1001,6 +998,31 @@ for(i = 0; i < NUMOFSTRINGS; i++){
  }
  
  
+// setting up GUI to control the strumming engine
+
+var controlStrumSpeedWithVel = false;
+
+inline function onStrumSpeedKnobControl(component, value)
+{
+	if(!controlStrumSpeedWithVel){
+		Globals.g_strumSpeed = value;
+	}
+};
+
+Content.getComponent("StrumSpeedKnob").setControlCallback(onStrumSpeedKnobControl);
+
+ 
+ 
+ inline function onEnableStrumSpeedWithVelBtnControl(component, value)
+ {
+ 	controlStrumSpeedWithVel = value;
+ 	Console.print(value);
+ };
+ 
+ Content.getComponent("EnableStrumSpeedWithVelBtn").setControlCallback(onEnableStrumSpeedWithVelBtnControl);
+ 
+ 
+ 
  // setting up purging
  // wont seem to work no matter what I do so I won't use it yet
  // I can purge articulations from memory but I can't seem to get articulations back into playing
@@ -1237,6 +1259,12 @@ for(i = 0; i < NUMOFSTRINGS; i++){
 	local notePlayed = Message.getNoteNumber();
 	local velocityPlayed = Message.getVelocity();
 	
+	
+	if(notePlayed == StrummingKeyswitches.downStrumKeyswitch || notePlayed == StrummingKeyswitches.upStrumKeyswitch){
+		if(controlStrumSpeedWithVel){
+			Globals.g_strumSpeed = velocityPlayed;
+		}
+	}
 	
 	keyswitchForceFret(notePlayed, velocityPlayed);
 	
