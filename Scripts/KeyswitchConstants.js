@@ -16,6 +16,9 @@
  const var AUTOFRETMODEKEYSWITCH = 50;
  const var FORCEFRETMODEKEYSWITCH = 51;
  
+ const var NOTESPERSTRING = 22;
+ const var NUMOFSTRINGS = 6;
+ 
  
  namespace PerformanceType
  {
@@ -45,3 +48,27 @@
 	 const var RANDOM = 1;
 	 const var LINEAR = 2;
  }
+ 
+namespace StrummingDirection{
+	const var notStrumming = 0;
+	const var downStrumming = 1;
+	const var upStrumming = 2;
+}
+
+namespace StrummingKeyswitches{
+	const var downStrumKeyswitch = 108; // C7 in HISE
+	const var upStrumKeyswitch = 109;
+	
+	const var individualStrumKeyswitches = [110, 111, 112, 113, 114, 115];
+	
+	const var lowIndivStrumKeyswitch = individualStrumKeyswitches[0];
+	
+	const var highIndivStrumKeyswitch = individualStrumKeyswitches[NUMOFSTRINGS - 1];
+}
+
+
+namespace StringPlayingMethod{
+	const var pianoRoll = 0;
+	const var fullStrumKey = 1;
+	const var indivStrumKey = 2;
+}
