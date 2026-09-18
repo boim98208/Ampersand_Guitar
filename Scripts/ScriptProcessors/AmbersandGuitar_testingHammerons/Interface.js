@@ -93,7 +93,6 @@
  
  	if(Globals.g_stringPerformance[stringNum] == PerformanceType.SUSTAIN)
  	{
- 
  		fretImg.set("fileName", stringPerformanceImgs[PerformanceType.SUSTAIN]);
  	}
  	else if(Globals.g_stringPerformance[stringNum] == PerformanceType.MUTE)
@@ -542,14 +541,13 @@ for(i = 0; i < NUMOFSTRINGS; i++){
  
  const var StringForcePanel = Content.getComponent("StringForcePanel");
  
- const var ForceStringImages = [Content.getComponent("StringForceString6"),
-                                Content.getComponent("StringForceString5"),
-                                Content.getComponent("StringForceString4"),
-                                Content.getComponent("StringForceString3"),
+ const var ForceStringImages = [Content.getComponent("StringForceString1"),
                                 Content.getComponent("StringForceString2"),
-                                Content.getComponent("StringForceString1")];
- // doing this so that string1 starts on index 0 and I'm too lazy to change the declaration statement
- ForceStringImages.reverse();
+                                Content.getComponent("StringForceString3"),
+                                Content.getComponent("StringForceString4"),
+                                Content.getComponent("StringForceString5"),
+                                Content.getComponent("StringForceString6")];
+
                                 
  for( i in ForceStringImages){
  	i.set("visible", false);

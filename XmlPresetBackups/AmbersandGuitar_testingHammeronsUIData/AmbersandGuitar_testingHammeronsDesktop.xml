@@ -4,7 +4,7 @@
   <Component type="ScriptButton" id="Button1" x="81" y="7" text="print out strings"
              isMomentary="1"/>
   <Component type="ScriptLabel" id="noteId6" x="0" y="80" width="100" height="100"
-             text="11949"/>
+             text="-1"/>
   <Component type="ScriptLabel" id="noteId5" x="80" y="80" width="100" height="100"
              text="-1"/>
   <Component type="ScriptLabel" id="noteId4" x="170" y="80" width="100" height="100"

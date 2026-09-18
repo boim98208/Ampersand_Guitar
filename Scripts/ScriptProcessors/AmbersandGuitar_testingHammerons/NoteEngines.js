@@ -5,7 +5,7 @@
  Content.makeFrontInterface(800, 400);
  
  reg i = 0;
- reg LinearRRCounter = 1;
+ reg linearRRCounter = 1;
  
  //Emulated releases didn't go as well as planned. But I'll keep it here for now
  Globals.g_emulatedReleasesOn = false;
@@ -313,12 +313,14 @@ inline function getActiveRRPlayed(stringToPlay){
 	local currRandomRRCounter = randomRRCounters[currArticulation];
 	
 	if(Globals.g_currRRBehaviour == RRBehaviour.LINEAR){
-		return LinearRRCounter;
+		return linearRRCounter;
 	}else if(Globals.g_currRRBehaviour == RRBehaviour.RANDOM){
 		
-		
-	
-		return randomRRsToGoThrough[currArticulation][currRandomRRCounter];
+		if(numOfRRs[Globals.g_currArticulationPlaying] <= 2){
+			return linearRRCounter;
+		}else{
+			return randomRRsToGoThrough[currArticulation][currRandomRRCounter];
+		}
 	}
 }
 
@@ -579,7 +581,7 @@ inline function naturalFretting2_2_1(notePlayed, currentHandPos)
 	
 	stringToPlay = stringWithClosestNote(notePlayed, currentHandPos);
 	stringNote[stringToPlay] = notePlayed;
-	Globals.g_stringPerformance[stringToPlay] = currArticulationPlaying;
+	Globals.g_stringPerformance[stringToPlay] = Globals.g_currArticulationPlaying;
 	playString(stringToPlay);
 	
 	
@@ -1049,10 +1051,10 @@ inline function linearRR_incrementSamplersRR(stringPlaying){
 	
 	if(numOfRRs[currArticulation] >= 2){
 	
-	LinearRRCounter = (LinearRRCounter % numOfRRs[currArticulation]) + 1;
+	linearRRCounter = (linearRRCounter % numOfRRs[currArticulation]) + 1;
 	
 	
-	RRForLeftSampler = LinearRRCounter;
+	RRForLeftSampler = linearRRCounter;
 	
 	// % makes sure it doesn't loop around and the final + 1 because 0th RR passes error
 	RRForRightSampler = (RRFromLeftSampler % numOfRRs[currArticulation]) + 1;
@@ -1620,8 +1622,6 @@ inline function randomAddOrSub(deviation){
 	
 	local didPlayNoteLegato = false;
 	local didPlayOnNewString = false;
-
-	Console.print(notePlayed + " has the count of " + Synth.getNumPressedKeys());
 
 //	eventIds.setValue(notePlayed, notePlayedId);
 
